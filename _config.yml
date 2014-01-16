@@ -1,0 +1,12 @@
+# Site Configs
+safe: true
+lsi: false
+
+name: Dr Christian Geuer-Pollmann
+description: Christian Geuer-Pollmann's Blog
+url: http://blog.geuer-pollmann.de/
+markdown: redcarpet
+markdown_ext:  md,markdown
+pygments: false
+permalink: /aktuell/:year/:month/:day/:title/
+paginate: 5

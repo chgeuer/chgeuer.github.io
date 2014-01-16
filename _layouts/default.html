@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de" data-ng-app="myApp">
+  <head>
+    {% include meta_tags.html %}
+    <title>{{page.title}}</title>
+    {% include head_includes.html %}
+  </head>
+
+  {% if page.full %}
+  <body class="body-full docs-page docs {{ page.body_css }}">
+  {% else %}
+  <body class="docs-page docs {{ page.body_css }}">
+  {% endif %}
+
+
+    <!--
+   <div>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <h1>Hello {(yourName)}!</h1>
+      <h1>Hello {% raw %} {{yourName}} {% endraw %}</h1>
+    </div>-->
+
+    <div class="container content-container">
+      <div class="row">
+        <div class="col-md-2 col-sm-3 aside-menu">
+        </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+          <h1>{{ page.title }}</h1>
+
+          {{ content }}
+        </div>
+      </div>
+    </div>
+
+<!--
+    {% if page.active == "getting-started" %}
+      <div class="pre-footer">
+        <div class="row ionic">
+          <div class="col-sm-6 col-a">
+            <h4>
+              <a href="/docs/components/">Components <span class="icon ion-arrow-right-c"></span></a>
+            </h4>
+            <p>Take</p>
+          </div>
+          <div class="col-sm-6 col-b">
+            <h4><a href="/examples/">Examples <span class="icon ion-arrow-right-c"></span></a></h4>
+            <p>...</p>
+          </div>
+        </div>
+      </div>
+    {% elsif page.active == "components" %}
+    {% else %}
+    {% endif %}
+-->
+
+    {% include base_scripts.html %}
+  </body>
+</html>

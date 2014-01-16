@@ -8,5 +8,8 @@ url: http://blog.geuer-pollmann.de/
 markdown: redcarpet
 markdown_ext:  md,markdown
 pygments: false
-permalink: /aktuell/:year/:month/:day/:title/
+permalink: /blog/:year/:month/:day/:title/
+
 paginate: 5
+paginate_path: "/blog/page:num"
+

@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Running Perl scripts in Windows Azure is trivial"
+date: 2010-08-30 01:00:00
+keywords: perl, azure, paas
 ---
 
 

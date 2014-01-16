@@ -1,6 +1,7 @@
 # Site Configs
 safe: true
 lsi: false
+encoding: UTF-8
 
 name: Dr Christian Geuer-Pollmann
 description: Christian Geuer-Pollmann's Blog

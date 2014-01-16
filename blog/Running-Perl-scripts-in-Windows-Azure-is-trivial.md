@@ -23,12 +23,12 @@ In this article, I describe how to run a Perl script in a Windows Azure worker i
 
 Simply speaking, your Azure worker needs to do the following:
 
-	1. In your OnStart() method, download and ‘install’ Perl 
-		- By shipping it with your .cspack file, or 
-		- by dynamically downloading it from a well-known location and 
-		- Unzipping it to a local resource folder. 
-	2. Launch Perl with your script ◾Make sure your ProcessStartInfo.EnvironmentVariables["Path"] contains the subdirectories "perl\site\bin", "perl\bin" and "c\bin" 
-		- If necessary, grab the script’s stdout/stderr output. 
+1. In your OnStart() method, download and ‘install’ Perl 
+	- By shipping it with your .cspack file, or 
+	- by dynamically downloading it from a well-known location and 
+	- Unzipping it to a local resource folder. 
+2. Launch Perl with your script ◾Make sure your ProcessStartInfo.EnvironmentVariables["Path"] contains the subdirectories "perl\site\bin", "perl\bin" and "c\bin" 
+	- If necessary, grab the script’s stdout/stderr output. 
 
 
 #The long explanation
@@ -66,8 +66,8 @@ string downloadAddress = "http:// ... URL ... /strawberry-perl-5.12.1.0-portable
 string localPerlArchiveFilename = "strawberry-perl-5.12.1.0-portable.zip";
 new WebClient().DownloadFile(downloadAddress, localPerlArchiveFilename);
 ```
-
-###Unzipping
+ 
+### Unzipping
 
 The local copy of the Perl ZIP file then needs to be unpacked, for example using the Ionic.Zip.dll from CodePlex. The unpacked Perl distribution has a size of ca. 190MB, so reserving local storage of 250MB sounds reasonable. 
 
@@ -100,10 +100,7 @@ using (var zip = new ZipFile(localPerlArchiveFilename))
 }
 ```
 
-
-
-
-Running the script
+# Running the script
 
 When you look at the Perl distribution, it ships with a file called ‘portableshell.bat’. The main thing it does is that it adds the appropriate folders to the Path environment variable. The following subfolders need to be in the path:
 
@@ -155,7 +152,7 @@ Trace.TraceInformation("Script output: " + stdout);
 Trace.TraceError("Script error output: " + stderr);
 ```
 
-#Summary
+# Summary
 
 What you should take away from this article is that running Perl on the Azure is a very straightforward experience: get and install Perl, setup the execution environment for your process, and here you go… Just launch Perl. 
 

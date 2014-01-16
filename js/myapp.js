@@ -1,4 +1,3 @@
-
 var myApp = angular.module('myApp', []);
 
 myApp.config([
@@ -6,4 +5,3 @@ myApp.config([
     return $interpolateProvider.startSymbol('{(').endSymbol(')}');
   }
 ]);
-

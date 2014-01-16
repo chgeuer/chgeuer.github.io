@@ -5,7 +5,8 @@ encoding: UTF-8
 
 name: Dr Christian Geuer-Pollmann
 description: Christian Geuer-Pollmann's Blog
-url: http://blog.geuer-pollmann.de/
+# url: http://blog.geuer-pollmann.de/
+url: ""
 markdown: redcarpet
 markdown_ext:  md,markdown
 pygments: true

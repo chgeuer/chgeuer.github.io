@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="de" data-ng-app="myApp">
-  <head>
-    {% include meta_tags.html %}
-    <title>{{page.title}}</title>
-    {% include head_includes.html %}
-  </head>
+<head>
+  {% include meta_tags.html %}
+  <title>{{page.title}}</title>
+  {% include head_includes.html %}
+</head>
 
-  {% if page.full %}
-  <body class="body-full docs-page docs {{ page.body_css }}">
+{% if page.full %}
+<body class="body-full docs-page docs {{ page.body_css }}">
   {% else %}
   <body class="docs-page docs {{ page.body_css }}">
-  {% endif %}
-
+    {% endif %}
 
     <!--
    <div>
@@ -21,19 +20,54 @@
     </div>-->
 
     <div class="container content-container">
-      <div class="page-header">
-        <h1>{{ page.title }}</h1>
-      </div>
       <div class="row">
-        <div class="col-md-2 col-sm-3 aside-menu">
-          <p> </p>
+        <div class="page-header">
+          <h1>My Blog</h1>
         </div>
+      </div>
 
-        <div class="col-md-10 col-sm-9 main-content">
-          {{ content }}
+     <div class="row">
+      <div class="col-md-2 aside-menu">
+       </div>
+       <div class="col-md-10 aside-menu">
+        <ul class="nav nav-pills">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Messages</a></li>
+        </ul>        
+        <div class="dropdown">
+          <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
+            Site <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://localhost:4000/">dev</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://blog.geuer-pollmann.de/">Live</a></li>
+          </ul>
         </div>
       </div>
     </div>
+
+
+    <div class="row">
+      <div class="col-md-10 aside-menu">
+        <div class="page-header">
+          <h1>{{ page.title }}</h1>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="row">
+      <div class="col-md-2 col-sm-3 aside-menu">
+        <p> </p>
+      </div>
+
+      <div class="col-md-10 col-sm-9 main-content">
+        {{ content }}
+      </div>
+    </div>
+  </div>
 
 <!--
     {% if page.active == "getting-started" %}
@@ -54,8 +88,8 @@
     {% elsif page.active == "components" %}
     {% else %}
     {% endif %}
--->
+  -->
 
-    {% include base_scripts.html %}
-  </body>
+  {% include base_scripts.html %}
+</body>
 </html>

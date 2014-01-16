@@ -7,9 +7,11 @@ description: Christian Geuer-Pollmann's Blog
 url: http://blog.geuer-pollmann.de/
 markdown: redcarpet
 markdown_ext:  md,markdown
-pygments: false
+pygments: true
 permalink: /blog/:year/:month/:day/:title/
 
 paginate: 5
 paginate_path: "/blog/page:num"
 
+
+set :markdown, fenced_code_blocks: true

@@ -19,50 +19,70 @@
       <h1>Hello {% raw %} {{yourName}} {% endraw %}</h1>
     </div>-->
 
-    <div class="container content-container">
-      <div class="row">
-        <div class="page-header">
-          <h1>{{page.title}}</h1>
-          <h5>{{ site.description }}</h5>
-        </div> 
-      </div>
-
-     <div class="row">
-      <div class="col-md-2 aside-menu">
-       </div>
-       <div class="col-md-10 aside-menu">
-        <ul class="nav nav-pills">
-          <li class="active"><a href="{{site.url}}">Home</a></li>
-          <li><a href="{{ site.blogurl }}">Blog</a></li>
-          <li><a href="{{ site.url }}/debug/">debug</a></li>
-          <li><a href="http://blog.geuer-pollmann.de/">web</a></li>
-          <li><a href="http://localhost:{{site.port}}/">local</a></li>
-        </ul>        
-        <div class="dropdown">
-          <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
-            Site <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://localhost:4000/">dev</a></li>
-            <li role="presentation" class="divider"></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://blog.geuer-pollmann.de/">Live</a></li>
-          </ul>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">{{site.name}}</a>
         </div>
-      </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="{{site.url}}">Home</a></li>
+                <li><a href="{{ site.blogurl }}">Blog</a></li>
+                <li><a href="{{ site.url }}/debug/">debug</a></li>
+                <li><a href="http://blog.geuer-pollmann.de/">web</a></li>
+                <li><a href="http://localhost:{{site.port}}/">local</a></li>
+            </ul>
+        </div>
     </div>
+</nav>
 
+<!--
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand"><a href="{{site.url}}">{{site.name}}</a></div>
+        </div>
 
-    
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ site.blogurl }}">Blog</a></li>
+                <li><a href="{{ site.url }}/debug/">debug</a></li>
+                <li><a href="http://blog.geuer-pollmann.de/">web</a></li>
+                <li><a href="http://localhost:{{site.port}}/">local</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+-->
+
+<div class="container">
     <div class="row">
-      <div class="col-md-2 col-sm-3 aside-menu">
-        <p> </p>
-      </div>
-
+      <div class="page-header">
+        <h1>{{page.title}}</h1>
+        <h5>{{ site.description }}</h5>
+      </div> 
+    </div>
+    <div class="row">
       <div class="col-md-10 col-sm-9 main-content">
         {{ content }}
       </div>
+
+      <div class="col-md-2 col-sm-3 aside-menu">
+      </div>
     </div>
-  </div>
+</div>
 
 <!--
     {% if page.active == "getting-started" %}

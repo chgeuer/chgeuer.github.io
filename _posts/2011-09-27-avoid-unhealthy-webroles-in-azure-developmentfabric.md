@@ -1,5 +1,5 @@
 ---
-layout: blog-post
+layout: default
 title: "Avoiding unhealthy roles when configuring IIS with the ServerManager in the local Azure development fabric"
 date: 2011-09-27 11:00:00
 keywords: WindowsAzure, "Platform as a Service"

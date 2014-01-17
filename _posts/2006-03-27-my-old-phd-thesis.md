@@ -1,5 +1,5 @@
 ---
-layout: blog-post
+layout: default
 title: "My old Ph.D. thesis is available online"
 date: 2006-03-27 07:44:00
 ---

@@ -1,5 +1,5 @@
 ---
-layout: blog-post
+layout: default
 title: "X509 certificate tool"
 date: 2008-12-12 09:56:00
 keywords: security, dotnet

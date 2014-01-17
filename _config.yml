@@ -11,6 +11,12 @@ description: Christian Geuer-Pollmann's Blog
 twittername: chgeuer
 twitterwidgetid: 310063674322731008
 
+# 
+# Themes from http://bootswatch.com/
+# amelia, cerulean, cosmo, cyborg, flatly, journal, readable, simplex, slate, spacelab, united, yeti
+#
+bootswatchtheme: "yeti"
+
 safe: true
 lsi: false
 encoding: UTF-8

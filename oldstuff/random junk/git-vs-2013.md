@@ -3,7 +3,6 @@ layout: default
 title: "GIT unter Visual Studio 2013"
 ---
 
-
 - [Flexible Versionsverwaltung mit TFS](http://www.microsoft.com/germany/visualstudio/knowhow/visual-studio-evolution-2013-flexible-versionsverwaltung-mit-tfs.aspx)
 - [Git Support Added to Visual Studio and TFS](http://channel9.msdn.com/posts/GitForVisualStudioTFS)
 - [Git In Visual Studio](http://www.youtube.com/watch?v=5tKvWxxAUSg)

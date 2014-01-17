@@ -3,6 +3,7 @@ layout: default
 title: "Debugger"
 ---
 
+
 	site.timezone                 "{{ site.timezone }}"
 	site.blogpageprefix           "{{ site.blogpageprefix }}"
 	site.paginate                 "{{ site.paginate }}"
@@ -21,3 +22,4 @@ title: "Debugger"
 	site.paginate_path            "{{ site.paginate_path  }}"           
 	site.permalink                "{{ site.permalink  }}"       
 
+Check the [docs](http://jekyllrb.com/docs/configuration/)

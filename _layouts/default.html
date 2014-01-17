@@ -8,9 +8,9 @@
 
 {% if page.full %}
 <body class="body-full docs-page docs {{ page.body_css }}">
-  {% else %}
-  <body class="docs-page docs {{ page.body_css }}">
-    {% endif %}
+{% else %}
+<body class="docs-page docs {{ page.body_css }}">
+{% endif %}
 
     <!--
    <div>
@@ -22,8 +22,9 @@
     <div class="container content-container">
       <div class="row">
         <div class="page-header">
-          <h1>My Blog</h1>
-        </div>
+          <h1>{{page.title}}</h1>
+          <h5>{{ site.description }}</h5>
+        </div> 
       </div>
 
      <div class="row">
@@ -31,9 +32,11 @@
        </div>
        <div class="col-md-10 aside-menu">
         <ul class="nav nav-pills">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Messages</a></li>
+          <li class="active"><a href="{{site.url}}">Home</a></li>
+          <li><a href="{{ site.blogurl }}">Blog</a></li>
+          <li><a href="{{ site.url }}/debug/">debug</a></li>
+          <li><a href="http://blog.geuer-pollmann.de/">web</a></li>
+          <li><a href="http://localhost:{{site.port}}/">local</a></li>
         </ul>        
         <div class="dropdown">
           <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
@@ -49,14 +52,6 @@
     </div>
 
 
-    <div class="row">
-      <div class="col-md-10 aside-menu">
-        <div class="page-header">
-          <h1>{{ page.title }}</h1>
-        </div>
-      </div>
-
-    </div>
     
     <div class="row">
       <div class="col-md-2 col-sm-3 aside-menu">

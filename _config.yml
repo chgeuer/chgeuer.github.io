@@ -18,5 +18,7 @@ set :markdown, fenced_code_blocks: true
 # Pagination
 paginate: 2
 relative_permalinks: true
-permalink: /blog/:year/:month/:day/:title/
+blogurl:       "/blog"
+blogpageprefix: "/blog/page"
 paginate_path: "/blog/page:num"
+permalink:     "/blog/:year/:month/:day/:title/"

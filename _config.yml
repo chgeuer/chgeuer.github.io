@@ -1,19 +1,22 @@
 # Site Configs
-safe: true
-lsi: false
-encoding: UTF-8
+
+# url: http://blog.geuer-pollmann.de/
+url: ""
+
 
 name: Dr Christian Geuer-Pollmann
 description: Christian Geuer-Pollmann's Blog
-# url: http://blog.geuer-pollmann.de/
-url: ""
+
+safe: true
+lsi: false
+encoding: UTF-8
 markdown: redcarpet
 markdown_ext:  md,markdown
 pygments: true
-permalink: /blog/:year/:month/:day/:title/
-
-paginate: 5
-paginate_path: "/blog/page:num"
-
-
 set :markdown, fenced_code_blocks: true
+
+# Pagination
+paginate: 2
+relative_permalinks: true
+permalink: /blog/:year/:month/:day/:title/
+paginate_path: "/blog/page:num"

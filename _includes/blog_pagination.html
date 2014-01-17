@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="col-m-12">
+	  <div>
+	    <ul class="pagination">
+	       
+	      {% if paginator.previous_page %}
+	        {% if paginator.previous_page == 1 %}
+	        <li><a href="{{site.blogurl}}"><i class="fa fa-backward"></i> Prev</a></li>
+	        {% else %}
+	        <li><a href="{{ paginator.previous_page_path }}"> <i class="fa fa-backward"></i> Prev</a></li>
+	        {% endif %}
+	      {% else %}
+	      <li><span class="disabled"><i class="fa fa-backward"></i> Prev</span></li>
+	      {% endif %}
+	      
+	      {% if paginator.page == 1 %}
+	      <li><span class="active">1</span></li>
+	      {% else %}
+	      <li><a href="{{site.blogurl}}">1</a></li>
+	      {% endif %}
+
+	      {% for count in (2..paginator.total_pages) %}
+	        {% if count == paginator.page %}
+	           <li><span class="active">{{ count }}</span></li>
+	        {% else %}
+	          <li><a href="{{site:blogpageprefix}}{{ count }}">{{ count }}</a></li>
+	        {% endif %}
+	      {% endfor %}
+	      
+	      {% if paginator.next_page %}
+	      <li><a href="{{ paginator.next_page_path }}">Next <i class="fa fa-forward"></i></a></li>
+	      {% else %}
+	      <li><span class="disabled">Next <i class="fa fa-forward"></i></span></li>
+	      {% endif %}
+	    </ul>
+	  </div>
+	</div>
+</div>

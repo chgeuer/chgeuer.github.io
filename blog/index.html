@@ -3,80 +3,23 @@ layout: default
 title: "My Blog"
 ---
 
-<div class="row">
-  <div class="col-m-12">
-    <div >
-      <ul class="pagination">
-         
-        {% if paginator.previous_page %}
-          {% if paginator.previous_page == 1 %}
-          <li><a href="{{site.blogurl}}"><i class="fa fa-backward"></i> Prev</a></li>
-          {% else %}
-          <li><a href="{{ paginator.previous_page_path }}"> <i class="fa fa-backward"></i> Prev</a></li>
-          {% endif %}
-        {% else %}
-        <li><span class="disabled"><i class="fa fa-backward"></i> Prev</span></li>
-        {% endif %}
-        
-        {% if paginator.page == 1 %}
-        <li><span class="active">1</span></li>
-        {% else %}
-        <li><a href="{{site.blogurl}}">1</a></li>
-        {% endif %}
+<div class="container">
+  {% include blog_pagination.html %}
 
-        {% for count in (2..paginator.total_pages) %}
-          {% if count == paginator.page %}
-             <li><span class="active">{{ count }}</span></li>
-          {% else %}
-            <li><a href="{{site:blogpageprefix}}{{ count }}">{{ count }}</a></li>
-          {% endif %}
-        {% endfor %}
-        
-        {% if paginator.next_page %}
-        <li><a href="{{ paginator.next_page_path }}">Next <i class="fa fa-forward"></i></a></li>
-        {% else %}
-        <li><span class="disabled">Next <i class="fa fa-forward"></i></span></li>
-        {% endif %}
-      </ul>
+  {% for post in site.posts %}
+  <div class="row">
+    <div class="post">
+      <div class="post-info">
+        <h3 class="post-title"><a href="{{post.url}}">{{post.title}}</a></h3>
+        <time class="post-time">By {{post.author}} on {{post.date | date: "%B %d, %Y" }}</time>
+      </div>
+        {{post.content}}
+      <hr>
     </div>
   </div>
+  {% endfor %}
+
+  {% include blog_pagination.html %}
 </div>
-
-
-<pre>
-  paginator.previous_page_path: {{ paginator.previous_page_path }}
-  paginator.previous_page:      {{ paginator.previous_page }}
-  paginator.page:               {{ paginator.page }}
-  paginator.next_page:          {{ paginator.next_page }}
-  paginator.next_page_path:     {{ paginator.next_page_path }}
-
-
-  paginator.per_page:           {{ paginator.per_page }}
-  paginator.total_posts:        {{ paginator.total_posts }}
-  paginator.total_pages:        {{ paginator.total_pages }}
-
-  site:blogpageprefix:          {{site:blogpageprefix}}
-
-  paginator.posts 
-  {% for post in paginator.posts %}
-  post.url:  {{ post.url }}
-  post.title {{ post.title }}
-  {% endfor %}
-
-  site.posts
-  {% for post in site.posts %}
-  post.url:  {{ post.url }}
-  post.title {{ post.title }}
-  {% endfor %}
-
-
-  latest 2 posts
-  {% for post in site.posts limit: 2 %}
-  post.url:  {{ post.url }}
-  post.title {{ post.title }}
-  {% endfor %}
-</pre>
-
-
 
 

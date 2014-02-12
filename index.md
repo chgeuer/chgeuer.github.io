@@ -4,5 +4,5 @@ title: "Post Overview"
 ---
 
 {% for post in site.posts %}
-- [{{ post.title }}]({{ post.url }})
+- [<b>{{ post.title }}</b> ({{ post.date }})]({{ post.url }})
 {% endfor %}

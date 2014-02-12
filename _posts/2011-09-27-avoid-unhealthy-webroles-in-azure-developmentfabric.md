@@ -8,7 +8,9 @@ keywords: WindowsAzure, "Platform as a Service"
 
 # 10-second summary
 
-In your Azure start-up code, you use the ServerManager class to modify your IIS settings. Some of your web role instances in the development fabric don’t come up and stay ‘unhealthy’. This article describes a possible cure for that. 
+In your Azure Cloud Service's OnStart() start-up code, you use the ServerManager class to modify your IIS settings. Some of your web role instances in the development fabric don’t come up and stay ‘unhealthy’. This article describes a possible cure for that. 
+
+Basically, *if* you use ServerManager in the development fabric, this post is for you. 
 
 # Problem
 

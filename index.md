@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Willkommen"
+title: "Post Overview"
 ---
 
-# Eine Überschift in H1
-
-## Eine Überschift in H2
+{% for post in site.posts %}
+- [<b>{{post.title}}</b> ({% post.date | date: "%dd%dm%Y" %})]({{post.url}})
+{% endfor %}

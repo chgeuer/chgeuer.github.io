@@ -7,4 +7,3 @@ title: "Post Overview"
 - [<b>{{ post.title }}</b> ({{ post.date | date: "%Y-%m-%d" }})]({{ post.url }})
 {% endfor %}
 
-Hallo Georgia

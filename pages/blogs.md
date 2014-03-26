@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Blogs"
+---
+
 
 	Bernd Mayer       http://blogs.msdn.com/b/bmayer/
 	Bernhard Frank    http://blogs.technet.com/b/bernhard_frank/

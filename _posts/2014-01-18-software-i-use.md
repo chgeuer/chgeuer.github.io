@@ -7,7 +7,7 @@ date: 2014-01-18 23:0:00
 # Basics
 
 - http://www.sublimetext.com/2
-- http://code.google.com/p/clink/
+- http://mridgers.github.io/clink/
 - http://code.google.com/p/tortoisegit/
 - http://code.google.com/p/msysgit/
 - http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html

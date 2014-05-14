@@ -12,3 +12,11 @@ For example, you can talk about web sites (<i class="icon wa-web-sites"></i>) or
 For a full overview to the icons, check the [reference sheet](/pages/azure-iconography-reference.html). 
 
 If you like it, please spread the word. If you don't like it, [let me know](https://twitter.com/chgeuer/statuses/466479275764629504) or whack the SVGs into [fontastic.me](http://fontastic.me/) youself. 
+
+
+
+![Screenshot of the Azure icon font](/img/2014-05-14-azure-icon-font/azureiconfont.png "Azure icon font")
+
+
+
+

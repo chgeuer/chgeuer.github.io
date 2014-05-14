@@ -1,0 +1,265 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "azure-iconography";
+  src:url("/fonts/azure-iconography.eot");
+  src:url("/fonts/azure-iconography.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/azure-iconography.woff") format("woff"),
+    url("/fonts/azure-iconography.ttf") format("truetype"),
+    url("/fonts/azure-iconography.svg#azure-iconography") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "azure-iconography" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="wa-"]:before,
+[class*=" wa-"]:before {
+  font-family: "azure-iconography" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wa-access-control:before {
+  content: "a";
+}
+.wa-active-directory:before {
+  content: "b";
+}
+.wa-alert:before {
+  content: "c";
+}
+.wa-automation:before {
+  content: "d";
+}
+.wa-autoscale:before {
+  content: "e";
+}
+.wa-backup-service:before {
+  content: "f";
+}
+.wa-bitbucket:before {
+  content: "g";
+}
+.wa-bitbucket-source-code:before {
+  content: "h";
+}
+.wa-biztalk-services:before {
+  content: "i";
+}
+.wa-blob-storage:before {
+  content: "j";
+}
+.wa-cache:before {
+  content: "k";
+}
+.wa-cdn:before {
+  content: "l";
+}
+.wa-certificate:before {
+  content: "m";
+}
+.wa-cloud:before {
+  content: "n";
+}
+.wa-azure:before {
+  content: "o";
+}
+.wa-cloud-services:before {
+  content: "p";
+}
+.wa-code-file:before {
+  content: "q";
+}
+.wa-codeplex-source-code:before {
+  content: "r";
+}
+.wa-computer:before {
+  content: "s";
+}
+.wa-cscfg:before {
+  content: "t";
+}
+.wa-csdef:before {
+  content: "u";
+}
+.wa-database:before {
+  content: "v";
+}
+.wa-dropbox-source-code:before {
+  content: "w";
+}
+.wa-enterprise:before {
+  content: "x";
+}
+.wa-express-route:before {
+  content: "y";
+}
+.wa-generic-queue:before {
+  content: "z";
+}
+.wa-github:before {
+  content: "A";
+}
+.wa-git:before {
+  content: "B";
+}
+.wa-hdinsight:before {
+  content: "C";
+}
+.wa-health-monitoring:before {
+  content: "D";
+}
+.wa-healthy:before {
+  content: "E";
+}
+.wa-recovery-manager:before {
+  content: "F";
+}
+.wa-import:before {
+  content: "G";
+}
+.wa-laptop:before {
+  content: "H";
+}
+.wa-load-balancer:before {
+  content: "I";
+}
+.wa-load-balancer-arrow:before {
+  content: "J";
+}
+.wa-load-balancer-generic:before {
+  content: "K";
+}
+.wa-media-services:before {
+  content: "L";
+}
+.wa-message:before {
+  content: "M";
+}
+.wa-mobile-device:before {
+  content: "N";
+}
+.wa-mobile-service:before {
+  content: "O";
+}
+.wa-multi-factor-authentication:before {
+  content: "P";
+}
+.wa-mysql:before {
+  content: "Q";
+}
+.wa-notification-hub:before {
+  content: "R";
+}
+.wa-notification-topic:before {
+  content: "S";
+}
+.wa-operating-system-image:before {
+  content: "T";
+}
+.wa-powershell-file:before {
+  content: "U";
+}
+.wa-scheduler:before {
+  content: "V";
+}
+.wa-script-file:before {
+  content: "W";
+}
+.wa-sdk:before {
+  content: "X";
+}
+.wa-server:before {
+  content: "Y";
+}
+.wa-server-rack:before {
+  content: "Z";
+}
+.wa-service-bus:before {
+  content: "0";
+}
+.wa-service-bus-queue:before {
+  content: "1";
+}
+.wa-service-bus-relay:before {
+  content: "2";
+}
+.wa-service-bus-topic:before {
+  content: "3";
+}
+.wa-sql:before {
+  content: "4";
+}
+.wa-sql-data-sync:before {
+  content: "5";
+}
+.wa-sql-database:before {
+  content: "6";
+}
+.wa-store:before {
+  content: "7";
+}
+.wa-storsimple:before {
+  content: "8";
+}
+.wa-subscription:before {
+  content: "9";
+}
+.wa-table-storage:before {
+  content: "!";
+}
+.wa-tablet:before {
+  content: "\"";
+}
+.wa-unidentified-feature-object:before {
+  content: "#";
+}
+.wa-user:before {
+  content: "$";
+}
+.wa-vhd-data-disk:before {
+  content: "%";
+}
+.wa-vhd-os-disk:before {
+  content: "&";
+}
+.wa-virtual-machine-feature:before {
+  content: "'";
+}
+.wa-visual-studio-online:before {
+  content: "(";
+}
+.wa-web-role:before {
+  content: ")";
+}
+.wa-web-roles:before {
+  content: "*";
+}
+.wa-web-sites:before {
+  content: "+";
+}
+.wa-worker-role:before {
+  content: ",";
+}
+.wa-worker-roles:before {
+  content: "-";
+}

@@ -3,10 +3,6 @@ layout: default
 title: "Blogs"
 ---
 
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
 
 
 	Bernd Mayer       http://blogs.msdn.com/b/bmayer/

@@ -6,6 +6,7 @@ keywords: azure, iaas, virtual machines, powershell
 published: true
 ---
 
+
 Microsoft Azure's IaaS 'Virtual Machines' feature allows customers to enrich machines with so-called 'extensions' at provisioning time. For instance, the BGInfo extension displays machine parameters (IP addresses etc.) on the admin's desktop wallpaper. Extensions for [Chef and Puppet][ChefAndPuppetAnnouncement] allow automation in large IaaS deployments by controlling all the VMs from a central management instance. 
 
 In some cases, you may just want to inject some custom script into a fresh Linux or Windows machine. Sandrino Di Mattia wrote a nice introductory [blog article][CustomScriptExtensionSandrinoDiMattia] about Microsoft's so-called "CustomScript" extension. Basically, the extension get's the address of a Powershell Script file, this script is downloaded upon machine startup and executed. For a customer engagement in the gaming industry, I needed a simple way to inject custom bits into a to-be-started VM, and I wanted to do that from the C#-side with the [Microsoft Azure Management Libraries (MAML)][MicrosoftAzureManagementLibrariesWilcox]. 
@@ -18,7 +19,7 @@ To test the waters first, I tried the Powershell route as well to ensure everyth
 
 The first part is probably self-explanatory: Define machine names, machine sizes, etc. One thing I prefer is to keep actual credential information out of my scripts (and demos), so that the admin password for the Azure VMs is in an environment variable on my laptop. This ensures I do not accidentally 'git push' my password into a gist or so.  
 
-```
+```powershell
 $vmname =         "cgp$([System.DateTime]::UtcNow.ToString("yyMMddhhmmss"))"
 
 $datacenter =     "West Europe"
@@ -39,7 +40,7 @@ $externalRdpPort = 43379
 
 The names of VM images in Azure must be unique, but I prefer to keep these ephemeral-looking strings out of my script, and use something more verbose. This code helps me to lookup a concrete VM image name based on a human-understandable label:  
 
-```
+```powershell
 # One from Get-AzureVMImage | select Label
 $imageLabel = "Windows Server 2012 R2 Datacenter, May 2014"            
 
@@ -51,7 +52,7 @@ $imageName = (Get-AzureVMImage | `
 
 In contrast to C#, on the Powershell side of things, we need to supply a "subscription name" to retrieve the proper Azure credentials, instead of a subscription (GUID) ID. Here, I prefer to have the 'hard' subscription ID in my code, cause my customer's subscription names are not always very helpful:  
 
-```
+```powershell
 $subscriptionId = "deadbeef-2222-3333-dddd-1222deadbeef"
 
 $subscriptionName = (Get-AzureSubscription | `
@@ -69,7 +70,7 @@ $subscriptionName = (Get-AzureSubscription | `
 
 A reverse-lookup for 'some' storage account in the correct Azure region helps me to figure out where I want the OS Disk's VHD to be placed. I prefer to name the OS Disk's blob name individually, otherwise Azure chooses a disk name for me.
 
-```
+```powershell
 $storageAccount = (Get-AzureStorageAccount | `
 	Where-Object Location -eq $datacenter)[0]
 
@@ -95,7 +96,7 @@ The next step is to upload the Powershell-Script which we want to run inside the
 
 For simplicity's sake, I just took Sandrino's mkdir-Script which takes a single parameter. Using this mechanism (having one script per VM), you can now customize these script contents with machine-specific deployment information. Given that the script will be stored in a private blob, you can also throw machine-specific, private information in there:  
 
-```
+```powershell
 #
 # Script Contents
 #
@@ -129,7 +130,7 @@ Set-AzureStorageBlobContent `
 
 The actual magic of configuring the VM lies in the ``Set-AzureVMCustomScriptExtension`` call; by specifying ``-StorageAccountKey``, ``-StorageAccountName``, ``-ContainerName`` and ``-FileName``, the stored Powershell file is downloaded from the private blob storage container onto the VM and called with ``-ExecutionPolicy Unrestricted``and the proper ``-Argument``.
 
-```
+```powershell
 
 # 
 # configure the VM object

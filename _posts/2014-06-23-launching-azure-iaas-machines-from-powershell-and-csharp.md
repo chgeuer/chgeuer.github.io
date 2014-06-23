@@ -3,7 +3,7 @@ layout: default
 title: "Launching Azure IaaS VMs from Powershell and C#"
 date: 2014-06-23
 keywords: azure, iaas, virtual machines, powershell
-published:false
+published: false
 ---
 
 

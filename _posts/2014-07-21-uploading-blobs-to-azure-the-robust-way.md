@@ -195,7 +195,7 @@ I decided against making a NuGet package out of this; this is basically one C# f
 
 When you launch the NuGet Package Manager, there is a quite helpful package called ``T4Include``. This package gives you an ``Include_T4Include.tt`` file. In this file, we refer to the C# file with our uploader on Github. Whenever you save this ``.tt`` file, the T4 engine reaches out to Github and downloads the most recent version of the uploader into your solution. Such a T4 file looks like this: 
 
-```T4
+```
 <#
   RootPath    = @"https://github.com/";
   Namespace   = "notinuse";
@@ -207,6 +207,8 @@ When you launch the NuGet Package Manager, there is a quite helpful package call
 #>
 <#@ include file="$(SolutionDir)\packages\T4Include.1.1.2\T4\IncludeWebFile.ttinclude" #>
 ```
+
+
 
 In this code, you can see the URL where T4 retrieves the C#-code from, and you see ``noOuterNamespace: true``, which instructs T4Include to include the C#-code without wrapping or nesting it in another namespace.  
 

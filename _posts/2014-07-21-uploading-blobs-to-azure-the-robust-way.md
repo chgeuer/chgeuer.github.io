@@ -6,7 +6,7 @@ keywords: azure, azure storage, C#, REST API
 published: true
 ---
 
-> TL;DR - The ``LargeFileUploaderUtils.cs`` file in the associated git repository contains a C# upload helper class for Azure blob storage which supports resuming broken uploads, can upload multiple blocks in parallel, and is robust in the sense that you can pull the network cable during the upload, and when connectivity is restored, it just continues.  
+> TL;DR - The ``LargeFileUploaderUtils.cs`` file in the associated repository ([https://github.com/chgeuer/AzureLargeFileUploader](https://github.com/chgeuer/AzureLargeFileUploader)) contains a C# upload helper class for Azure blob storage which supports resuming broken uploads, can upload multiple blocks in parallel, and is robust in the sense that you can pull the network cable during the upload, and when connectivity is restored, it just continues.  
 
 # Azure Blob Storage Uploads - An Introduction  
 
@@ -223,6 +223,32 @@ LargeFileUploaderUtils.UploadAsync(
 ```
 
 I forgot to mention, the ``uploadParallelism: 2`` bit allows you to specify how many parallel HTTP requests you'd like to allow. 
+
+# Powershell
+
+Of course, you can also use Microsoft PowerShell for uploading files, although the code to load the Azure Storage bits is most certainly not yet as clean and neat as it should be. 
+
+```powershell
+$rootfolder = "C:\Users\chgeuer\github\chgeuer\AzureLargeFileUploader"
+$jsonAssembly = [System.Reflection.Assembly]::LoadFrom("$rootfolder\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll")
+$storageAssembly = [System.Reflection.Assembly]::LoadFrom("$rootfolder\packages\WindowsAzure.Storage.4.1.0\lib\net40\Microsoft.WindowsAzure.Storage.dll")
+$cscode = ((New-Object -TypeName System.Net.WebClient).DownloadString("https://github.com/chgeuer/AzureLargeFileUploader/raw/master/LargeFileUploaderUtils.cs"))
+Add-Type -TypeDefinition $cscode -ReferencedAssemblies $jsonAssembly.Location,$storageAssembly.Location
+
+[LargeFileUploader.LargeFileUploaderUtils]::UseConsoleForLogging()
+[LargeFileUploader.LargeFileUploaderUtils]::NumBytesPerChunk = 1024
+
+$storageaccount = [System.Environment]::GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING")
+$containername = "dummyps1"
+
+Write-Host "Start upload"
+$task = [LargeFileUploader.LargeFileUploaderUtils]::UploadAsync("C:\Users\chgeuer\format504015.mp4", $storageaccount, $containername, 2)
+Write-Host "Upload started"
+$task.Wait()
+Write-Host "Upload finished"
+```
+
+
 
 Hope you had fun, if you think that post was helpful, a quick comment below or on [twitter.com/chgeuer](http://twitter.com/chgeuer) would be appreciated.  
 

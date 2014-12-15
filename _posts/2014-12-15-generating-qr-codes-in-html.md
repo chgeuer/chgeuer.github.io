@@ -34,7 +34,9 @@ private void ResetTotp()
 }
 ```
 
-The same thing: Using an existing service to display the probably most sensitive information a user has: The cryptographic key for a proof-of-possession token. *Don't do that* :-/. For pure browser-based QR code generation, a quick search surfaced two JavaScript libraries, [neocotic/qr.js](https://github.com/neocotic/qr.js/) (which is GPL3 licensed) and [davidshimjs/qrcodejs](https://github.com/davidshimjs/qrcodejs/) (which is MIT licensed). In the [QRCodeInHTML](https://github.com/chgeuer/QRCodeInHTML) repository, I played around with generating QR codes purely in a web app. You can try it out [here](/code/qr/). 
+The same thing: Using an existing service to display the probably most sensitive information a user has: The cryptographic key for a proof-of-possession token. *Don't do that* :-/. Whoever is behind the kaywa.com domain in Zürich, I'm sure they have plenty of keys in their logs now. Hmmm.
+
+For pure browser-based QR code generation, a quick search surfaced two JavaScript libraries, [neocotic/qr.js](https://github.com/neocotic/qr.js/) (which is GPL3 licensed) and [davidshimjs/qrcodejs](https://github.com/davidshimjs/qrcodejs/) (which is MIT licensed). In the [QRCodeInHTML](https://github.com/chgeuer/QRCodeInHTML) repository, I played around with generating QR codes purely in a web app. You can try it out [here](/code/qr/). 
 
 <div>
 	<img src="/img/2014-12-15-generating-qr-codes-in-html/demo.gif" alt="demo app"></img>

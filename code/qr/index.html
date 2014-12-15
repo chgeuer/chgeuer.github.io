@@ -1,0 +1,59 @@
+<html ng-app="textInputExample"> 
+<link rel="stylesheet" href="bootstrap.min.css">
+<body ng-controller="QRController">
+<div class="row">
+	<div class="col-md-12">
+		<input type="text" name="input" 
+			ng-model="url" ng-change="change()" >
+	</div>
+	<div class="col-md-12">
+		<span>{{ url }}</span>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-5">
+		<p>GPL License: https://github.com/neocotic/qr.js/</p>
+		<canvas id="neocotic-qr-code"></canvas>
+	</div>
+	<div class="col-md-2"></div>
+	<div class="col-md-5">
+		<p>MIT License: https://github.com/davidshimjs/qrcodejs</p>
+		<div id="davidshimjs-qrcodejs">{{ dav }}</div>
+	</div>
+	<div class="col-md-1"></div>
+</div>
+
+<script src="jquery.min.js"></script>
+<script src="angular.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="qr.min.js"></script>
+<script src="qrcode.min.js"></script>
+<script type="text/javascript">
+ angular.module('textInputExample', [])
+    .controller('QRController', ['$scope', function($scope) {
+      $scope.change = function() {
+		qr.canvas({ 
+			canvas: document.getElementById('neocotic-qr-code'), 
+			value: $scope.url,
+			level: 'H', size: 10
+		});
+
+		var myNode = document.getElementById("davidshimjs-qrcodejs");
+		while (myNode.firstChild) {
+		    myNode.removeChild(myNode.firstChild);
+		}
+		$scope.davidshimjs = new QRCode(document.getElementById("davidshimjs-qrcodejs"), {
+		    text: $scope.url,
+		    width: 256, height: 256,
+		    colorDark : "#000000", colorLight : "#ffffff",
+		    correctLevel : QRCode.CorrectLevel.H
+		});
+      };
+
+      $scope.url = 'otpauth://totp/Microsoft:user%40outlook.com?secret=AAAABBBBCCCCDDDD';
+    }]);
+</script>
+</body>
+</html>

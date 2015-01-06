@@ -6,7 +6,7 @@ keywords: windows8
 published: true
 ---
 
-This post briefly touches on how to access a Windows 8.1 machine's file shares using a Microsoft Account. When I'm working from home, I like to listen to music which is stored on my private computer. Windows 8 seems to turn off the ``\\server\c$``admin shares, and I didn't really understand how the whole Microsoft Account thing fits with SMB shares.  
+This post briefly touches on how to access a Windows 8.1 machine's file shares using a Microsoft Account. When I'm working from home, I like to listen to music which is stored on my private computer. Windows 8 seems to turn off the ``\\server\c$`` admin shares, and I didn't really understand how the whole Microsoft Account thing fits with SMB shares.  
 
 ## Turn on file sharing (admin shares) on Windows 8
 
@@ -19,9 +19,9 @@ To turn the admin share ``c$``, ``d$`` etc. back on, you need to set/create the 
 
 ## Provision the Microsoft Account user name: 
 
-Simply speaking, the SMB user name for the Microsoft account ``christian@outlook.de`` is ``MicrosoftAccount\christian@outlook.de``. For instance, you can run 
+Simply speaking, the SMB user name for the Microsoft account ``christian@outlook.de`` becomes ``MicrosoftAccount\christian@outlook.de`` by prefixing it. For instance, you can now run 
 
-```shell
+```
 NET USE X: \\192.168.0.5\c$ /USER:MicrosoftAccount\christian@outlook.de
 ```
 

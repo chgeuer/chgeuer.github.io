@@ -6,6 +6,10 @@ keywords: azure startup development
 published: true
 ---
 
+<blockquote class="twitter-tweet" lang="en"><p>Logging <a href="https://twitter.com/Azure">@Azure</a> startup task output to disk: <a href="http://blog.geuer-pollmann.de/blog/2015/02/20/logging-azure-startup-tasks-to-disk/">http://t.co/UU0dwz18bE</a> <a href="https://twitter.com/hashtag/PaaS?src=hash">#PaaS</a> <a href="https://twitter.com/hashtag/CloudServices?src=hash">#CloudServices</a></p>&mdash; Chris Geuer-Pollmann (@chgeuer) <a href="https://twitter.com/chgeuer/status/568762818415206400">20. February 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
 When I develop an Azure cloud service (PaaS), I often have setup scripts which need to run. Usually, these scripts generate some form of output on STDOUT and STDERR, which I'd like to capture somewhere. So the easiest way would be to write that output to some fixed location, such as `C:\logs` and grab it from there. 
 
 The problem with this approach is that it doesn't work well in the development fabric, i.e. when I simulate multiple WebRoles or WorkerRoles on my development laptop, cause all scripts running in parallel, writing to the same folder, isn't a great idea. I wanted a solution where the real setup script simply spits out log data to the console, and where that output is written to a _unique_ directory. 
@@ -125,7 +129,3 @@ Of course, don't forget to mark all the setup files with "Copy Always" in Visual
 
 That's it. Have fun, 
 Christian
-
-<blockquote class="twitter-tweet" lang="de"><p>Logging <a href="https://twitter.com/Azure">@Azure</a> startup task output to disk: <a href="http://t.co/UU0dwz18bE">http://t.co/UU0dwz18bE</a> <a href="https://twitter.com/hashtag/PaaS?src=hash">#PaaS</a> <a href="https://twitter.com/hashtag/CloudServices?src=hash">#CloudServices</a></p>&mdash; Chris Geuer-Pollmann (@chgeuer) <a href="https://twitter.com/chgeuer/status/568762818415206400">20. Februar 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-

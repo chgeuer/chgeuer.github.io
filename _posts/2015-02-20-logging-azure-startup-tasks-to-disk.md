@@ -2,14 +2,23 @@
 layout: default
 title: "Logging Azure startup task output to disk"
 date: 2015-02-20
-keywords: azure startup
-published: false
+keywords: azure startup development 
+published: true
 ---
 
 # Logging Azure startup task output to disk
 
-https://github.com/chgeuer/UnorthodoxAzureLogging
+When I develop an Azure cloud service (PaaS), I often have setup scripts which need to run. Usually, these scripts generate some form of output on STDOUT and STDERR, which I'd like to capture somewhere. So the easiest way would be to write that output to some fixed location, such as `C:\logs` and grab it from there. 
 
+The problem with this approach is that it doesn't work well in the development fabric, i.e. when I simulate multiple WebRoles or WorkerRoles on my development laptop, cause all scripts running in parallel, writing to the same folder, isn't a great idea. I wanted a solution where the real setup script simply spits out log data to the console, and where that output is written to a _unique_ directory. 
+
+In this sample, you can see that this unique directory is a folder like `C:\log-deployment25(0).TableLoggingCloudService.WorkerRole_IN_3`, where the folder name contains the deployment ID and instance ID, and a new log file for each execution of the setup script (for instance, after a machine reboot).
+
+You can have a look at my [github project](https://github.com/chgeuer/UnorthodoxAzureLogging) for a sample implementation. 
+
+<div>
+	<img src="/img/2015-02-20-logging-azure-startup-tasks-to-disk/cdrive.png" alt="screenshot C:\-Drive"></img>
+</div>
 
 ## CloudService/ServiceDefinition.csdef
 

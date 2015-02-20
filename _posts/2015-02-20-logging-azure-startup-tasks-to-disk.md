@@ -125,3 +125,7 @@ Of course, don't forget to mark all the setup files with "Copy Always" in Visual
 
 That's it. Have fun, 
 Christian
+
+<blockquote class="twitter-tweet" lang="de"><p>Logging <a href="https://twitter.com/Azure">@Azure</a> startup task output to disk: <a href="http://t.co/UU0dwz18bE">http://t.co/UU0dwz18bE</a> <a href="https://twitter.com/hashtag/PaaS?src=hash">#PaaS</a> <a href="https://twitter.com/hashtag/CloudServices?src=hash">#CloudServices</a></p>&mdash; Chris Geuer-Pollmann (@chgeuer) <a href="https://twitter.com/chgeuer/status/568762818415206400">20. Februar 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+

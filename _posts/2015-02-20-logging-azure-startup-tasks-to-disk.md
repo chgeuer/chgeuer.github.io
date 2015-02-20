@@ -62,10 +62,10 @@ exit /b 0
 
 ## WorkerRole/SetupScripts/install.ps1
 
-	- determines deployment ID, role instance ID, 
-	- derives logfile names,
-	- sets local environment variables accordingly
-	- kicks off `install2.cmd`
+- determines deployment ID, role instance ID, 
+- derives logfile names,
+- sets local environment variables accordingly
+- kicks off `install2.cmd`
 
 ```powershell
 # WorkerRole/SetupScripts/install.ps1

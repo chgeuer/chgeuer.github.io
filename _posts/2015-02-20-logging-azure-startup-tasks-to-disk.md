@@ -20,9 +20,27 @@ You can have a look at my [github project](https://github.com/chgeuer/Unorthodox
 	<img src="/img/2015-02-20-logging-azure-startup-tasks-to-disk/cdrive.png" alt="screenshot C:\-Drive"></img>
 </div>
 
+## Implementation
+
+The solution uses a chain of 4 batch and PowerShell scripts to achieve this goal. Maybe it's too complicatedm but it seemed the easiest for me: 
+
+	1 First, the `csdef` file lists a startup task for `commandLine="SetupScripts\install.cmd"`
+	2 The batch file `install.cmd` launches the PowerShell script `install.ps1` 
+	3 `install.ps1` 
+		- determines deployment ID, role instance ID, 
+		- derives logfile names,
+		- sets local environment variables accordingly
+		- kicks off `install2.cmd`
+	4 `install2.cmd` starts `install2.ps1` (the actual workhorse), redirecting STDOUT and STDERR to the proper logfile
+	5 `install2.ps1` does whatever it has to do, simply spitting out data to STDOUT
+
+
 ## CloudService/ServiceDefinition.csdef
 
+First, the `csdef` file lists a startup task for `commandLine="SetupScripts\install.cmd"`.
+
 ```xml
+<!-- CloudService/ServiceDefinition.csdef -->
 <ServiceDefinition ... >
   <WorkerRole name="..." vmsize="...">
     <Startup>
@@ -34,7 +52,10 @@ You can have a look at my [github project](https://github.com/chgeuer/Unorthodox
 
 ## WorkerRole/SetupScripts/install.cmd
 
+The batch file `install.cmd` launches the PowerShell script `install.ps1` 
+
 ```batch
+REM WorkerRole/SetupScripts/install.cmd
 cd /d "%~dp0"
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unrestricted -File "%~dp0install.ps1"
 exit /b 0
@@ -42,7 +63,13 @@ exit /b 0
 
 ## WorkerRole/SetupScripts/install.ps1
 
+	- determines deployment ID, role instance ID, 
+	- derives logfile names,
+	- sets local environment variables accordingly
+	- kicks off `install2.cmd`
+
 ```powershell
+# WorkerRole/SetupScripts/install.ps1
 [Reflection.Assembly]::LoadWithPartialName("Microsoft.WindowsAzure.ServiceRuntime") 
 if (![Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment]::IsAvailable)
 {
@@ -66,7 +93,10 @@ Start-Process -NoNewWindow -Wait -FilePath "$($Env:windir)\System32\cmd.exe" -Ar
 
 ## WorkerRole/SetupScripts/install2.cmd
 
+`install2.cmd` starts `install2.ps1` (the actual workhorse), redirecting STDOUT and STDERR to the proper logfile (`> %logfilename% 2>>&1`)
+
 ```batch
+REM WorkerRole/SetupScripts/install2.cmd
 cd /d "%~dp0"
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unrestricted -File "%~dp0install2.ps1" > %logfilename% 2>>&1
 exit /b 0
@@ -74,7 +104,10 @@ exit /b 0
 
 ## WorkerRole/SetupScripts/install2.ps1
 
+`install2.ps1` does whatever it has to do, simply spitting out data to STDOUT (via `Write-Host`)
+
 ```powershell
+# WorkerRole/SetupScripts/install2.ps1
 [void] [Reflection.Assembly]::LoadWithPartialName("Microsoft.WindowsAzure.ServiceRuntime") 
 if (![Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment]::IsAvailable)
 {
@@ -84,13 +117,14 @@ if (![Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment]::IsAvailable)
 
 $logfolder = [System.Environment]::GetEnvironmentVariable("$logfolder")
 
+Write-Host "All my STDOUT goes to $($logfolder)"
+
 Write-Host "Doing some stuff"
-
 [System.Threading.Thread]::Sleep(1000)
-
 Write-Host "Doing other  stuff"
 ```
 
+Of course, don't forget to mark all the setup files with "Copy Always" in Visual Studio's file properties :-). 
 
-
-
+That's it. Have fun, 
+Christian

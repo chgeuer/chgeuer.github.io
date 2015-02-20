@@ -17,7 +17,7 @@ In this sample, you can see that this unique directory is a folder like `C:\log-
 You can have a look at my [github project](https://github.com/chgeuer/UnorthodoxAzureLogging) for a sample implementation. 
 
 <div>
-	<img src="/img/2015-02-20-logging-azure-startup-tasks-to-disk/cdrive.png" alt="screenshot C:\-Drive"></img>
+	<img src="/img/2015-02-20-logging-azure-startup-tasks-to-disk/cdrive.png" alt="screenshot C:\-Drive" width="300px"></img>
 </div>
 
 ## Implementation

@@ -24,7 +24,7 @@ You can have a look at my [github project](https://github.com/chgeuer/Unorthodox
 
 ## Implementation
 
-The solution uses a chain of 4 batch and PowerShell scripts to achieve this goal. Maybe it's over-enineered, but I couldn't come up with a simpler solution: 
+The solution uses a chain of 4 batch and PowerShell scripts to achieve this goal. Maybe it's over-engineered, but I couldn't come up with a simpler solution: 
 
 1. First, the `csdef` file lists a startup task for `commandLine="SetupScripts\install.cmd"`
 2. The batch file `install.cmd` launches the PowerShell script `install.ps1` 

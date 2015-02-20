@@ -6,8 +6,6 @@ keywords: azure startup development
 published: true
 ---
 
-# Logging Azure startup task output to disk
-
 When I develop an Azure cloud service (PaaS), I often have setup scripts which need to run. Usually, these scripts generate some form of output on STDOUT and STDERR, which I'd like to capture somewhere. So the easiest way would be to write that output to some fixed location, such as `C:\logs` and grab it from there. 
 
 The problem with this approach is that it doesn't work well in the development fabric, i.e. when I simulate multiple WebRoles or WorkerRoles on my development laptop, cause all scripts running in parallel, writing to the same folder, isn't a great idea. I wanted a solution where the real setup script simply spits out log data to the console, and where that output is written to a _unique_ directory. 
@@ -22,7 +20,7 @@ You can have a look at my [github project](https://github.com/chgeuer/Unorthodox
 
 ## Implementation
 
-The solution uses a chain of 4 batch and PowerShell scripts to achieve this goal. Maybe it's too complicatedm but it seemed the easiest for me: 
+The solution uses a chain of 4 batch and PowerShell scripts to achieve this goal. Maybe it's over-enineered, but I couldn't come up with a simpler solution: 
 
 1. First, the `csdef` file lists a startup task for `commandLine="SetupScripts\install.cmd"`
 2. The batch file `install.cmd` launches the PowerShell script `install.ps1` 

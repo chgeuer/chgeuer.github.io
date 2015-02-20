@@ -71,7 +71,7 @@ exit /b 0
 
 ```powershell
 # WorkerRole/SetupScripts/install.ps1
-[Reflection.Assembly]::LoadWithPartialName("Microsoft.WindowsAzure.ServiceRuntime") 
+[void] [Reflection.Assembly]::LoadWithPartialName("Microsoft.WindowsAzure.ServiceRuntime") 
 if (![Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment]::IsAvailable)
 {
     Write-Host "Not running in fabric, exiting"

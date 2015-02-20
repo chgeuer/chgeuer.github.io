@@ -7,7 +7,7 @@ published: true
 ---
 
 
-<blockquote class="twitter-tweet" lang="en"><p>Quickly install your favorite tools onto your <a href="https://twitter.com/Azure">@Azure</a> virtual machine <a href="http://blog.geuer-pollmann.de/blog/2015/02/20/getting-your-favority-tools-onto-your-azure-vm/">http://t.co/SC9D1ornAZ</a> <a href="https://twitter.com/hashtag/IaaS?src=hash">#IaaS</a> <a href="https://twitter.com/hashtag/RDP?src=hash">#RDP</a></p>&mdash; Chris Geuer-Pollmann (@chgeuer) <a href="https://twitter.com/chgeuer/status/568779615734534144">February 20, 2015</a></blockquote> <script asyncsrc="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" lang="en"><p>Quickly install your favorite tools onto your <a href="https://twitter.com/Azure">@Azure</a> virtual machine <a href="http://t.co/SC9D1ornAZ">http://t.co/SC9D1ornAZ</a> <a href="https://twitter.com/hashtag/IaaS?src=hash">#IaaS</a> <a href="https://twitter.com/hashtag/RDP?src=hash">#RDP</a></p>&mdash; Chris Geuer-Pollmann (@chgeuer) <a href="https://twitter.com/chgeuer/status/568779615734534144">February 20, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 

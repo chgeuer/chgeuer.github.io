@@ -25,6 +25,3 @@ Simply speaking, the SMB user name for the Microsoft account ``christian@outlook
 NET USE X: \\192.168.0.5\c$ /USER:MicrosoftAccount\christian@outlook.de
 ```
 
-```xml
-<a href="fio" />
-```

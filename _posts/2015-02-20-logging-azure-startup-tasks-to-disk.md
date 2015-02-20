@@ -24,16 +24,15 @@ You can have a look at my [github project](https://github.com/chgeuer/Unorthodox
 
 The solution uses a chain of 4 batch and PowerShell scripts to achieve this goal. Maybe it's too complicatedm but it seemed the easiest for me: 
 
-	1 First, the `csdef` file lists a startup task for `commandLine="SetupScripts\install.cmd"`
-	2 The batch file `install.cmd` launches the PowerShell script `install.ps1` 
-	3 `install.ps1` 
-		- determines deployment ID, role instance ID, 
-		- derives logfile names,
-		- sets local environment variables accordingly
-		- kicks off `install2.cmd`
-	4 `install2.cmd` starts `install2.ps1` (the actual workhorse), redirecting STDOUT and STDERR to the proper logfile
-	5 `install2.ps1` does whatever it has to do, simply spitting out data to STDOUT
-
+1 First, the `csdef` file lists a startup task for `commandLine="SetupScripts\install.cmd"`
+2 The batch file `install.cmd` launches the PowerShell script `install.ps1` 
+3 `install.ps1` 
+	- determines deployment ID, role instance ID, 
+	- derives logfile names,
+	- sets local environment variables accordingly
+	- kicks off `install2.cmd`
+4 `install2.cmd` starts `install2.ps1` (the actual workhorse), redirecting STDOUT and STDERR to the proper logfile
+5 `install2.ps1` does whatever it has to do, simply spitting out data to STDOUT
 
 ## CloudService/ServiceDefinition.csdef
 

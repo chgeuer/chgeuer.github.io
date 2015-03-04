@@ -25,4 +25,3 @@ date: 2014-01-18 23:0:00
 - http://www.rabbitmq.com/install-windows-manual.html
 - http://www.erlang.org/download.html
 
-Hallo [Malte](mailto:mlantin@microsoft.com), das ist MarkDown. 

@@ -70,7 +70,17 @@ In Azure, there are various services where it can make sense to deploy a CDN in 
 
 However, Micosoft also has customers who already use Akamai for their CDN needs. To support these customers, the [Azure Media Services Team][azure media services blog] offers a [mechanism to turn on Akamai's G2O authentication for Azure Media Services Origin Servers][using wams origin with g2o]; simply speaking, you can put Akamai's CDN in front of your Azure Media Services origin servers for video streaming, and *only* Akamai's CDN nodes (called edge nodes, or global hosts) can fetch data from your server. 
 
-The term 'G2O' stands for 'ghost to origin' or 'global host to origin' authentication, and is a mechanism for enabling an origin server to authenticate the inbound request from the CDN's edge node (ghost). As I said, [Azure Media Services support G2O][using wams origin with g2o], and other players (such as [nginx][nginx module g2o] or the [Akamai Community][akamai community nginx]) as well. Simply speaking, G2O defines 
+### G2O Authentication
+
+The term 'G2O' stands for 'ghost to origin' or 'global host to origin' authentication, and is a mechanism for enabling an origin server to authenticate the inbound request from the CDN's edge node (ghost). As I said, [Azure Media Services support G2O][using wams origin with g2o], and other players (such as [nginx][nginx module g2o] or the [Akamai Community][akamai community nginx]) as well. Simply speaking, G2O defines HTTP headers which have to be added to the request, and 5 different cryptographic algorithms to compute these headers. 
+
+The `X-Akamai-G2O-Auth-Data` HTTP header contains the ID of the cryptographic algorithm (1-5), the IP addresses of the edge node and the actual requesting client, the current time (as UNIX epoch), some unique ID to prevent replay attacks (which usually is called 'nonce' in the security community), and a 'nonce' (which is called key identifier in the security community). 
+
+```csharp
+int version, string edgeIP, string clientIP, long time, string uniqueId, string nonce
+```
+
+After cryptographically processing the input from the `X-Akamai-G2O-Auth-Data` header and the URL's local path with the cryptograhic key associated with the 'nonce', the resulting cryptograhic value is tranported in the `X-Akamai-G2O-Auth-Sign` header. I resist to call is a 'signature' because it is a symmetric system, not offering data origin authentication, just message integrity and peer entity authentication. 
 
 
 

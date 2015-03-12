@@ -3,7 +3,7 @@ layout: default
 title: "Accessing Azure Blob Storage with G2O Authentication"
 date: 2015-03-12
 keywords: azure storage authentication proxy
-published: true
+published: false
 ---
 
 ## tl;dr

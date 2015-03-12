@@ -41,13 +41,13 @@ When we look at the URL of a blob, it consists of the following parts:
 - Protocol: You can access Azure Blob Storage both through 'http' and 'https'
 - Hostname: Each storage account has a unique hostname (`http(s)://cdndatastore01.blob.core.windows.net` in our case)
 - Container: The Container name comes after the hostname https://cdndatastore01.blob.core.windows.net/public/
-- Blob name: You can model a directory hierarcy inside a container by putting a `/` character into a blob name, and the tools support the illusion of folders. 
-
-When I use a tool such as CloudXPlorer to look at my files, I see this: 
+- Blob name: You can model a directory hierarcy inside a container by putting a `/` character into a blob name, and most tools support the illusion of a `data` folder. When I use a tool such as CloudXPlorer to look at my files, I see this: 
 
 <img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-cloudxplorer.png"></img>
 
-https://cdndatastore01.blob.core.windows.net/public/somePublicImage.jpg
+As a result, my public image is now accessible at [https://cdndatastore01.blob.core.windows.net/public/data/somePublicImage.jpg](https://cdndatastore01.blob.core.windows.net/public/data/somePublicImage.jpg):
+
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-public-image.png"></img>
 
 
 

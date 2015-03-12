@@ -12,6 +12,8 @@ SRC: http://blog.geuer-pollmann.de/blog/2015/03/12/accessing-microsoft-azure-blo
 
 This article explains how to securely, and with little effort, expose files in Azure Blob Storage towards the Akamai content delivery network. A proxy app (based on ASP.NET Web API), running in an Azure Cloud Service, checks G2O authentication headers, and then either redirects the CDN to the storage service directly, or fetches the data from the back. 
 
+The end-to-end solution is avaiable here: https://github.com/chgeuer/G2O2AzureBlobStorage
+
 ## Introduction
 
 In this proof-of-concept, we're going to integrate two pieces of technology together: Microsoft Azure Blob Storage, and the Akamai Content Delivery Network. 
@@ -82,7 +84,7 @@ int version, string edgeIP, string clientIP, long time, string uniqueId, string 
 
 After cryptographically processing the input from the `X-Akamai-G2O-Auth-Data` header and the URL's local path with the cryptograhic key associated with the 'nonce', the resulting cryptograhic value is tranported in the `X-Akamai-G2O-Auth-Sign` header. (I resist to call is a 'signature' because it is a symmetric system, not offering data origin authentication, just message integrity and peer entity authentication.)
 
-The five [G2O algorithms][my g2o implementation] are based on pretty 'conventional' crypto, but for just keeping the egress load on origin servers low, it's certainly OK. Have a look at my [test vectors](https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OTests/G2OCryptoUnitTest.cs) for how these strings look like. 
+The five [G2O algorithms][my g2o implementation] are based on pretty 'conventional' crypto, but for just keeping the egress load on origin servers low, it's certainly OK. Have a look at my [test vectors][test vectors] for how these strings look like. 
 
 ```csharp
 using SignAlgorithm = System.Func<byte[], byte[], byte[], byte[]>;
@@ -107,6 +109,69 @@ After defining the protocol foundation, we can now focus on the actual solution:
 
 <img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/flow.png"></img>
 
+Simply speaking, we deploy an SAS generator proxy app. Then in Akamai, we configure our SAS Generator Service as origin, and turn on "Redirect Chasing". When clients get a file from the CDN, the edge servers attempt to fetch the files from our SAS Generator Service, which authenticates them using G2O and redirects them to blob storage, with an SAS URL. 
+
+1. The first step in the flow is the user's browser making a DNS query for `cdn.customer.com` against the customer's DNS Server. The DNS Server returns CNAME or A record the edge node `a123.g2.akamai.net`. 
+2. The client's browser sends a `GET` request against the edge node and retrieves the resource `/images/public/data/somePublicImage.jpg`. 
+3. The edge node sends a `GET` request against the CNAME of the configured origin, like `contosoorigin.cloudapp.net` but with a `Host` header of `cdn.customer.com`, retrieving the resource `/images/public/data/somePublicImage.jpg`. From the point of view of the CDN, this is a full origin server, hosting the content. From an implementation perspective, this is just a tiny ASP.NET WebAPI Controller which 
+	- validates the G2O Headers to make sure the called is indeed the CDN, 
+	- extracts the first segment of the URL path (`/images` in our example), and checks whether there is a storage account associated with this alias,
+	- extracts the second segment of the URL path (`public` in our example), and checks whether the this container is actually exposed in config
+	- generates a SAS URL for the real Azure Blob Storage Account (without the `images` part), and returns an HTTP 302 Redirect back to the CDN. 
+	- As a last step, the URL's scheme (http or https) must match the one of the inbound request, an important detail for the next step to work. 
+4. After the CDN's edge node receives the 302 redirect response, it checks two things: 
+	- The configuration at Akamai must have "Redirect Chasing" enabled, otherwise the edge server refuses to follow that redirect.
+	- The scheme of the 302 Response (with or without TLS) must be equal to the origin requests scheme, otherwise the AkamaiGHost sends you a fancy "404 An error occurred while processing your request".
+	- Now the CDN edge node uses the 302 address to retrieve the actual contents from CDN. This request is now validated by Azure Blob Storage using the shared-access-signature magic.
+
+
+# Implementation details
+
+## G2O OWIN Middleware
+
+The [G2OHandlers][G2OHandlers] project contains a full-fledged OWIN Middleware for handling G2O authN. 
+
+```csharp
+ public void Configuration(IAppBuilder app)
+{
+    Func<string, string> keyResolver ...;
+    app.EnforeG2OAuthentication((Func<string,string>) keyResolver);
+    ...
+}
+```
+
+In order to check whether an inbound http request is permitted, the OWIN middleware needs access to the cryptographic key material. You must supply a `Func<string,string> keyResolver` handler, which gets an Akamai 'nonce' (key identifier like `"193565"`) as input, and returns the key (like `"07bf84629be85d68a3ef343d"`). 
+
+As a result, the [G2OAuthenticationHandler.cs][G2OAuthenticationHandler.cs] issues an `AuthenticationTicket` with various claims containing all the G2O validation data. The `ClientIP`, i.e. the IP address of the actual client itself, is currently not validated, but the implementation could easily be extended to support geo-fencing scenarios (if you believe an IP address still has meaning in this century). 
+
+## G2O HttpClientHandler
+
+The implementation also contains an [G2OHttpClientHandler.cs][G2OHttpClientHandler.cs] 
+
+```csharp
+// Use https://raw.githubusercontent.com/chgeuer/WhatIsMyIP/master/WhatIsMyIP/ExternalIPFetcher.cs
+// for determining my own IP address. Sorry, I'm in the home office behind a NAT ...
+
+var path = "/images/public/data/somePublicImage.jpg";
+
+var g2oClientHandler = new G2OHttpClientHandler(
+    version: 3, // 1..5
+    edgeIP: ExternalIPFetcher.GetAddress().IPAddress.ToString(), 
+    clientIP: "1.2.3.4", // harrr harrr :-)
+    nonce: "193565",
+    nonceValue: "07bf84629be85d68a3ef343d");
+
+var client = new HttpClient(g2oClientHandler);
+var response = client.SendAsync(
+	new HttpRequestMessage(HttpMethod.Get,
+	"http://contosocdn.cloudapp.net" + path )).Result;
+```
+
+With this baby, you can simply impersonate a CDN edge node for debugging purposes. 
+
+
+
+
 
 [block blobs]: https://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
 [azure storage REST API]: https://msdn.microsoft.com/en-us/library/azure/dd135733.aspx
@@ -120,3 +185,9 @@ After defining the protocol foundation, we can now focus on the actual solution:
 [nginx module g2o]: https://github.com/refractalize/nginx_mod_akamai_g2o
 [akamai community]: https://community.akamai.com/people/B-3-181J6KL/blog/2015/02/17/ghost-to-iis-origin-module
 [my g2o implementation]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OHandlers/G2OAlgorithms.cs
+[G2OHandlers]: https://github.com/chgeuer/G2O2AzureBlobStorage/tree/master/G2OHandlers
+[test vectors]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OTests/G2OCryptoUnitTest.cs
+
+[G2OAuthenticationHandler.cs]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OHandlers/G2OAuthenticationHandler.cs
+[G2OHttpClientHandler.cs]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OHandlers/G2OHttpClientHandler.cs
+

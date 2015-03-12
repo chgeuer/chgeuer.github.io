@@ -72,7 +72,7 @@ However, Micosoft also has customers who already use Akamai for their CDN needs.
 
 ### G2O Authentication
 
-The term 'G2O' stands for 'ghost to origin' or 'global host to origin' authentication, and is a mechanism for enabling an origin server to authenticate the inbound request from the CDN's edge node (ghost). As I said, [Azure Media Services support G2O][using wams origin with g2o], and other players (such as [nginx][nginx module g2o] or the [Akamai Community][akamai community nginx]) as well. Simply speaking, G2O defines HTTP headers which have to be added to the request, and 5 different cryptographic algorithms to compute these headers. 
+The term 'G2O' stands for 'ghost to origin' or 'global host to origin' authentication, and is a mechanism for enabling an origin server to authenticate the inbound request from the CDN's edge node (ghost). As I said, [Azure Media Services support G2O][using wams origin with g2o], and other players (such as [nginx][nginx module g2o] or the [Akamai Community][akamai community]) as well. Simply speaking, G2O defines HTTP headers which have to be added to the request, and 5 different cryptographic algorithms to compute these headers. 
 
 The `X-Akamai-G2O-Auth-Data` HTTP header contains the ID of the cryptographic algorithm (1-5), the IP addresses of the edge node and the actual requesting client, the current time (as UNIX epoch), some unique ID to prevent replay attacks (which usually is called 'nonce' in the security community), and a 'nonce' (which is called key identifier in the security community). 
 
@@ -80,8 +80,24 @@ The `X-Akamai-G2O-Auth-Data` HTTP header contains the ID of the cryptographic al
 int version, string edgeIP, string clientIP, long time, string uniqueId, string nonce
 ```
 
-After cryptographically processing the input from the `X-Akamai-G2O-Auth-Data` header and the URL's local path with the cryptograhic key associated with the 'nonce', the resulting cryptograhic value is tranported in the `X-Akamai-G2O-Auth-Sign` header. I resist to call is a 'signature' because it is a symmetric system, not offering data origin authentication, just message integrity and peer entity authentication. 
+After cryptographically processing the input from the `X-Akamai-G2O-Auth-Data` header and the URL's local path with the cryptograhic key associated with the 'nonce', the resulting cryptograhic value is tranported in the `X-Akamai-G2O-Auth-Sign` header. (I resist to call is a 'signature' because it is a symmetric system, not offering data origin authentication, just message integrity and peer entity authentication.)
 
+The five [G2O algorithms][my g2o implementation] are based on pretty 'conventional' crypto, but for just keeping the egress load on origin servers low, it's certainly OK. Have a look at my [test vectors](https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OTests/G2OCryptoUnitTest.cs) for how these strings look like. 
+
+```csharp
+using SignAlgorithm = System.Func<byte[], byte[], byte[], byte[]>;
+
+private static readonly ReadOnlyDictionary<int, SignAlgorithm> algorithms = 
+                    new ReadOnlyDictionary<int, SignAlgorithm>(
+                            new Dictionary<int, SignAlgorithm>
+{
+    { 1, (key, data, urlpath) => MD5(key, data, urlpath) },
+    { 2, (key, data, urlpath) => MD5(key, MD5(key, data, urlpath)) },
+    { 3, (key, data, urlpath) => HMAC_Sign("HMACMD5", key, data, urlpath) },
+    { 4, (key, data, urlpath) => HMAC_Sign("HMACSHA1", key, data, urlpath) },
+    { 5, (key, data, urlpath) => HMAC_Sign("HMACSHA256", key, data, urlpath) }
+});
+```
 
 
 <!--
@@ -101,4 +117,7 @@ wvIf9ZNVmYLpqsqOjBPBlIqEz5hgkMr0uPoPqeOOMcrnDHpysbed71BwjJ4wCtbc1M8eY/DFOEbOtOLJ
 [using wams origin with g2o]: https://msdn.microsoft.com/en-us/library/dn735905.aspx#sec2
 [using azure cdn with cloud service]: http://azure.microsoft.com/en-us/documentation/articles/cdn-cloud-service-with-cdn/
 [nginx module g2o]: https://github.com/refractalize/nginx_mod_akamai_g2o
-[akamai community nginx]: https://community.akamai.com/people/B-3-181J6KL/blog/2015/02/17/ghost-to-iis-origin-module
+[akamai community]: https://community.akamai.com/people/B-3-181J6KL/blog/2015/02/17/ghost-to-iis-origin-module
+[my g2o implementation]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OHandlers/G2OAlgorithms.cs
+
+

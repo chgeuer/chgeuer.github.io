@@ -31,8 +31,11 @@ Below you can see the two storage account keys associated with `cdndatastore01`.
 
 <img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-keys.png"></img>
 
-
-
+<!--
+cdndatastore01
+fERfsRKahmEXFXcF2DhHJzIP9dmmpTzFP0B24lfDk2XHrD1KsLqb6EHPCspTRHyVw0g+1cHnuOwI14c6NjQr3Q==
+wvIf9ZNVmYLpqsqOjBPBlIqEz5hgkMr0uPoPqeOOMcrnDHpysbed71BwjJ4wCtbc1M8eY/DFOEbOtOLJ+2JYJA==
+-->
 
 
 

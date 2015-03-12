@@ -22,14 +22,20 @@ Microsoft Azure Blob Storage is an object store, where you can create one or mor
 
 <img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-ui.png"></img>
 
+A container can be publicly accessible (so that an unauthenticated `GET` requests are permitted) or the container can be locked down to be private (which is by default), so that only authenticated requests are permitted. Authentication comes in two flavors: 
 
-Blobs in a container can be publicly available (so that an unauthenticated `GET` returns the contents) or it can be locked down to be private, so that only authenticated requests are permitted. Authentication comes in two flavors:
+1. You can use one of the two `storage account keys`, and use the [Azure REST API][azure storage REST API] or one of the SDKs to access the private contents. Essentially, the requestor needs to supply one of the master keys as part of the request. The `storage account keys` are obviously confidential, and should not leace your application. 
+2. 'Shared Access Signatures': In situations where you want to give external requestors access to a blob in a private container, you can create a so-called 'shared access signature' (SAS), which can be appended to the URL of the blob (or other resource, and which implicitly authorizes the request. 
 
-- Each storage account has 
+Below you can see the two storage account keys associated with `cdndatastore01`. 
+
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-keys.png"></img>
+
+
 
 
 
 
 
 [block blobs]: https://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
-
+[azure storage REST API]: https://msdn.microsoft.com/en-us/library/azure/dd135733.aspx

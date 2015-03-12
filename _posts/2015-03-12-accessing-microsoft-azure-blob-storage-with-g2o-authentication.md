@@ -99,12 +99,13 @@ private static readonly ReadOnlyDictionary<int, SignAlgorithm> algorithms =
 });
 ```
 
+## The solution
 
-<!--
-cdndatastore01
-fERfsRKahmEXFXcF2DhHJzIP9dmmpTzFP0B24lfDk2XHrD1KsLqb6EHPCspTRHyVw0g+1cHnuOwI14c6NjQr3Q==
-wvIf9ZNVmYLpqsqOjBPBlIqEz5hgkMr0uPoPqeOOMcrnDHpysbed71BwjJ4wCtbc1M8eY/DFOEbOtOLJ+2JYJA==
--->
+After defining the protocol foundation, we can now focus on the actual solution: 
+
+### Interaction flow
+
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/flow.png"></img>
 
 
 [block blobs]: https://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
@@ -119,5 +120,3 @@ wvIf9ZNVmYLpqsqOjBPBlIqEz5hgkMr0uPoPqeOOMcrnDHpysbed71BwjJ4wCtbc1M8eY/DFOEbOtOLJ
 [nginx module g2o]: https://github.com/refractalize/nginx_mod_akamai_g2o
 [akamai community]: https://community.akamai.com/people/B-3-181J6KL/blog/2015/02/17/ghost-to-iis-origin-module
 [my g2o implementation]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OHandlers/G2OAlgorithms.cs
-
-

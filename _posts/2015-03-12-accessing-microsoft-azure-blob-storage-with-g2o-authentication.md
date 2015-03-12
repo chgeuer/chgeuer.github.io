@@ -153,6 +153,7 @@ The implementation also contains an [G2OHttpClientHandler.cs][G2OHttpClientHandl
 // for determining my own IP address. Sorry, I'm in the home office behind a NAT ...
 
 var path = "/images/public/data/somePublicImage.jpg";
+var originUrl = "http://contosocdn.cloudapp.net" + path;
 
 var g2oClientHandler = new G2OHttpClientHandler(
     version: 3, // 1..5
@@ -162,12 +163,22 @@ var g2oClientHandler = new G2OHttpClientHandler(
     nonceValue: "07bf84629be85d68a3ef343d");
 
 var client = new HttpClient(g2oClientHandler);
-var response = client.SendAsync(
-	new HttpRequestMessage(HttpMethod.Get,
-	"http://contosocdn.cloudapp.net" + path )).Result;
+var response = client.SendAsync(HttpRequestMessage(HttpMethod.Get, originUrl)).Result;
 ```
 
 With this baby, you can simply impersonate a CDN edge node for debugging purposes. 
+
+## ExternalIPFetcher for simulating G2O clients
+
+One aspect hidden in the above code is this `ExternalIPFetcher` fluff: I often work from home (behind a slooow DSL line), and only god knows what IP address my router externally. All these ancient protocols (such as FTP), and security folks stuck in a last-century mindset, believe that using IP addresses for authZ purposes is a cool idea. Given that I cannot change the world in this regard, I understood I have to have a way to get my own IP address. In my [WhatIsMyIP/ExternalIPFetcher.cs repo][WhatIsMyIP/ExternalIPFetcher], I have a small utility class which you can just include [per T4Include][WhatIsMyIP/ExternalIPFetcher per source]. Given that I need to pretend that I'm a CDN edge node, I must include the edge's IP address in the signed data, therefore the above code needs to determine my IP. 
+
+For those who care what I do there, I simply fire off 10+ http requests to various whatismyip/checkip/letmeknowmyip/idontgiveashit services on the Internet, and whoever returns first is my authoritative answer, no voting or double checks. Sounds pretty secure, hm?
+
+
+
+
+
+
 
 
 
@@ -187,7 +198,7 @@ With this baby, you can simply impersonate a CDN edge node for debugging purpose
 [my g2o implementation]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OHandlers/G2OAlgorithms.cs
 [G2OHandlers]: https://github.com/chgeuer/G2O2AzureBlobStorage/tree/master/G2OHandlers
 [test vectors]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OTests/G2OCryptoUnitTest.cs
-
 [G2OAuthenticationHandler.cs]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OHandlers/G2OAuthenticationHandler.cs
 [G2OHttpClientHandler.cs]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OHandlers/G2OHttpClientHandler.cs
-
+[WhatIsMyIP/ExternalIPFetcher]: https://github.com/chgeuer/WhatIsMyIP/blob/master/WhatIsMyIP/ExternalIPFetcher.cs
+[WhatIsMyIP/ExternalIPFetcher per source]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OSampleClient/Include_T4Include.tt

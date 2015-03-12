@@ -1,4 +1,3 @@
-
 ---
 layout: default
 title: "Accessing Azure Blob Storage with G2O Authentication"

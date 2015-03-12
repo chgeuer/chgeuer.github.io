@@ -34,7 +34,7 @@ Below you can see the two storage account keys associated with 'cdndatastore01'.
 
 <img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-keys.png"></img>
 
-Let's say we have two containers called 'public' and 'private1' (being, well, publicly accessible and privately locked down), and various blobs in these storage accounts: 
+Let's say we have two containers called 'public' and 'private1' (which are, well, publicly accessible and privately locked down), and various blobs in these storage accounts: 
 
 - The 'public' container in storage account 'cdndatastore01' contains a file 'data/somePublicImage.jpg'
 - The 'private1' container contains a file 'someLockedDownImage.jpg'
@@ -44,7 +44,7 @@ When we look at the URL of a blob, it consists of the following parts:
 - Protocol: You can access Azure Blob Storage both through 'http' and 'https'
 - Hostname: Each storage account has a unique hostname (`http(s)://cdndatastore01.blob.core.windows.net` in our case)
 - Container: The Container name comes after the hostname https://cdndatastore01.blob.core.windows.net/public/
-- Blob name: You can model a directory hierarcy inside a container by putting a `/` character into a blob name, and most tools support the illusion of a `data` folder. When I use a tool such as CloudXPlorer to look at my files, I see this: 
+- Blob name: You can model a directory hierarcy inside a container by putting `/` characters into a blob name. Most tools support the illusion of folders. When I use a tool such as CloudXPlorer to look at my files, I see this: 
 
 <img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-cloudxplorer.png"></img>
 
@@ -68,16 +68,16 @@ A content delivery network (CDN) is a large network of HTTP cache servers, distr
 
 In Azure, there are various services where it can make sense to deploy a CDN in front, to reduce traffic on these servers: Compute services such as Azure Cloud Services, or Virtual machines, Azure Media Services Origin Servers, or Azure Blob Storage.  
 
-[Microsoft Azure already comes with an included CDN][[azure cdn], and you can put Azure CDN in front of your 
-[cloud services][using azure cdn with cloud service] or [Azure blobs][azure cdn for blob storage]. 
+Microsoft Azure already comes with an [included CDN][azure cdn], which you can put in front of your 
+[cloud services][using azure cdn with cloud service] or [blob storage][azure cdn for blob storage]. 
 
-However, Micosoft also has customers who already use Akamai for their CDN needs. To support these customers, the [Azure Media Services Team][azure media services blog] offers a [mechanism to turn on Akamai's G2O authentication for Azure Media Services Origin Servers][using wams origin with g2o]; simply speaking, you can put Akamai's CDN in front of your Azure Media Services origin servers for video streaming, and *only* Akamai's CDN nodes (called edge nodes, or global hosts) can fetch data from your server. 
+However, Micosoft also has customers who already use Akamai for their CDN needs. To support these customers, the [Azure Media Services Team][azure media services blog] offers a [mechanism to turn on Akamai's G2O authentication for Azure Media Services Origin Servers][using wams origin with g2o]. The G2O stuff means that when you put Akamai CDN in front of your Azure Media Services origin servers, *only* Akamai's CDN nodes (called edge nodes, or global hosts) can fetch data from your server. 
 
 ### G2O Authentication
 
-The term 'G2O' stands for 'ghost to origin' or 'global host to origin' authentication, and is a mechanism for enabling an origin server to authenticate the inbound request from the CDN's edge node (ghost). As I said, [Azure Media Services support G2O][using wams origin with g2o], and other players (such as [nginx][nginx module g2o] or the [Akamai Community][akamai community]) as well. Simply speaking, G2O defines HTTP headers which have to be added to the request, and 5 different cryptographic algorithms to compute these headers. 
+The term 'G2O' stands for 'ghost to origin' or 'global host to origin' authentication, and is a mechanism for enabling an origin server to authenticate the inbound request from the CDN's edge node (ghost). As I said, [Azure Media Services support G2O][using wams origin with g2o], as well as other libraries (such as [the G2O module for nginx][nginx module g2o] or the [an IIS Module from the Akamai Community][akamai community]). In essence, G2O defines HTTP headers which have to be added to the request, and 5 different cryptographic algorithms to compute these headers. 
 
-The `X-Akamai-G2O-Auth-Data` HTTP header contains the ID of the cryptographic algorithm (1-5), the IP addresses of the edge node and the actual requesting client, the current time (as UNIX epoch), some unique ID to prevent replay attacks (which usually is called 'nonce' in the security community), and a 'nonce' (which is called key identifier in the security community). 
+The `X-Akamai-G2O-Auth-Data` header contains the ID of the cryptographic algorithm (1-5), the IP addresses of the edge node and the actual requesting client, the current time (as UNIX epoch), some unique ID to prevent replay attacks (which usually is called 'nonce' in the security community), and a 'nonce' (which is called key identifier in the security community). 
 
 ```csharp
 int version, string edgeIP, string clientIP, long time, string uniqueId, string nonce
@@ -114,7 +114,7 @@ Simply speaking, we deploy an SAS generator proxy app. Then in Akamai, we config
 
 1. The first step in the flow is the user's browser making a DNS query for `cdn.customer.com` against the customer's DNS Server. The DNS Server returns CNAME or A record the edge node `a123.g2.akamai.net`. 
 2. The client's browser sends a `GET` request against the edge node and retrieves the resource `/images/public/data/somePublicImage.jpg`. 
-3. The edge node sends a `GET` request against the CNAME of the configured origin, like `contosoorigin.cloudapp.net` but with a `Host` header of `cdn.customer.com`, retrieving the resource `/images/public/data/somePublicImage.jpg`. From the point of view of the CDN, this is a full origin server, hosting the content. From an implementation perspective, this is just a tiny ASP.NET WebAPI Controller which 
+3. The edge node sends a `GET` request against the CNAME of the configured origin, like `contosoorigin.cloudapp.net` but with a `Host` header of `cdn.customer.com`, retrieving the resource `/images/public/data/somePublicImage.jpg`. From the CDN's point of view, `contosoorigin.cloudapp.net` is a full origin server, hosting the content. From an implementation perspective, `contosoorigin.cloudapp.net` is just a tiny ASP.NET WebAPI Controller which does a few things: It
 	- validates the G2O Headers to make sure the called is indeed the CDN, 
 	- extracts the first segment of the URL path (`/images` in our example), and checks whether there is a storage account associated with this alias,
 	- extracts the second segment of the URL path (`public` in our example), and checks whether the this container is actually exposed in config

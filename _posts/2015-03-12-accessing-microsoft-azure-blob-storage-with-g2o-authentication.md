@@ -49,9 +49,15 @@ As a result, my public image is now accessible at [https://cdndatastore01.blob.c
 
 <img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-public-image.png"></img>
 
+An unauthenticated GET against my private image [https://cdndatastore01.blob.core.windows.net/private1/someLockedDownImage.jpg](https://cdndatastore01.blob.core.windows.net/private1/someLockedDownImage.jpg) only gives me a 404: 
 
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-private-image-404.png"></img>
 
+I have to create an SAS [.../private1/someLockedDownImage.jpg?sv=2014-02-14&sr=b&si=g2o&sig=...&se=2015-03-12T11%3A53%3A54Z](https://cdndatastore01.blob.core.windows.net/private1/someLockedDownImage.jpg?sv=2014-02-14&sr=b&si=g2o&sig=H%2BTnGl2Yw80uXax6t%2BLB4FAgQvNh4FRkShHr3Qmnmg4%3D&se=2015-03-12T11%3A53%3A54Z) to successfully GET the image. 
 
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-private-image-200.png"></img>
+
+For details around shared access signatures, check out these [great][sas1] [articles][sas2]. Suffice to say, that I added a policy to my container with the identifier `g2o`, which you can see being referenced in the `&si=g2o` part of my SAS. 
 
 
 <!--
@@ -61,7 +67,7 @@ wvIf9ZNVmYLpqsqOjBPBlIqEz5hgkMr0uPoPqeOOMcrnDHpysbed71BwjJ4wCtbc1M8eY/DFOEbOtOLJ
 -->
 
 
-
-
 [block blobs]: https://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
 [azure storage REST API]: https://msdn.microsoft.com/en-us/library/azure/dd135733.aspx
+[sas1]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/
+[sas2]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-2/

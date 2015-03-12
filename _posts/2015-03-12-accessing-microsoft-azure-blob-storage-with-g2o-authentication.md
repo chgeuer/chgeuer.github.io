@@ -59,6 +59,20 @@ I have to create an SAS [.../private1/someLockedDownImage.jpg?sv=2014-02-14&sr=b
 
 For details around shared access signatures, check out these [great][sas1] [articles][sas2]. Suffice to say, that I added a policy to my container with the identifier `g2o`, which you can see being referenced in the `&si=g2o` part of my SAS. 
 
+### The Akamai CDN
+
+A content delivery network (CDN) is a large network of HTTP cache servers, distributed around the globe. When you fetch a file from a CDN, the DNS routes you to the nearest 'edge node' or 'edge server' in the CDN. If not already cached, this edge node then fetches the original file from the 'origin server'. This origin server usually is some web server where the original file assets are stored. 
+
+In Azure, there are various services where it can make sense to deploy a CDN in front, to reduce traffic on these servers: Compute services such as Azure Cloud Services, or Virtual machines, Azure Media Services Origin Servers, or Azure Blob Storage.  
+
+[Microsoft Azure already comes with an included CDN][[azure cdn], and you can put Azure CDN in front of your 
+[cloud services][using azure cdn with cloud service] or [Azure blobs][azure cdn for blob storage]. 
+
+However, Micosoft also has customers who already use Akamai for their CDN needs. To support these customers, the [Azure Media Services Team][azure media services blog] offers a [mechanism to turn on Akamai's G2O authentication for Azure Media Services Origin Servers][using wams origin with g2o]; simply speaking, you can put Akamai's CDN in front of your Azure Media Services origin servers for video streaming, and *only* Akamai's CDN nodes (called edge nodes, or global hosts) can fetch data from your server. 
+
+The term 'G2O' stands for 'ghost to origin' or 'global host to origin' authentication, and is a mechanism for enabling an origin server to authenticate the inbound request from the CDN's edge node (ghost). As I said, [Azure Media Services support G2O][using wams origin with g2o], and other players (such as [nginx][nginx module g2o] or the [Akamai Community][akamai community nginx]) as well. Simply speaking, G2O defines 
+
+
 
 <!--
 cdndatastore01
@@ -71,3 +85,10 @@ wvIf9ZNVmYLpqsqOjBPBlIqEz5hgkMr0uPoPqeOOMcrnDHpysbed71BwjJ4wCtbc1M8eY/DFOEbOtOLJ
 [azure storage REST API]: https://msdn.microsoft.com/en-us/library/azure/dd135733.aspx
 [sas1]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/
 [sas2]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-2/
+[azure cdn]: http://azure.microsoft.com/en-us/documentation/articles/cdn-how-to-use/
+[azure cdn for blob storage]: http://azure.microsoft.com/en-us/documentation/articles/cdn-how-to-use/#Step2
+[azure media services blog]: http://azure.microsoft.com/blog/topics/media-services/
+[using wams origin with g2o]: https://msdn.microsoft.com/en-us/library/dn735905.aspx#sec2
+[using azure cdn with cloud service]: http://azure.microsoft.com/en-us/documentation/articles/cdn-cloud-service-with-cdn/
+[nginx module g2o]: https://github.com/refractalize/nginx_mod_akamai_g2o
+[akamai community nginx]: https://community.akamai.com/people/B-3-181J6KL/blog/2015/02/17/ghost-to-iis-origin-module

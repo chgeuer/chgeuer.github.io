@@ -13,7 +13,7 @@ published: true
 
 This article explains how to securely, and with little effort, expose files in Azure Blob Storage towards the Akamai content delivery network. A proxy app (based on ASP.NET Web API), running in an Azure Cloud Service, checks G2O authentication headers, and then either redirects the CDN to the storage service directly, or fetches the data from the back. 
 
-The end-to-end solution is avaiable here: https://github.com/chgeuer/G2O2AzureBlobStorage
+The end-to-end solution is available here: https://github.com/chgeuer/G2O2AzureBlobStorage
 
 ## Introduction
 

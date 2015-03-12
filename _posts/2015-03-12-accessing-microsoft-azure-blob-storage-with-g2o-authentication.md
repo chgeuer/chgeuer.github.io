@@ -25,11 +25,34 @@ Microsoft Azure Blob Storage is an object store, where you can create one or mor
 A container can be publicly accessible (so that an unauthenticated `GET` requests are permitted) or the container can be locked down to be private (which is by default), so that only authenticated requests are permitted. Authentication comes in two flavors: 
 
 1. You can use one of the two `storage account keys`, and use the [Azure REST API][azure storage REST API] or one of the SDKs to access the private contents. Essentially, the requestor needs to supply one of the master keys as part of the request. The `storage account keys` are obviously confidential, and should not leace your application. 
-2. 'Shared Access Signatures': In situations where you want to give external requestors access to a blob in a private container, you can create a so-called 'shared access signature' (SAS), which can be appended to the URL of the blob (or other resource, and which implicitly authorizes the request. 
+2. 'Shared Access Signatures': In situations where you want to give external requestors access to a blob in a private container, you can create a so-called 'shared access signature' (SAS), which can be appended to the URL of the blob (or other resource, and which implicitly authorizes the request. In addition, an SAS can be an ad-hoc signature, or it can be associated with a policy. Simply speaking, you cannot easily revoke an ad-hoc signature, but you have to change the storage account key. An SAS which corresponds to a policy can be revoked by deleting the policy. 
 
-Below you can see the two storage account keys associated with `cdndatastore01`. 
+Below you can see the two storage account keys associated with 'cdndatastore01'. 
 
 <img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-keys.png"></img>
+
+Let's say we have two containers called 'public' and 'private1' (being, well, publicly accessible and privately locked down), and various blobs in these storage accounts: 
+
+- The 'public' container in storage account 'cdndatastore01' contains a file 'data/somePublicImage.jpg'
+- The 'private1' container contains a file 'someLockedDownImage.jpg'
+
+When we look at the URL of a blob, it consists of the following parts: 
+
+- Protocol: You can access Azure Blob Storage both through 'http' and 'https'
+- Hostname: Each storage account has a unique hostname (`http(s)://cdndatastore01.blob.core.windows.net` in our case)
+- Container: The Container name comes after the hostname https://cdndatastore01.blob.core.windows.net/public/
+- Blob name: You can model a directory hierarcy inside a container by putting a `/` character into a blob name, and the tools support the illusion of folders. 
+
+When I use a tool such as CloudXPlorer to look at my files, I see this: 
+
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-cloudxplorer.png"></img>
+
+https://cdndatastore01.blob.core.windows.net/public/somePublicImage.jpg
+
+
+
+
+
 
 <!--
 cdndatastore01

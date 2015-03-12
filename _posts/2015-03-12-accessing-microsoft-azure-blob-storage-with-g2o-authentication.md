@@ -182,6 +182,7 @@ The solution comes in two flavors, PaaS and IaaS. The proper way to run this is 
 
 Below you can see the snippet how we need to configure the solution. You need to set the `g2o_nonces` and the `g2o_storage` strings (either in the cloud service's `cdcfg` file, or in the `<appSettings>` of the `app.config`): 
 
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceConfiguration serviceName="G2OCloudService" ...>
@@ -190,7 +191,8 @@ Below you can see the snippet how we need to configure the solution. You need to
     <ConfigurationSettings>
       <Setting name="g2o_nonces" value="
       	{
-      		'123456':'0123456789abcdef01234567'
+      		'193565':'07bf84629be85d68a3ef343d',
+      		'123456':'0123456789abcdef01234567',
       	}" />
       <Setting name="g2o_storage" value="[
          {
@@ -213,10 +215,105 @@ Below you can see the snippet how we need to configure the solution. You need to
 </ServiceConfiguration>
 ```
 
+### `g2o_nonces`
 
+In the same way how Azure Storage supports multiple keys (we call these 'primary' and 'secondary'), G2O authentication also foresees multiple 'nonces': 
 
+```json
+{
+	'193565':'07bf84629be85d68a3ef343d',
+	'123456':'0123456789abcdef01234567',
+}
+```
 
+Having multiple symmetric keys valid at the same time enables you to do some poor-man's key management, where you roll over between different keys. The `g2o_nonces` string is a JSON object, which just maps nonce values (key IDs) to the keymaterial, which is in this semi-hexadecimal form. 
 
+### `g2o_storage`
+
+The `g2o_storage` JSON string is an array of JSON objects:
+
+```json
+[ 
+	{
+		'Alias':'localdevstorage',
+		'ConnectionString':'UseDevelopmentStorage=true',
+		'Containers':['public','private','images']
+	},
+	{
+		'Alias':'cdndatastore01',
+		'ConnectionString':'DefaultEndpointsProtocol=https;AccountName=cdndatastore01;AccountKey=...',
+		'Containers': [ 'public', 'private1' ]
+	},
+	{
+		'Alias':'cdndatastore02',
+		'ConnectionString':'DefaultEndpointsProtocol=https;AccountName=cdndatastore02;AccountKey=...',
+		'Containers': [ ]
+	}
+]
+```
+
+Each object has three properties: 
+
+- The `Alias` property allows you to map the first segment from the URL to a storage account. 
+- The `ConnectionString` property contains an Azure storage connection string 
+- The `Containers` property is a `string[]` array, listing all containers which you're willing to expose. Whether a container is public or private doesn't matter, given that we generate SAS URLs anyway. If you have a public container, but it isn't listed under the `Containers` property, it is not accessible via CDN. 
+
+## The ASP.NET WebAPI CDN Controller
+
+### 302 Redirect
+
+The [CdnController][CdnController] implementation is actually quite straightforward. The ```[Authorize]``` makes sure we enforce G2O authN. We crack the URL into different segments (alias to determin storage account, container, and the blob path), check that the storage account and container are listed in config, and then issue the SAS URL. 
+
+The `enforceProtocolEquality` stuff is related to the way how 'redirect chasing' decides whether it follows redirects. When running on the local development fabric, we must keep the TCP ports where they were, instead of using default ports.  
+
+```csharp
+[Authorize]
+public class CdnController : ApiController
+{
+	private IHttpActionResult GetRedirect(string segments)
+	{
+	    string[] pathSegments = segments.Split(new[] { "/" }, StringSplitOptions.None);
+
+	    string alias = pathSegments[0];
+	    string containerName = pathSegments[1];
+	    string path = string.Join("/", pathSegments.Skip(2));
+
+	    // var userId = this.User.Identity.Name; // always Akamai
+
+	    // var nonce = ((ClaimsIdentity)this.User.Identity).Claims.First(
+	    //    claim => claim.Type == G2OClaimTypes.Nonce);
+	    
+	    var storage = this.G2OConfiguration.Storage.FirstOrDefault(_ => _.Alias == alias);
+	    if (storage == null) { return NotFound(); }
+	    if (!storage.Containers.Any(_ => _ == containerName)) { return NotFound(); }
+
+	    var blobClient = storage.CloudStorageAccount.CreateCloudBlobClient();
+	    var container = blobClient.GetContainerReference(containerName);
+
+	    // var sasAdHocUri = ContainerUtils.GetSASAdHoc(container, path, validity: TimeSpan.FromMinutes(55));
+	    var sasPolicyUri = ContainerUtils.GetSASUsingPolicy(container, path, validity: TimeSpan.FromDays(31));
+
+	    bool enforceProtocolEquality = storage.CloudStorageAccount != CloudStorageAccount.DevelopmentStorageAccount;
+	    var redirectUri = enforceProtocolEquality
+	         // redirect scheme must be equal to inbound protocol
+	         ? new UriBuilder(sasPolicyUri) { Scheme = this.Request.RequestUri.Scheme, Port = -1 }.Uri 
+	         : sasPolicyUri;
+
+	    return Redirect(redirectUri);
+	}
+```
+
+### 200 OK
+
+The [CdnController][CdnController] implementation also contains an unused one which directly reaches into blob storage, and retrieves the actual contents from there, instead of redirecting the edge node to blob storage. 
+
+# Summary
+
+When you want to use Akamai CDN for streaming videos, you should definetely consider an [Azure Media Services Origin service][using wams origin with g2o], given the bandwidth SLAs of that service. In scenarios where you want to expose other assets directly from blob storage to the Akamai CDN, I hope this litte article helps you. 
+
+In case you bump into issues, feel free to reach out on [twitter/chgeuer](http://twitter.com/chgeuer/) or on [github](https://github.com/chgeuer/G2O2AzureBlobStorage), or leave a comment below. 
+
+Happy coding, have fun, Christian
 
 
 
@@ -241,3 +338,4 @@ Below you can see the snippet how we need to configure the solution. You need to
 [WhatIsMyIP/ExternalIPFetcher per source]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OSampleClient/Include_T4Include.tt
 [G2OWorkerRole]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OWorkerRole/WorkerRole.cs
 [G2OSelfHost]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OSelfHost/Program.cs
+[CdnController]: https://raw.githubusercontent.com/chgeuer/G2O2AzureBlobStorage/master/G2OAzureStorage/CdnController.cs

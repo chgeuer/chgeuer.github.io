@@ -174,7 +174,44 @@ One aspect hidden in the above code is this `ExternalIPFetcher` fluff: I often w
 
 For those who care what I do there, I simply fire off 10+ http requests to various whatismyip/checkip/letmeknowmyip/idontgiveashit services on the Internet, and whoever returns first is my authoritative answer, no voting or double checks. Sounds pretty secure, hm?
 
+## Hosting the proxy
 
+The solution comes in two flavors, PaaS and IaaS. The proper way to run this is to deploy an Azure Cloud Service with the [G2OWorkerRole][G2OWorkerRole] and have peace of mind, multi-instance across fault domains, and update domains, etc. For the old dogs (whom I can't teach PaaS tricks) or for developers who simply want a console.exe to step through, there's the [G2OSelfHost][G2OSelfHost] option. 
+
+## Configuring the whole thing
+
+Below you can see the snippet how we need to configure the solution. You need to set the `g2o_nonces` and the `g2o_storage` strings (either in the cloud service's `cdcfg` file, or in the `<appSettings>` of the `app.config`): 
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="G2OCloudService" ...>
+  <Role name="G2OWorkerRole">
+    <Instances count="2" />
+    <ConfigurationSettings>
+      <Setting name="g2o_nonces" value="
+      	{
+      		'123456':'0123456789abcdef01234567'
+      	}" />
+      <Setting name="g2o_storage" value="[
+         {
+         	'Alias':'localdevstorage',
+         	'ConnectionString':'UseDevelopmentStorage=true',
+         	'Containers':['public','private','images']
+         },
+         {
+         	'Alias':'cdndatastore01',
+         	'ConnectionString':'DefaultEndpointsProtocol=https;AccountName=cdndatastore01;AccountKey=...',
+         	'Containers': [ 'public', 'private1' ]
+         },
+         {
+         	'Alias':'cdndatastore02',
+         	'ConnectionString':'DefaultEndpointsProtocol=https;AccountName=cdndatastore02;AccountKey=...',
+         	'Containers': [ ]}
+       ]" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
+```
 
 
 
@@ -202,3 +239,5 @@ For those who care what I do there, I simply fire off 10+ http requests to vario
 [G2OHttpClientHandler.cs]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OHandlers/G2OHttpClientHandler.cs
 [WhatIsMyIP/ExternalIPFetcher]: https://github.com/chgeuer/WhatIsMyIP/blob/master/WhatIsMyIP/ExternalIPFetcher.cs
 [WhatIsMyIP/ExternalIPFetcher per source]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OSampleClient/Include_T4Include.tt
+[G2OWorkerRole]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OWorkerRole/WorkerRole.cs
+[G2OSelfHost]: https://github.com/chgeuer/G2O2AzureBlobStorage/blob/master/G2OSelfHost/Program.cs

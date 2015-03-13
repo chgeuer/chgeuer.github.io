@@ -125,6 +125,9 @@ Simply speaking, we deploy an SAS generator proxy app. Then in Akamai, we config
 	- The scheme of the 302 Response (with or without TLS) must be equal to the origin requests scheme, otherwise the AkamaiGHost sends you a fancy "404 An error occurred while processing your request".
 	- Now the CDN edge node uses the 302 address to retrieve the actual contents from CDN. This request is now validated by Azure Blob Storage using the shared-access-signature magic.
 
+### Akamai Configuration
+
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/akamai-config.png"></img>
 
 # Implementation details
 

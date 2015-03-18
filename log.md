@@ -14,3 +14,5 @@ title: "My little tech journal"
 - [Microsoft Azure Event Hubs](http://robtiffany.com/azure-iot-services-event-hubs/) 
 - Upload Azure blobs from AngularJS-based Web Apps: http://ngmodules.org/modules/angular-azure-blob-upload and https://code.msdn.microsoft.com/AngularJS-with-Web-API-c05b3511
 - [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/)
+- [Decrypting TLS Browser Traffic With Wireshark – The Easy Way!](https://jimshaver.net/?p=406): Define environment variable `SSLKEYLOGFILE` so that Chrome writes that file, and configure Wireshark (Preferences -> Protocols -> SSL -> (Pre)-Master-Secret log filename) to use that file. 
+ 

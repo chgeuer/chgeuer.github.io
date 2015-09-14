@@ -22,7 +22,7 @@ encoding: UTF-8
 markdown_ext:  md,markdown
 set :markdown, fenced_code_blocks: true
 markdown:    kramdown
-highlighter: rouge
+highlighter: pygments
 lsi:         false
 excerpt_separator: "\n\n"
 

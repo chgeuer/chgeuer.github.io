@@ -5,20 +5,6 @@ date: 2010-08-30 01:00:00
 keywords: perl, azure, paas
 ---
 
-
-<!--
-~~~ruby
-puts "Hello world from ruby"
-~~~
-
-{% highlight c# linenos %}
-string perlfolder = RoleEnvironment.GetLocalResource("PerlDir").RootPath; 
-{% endhighlight %}
--->
-
-
-
-
 In this article, I describe how to run a Perl script in a Windows Azure worker instance. One of our partners in our e-Science research project VENUS-C heavily relies on Perl for scientific computations, so I was curious to see through how many hoops I would have to jump to get this going. I did not need any advanced Kung-Fu, it just worked out of the box. Problem solved. 
 
 #The quick facts

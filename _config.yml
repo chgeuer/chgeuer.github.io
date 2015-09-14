@@ -18,12 +18,17 @@ twitterwidgetid: 310063674322731008
 bootswatchtheme: "yeti"
 
 safe: true
-lsi: false
 encoding: UTF-8
-markdown: redcarpet
 markdown_ext:  md,markdown
-pygments: true
 set :markdown, fenced_code_blocks: true
+markdown:    kramdown
+highlighter: rouge
+lsi:         false
+excerpt_separator: "\n\n"
+
+
+
+
 
 # Pagination
 paginate: 2
@@ -32,3 +37,27 @@ blogurl:       "/blog"
 blogpageprefix: "/blog/page"
 paginate_path: "/blog/page:num"
 permalink:     "/blog/:year/:month/:day/:title/"
+
+
+
+# Markdown Processors
+rdiscount:
+  extensions: []
+
+redcarpet:
+  extensions: []
+
+kramdown:
+  auto_ids:       true
+  footnote_nr:    1
+  entity_output:  as_char
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+  coderay:
+    coderay_wrap:              div
+    coderay_line_numbers:      inline
+    coderay_line_number_start: 1
+    coderay_tab_width:         4
+    coderay_bold_every:        10
+    coderay_css:               style

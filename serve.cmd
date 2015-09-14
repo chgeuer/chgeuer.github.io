@@ -1,4 +1,7 @@
 @echo off
-REM call jekyll build
 chcp 65001
-call jekyll serve --watch --trace
+
+
+REM call jekyll build
+REM call jekyll serve --watch --trace
+call C:\Ruby22\bin\bundle.bat exec jekyll serve --watch

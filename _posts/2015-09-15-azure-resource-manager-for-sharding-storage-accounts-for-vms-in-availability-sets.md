@@ -86,9 +86,9 @@ The `variables` section contains the instance count for the frontend nodes (the 
 
 The interesting part of the JSON template is in the virtual machine description. The `copy.count` value retrieves the instance count from the `variables`section: `[variables('instanceCount').frontend]`, which means that the template is expanded 7 times. The concrete value of the iteration is returned by the `copyIndex()` function, which returns 0, 1, 2, 3, 4, 5 and 6 respectively. 
 
-The `properties.storageProfile.osDisk.vhd.uri` now has a fancy value, indented for better redability  
+The `properties.storageProfile.osDisk.vhd.uri` now has a fancy value, indented for better redability:
 
-```
+```text
 "[
 concat(
     'http://', 
@@ -110,7 +110,7 @@ concat(
 
 So the virtual machine description looks like this: 
 
-``` json
+```json
 {
     "resources": [
         {

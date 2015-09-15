@@ -50,7 +50,7 @@ If you want have a look yourself, check the [LinuxVirtualMachine.json](https://r
 
 In that JSON template file, the three parameters are `adminUsername`, `adminPassword` are self-explanatory. The `deploymentName` parameter will be used as prefix for all sorts of naming, such as being a prefix for the (globally unique) storage account name. 
 
-```JSON
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -65,7 +65,7 @@ In that JSON template file, the three parameters are `adminUsername`, `adminPass
 
 The `variables` section contains the instance count for the frontend nodes (the VMs), and a small `math modulo2` helper array, which we'll see in action later. 
 
-```JSON
+```json
 {
   ..., 
   "variables": {

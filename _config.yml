@@ -21,7 +21,7 @@ safe: true
 encoding: UTF-8
 markdown_ext:  md,markdown
 set :markdown, fenced_code_blocks: true
-markdown:    markdown
+markdown:    kramdown
 highlighter: pygments
 lsi:         false
 excerpt_separator: "\n\n"
@@ -48,6 +48,7 @@ redcarpet:
   extensions: []
 
 kramdown:
+  input: GFM
   auto_ids:       true
   footnote_nr:    1
   entity_output:  as_char
@@ -61,3 +62,6 @@ kramdown:
     coderay_tab_width:         4
     coderay_bold_every:        10
     coderay_css:               style
+
+
+

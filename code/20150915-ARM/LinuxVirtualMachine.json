@@ -25,8 +25,7 @@
         },
         "instanceCount": {
             "frontend": 7
-        },
-        "storageAccountShardingCount": 2
+        }
     },
     "resources": [
 
@@ -95,7 +94,7 @@
             },
             "dependsOn": [
                 "[concat('Microsoft.Compute/availabilitySets/', 'availabilityset-fe')]",
-                "[concat('Microsoft.Storage/storageAccounts/', concat(variables('storageAccountNames').frontend, mod(copyIndex(), variables('storageAccountShardingCount'))))]",
+                "[concat('Microsoft.Storage/storageAccounts/', concat(variables('storageAccountNames').frontend, mod(copyIndex(), 2)))]",
                 "[concat('Microsoft.Network/networkInterfaces/', concat('nic-fe-', copyIndex()))]"
             ],
             "properties": {
@@ -120,7 +119,7 @@
                     "osDisk": {
                         "name": "[concat('fe-', copyIndex(), '-osdisk')]",
                         "vhd": {
-                            "uri": "[concat('http://', concat(variables('storageAccountNames').frontend, mod(copyIndex(), variables('storageAccountShardingCount')), '.blob.core.windows.net/', 'vhds', '/',  concat('fe', '-', copyIndex()), '-osdisk.vhd') ]"
+                            "uri": "[concat('http://', concat(variables('storageAccountNames').frontend, mod(copyIndex(), 2), '.blob.core.windows.net/', 'vhds', '/',  concat('fe', '-', copyIndex()), '-osdisk.vhd') ]"
                         },
                         "caching": "ReadWrite",
                         "createOption": "FromImage"
@@ -136,7 +135,7 @@
             "properties": { "accountType": "Standard_LRS" },
             "copy": {
                 "name": "storageAccountCopy",
-                "count": "[variables('storageAccountShardingCount')]"
+                "count": 2
             },
             "name": "[concat(variables('storageAccountNames').frontend, copyIndex())]",
             "tags": { "displayName": "StorageAccounts FrontEnd" }

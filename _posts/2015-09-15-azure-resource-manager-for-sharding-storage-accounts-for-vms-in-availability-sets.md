@@ -17,4 +17,13 @@ published: true
 
 
 
+variables('math').modulo2[copyIndex()]), 
+
 mod(copyIndex(), variables('storageAccountShardingCount'))
+
+Error submitting the deployment request. Additional details from the underlying API that might be helpful: 
+Deployment template validation failed: 
+The template resource 'fe-0' at line '86' and column '10' is not valid
+Template language expression 'concat('http://', concat(variables('storageAccountNames').frontend, mod(copyIndex(), variables('storageAccountShardingCount')), '.blob.core.windows.net/', 'vhds', '/', concat('fe', '-', copyIndex()), '-osdisk.vhd') ' 
+
+is not supported..'.

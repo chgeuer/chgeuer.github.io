@@ -17,3 +17,4 @@ published: true
 
 
 
+mod(copyIndex(), variables('storageAccountShardingCount'))

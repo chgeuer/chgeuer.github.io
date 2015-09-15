@@ -11,19 +11,48 @@ published: true
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 -->
 
+## current
+
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fchgeuer%2Fchgeuer.github.io%2Fmaster%2Fcode%2F20150915-ARM%2FLinuxVirtualMachine.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 
 
-variables('math').modulo2[copyIndex()]), 
 
-mod(copyIndex(), variables('storageAccountShardingCount'))
+## What works
 
-Error submitting the deployment request. Additional details from the underlying API that might be helpful: 
-Deployment template validation failed: 
-The template resource 'fe-0' at line '86' and column '10' is not valid
-Template language expression 'concat('http://', concat(variables('storageAccountNames').frontend, mod(copyIndex(), variables('storageAccountShardingCount')), '.blob.core.windows.net/', 'vhds', '/', concat('fe', '-', copyIndex()), '-osdisk.vhd') ' 
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fchgeuer%2Fchgeuer.github.io%2Fb228e09b73c7fa52367365a60de88f05c83a7193%2Fcode%2F20150915-ARM%2FLinuxVirtualMachine.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
-is not supported..'.
+- https://raw.githubusercontent.com/chgeuer/chgeuer.github.io/b228e09b73c7fa52367365a60de88f05c83a7193/code/20150915-ARM/LinuxVirtualMachine.json
+
+
+``` json
+"variables": {
+   "math": {
+      "modulo2": [ "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1" ]
+   }
+}
+
+variables('math').modulo2[copyIndex()])
+```
+
+
+## What not works
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fchgeuer%2Fchgeuer.github.io%2F19fb41271ecdfeda03d6fb7c845b7c3b1459632b%2Fcode%2F20150915-ARM%2FLinuxVirtualMachine.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
+
+- https://github.com/chgeuer/chgeuer.github.io/blob/19fb41271ecdfeda03d6fb7c845b7c3b1459632b/code/20150915-ARM/LinuxVirtualMachine.json#L123
+
+Error submitting the deployment request. Additional details from the underlying API that might be helpful: Deployment template validation failed: The template resource '...' at line '..' and column '..' is not valid. Template language expression ... is not supported..'
+
+```
+    mod(copyIndex(), 2)
+    string(mod(int(copyIndex()), 2))
+    mod(copyIndex(), variables('storageAccountShardingCount'))
+    string(mod(int(copyIndex()), variables('storageAccountShardingCount')))
+```

@@ -21,7 +21,7 @@ safe: true
 encoding: UTF-8
 markdown_ext:  md,markdown
 set :markdown, fenced_code_blocks: true
-markdown:    kramdown
+markdown:    markdown
 highlighter: pygments
 lsi:         false
 excerpt_separator: "\n\n"

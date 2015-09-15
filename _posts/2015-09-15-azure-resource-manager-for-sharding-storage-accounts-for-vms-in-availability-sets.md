@@ -39,7 +39,7 @@ In addition to the availability issue of a single storage account, we also shoul
 
 # The solution
 
-## Demo time
+# Demo time
 
 If you want have a look yourself, check the [LinuxVirtualMachine.json](https://raw.githubusercontent.com/chgeuer/chgeuer.github.io/b228e09b73c7fa52367365a60de88f05c83a7193/code/20150915-ARM/LinuxVirtualMachine.json) file, which contains an ARM template, or deploy it into your Azure subscription by clicking below button. It will prompt you for an admin username and password, and a prefix string for naming the resources, and than launch 7 Standard_A0 instances (extra small, just for the sake of the argument): 
 
@@ -48,28 +48,108 @@ If you want have a look yourself, check the [LinuxVirtualMachine.json](https://r
 </a>
 
 
+In that JSON template file, the three parameters are `adminUsername`, `adminPassword` are self-explanatory. The `deploymentName` parameter will be used as prefix for all sorts of naming, such as being a prefix for the (globally unique) storage account name. 
 
+```JSON
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": { "type": "string", "defaultValue": "chgeuer" },
+        "adminPassword": { "type": "securestring" },
+        "deploymentName": { "type": "string", "defaultValue": "demo123", "metadata": { "description": "Prefix for all names like storage accounts, etc." } }
+    },
+    ...
+}   
+```
 
+The `variables` section contains the instance count for the frontend nodes (the VMs), and a small `math modulo2` helper array, which we'll see in action later. 
 
+```JSON
+{
+  ..., 
+  "variables": {
+        "vnetname": "[concat(parameters('deploymentName'),'-vnet')]",
+        "storageAccountNamePrefix": "[toLower(replace(parameters('deploymentName'),'-',''))]",
+        "storageAccountNames": {
+            "frontend": "[concat(variables('storageAccountNamePrefix'), 'fe')]"
+        },
+        "instanceCount": {
+            "frontend": 7
+        },
+        "math": {
+            "modulo2": [ "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", ... ]
+        }
+    }
+}   
+```
 
-## What works
+The interesting part of the JSON template is in the virtual machine description. The `copy.count` value retrieves the instance count from the `variables`section: `[variables('instanceCount').frontend]`, which means that the template is expanded 7 times. The concrete value of the iteration is returned by the `copyIndex()` function, which returns 0, 1, 2, 3, 4, 5 and 6 respectively. 
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fchgeuer%2Fchgeuer.github.io%2Fb228e09b73c7fa52367365a60de88f05c83a7193%2Fcode%2F20150915-ARM%2FLinuxVirtualMachine.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
+The `properties.storageProfile.osDisk.vhd.uri` now has a fancy value, indented for better redability  
 
-- 
+```
+"[
+concat(
+    'http://', 
+    concat(
+        variables('storageAccountNames').frontend, 
+        variables('math').modulo2[ copyIndex() ]           <-- Here we use copyIndex() as
+    ),                                                         indexer into our math helper
+    '.blob.core.windows.net/', 
+    'vhds', 
+    '/',  
+    concat(
+        'fe', 
+        '-', 
+        copyIndex()), 
+        '-osdisk.vhd'
+    ) 
+]"
+```
 
+So the virtual machine description looks like this: 
 
 ``` json
-"variables": {
-   "math": {
-      "modulo2": [ "0", "1", "0", "1", "0", "1", "0", "1", ... ]
-   }
+{
+    "resources": [
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[concat('fe', '-', copyIndex())]",
+            "copy": {
+                "name": "frontendNodeVMCopy",
+                "count": "[variables('instanceCount').frontend]"
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Storage/storageAccounts/', concat(variables('storageAccountNames').frontend, variables('math').modulo2[copyIndex()]))]",
+            ],
+            "properties": {
+                "hardwareProfile": { "vmSize": "Standard_A0" },
+                "networkProfile": ...,
+                "availabilitySet": ...,
+                "osProfile": { 
+                    "computerName": "[concat('fe-', copyIndex())]",
+                    ...
+                },
+                "storageProfile": {
+                    "imageReference": ...,
+                    "osDisk": {
+                        "name": "[concat('fe-', copyIndex(), '-osdisk')]",
+                        "vhd": {
+                            "uri": "[concat('http://', concat(variables('storageAccountNames').frontend, variables('math').modulo2[copyIndex()]), '.blob.core.windows.net/', 'vhds', '/',  concat('fe', '-', copyIndex()), '-osdisk.vhd') ]"
+                        },
+                        "caching": "ReadWrite", "createOption": "FromImage"
+                    }
+                }
+            }
+        },
+        ...
+    ]        
 }
+```
+
 
     variables('math').modulo2[copyIndex()])
-```
 
 
 ## What not works

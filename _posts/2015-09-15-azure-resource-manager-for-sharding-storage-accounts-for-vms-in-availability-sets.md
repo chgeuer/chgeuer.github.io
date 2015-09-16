@@ -89,26 +89,37 @@ The interesting part of the JSON template is in the virtual machine description.
 The `properties.storageProfile.osDisk.vhd.uri` now has a fancy value, indented for better redability:
 
 ```text
-"[
-concat(
+[concat(
     'http://', 
-    concat(
-        variables('storageAccountNames').frontend, 
-        variables('math').modulo2[ copyIndex() ]           <-- Here we use copyIndex() as
-    ),                                                         indexer into our math helper
-    '.blob.core.windows.net/', 
-    'vhds', 
-    '/',  
-    concat(
-        'fe', 
-        '-', 
-        copyIndex()), 
-        '-osdisk.vhd'
-    ) 
-]"
+    variables('storageAccountNames').frontend, 
+    variables('math').modulo2[copyIndex()],        <-- Here we use copyIndex() as
+    '.blob.core.windows.net/vhds/fe-',                 indexer into our math helper
+    copyIndex(), 
+    '-osdisk.vhd'
+    )]"
 ```
 
-So the virtual machine description looks like this: 
+As an example, consider the following values: 
+
+```text
+deploymentName = "test123"
+variables('storageAccountNames').frontend == "test123fe"
+```
+
+and the seven disks are 
+
+```
+https://test123fe0.blob.core.windows.net/vhds/fe-0-osdisk.vhd
+https://test123fe0.blob.core.windows.net/vhds/fe-2-osdisk.vhd
+https://test123fe0.blob.core.windows.net/vhds/fe-4-osdisk.vhd
+https://test123fe0.blob.core.windows.net/vhds/fe-6-osdisk.vhd
+
+https://test123fe1.blob.core.windows.net/vhds/fe-1-osdisk.vhd
+https://test123fe1.blob.core.windows.net/vhds/fe-3-osdisk.vhd
+https://test123fe1.blob.core.windows.net/vhds/fe-5-osdisk.vhd
+```
+
+So in the end, all disks of VMs with an even number end up in storage account `test123fe0`, all odd OS disks end up in `test123fe1`. The virtual machine description looks like this: 
 
 ```json
 {
@@ -136,7 +147,12 @@ So the virtual machine description looks like this:
                     "osDisk": {
                         "name": "[concat('fe-', copyIndex(), '-osdisk')]",
                         "vhd": {
-                            "uri": "[concat('http://', concat(variables('storageAccountNames').frontend, variables('math').modulo2[copyIndex()]), '.blob.core.windows.net/', 'vhds', '/',  concat('fe', '-', copyIndex()), '-osdisk.vhd') ]"
+                            "uri": "[concat('http://', 
+                                variables('storageAccountNames').frontend, 
+                                variables('math').modulo2[copyIndex()], 
+                                '.blob.core.windows.net/vhds/fe-', 
+                                copyIndex(), 
+                                '-osdisk.vhd') ]"
                         },
                         "caching": "ReadWrite", "createOption": "FromImage"
                     }

@@ -55,15 +55,15 @@ In that JSON template file, the three parameters are `adminUsername`, `adminPass
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "adminUsername": { "type": "string", "defaultValue": "chgeuer" },
-        "adminPassword": { "type": "securestring" },
-        "deploymentName": { "type": "string", "defaultValue": "demo123", "metadata": { "description": "Prefix for all names like storage accounts, etc." } }
+        "adminUsername": { "type": "string", ... },
+        "adminPassword": { "type": "securestring", ... },
+        "deploymentName": { "type": "string", ...}
     },
     ...
 }   
 ```
 
-The `variables` section contains the instance count for the frontend nodes (the VMs), and a small `math modulo2` helper array, which we'll see in action later. 
+The `variables` section contains values derived from the `deploymentName` parameter, and some constants, such as the instance count for the frontend nodes (the VMs). Noteworthy here is the `math.modulo2` helper array, which we'll see in action later. (Azure Resource Manager )
 
 ```json
 {
@@ -152,30 +152,32 @@ So the virtual machine description looks like this:
     variables('math').modulo2[copyIndex()])
 
 
-## What not works
+## What doesn't work
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fchgeuer%2Fchgeuer.github.io%2F19fb41271ecdfeda03d6fb7c845b7c3b1459632b%2Fcode%2F20150915-ARM%2FLinuxVirtualMachine.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
+Azure Resource Manager contains a bunch of [functions][ARM Functions], such as the `concat()` function for concatenating strings. 
+Since [August 2015](https://github.com/Azure/azure-content/commit/9a9420016b097e77a4bf5e96ee69c75760cd1e92), it also contains a `mod()`function for computing the modulus, but I haven't been able to get that to work. I tried various combinations, such as 
 
-- https://github.com/chgeuer/chgeuer.github.io/blob/19fb41271ecdfeda03d6fb7c845b7c3b1459632b/code/20150915-ARM/LinuxVirtualMachine.json#L123
+- `mod(copyIndex(), 2)`
+- `string(mod(int(copyIndex()), 2))`
+- `mod(copyIndex(), variables('storageAccountShardingCount'))`
+- `string(mod(int(copyIndex()), variables('storageAccountShardingCount')))`
 
-Error submitting the deployment request. Additional details from the underlying API that might be helpful: Deployment template validation failed: The template resource '...' at line '..' and column '..' is not valid. Template language expression ... is not supported..'
+but none of those worked. Therefore, I decided to stick with my own approach for the time being
 
-- https://github.com/Azure/azure-content/blob/master/articles/resource-group-template-functions.md
+- Having the math helper `"variables": { "math": { "modulo2": [ "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", ... ] } }`
+- and then using that array to 'compute' the %2: `[variables('math').modulo2[copyIndex()]]`
+
+Nevertheless, my preferred approach would be to have a `storageAccountShardingCount` variable which contains the number of storage accounts to spread the load over, and then use `mod(copyIndex(), variables('storageAccountShardingCount'))` to compute the respective storage account, like in this [sample](https://github.com/chgeuer/chgeuer.github.io/blob/19fb41271ecdfeda03d6fb7c845b7c3b1459632b/code/20150915-ARM/LinuxVirtualMachine.json#L123). Unfortunately, this currently gives me 
 
 ```
-    mod(copyIndex(), 2)
-    string(mod(int(copyIndex()), 2))
-    mod(copyIndex(), variables('storageAccountShardingCount'))
-    string(mod(int(copyIndex()), variables('storageAccountShardingCount')))
-```
-
-
-
-
+Error submitting the deployment request. 
+Additional details from the underlying API that might be helpful: 
+Deployment template validation failed: 
+The template resource '...' at line '..' and column '..' is not valid. 
+Template language expression "mod(copyIndex(), variables('storageAccountShardingCount'))"" is not supported..'
 
 [ARM Intro]: https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
 [storage sla]: http://azure.microsoft.com/en-us/support/legal/sla/storage/v1_0/
 [vm sla]: http://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
 [Azure Storage Scalability and Performance Targets]: https://azure.microsoft.com/en-us/documentation/articles/storage-scalability-targets/
+[ARM Functions]: https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-functions/

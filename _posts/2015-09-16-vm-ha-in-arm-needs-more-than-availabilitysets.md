@@ -18,6 +18,8 @@ published: true
 - From a fault tolerance and performance perspective, putting all frontend VM VHD files into a single storage account is a bad idea. 
 - This article describes how you can declaratively distribute the OS disks across multiple storage accounts. 
 
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/overview.png"></img>
+
 # Intro
 
 [Azure Resource Manager][ARM Intro] is Microsoft Azure's new declarative mechanism for deploying resources, so instead of writing a complex imperative script and firing a large amount of management operations against the Azure Service Management REST API, you describe the overall deployment in a JSON file,  
@@ -190,30 +192,29 @@ If you want have a look yourself, check the [LinuxVirtualMachine.json](https://r
 </a>
 
 
-After clicking the button, you're signed into the Azure portal, and you can provide your own parameter values:
+### After clicking the button, you're signed into the Azure portal, and you can provide your own parameter values:
 
 <img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/parameters.png"></img>
 
-If you choose so, you can review my template and make modifications: 
+### If you choose so, you can review my template and make modifications: 
 
 <img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/review-template.png"></img>
 
-Choose some new resource group, as you'll want to delete all the demo content later in a single shot. 
+### Choose some new resource group, as you'll want to delete all the demo content later in a single shot. 
 
 <img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/choose-resource-group.png"></img>
 
-For some reasons, you need to acknowledge the "buy" operation
+### For some reasons, you need to acknowledge the "buy" operation
 
 <img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/buy.png"></img>
 
-After resource creation, you can drill into your resource group, and see the 7 VMs, two storage accounts, and all the other things: 
+### After resource creation, you can drill into your resource group, and see the 7 VMs, two storage accounts, and all the other things: 
 
 <img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/resource-group.png"></img>
 
-When you drill into one storage account, the blob service, and the `vhds` container, you can see the OS disks. 
+### When you drill into one storage account, the blob service, and the `vhds` container, you can see the OS disks. 
 
 <img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/blobs.png"></img>
-
 
 
 

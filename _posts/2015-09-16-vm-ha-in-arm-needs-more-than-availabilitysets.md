@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Sharding of Storage Accounts for High Availability in Azure Resource Manager"
+title: "VM High Availability in Azure Resource Manager needs more than Availability Sets"
 date: 2015-09-15
 keywords: azure, "azure resource manager", storage
 published: true

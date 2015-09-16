@@ -175,6 +175,7 @@ Additional details from the underlying API that might be helpful:
 Deployment template validation failed: 
 The template resource '...' at line '..' and column '..' is not valid. 
 Template language expression "mod(copyIndex(), variables('storageAccountShardingCount'))"" is not supported..'
+```
 
 [ARM Intro]: https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
 [storage sla]: http://azure.microsoft.com/en-us/support/legal/sla/storage/v1_0/

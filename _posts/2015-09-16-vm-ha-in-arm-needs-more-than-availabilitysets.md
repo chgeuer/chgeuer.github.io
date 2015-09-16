@@ -18,7 +18,7 @@ published: true
 - From a fault tolerance and performance perspective, putting all frontend VM VHD files into a single storage account is a bad idea. 
 - This article describes how you can declaratively distribute the OS disks across multiple storage accounts. 
 
-<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/overview.png"></img>
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/overview.png">
 
 # Intro
 
@@ -194,27 +194,27 @@ If you want have a look yourself, check the [LinuxVirtualMachine.json](https://r
 
 ### After clicking the button, you're signed into the Azure portal, and you can provide your own parameter values:
 
-<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/parameters.png"></img>
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/parameters.png">
 
 ### If you choose so, you can review my template and make modifications: 
 
-<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/review-template.png"></img>
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/review-template.png">
 
 ### Choose some new resource group, as you'll want to delete all the demo content later in a single shot. 
 
-<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/choose-resource-group.png"></img>
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/choose-resource-group.png">
 
 ### For some reasons, you need to acknowledge the "buy" operation
 
-<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/buy.png"></img>
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/buy.png">
 
 ### After resource creation, you can drill into your resource group, and see the 7 VMs, two storage accounts, and all the other things: 
 
-<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/resource-group.png"></img>
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/resource-group.png">
 
 ### When you drill into one storage account, the blob service, and the `vhds` container, you can see the OS disks. 
 
-<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/blobs.png"></img>
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/blobs.png">
 
 
 

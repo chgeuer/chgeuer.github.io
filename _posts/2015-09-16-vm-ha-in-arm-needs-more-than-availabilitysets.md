@@ -40,14 +40,6 @@ In addition to the availability issue of a single storage account, we also shoul
 # The solution
 
 # Demo time
-
-If you want have a look yourself, check the [LinuxVirtualMachine.json](https://raw.githubusercontent.com/chgeuer/chgeuer.github.io/b228e09b73c7fa52367365a60de88f05c83a7193/code/20150915-ARM/LinuxVirtualMachine.json) file, which contains an ARM template, or deploy it into your Azure subscription by clicking below button. It will prompt you for an admin username and password, and a prefix string for naming the resources, and than launch 7 Standard_A0 instances (extra small, just for the sake of the argument): 
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fchgeuer%2Fchgeuer.github.io%2Fmaster%2Fcode%2F20150915-ARM%2FLinuxVirtualMachine.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
-
-
 In that JSON template file, the three parameters are `adminUsername`, `adminPassword` are self-explanatory. The `deploymentName` parameter will be used as prefix for all sorts of naming, such as being a prefix for the (globally unique) storage account name. 
 
 ```json
@@ -106,7 +98,7 @@ deploymentName = "test123"
 variables('storageAccountNames').frontend == "test123fe"
 ```
 
-and the seven disks are 
+The seven disks are 
 
 ```
 https://test123fe0.blob.core.windows.net/vhds/fe-0-osdisk.vhd
@@ -164,10 +156,6 @@ So in the end, all disks of VMs with an even number end up in storage account `t
 }
 ```
 
-
-    variables('math').modulo2[copyIndex()])
-
-
 ## What doesn't work
 
 Azure Resource Manager contains a bunch of [functions][ARM Functions], such as the `concat()` function for concatenating strings. 
@@ -192,6 +180,42 @@ Deployment template validation failed:
 The template resource '...' at line '..' and column '..' is not valid. 
 Template language expression "mod(copyIndex(), variables('storageAccountShardingCount'))"" is not supported..'
 ```
+
+# Demo time
+
+If you want have a look yourself, check the [LinuxVirtualMachine.json](https://raw.githubusercontent.com/chgeuer/chgeuer.github.io/b228e09b73c7fa52367365a60de88f05c83a7193/code/20150915-ARM/LinuxVirtualMachine.json) file, which contains an ARM template, or deploy it into your Azure subscription by clicking below button. It will prompt you for an admin username and password, and a prefix string for naming the resources, and than launch 7 Standard_A0 instances (extra small, just for the sake of the argument): 
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fchgeuer%2Fchgeuer.github.io%2Fmaster%2Fcode%2F20150915-ARM%2FLinuxVirtualMachine.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
+
+
+After clicking the button, you're signed into the Azure portal, and you can provide your own parameter values:
+
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/parameters.png"></img>
+
+If you choose so, you can review my template and make modifications: 
+
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/review-template.png"></img>
+
+Choose some new resource group, as you'll want to delete all the demo content later in a single shot. 
+
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/choose-resource-group.png"></img>
+
+For some reasons, you need to acknowledge the "buy" operation
+
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/buy.png"></img>
+
+After resource creation, you can drill into your resource group, and see the 7 VMs, two storage accounts, and all the other things: 
+
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/resource-group.png"></img>
+
+When you drill into one storage account, the blob service, and the `vhds` container, you can see the OS disks. 
+
+<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/blobs.png"></img>
+
+
+
 
 [ARM Intro]: https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
 [storage sla]: http://azure.microsoft.com/en-us/support/legal/sla/storage/v1_0/

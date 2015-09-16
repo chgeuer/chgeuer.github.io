@@ -6,10 +6,8 @@ keywords: azure, "azure resource manager", storage
 published: true
 ---
 
-<!--
-<blockquote class="twitter-tweet" lang="en"><p>Want to use <a href="https://twitter.com/Azure">@Azure</a> Blob Storage with Akamai CDN? <a href="http://blog.geuer-pollmann.de/blog/2015/03/12/accessing-microsoft-azure-blob-storage-with-g2o-authentication/">http://blog.geuer-pollmann.de/blog/2015/03/12/accessing-microsoft-azure-blob-storage-with-g2o-authentication/</a></p>&mdash; Chris Geuer-Pollmann (@chgeuer) <a href="https://twitter.com/chgeuer/status/576031655460220928">12. March 2015</a></blockquote>
+<blockquote class="twitter-tweet" lang="en"><p>Blogged: VM High Availability in <a href="https://twitter.com/Azure">@Azure</a> Resource Manager needs more than Availability Sets <a href="http://blog.geuer-pollmann.de/blog/2015/09/15/vm-ha-in-arm-needs-more-than-availabilitysets/">http://blog.geuer-pollmann.de/blog/2015/09/15/vm-ha-in-arm-needs-more-than-availabilitysets//</a></p>&mdash; Chris Geuer-Pollmann (@chgeuer) <a href="https://twitter.com/chgeuer/status/644086755721912320">16. September 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
--->
 
 # tl'dr
 

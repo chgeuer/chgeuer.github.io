@@ -100,7 +100,7 @@ variables('storageAccountNames').frontend == "test123fe"
 variables('instanceCount').frontend = 7
 ```
 
-The seven disks are 
+All disks of VMs with an even number end up in storage account `test123fe0`, all odd OS disks end up in `test123fe1`. The URLS of the resulting seven OS disks are shown here: 
 
 ```
 https://test123fe0.blob.core.windows.net/vhds/fe-0-osdisk.vhd
@@ -113,7 +113,7 @@ https://test123fe1.blob.core.windows.net/vhds/fe-3-osdisk.vhd
 https://test123fe1.blob.core.windows.net/vhds/fe-5-osdisk.vhd
 ```
 
-So in the end, all disks of VMs with an even number end up in storage account `test123fe0`, all odd OS disks end up in `test123fe1`. The virtual machine description looks like this: 
+The virtual machine description looks like this: 
 
 ```json
 {

@@ -39,7 +39,6 @@ In addition to the availability issue of a single storage account, we also shoul
 
 # The solution
 
-# Demo time
 In that JSON template file, the three parameters are `adminUsername`, `adminPassword` are self-explanatory. The `deploymentName` parameter will be used as prefix for all sorts of naming, such as being a prefix for the (globally unique) storage account name. 
 
 ```json
@@ -55,7 +54,7 @@ In that JSON template file, the three parameters are `adminUsername`, `adminPass
 }   
 ```
 
-The `variables` section contains values derived from the `deploymentName` parameter, and some constants, such as the instance count for the frontend nodes (the VMs). Noteworthy here is the `math.modulo2` helper array, which we'll see in action later. (Azure Resource Manager )
+The `variables` section contains values derived from the `deploymentName` parameter, and some constants, such as the instance count for the frontend nodes (the VMs). Noteworthy here is the `math.modulo2` helper array, which we'll see in action later. 
 
 ```json
 {
@@ -76,9 +75,11 @@ The `variables` section contains values derived from the `deploymentName` parame
 }   
 ```
 
+    One tip for deriving storage account names from user-supplied strings is to do at least some input sanitization. Above, you see that I call the `replace(deploymentName,'-','')` function to trim away dashes. Azure storage accounts do not like dashes and symbols in their name. Until ARM templates provide some RegEx'ish input handling, I at least trim the `-` symbols away.  
+
 The interesting part of the JSON template is in the virtual machine description. The `copy.count` value retrieves the instance count from the `variables`section: `[variables('instanceCount').frontend]`, which means that the template is expanded 7 times. The concrete value of the iteration is returned by the `copyIndex()` function, which returns 0, 1, 2, 3, 4, 5 and 6 respectively. 
 
-The `properties.storageProfile.osDisk.vhd.uri` now has a fancy value, indented for better redability:
+The `properties.storageProfile.osDisk.vhd.uri` has a value, which needs some explanation, indented for better redability:
 
 ```text
 [concat(
@@ -91,11 +92,12 @@ The `properties.storageProfile.osDisk.vhd.uri` now has a fancy value, indented f
     )]"
 ```
 
-As an example, consider the following values: 
+Consider the following values: 
 
 ```text
 deploymentName = "test123"
 variables('storageAccountNames').frontend == "test123fe"
+variables('instanceCount').frontend = 7
 ```
 
 The seven disks are 

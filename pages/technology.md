@@ -9,7 +9,7 @@ published: true
 
 # December 2014
 
-- Slick vector images: http://www.freepik.com
+- [Slick vector images at freepik.com](http://www.freepik.com)
 - [Deploy to Azure Resource Groups using the SDK](http://devian.co/2015/10/31/deploy-to-azure-resource-groups-using-the-sdk/)
 - [The Moral Character of Cryptographic Work](http://web.cs.ucdavis.edu/~rogaway/papers/moral.html)
 - [How to Build a SQL Server AlwaysOn Failover Cluster Instance with SIOS DataKeeper using Azure Resource Manager](http://azurecorner.com/sql-server-alwayson-failover-cluster-instance-with-sios-datakeeper-using-azure-resource-manager/)
@@ -27,8 +27,8 @@ published: true
 - Cool blog rolls: [The Morning Brew](http://blog.cwa.me.uk/) and [Morning Dew](http://www.alvinashcraft.com/)
 - [Hostnames and usernames to reserve](https://ldpreload.com/blog/names-to-reserve) in SaaS systems, so regular users cannot grab them
 - Cool web site designs: 
-	- http://www.patrickalgrim.me/
-	- https://codyhouse.co/gem/horizontal-timeline/
+	- [http://www.patrickalgrim.me/](http://www.patrickalgrim.me/)
+	- [codyhouse.co/gem/horizontal-timeline/](https://codyhouse.co/gem/horizontal-timeline/)
 - Windows Defender also blocks [AdWare](http://www.heise.de/security/meldung/Windows-mit-verstecktem-Adware-Killer-3023579.html). Just create under `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\MpEngine` a DWORD called `MpEnablePus` with value `1`. 
 - [Distributed Machine Learning Toolkit](https://github.com/Microsoft/DMTK)
 - [In the cloud, we trust](http://news.microsoft.com/stories/inthecloudwetrust/)

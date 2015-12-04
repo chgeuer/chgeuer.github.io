@@ -10,7 +10,15 @@ published: true
 # December 2014
 
 - Slick vector images: http://www.freepik.com
-
+- [Deploy to Azure Resource Groups using the SDK](http://devian.co/2015/10/31/deploy-to-azure-resource-groups-using-the-sdk/)
+- [The Moral Character of Cryptographic Work](http://web.cs.ucdavis.edu/~rogaway/papers/moral.html)
+- [How to Build a SQL Server AlwaysOn Failover Cluster Instance with SIOS DataKeeper using Azure Resource Manager](http://azurecorner.com/sql-server-alwayson-failover-cluster-instance-with-sios-datakeeper-using-azure-resource-manager/)
+- [Lessons learned - Hosting large-scale backends like the “Eurovision Song Contest” on Microsoft Azure](https://channel9.msdn.com/Events/microsoft-techncial-summit/Technical-Summit-2015-The-Next-Level/Lessons-learned-Hosting-large-scale-backends-like-the-Eurovision-Song-Contest-on-Microsoft-Azure)
+- [Node.js on Windows and MAX_PATH explanation and workarounds](https://github.com/Microsoft/nodejs-guidelines/blob/master/windows-environment.md#workarounds)
+- [Running Drush on Windows Azure Websites](https://sunithamk.wordpress.com/2014/04/01/drupal-running-drush-on-windows-azure-websites/)
+- [HTTP Live Streaming In Javascript](https://blog.peer5.com/http-live-streaming-in-javascript/)
+- [Multimedia on Linux Command Line: wget, PdfTK, ffmpeg, flac, SoX](https://sandilands.info/sgordon/multimedia-on-linux-command-line)
+- [From 20 to 2,000 engineers on GitHub: Azure, GitHub and our Open Source Portal](http://www.jeff.wilcox.name/2015/11/azure-on-github/)
 
 # November 2014
 

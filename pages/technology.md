@@ -19,6 +19,7 @@ published: true
 - [HTTP Live Streaming In Javascript](https://blog.peer5.com/http-live-streaming-in-javascript/)
 - [Multimedia on Linux Command Line: wget, PdfTK, ffmpeg, flac, SoX](https://sandilands.info/sgordon/multimedia-on-linux-command-line)
 - [From 20 to 2,000 engineers on GitHub: Azure, GitHub and our Open Source Portal](http://www.jeff.wilcox.name/2015/11/azure-on-github/)
+- [MediaInfo](https://mediaarea.net/en/MediaInfo/Download/Windows)
 
 # November 2014
 
@@ -28,6 +29,8 @@ published: true
 - Cool web site designs: 
 	- http://www.patrickalgrim.me/
 	- https://codyhouse.co/gem/horizontal-timeline/
+- Windows Defender also blocks [AdWare](http://www.heise.de/security/meldung/Windows-mit-verstecktem-Adware-Killer-3023579.html). Just create under `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\MpEngine` a DWORD called `MpEnablePus` with value `1`. 
+
 
 # September 2015
 

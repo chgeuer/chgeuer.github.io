@@ -30,6 +30,12 @@ published: true
 	- http://www.patrickalgrim.me/
 	- https://codyhouse.co/gem/horizontal-timeline/
 - Windows Defender also blocks [AdWare](http://www.heise.de/security/meldung/Windows-mit-verstecktem-Adware-Killer-3023579.html). Just create under `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\MpEngine` a DWORD called `MpEnablePus` with value `1`. 
+- [Distributed Machine Learning Toolkit](https://github.com/Microsoft/DMTK)
+- [In the cloud, we trust](http://news.microsoft.com/stories/inthecloudwetrust/)
+- [THE AZURE REST API, OR RATHER RESOURCE MANAGEMENT API](http://devian.co/2015/11/03/the-azure-rest-api-or-rather-resource-management-api/)
+- [Streams as the team interface](https://vimeo.com/144863186)
+- [C41 – DIY Film Processing at Home](http://camerafilmphoto.com/diy-film-processing-c41-home/) #photography
+- [ASP.NET 5 DNX beta8, Connection Refused in Docker?](http://blog.markrendle.net/asp-net-5-dnx-beta8-connection-refused-in-docker/)
 
 
 # September 2015

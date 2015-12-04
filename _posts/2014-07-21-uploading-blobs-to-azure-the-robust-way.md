@@ -6,6 +6,8 @@ keywords: azure, azure storage, C#, REST API
 published: true
 ---
 
+On September 23, 2015, Microsoft [launched](https://azure.microsoft.com/de-de/blog/introducing-azure-storage-data-movement-library-preview-2/) the [Azure Storage Data Movement Library](https://github.com/Azure/azure-storage-net-data-movement). You might want to check that as well. 
+
 > TL;DR - The ``LargeFileUploaderUtils.cs`` file in the associated repository ([https://github.com/chgeuer/AzureLargeFileUploader](https://github.com/chgeuer/AzureLargeFileUploader)) contains a C# upload helper class for Azure blob storage which supports resuming broken uploads, can upload multiple blocks in parallel, and is robust in the sense that you can pull the network cable during the upload, and when connectivity is restored, it just continues.  
 
 # Azure Blob Storage Uploads - An Introduction  

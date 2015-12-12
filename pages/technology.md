@@ -9,6 +9,11 @@ published: true
 
 # December 2014
 
+
+- PostgreSQL HA & ZooKeeper
+	- [zalando/patroni: Runners to orchestrate a high-availability PostgreSQL](https://github.com/zalando/patroni)
+	- [jinty/zgres: Postgres Failover and Management with ZooKeeper](https://github.com/jinty/zgres)
+	- [joyent/manatee: Automated fault monitoring and leader-election system for strongly-consistent, highly-available writes to PostgreSQL (Joyent SDC, Manta).](https://github.com/joyent/manatee)
 - [Slick vector images at freepik.com](http://www.freepik.com)
 - [Deploy to Azure Resource Groups using the SDK](http://devian.co/2015/10/31/deploy-to-azure-resource-groups-using-the-sdk/)
 - [The Moral Character of Cryptographic Work](http://web.cs.ucdavis.edu/~rogaway/papers/moral.html)
@@ -20,6 +25,7 @@ published: true
 - [Multimedia on Linux Command Line: wget, PdfTK, ffmpeg, flac, SoX](https://sandilands.info/sgordon/multimedia-on-linux-command-line)
 - [From 20 to 2,000 engineers on GitHub: Azure, GitHub and our Open Source Portal](http://www.jeff.wilcox.name/2015/11/azure-on-github/)
 - [MediaInfo](https://mediaarea.net/en/MediaInfo/Download/Windows)
+
 
 # November 2014
 

@@ -11,9 +11,13 @@ published: true
 
 
 - PostgreSQL HA & ZooKeeper
-	- [zalando/patroni: Runners to orchestrate a high-availability PostgreSQL](https://github.com/zalando/patroni)
+	- Zalando
+		- [Presentation Spilo](https://docs.google.com/presentation/d/1u20uz0IeJklSwb8gWc3dCFOCXAhdOfRYJv3cRbVgoB4/pub?start=false&loop=false&delayms=3000&slide=id.ge891ea114_2_19)
+		- [zalando/patroni: Runners to orchestrate a high-availability PostgreSQL](https://github.com/zalando/patroni)
+		- [zalando/spilo: Highly available elephant herd: HA PostgreSQL cluster using Docker and STUPS](https://github.com/zalando/spilo) & [docs](http://spilo.readthedocs.org/en/latest/)
 	- [jinty/zgres: Postgres Failover and Management with ZooKeeper](https://github.com/jinty/zgres)
 	- [joyent/manatee: Automated fault monitoring and leader-election system for strongly-consistent, highly-available writes to PostgreSQL (Joyent SDC, Manta).](https://github.com/joyent/manatee)
+
 - [Slick vector images at freepik.com](http://www.freepik.com)
 - [Deploy to Azure Resource Groups using the SDK](http://devian.co/2015/10/31/deploy-to-azure-resource-groups-using-the-sdk/)
 - [The Moral Character of Cryptographic Work](http://web.cs.ucdavis.edu/~rogaway/papers/moral.html)

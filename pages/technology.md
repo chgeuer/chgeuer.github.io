@@ -10,6 +10,8 @@ published: true
 # December 2014
 
 
+- [Choosing between Azure Event Hub SaaS and Apache Kafka on IaaS](http://blogs.msdn.com/b/opensourcemsft/archive/2015/08/08/choose-between-azure-event-hub-and-kafka-_2d00_-what-you-need-to-know.aspx)
+- [Assessing Data Store Capabilities for Polyglot Solutions](https://github.com/mspnp/azure-guidance/blob/master/Polyglot-Solutions.md)
 - PostgreSQL HA & ZooKeeper
 	- Zalando
 		- [Presentation Spilo](https://docs.google.com/presentation/d/1u20uz0IeJklSwb8gWc3dCFOCXAhdOfRYJv3cRbVgoB4/pub?start=false&loop=false&delayms=3000&slide=id.ge891ea114_2_19)

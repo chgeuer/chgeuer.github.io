@@ -18,8 +18,11 @@ published: true
 		- [zalando/patroni: Runners to orchestrate a high-availability PostgreSQL](https://github.com/zalando/patroni)
 		- [zalando/spilo: Highly available elephant herd: HA PostgreSQL cluster using Docker and STUPS](https://github.com/zalando/spilo) & [docs](http://spilo.readthedocs.org/en/latest/)
 	- [jinty/zgres: Postgres Failover and Management with ZooKeeper](https://github.com/jinty/zgres)
-	- [joyent/manatee: Automated fault monitoring and leader-election system for strongly-consistent, highly-available writes to PostgreSQL (Joyent SDC, Manta).](https://github.com/joyent/manatee)
-
+	- [joyent/manatee: Automated fault monitoring and leader-election system for strongly-consistent, highly-available writes to PostgreSQL (Joyent SDC, Manta).](https://github.com/joyent/manatee) and [docs](https://github.com/joyent/manatee/blob/master/docs/user-guide.md)
+- ZooKeeper
+	- [ZooKeeper Cluster (Multi-Server) Setup](http://myjeeva.com/zookeeper-cluster-setup.html)
+	- [Deploying Zookeeper Ensemble](http://sanjivblogs.blogspot.de/2011/04/deploying-zookeeper-ensemble.html)
+- [In praise of “boring” technology](https://labs.spotify.com/2013/02/25/in-praise-of-boring-technology/)
 - [Slick vector images at freepik.com](http://www.freepik.com)
 - [Deploy to Azure Resource Groups using the SDK](http://devian.co/2015/10/31/deploy-to-azure-resource-groups-using-the-sdk/)
 - [The Moral Character of Cryptographic Work](http://web.cs.ucdavis.edu/~rogaway/papers/moral.html)

@@ -8,6 +8,7 @@ published: true
 
 # December 2014
 
+- [Securely Upload to Azure Storage with Angular](https://blogs.msdn.microsoft.com/kaevans/2015/12/18/securely-upload-to-azure-storage-with-angular/)
 - Kafka & Co. 
 	- [Choosing between Azure Event Hub SaaS and Apache Kafka on IaaS](http://blogs.msdn.com/b/opensourcemsft/archive/2015/08/08/choose-between-azure-event-hub-and-kafka-_2d00_-what-you-need-to-know.aspx)
 	- [Assessing Data Store Capabilities for Polyglot Solutions](https://github.com/mspnp/azure-guidance/blob/master/Polyglot-Solutions.md)
@@ -34,7 +35,7 @@ published: true
 - [Multimedia on Linux Command Line: wget, PdfTK, ffmpeg, flac, SoX](https://sandilands.info/sgordon/multimedia-on-linux-command-line)
 - [From 20 to 2,000 engineers on GitHub: Azure, GitHub and our Open Source Portal](http://www.jeff.wilcox.name/2015/11/azure-on-github/)
 - [MediaInfo](https://mediaarea.net/en/MediaInfo/Download/Windows)
-
+- [How to Build a SQL Server AlwaysOn Failover Cluster Instance with SIOS DataKeeper using Azure Resource Manager](http://azurecorner.com/sql-server-alwayson-failover-cluster-instance-with-sios-datakeeper-using-azure-resource-manager/)
 
 # November 2014
 
@@ -51,7 +52,6 @@ published: true
 - [Streams as the team interface](https://vimeo.com/144863186)
 - [C41 – DIY Film Processing at Home](http://camerafilmphoto.com/diy-film-processing-c41-home/) #photography
 - [ASP.NET 5 DNX beta8, Connection Refused in Docker?](http://blog.markrendle.net/asp-net-5-dnx-beta8-connection-refused-in-docker/)
-
 
 # September 2015
 

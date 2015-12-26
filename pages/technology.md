@@ -8,6 +8,18 @@ published: true
 
 # December 2014
 
+- [CSS capabilities of e-mail clients](https://www.campaignmonitor.com/css/)
+- [IoT protocols landscape #IoT](https://blog.adafruit.com/2015/12/22/iot-protocols-landscape-iot/)
+- [Detect and disconnect WiFi cameras in that AirBnB you’re staying in](https://julianoliver.com/output/log_2015-12-18_14-39)
+- Elixir
+	- [Building a web framework from scratch in Elixir](https://codewords.recurse.com/issues/five/building-a-web-framework-from-scratch-in-elixir)
+	- [Introducing new open-source tools for the Elixir community](https://engineering.pinterest.com/blog/introducing-new-open-source-tools-elixir-community): [Elixometer](https://github.com/pinterest/elixometer) and [riffed - Apache Thrift bindings for Elixir](https://github.com/pinterest/riffed)
+- Project Orleans
+	- [Orleankka - Functional API for Microsoft Orleans](https://github.com/yevhen/orleankka)
+	- [Orleans.KafkaStreamProvider](https://github.com/gigya/Orleans.KafkaStreamProvider)
+- Video
+	- [What the new video compression strategy from Netflix means for Apple and Amazon](https://donmelton.com/2015/12/21/what-the-new-video-compression-strategy-from-netflix-means-for-apple-and-amazon/)
+- [devstash.io](https://devstash.io/)
 - [Securely Upload to Azure Storage with Angular](https://blogs.msdn.microsoft.com/kaevans/2015/12/18/securely-upload-to-azure-storage-with-angular/)
 - Kafka & Co. 
 	- [Choosing between Azure Event Hub SaaS and Apache Kafka on IaaS](http://blogs.msdn.com/b/opensourcemsft/archive/2015/08/08/choose-between-azure-event-hub-and-kafka-_2d00_-what-you-need-to-know.aspx)

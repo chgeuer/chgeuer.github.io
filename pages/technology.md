@@ -8,8 +8,11 @@ published: true
 
 # December 2014
 
-- [Implementing API Gateway in F# Using Rx and Suave](http://blog.tamizhvendan.in/blog/2015/12/29/implementing-api-gateway-in-f-number-using-rx-and-suave/)
-- [Letter To A Young Programmer Considering A Startup](https://al3x.net/2013/05/23/letter-to-a-young-programmer.html)
+- F#
+	- [Optics for F#](https://xyncro.tech/aether/guides/lenses.html)
+	- [Implementing API Gateway in F# Using Rx and Suave](http://blog.tamizhvendan.in/blog/2015/12/29/implementing-api-gateway-in-f-number-using-rx-and-suave/)
+- Startup
+	- [Letter To A Young Programmer Considering A Startup](https://al3x.net/2013/05/23/letter-to-a-young-programmer.html)
 - [5 AWS mistakes you should avoid](https://cloudonaut.io/5-aws-mistakes-you-should-avoid/)
 - [Using AWS Lambda Functions To Create Print Ready Files](http://highscalability.com/blog/2015/12/28/using-aws-lambda-functions-to-create-print-ready-files.html)
 - [serialusb – a cheap USB proxy for input devices](http://blog.gimx.fr/serialusb/)

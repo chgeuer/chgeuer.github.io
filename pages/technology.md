@@ -8,12 +8,19 @@ published: true
 
 # December 2014
 
+- [Implementing API Gateway in F# Using Rx and Suave](http://blog.tamizhvendan.in/blog/2015/12/29/implementing-api-gateway-in-f-number-using-rx-and-suave/)
+- [Letter To A Young Programmer Considering A Startup](https://al3x.net/2013/05/23/letter-to-a-young-programmer.html)
+- [5 AWS mistakes you should avoid](https://cloudonaut.io/5-aws-mistakes-you-should-avoid/)
+- [Using AWS Lambda Functions To Create Print Ready Files](http://highscalability.com/blog/2015/12/28/using-aws-lambda-functions-to-create-print-ready-files.html)
+- [serialusb – a cheap USB proxy for input devices](http://blog.gimx.fr/serialusb/)
 - [CSS capabilities of e-mail clients](https://www.campaignmonitor.com/css/)
 - [IoT protocols landscape #IoT](https://blog.adafruit.com/2015/12/22/iot-protocols-landscape-iot/)
 - [Detect and disconnect WiFi cameras in that AirBnB you’re staying in](https://julianoliver.com/output/log_2015-12-18_14-39)
 - Elixir
 	- [Building a web framework from scratch in Elixir](https://codewords.recurse.com/issues/five/building-a-web-framework-from-scratch-in-elixir)
 	- [Introducing new open-source tools for the Elixir community](https://engineering.pinterest.com/blog/introducing-new-open-source-tools-elixir-community): [Elixometer](https://github.com/pinterest/elixometer) and [riffed - Apache Thrift bindings for Elixir](https://github.com/pinterest/riffed)
+	- [active: automatically reload Erlang modules](https://github.com/synrc/active)
+	- [Erlang Factory 2015 Videos Berlin](http://www.erlang-factory.com/berlin2015#speakers)
 - Project Orleans
 	- [Orleankka - Functional API for Microsoft Orleans](https://github.com/yevhen/orleankka)
 	- [Orleans.KafkaStreamProvider](https://github.com/gigya/Orleans.KafkaStreamProvider)

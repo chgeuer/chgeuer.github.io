@@ -6,8 +6,29 @@ keywords:
 published: true
 ---
 
-# December 2014
+# January 2016
 
+- Microsoft Azure
+	- [Microsoft Azure Service Fabric and the Microservices Architecture (MSDN Article)](https://msdn.microsoft.com/en-us/magazine/mt595752.aspx)
+	- [Linux Azure VM Scale Sets with shared storage using Lustre](http://blogs.msdn.com/b/arsen/archive/2015/12/30/linux-azure-vm-scale-sets-with-shared-storage-using-lustre.aspx)
+	- [How to call the Azure Resource Manager REST API from C#](https://msftstack.wordpress.com/2016/01/03/how-to-call-the-azure-resource-manager-rest-api-from-c/)
+- Web Development
+	- [Run Sitecore in a Docker container on Windows Server 2016](https://developer.rackspace.com/blog/run-sitecore-in-a-docker-container-on-windows-server-2016/)
+	- [Fabricator](https://fbrctr.github.io/)
+	- JavaScript
+		- [Angular 2 versus React: There Will Be Blood](https://medium.com/@housecor/angular-2-versus-react-there-will-be-blood-66595faafd51)
+		- [The Future of Node is in Microsoft’s Fork](https://blog.andyet.com/2015/12/31/the-future-of-node-is-microsofts-fork/)
+- [Disque 1.0 RC1 is out!](http://antirez.com/news/100) / [github](https://github.com/antirez/disque)
+- [The Truth About Working at a Japanese Company](http://rubyronin.com/the-truth-about-working-at-a-japanese-company/)
+- [Letter To A Young Programmer Considering A Startup](https://al3x.net/2013/05/23/letter-to-a-young-programmer.html)
+- [Implementing API Gateway in F# Using Rx and Suave](http://blog.tamizhvendan.in/blog/2015/12/29/implementing-api-gateway-in-f-number-using-rx-and-suave/)
+- [Elixir : Simple Guardian - Multiple Sessions](http://blog.overstuffedgorilla.com/simple-guardian-multiple-sessions/)
+- [Using AWS Lambda functions to create print ready files](http://highscalability.com/blog/2015/12/28/using-aws-lambda-functions-to-create-print-ready-files.html)
+- [5 AWS mistakes you should avoid](https://cloudonaut.io/5-aws-mistakes-you-should-avoid/)
+
+# December 2015
+
+- [High Quality Video Encoding at Scale](http://techblog.netflix.com/2015/12/high-quality-video-encoding-at-scale.html?m=1)
 - [Choosing between Azure Event Hub SaaS and Apache Kafka on IaaS](http://blogs.msdn.com/b/opensourcemsft/archive/2015/08/08/choose-between-azure-event-hub-and-kafka-_2d00_-what-you-need-to-know.aspx)
 - [Assessing Data Store Capabilities for Polyglot Solutions](https://github.com/mspnp/azure-guidance/blob/master/Polyglot-Solutions.md)
 - [Stream processing, Event sourcing, Reactive, CEP… and making sense of it all](http://www.confluent.io/blog/making-sense-of-stream-processing/)
@@ -30,8 +51,7 @@ published: true
 - [From 20 to 2,000 engineers on GitHub: Azure, GitHub and our Open Source Portal](http://www.jeff.wilcox.name/2015/11/azure-on-github/)
 - [MediaInfo](https://mediaarea.net/en/MediaInfo/Download/Windows)
 
-
-# November 2014
+# November 2015
 
 - [Elixir](http://elixir-lang.org/) and [Phoenix Framework](http://www.phoenixframework.org/)
 - Cool blog rolls: [The Morning Brew](http://blog.cwa.me.uk/) and [Morning Dew](http://www.alvinashcraft.com/)

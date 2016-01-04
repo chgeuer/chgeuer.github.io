@@ -32,13 +32,40 @@ published: true
 - [Choosing between Azure Event Hub SaaS and Apache Kafka on IaaS](http://blogs.msdn.com/b/opensourcemsft/archive/2015/08/08/choose-between-azure-event-hub-and-kafka-_2d00_-what-you-need-to-know.aspx)
 - [Assessing Data Store Capabilities for Polyglot Solutions](https://github.com/mspnp/azure-guidance/blob/master/Polyglot-Solutions.md)
 - [Stream processing, Event sourcing, Reactive, CEP… and making sense of it all](http://www.confluent.io/blog/making-sense-of-stream-processing/)
+- F#
+	- [Optics for F#](https://xyncro.tech/aether/guides/lenses.html)
+	- [Implementing API Gateway in F# Using Rx and Suave](http://blog.tamizhvendan.in/blog/2015/12/29/implementing-api-gateway-in-f-number-using-rx-and-suave/)
+- [serialusb – a cheap USB proxy for input devices](http://blog.gimx.fr/serialusb/)
+- [CSS capabilities of e-mail clients](https://www.campaignmonitor.com/css/)
+- [IoT protocols landscape #IoT](https://blog.adafruit.com/2015/12/22/iot-protocols-landscape-iot/)
+- [Detect and disconnect WiFi cameras in that AirBnB you’re staying in](https://julianoliver.com/output/log_2015-12-18_14-39)
+- Elixir
+	- [Building a web framework from scratch in Elixir](https://codewords.recurse.com/issues/five/building-a-web-framework-from-scratch-in-elixir)
+	- [Introducing new open-source tools for the Elixir community](https://engineering.pinterest.com/blog/introducing-new-open-source-tools-elixir-community): [Elixometer](https://github.com/pinterest/elixometer) and [riffed - Apache Thrift bindings for Elixir](https://github.com/pinterest/riffed)
+	- [active: automatically reload Erlang modules](https://github.com/synrc/active)
+	- [Erlang Factory 2015 Videos Berlin](http://www.erlang-factory.com/berlin2015#speakers)
+- Project Orleans
+	- [Orleankka - Functional API for Microsoft Orleans](https://github.com/yevhen/orleankka)
+	- [Orleans.KafkaStreamProvider](https://github.com/gigya/Orleans.KafkaStreamProvider)
+- Video
+	- [What the new video compression strategy from Netflix means for Apple and Amazon](https://donmelton.com/2015/12/21/what-the-new-video-compression-strategy-from-netflix-means-for-apple-and-amazon/)
+- [devstash.io](https://devstash.io/)
+- [Securely Upload to Azure Storage with Angular](https://blogs.msdn.microsoft.com/kaevans/2015/12/18/securely-upload-to-azure-storage-with-angular/)
+- Kafka & Co. 
+	- [Choosing between Azure Event Hub SaaS and Apache Kafka on IaaS](http://blogs.msdn.com/b/opensourcemsft/archive/2015/08/08/choose-between-azure-event-hub-and-kafka-_2d00_-what-you-need-to-know.aspx)
+	- [Assessing Data Store Capabilities for Polyglot Solutions](https://github.com/mspnp/azure-guidance/blob/master/Polyglot-Solutions.md)
+	- [Stream processing, Event sourcing, Reactive, CEP... and making sense of it all](http://www.confluent.io/blog/making-sense-of-stream-processing/)
 - PostgreSQL HA & ZooKeeper
 	- Zalando
 		- [Presentation Spilo](https://docs.google.com/presentation/d/1u20uz0IeJklSwb8gWc3dCFOCXAhdOfRYJv3cRbVgoB4/pub?start=false&loop=false&delayms=3000&slide=id.ge891ea114_2_19)
 		- [zalando/patroni: Runners to orchestrate a high-availability PostgreSQL](https://github.com/zalando/patroni)
 		- [zalando/spilo: Highly available elephant herd: HA PostgreSQL cluster using Docker and STUPS](https://github.com/zalando/spilo) & [docs](http://spilo.readthedocs.org/en/latest/)
 	- [jinty/zgres: Postgres Failover and Management with ZooKeeper](https://github.com/jinty/zgres)
-	- [joyent/manatee: Automated fault monitoring and leader-election system for strongly-consistent, highly-available writes to PostgreSQL (Joyent SDC, Manta).](https://github.com/joyent/manatee)
+	- [joyent/manatee: Automated fault monitoring and leader-election system for strongly-consistent, highly-available writes to PostgreSQL (Joyent SDC, Manta).](https://github.com/joyent/manatee) and [docs](https://github.com/joyent/manatee/blob/master/docs/user-guide.md)
+- ZooKeeper
+	- [ZooKeeper Cluster (Multi-Server) Setup](http://myjeeva.com/zookeeper-cluster-setup.html)
+	- [Deploying Zookeeper Ensemble](http://sanjivblogs.blogspot.de/2011/04/deploying-zookeeper-ensemble.html)
+- [In praise of "boring" technology](https://labs.spotify.com/2013/02/25/in-praise-of-boring-technology/)
 - [Slick vector images at freepik.com](http://www.freepik.com)
 - [Deploy to Azure Resource Groups using the SDK](http://devian.co/2015/10/31/deploy-to-azure-resource-groups-using-the-sdk/)
 - [The Moral Character of Cryptographic Work](http://web.cs.ucdavis.edu/~rogaway/papers/moral.html)
@@ -53,6 +80,7 @@ published: true
 
 # November 2015
 
+- [How to Build a SQL Server AlwaysOn Failover Cluster Instance with SIOS DataKeeper using Azure Resource Manager](http://azurecorner.com/sql-server-alwayson-failover-cluster-instance-with-sios-datakeeper-using-azure-resource-manager/)
 - [Elixir](http://elixir-lang.org/) and [Phoenix Framework](http://www.phoenixframework.org/)
 - Cool blog rolls: [The Morning Brew](http://blog.cwa.me.uk/) and [Morning Dew](http://www.alvinashcraft.com/)
 - [Hostnames and usernames to reserve](https://ldpreload.com/blog/names-to-reserve) in SaaS systems, so regular users cannot grab them
@@ -66,7 +94,6 @@ published: true
 - [Streams as the team interface](https://vimeo.com/144863186)
 - [C41 – DIY Film Processing at Home](http://camerafilmphoto.com/diy-film-processing-c41-home/) #photography
 - [ASP.NET 5 DNX beta8, Connection Refused in Docker?](http://blog.markrendle.net/asp-net-5-dnx-beta8-connection-refused-in-docker/)
-
 
 # September 2015
 

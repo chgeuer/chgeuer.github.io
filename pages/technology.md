@@ -8,7 +8,9 @@ published: true
 
 # January 2016
 
-- [F# Cheatsheet](http://dungpa.github.io/fsharp-cheatsheet/)
+- F#
+	- [F# Cheatsheet](http://dungpa.github.io/fsharp-cheatsheet/)
+	- [F# Formatting: Documentation tools](http://tpetricek.github.io/FSharp.Formatting/)
 - [WebSockets, caution required!](https://samsaffron.com/archive/2015/12/29/websockets-caution-required)
 - Microsoft Azure
 	- [Microsoft Azure Service Fabric and the Microservices Architecture (MSDN Article)](https://msdn.microsoft.com/en-us/magazine/mt595752.aspx)

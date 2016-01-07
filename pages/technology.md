@@ -8,6 +8,7 @@ published: true
 
 # January 2016
 
+- [WebSockets, caution required!](https://samsaffron.com/archive/2015/12/29/websockets-caution-required)
 - Microsoft Azure
 	- [Microsoft Azure Service Fabric and the Microservices Architecture (MSDN Article)](https://msdn.microsoft.com/en-us/magazine/mt595752.aspx)
 	- [Linux Azure VM Scale Sets with shared storage using Lustre](http://blogs.msdn.com/b/arsen/archive/2015/12/30/linux-azure-vm-scale-sets-with-shared-storage-using-lustre.aspx)

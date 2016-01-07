@@ -23,9 +23,15 @@ published: true
 - [The Truth About Working at a Japanese Company](http://rubyronin.com/the-truth-about-working-at-a-japanese-company/)
 - [Letter To A Young Programmer Considering A Startup](https://al3x.net/2013/05/23/letter-to-a-young-programmer.html)
 - [Implementing API Gateway in F# Using Rx and Suave](http://blog.tamizhvendan.in/blog/2015/12/29/implementing-api-gateway-in-f-number-using-rx-and-suave/)
-- [Elixir : Simple Guardian - Multiple Sessions](http://blog.overstuffedgorilla.com/simple-guardian-multiple-sessions/)
-- [Using AWS Lambda functions to create print ready files](http://highscalability.com/blog/2015/12/28/using-aws-lambda-functions-to-create-print-ready-files.html)
-- [5 AWS mistakes you should avoid](https://cloudonaut.io/5-aws-mistakes-you-should-avoid/)
+- Elixir
+	- [Elixir : Simple Guardian - Multiple Sessions](http://blog.overstuffedgorilla.com/simple-guardian-multiple-sessions/)
+	- [Atom Editor for Elixir Development](http://brainlid.org/elixir/2015/11/12/atom-editor-and-elixir.html)
+	- [ElixirConf 2015 videos](http://confreaks.tv/events/elixirconf2015)
+	- [Get invited to Elexir on Slack](http://bit.ly/slackelixir)
+	- [Routing Securely with Phoenix Framework](http://kronicdeth.github.io/routing-securely-with-phoenix-framework/#/) and [code](https://github.com/KronicDeth/routing-securely-with-phoenix-framework)
+- AWS
+	- [Using AWS Lambda functions to create print ready files](http://highscalability.com/blog/2015/12/28/using-aws-lambda-functions-to-create-print-ready-files.html)
+	- [5 AWS mistakes you should avoid](https://cloudonaut.io/5-aws-mistakes-you-should-avoid/)
 
 # December 2015
 

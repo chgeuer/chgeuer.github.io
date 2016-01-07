@@ -41,3 +41,22 @@ squareNegateThenPrint2 7
 ``square, negate, then print 3`` 5
 ```
 
+
+```
+[ "Tick"; "Trick"; "Track" ] 
+    |> Seq.map (fun x -> sprintf "Hello %s" x) 
+    |> Seq.iter (printfn "%s")
+
+let greet = (fun x -> sprintf "Hello %s" x) 
+let print = printfn "%s"
+
+let a = Array.map greet >> Array.iter print
+let l = List.map greet >> List.iter print
+let s = Seq.map greet >> Seq.iter print
+
+[ "Tick"; "Trick"; "Track" ]  |>  Seq.map greet |> Seq.iter print
+[ "Tick"; "Trick"; "Track" ]  |> (Seq.map greet >> Seq.iter print)
+[ "Tick"; "Trick"; "Track" ]  |> s
+[ "Tick"; "Trick"; "Track" ]  |> l
+[| "Tick"; "Trick"; "Track" |]  |> a
+```

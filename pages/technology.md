@@ -8,9 +8,13 @@ published: true
 
 # January 2016
 
+- [Free e-book: Static site generators: the latest tools for building static websites](http://conferences.oreilly.com/fluent/javascript-html-us/public/content/static-site-generators?download=true)
 - F#
 	- [F# Cheatsheet](http://dungpa.github.io/fsharp-cheatsheet/)
 	- [F# Formatting: Documentation tools](http://tpetricek.github.io/FSharp.Formatting/)
+	- [Join](http://fpchat.com/) [functionalprogramming.slack.com](https://functionalprogramming.slack.com/)
+	- [Actor-based Concurrency with F# and Akka.NET](http://akimboyko.in.ua/presentations/ActorBasedConcurrencyFWDays.html#/)
+	- [Ionide - An Atom Editor and Visual Studio Code package suite for cross platform F# development](http://ionide.io/) and [blog](http://blogs.msdn.com/b/dotnet/archive/2015/12/03/guest-post-announcing-f-support-in-visual-studio-code-with-ionide.aspx)
 - [WebSockets, caution required!](https://samsaffron.com/archive/2015/12/29/websockets-caution-required)
 - Microsoft Azure
 	- [Microsoft Azure Service Fabric and the Microservices Architecture (MSDN Article)](https://msdn.microsoft.com/en-us/magazine/mt595752.aspx)

@@ -114,3 +114,46 @@ let download(url : string) =
 
 "http://www.microsoft.com/" |> download |> Async.RunSynchronously |> printfn "%s"
 ```
+
+
+
+
+
+
+# Enumerate files
+
+```
+open System
+open System.IO
+open System.Security.Cryptography
+open System.Text
+
+let md5 = 
+    fun (bytes: byte[]) -> MD5.Create().ComputeHash(bytes)
+
+let md5base64 = 
+    md5 >> Convert.ToBase64String
+
+let md5hex = 
+    let hex =
+        Array.map (fun (x : byte) -> String.Format("{0:X2}", x)) >> 
+        String.concat String.Empty
+    md5 >> hex >> (fun x -> x.ToLower())
+
+let rootDir = "D:\Password Safe"
+
+let ds = DirectoryInfo(rootDir)
+ds.Name
+
+printfn "Root: %s" <| md5base64 "GHa"B
+
+let bytecontent filename = 
+    File.ReadAllBytes filename
+
+let stringcontent filename = 
+    File.ReadAllText filename
+
+bytecontent "C:\Users\chgeuer\Desktop\Android Apps.txt" |> md5base64 |> printfn "%s"
+
+stringcontent "C:\Users\chgeuer\Desktop\Android Apps.txt" |> printfn "%s"
+```

@@ -21,10 +21,12 @@ published: true
 - [Build a Smart Calendar and Notification Center for Family Agendas with a Raspberry Pi](http://lifehacker.com/build-a-smart-calendar-and-notification-center-for-fami-1751637798)
 - Productivity
 	- [slackcat - Pipe command output and upload files to Slack from your terminal!](http://slackcat.chat/)
+- [Acquia retrospective 2015](http://buytaert.net/acquia-retrospective-2015)
 - Microsoft Azure
 	- [Microsoft Azure Service Fabric and the Microservices Architecture (MSDN Article)](https://msdn.microsoft.com/en-us/magazine/mt595752.aspx)
 	- [Linux Azure VM Scale Sets with shared storage using Lustre](http://blogs.msdn.com/b/arsen/archive/2015/12/30/linux-azure-vm-scale-sets-with-shared-storage-using-lustre.aspx)
 	- [How to call the Azure Resource Manager REST API from C#](https://msftstack.wordpress.com/2016/01/03/how-to-call-the-azure-resource-manager-rest-api-from-c/)
+	- [Using ADAL and the Azure Resource Manager REST API from within a Webtask](http://fabriccontroller.net/using-adal-and-the-azure-resource-manager-rest-api-from-within-a-webtask/)
 - Web Development
 	- [Run Sitecore in a Docker container on Windows Server 2016](https://developer.rackspace.com/blog/run-sitecore-in-a-docker-container-on-windows-server-2016/)
 	- [Fabricator](https://fbrctr.github.io/)

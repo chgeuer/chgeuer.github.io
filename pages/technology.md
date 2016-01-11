@@ -15,7 +15,12 @@ published: true
 	- [Join](http://fpchat.com/) [functionalprogramming.slack.com](https://functionalprogramming.slack.com/)
 	- [Actor-based Concurrency with F# and Akka.NET](http://akimboyko.in.ua/presentations/ActorBasedConcurrencyFWDays.html#/)
 	- [Ionide - An Atom Editor and Visual Studio Code package suite for cross platform F# development](http://ionide.io/) and [blog](http://blogs.msdn.com/b/dotnet/archive/2015/12/03/guest-post-announcing-f-support-in-visual-studio-code-with-ionide.aspx)
+	- [Suave GitBook](https://www.gitbook.com/book/theimowski/suave-music-store/details)
 - [WebSockets, caution required!](https://samsaffron.com/archive/2015/12/29/websockets-caution-required)
+- [Live video streaming on your website without streaming providers](https://datarhei.github.io/restreamer/)
+- [Build a Smart Calendar and Notification Center for Family Agendas with a Raspberry Pi](http://lifehacker.com/build-a-smart-calendar-and-notification-center-for-fami-1751637798)
+- Productivity
+	- [slackcat - Pipe command output and upload files to Slack from your terminal!](http://slackcat.chat/)
 - Microsoft Azure
 	- [Microsoft Azure Service Fabric and the Microservices Architecture (MSDN Article)](https://msdn.microsoft.com/en-us/magazine/mt595752.aspx)
 	- [Linux Azure VM Scale Sets with shared storage using Lustre](http://blogs.msdn.com/b/arsen/archive/2015/12/30/linux-azure-vm-scale-sets-with-shared-storage-using-lustre.aspx)
@@ -36,6 +41,7 @@ published: true
 	- [ElixirConf 2015 videos](http://confreaks.tv/events/elixirconf2015)
 	- [Get invited to Elexir on Slack](http://bit.ly/slackelixir)
 	- [Routing Securely with Phoenix Framework](http://kronicdeth.github.io/routing-securely-with-phoenix-framework/#/) and [code](https://github.com/KronicDeth/routing-securely-with-phoenix-framework)
+	- [Setting Up Phoenix/Elixir With Nginx and LetsEncrypt](https://medium.com/@a4word/setting-up-phoenix-elixir-with-nginx-and-letsencrypt-ada9398a9b2c)
 - AWS
 	- [Using AWS Lambda functions to create print ready files](http://highscalability.com/blog/2015/12/28/using-aws-lambda-functions-to-create-print-ready-files.html)
 	- [5 AWS mistakes you should avoid](https://cloudonaut.io/5-aws-mistakes-you-should-avoid/)

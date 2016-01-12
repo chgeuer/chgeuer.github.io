@@ -16,8 +16,12 @@ published: true
 	- [Actor-based Concurrency with F# and Akka.NET](http://akimboyko.in.ua/presentations/ActorBasedConcurrencyFWDays.html#/)
 	- [Ionide - An Atom Editor and Visual Studio Code package suite for cross platform F# development](http://ionide.io/) and [blog](http://blogs.msdn.com/b/dotnet/archive/2015/12/03/guest-post-announcing-f-support-in-visual-studio-code-with-ionide.aspx)
 	- [Suave GitBook](https://www.gitbook.com/book/theimowski/suave-music-store/details)
+	- [Implementing API Gateway in F# Using Rx and Suave](http://blog.tamizhvendan.in/blog/2015/12/29/implementing-api-gateway-in-f-number-using-rx-and-suave/)
 - [WebSockets, caution required!](https://samsaffron.com/archive/2015/12/29/websockets-caution-required)
-- [Live video streaming on your website without streaming providers](https://datarhei.github.io/restreamer/)
+- Video
+	- [Live video streaming on your website without streaming providers](https://datarhei.github.io/restreamer/)
+	- [TN2224 is Dead. Welcome to the New Era of Content-Aware Encoding (netflix)](http://www.streaminglearningcenter.com/blogs/tn2224-is-dead-welcome-to-the-new-era-of-content-aware-encoding.html)
+	- [Under the hood: Broadcasting live video to millions](https://code.facebook.com/posts/1653074404941839/under-the-hood-broadcasting-live-video-to-millions/) - Use HLS to broadcast celebrities to millions (and leverage CDN), and use RTMP to broadcast regular Joes to smaller audiences, but lower latencies (more engaging / live) 
 - [Build a Smart Calendar and Notification Center for Family Agendas with a Raspberry Pi](http://lifehacker.com/build-a-smart-calendar-and-notification-center-for-fami-1751637798)
 - Productivity
 	- [slackcat - Pipe command output and upload files to Slack from your terminal!](http://slackcat.chat/)
@@ -27,6 +31,7 @@ published: true
 	- [Linux Azure VM Scale Sets with shared storage using Lustre](http://blogs.msdn.com/b/arsen/archive/2015/12/30/linux-azure-vm-scale-sets-with-shared-storage-using-lustre.aspx)
 	- [How to call the Azure Resource Manager REST API from C#](https://msftstack.wordpress.com/2016/01/03/how-to-call-the-azure-resource-manager-rest-api-from-c/)
 	- [Using ADAL and the Azure Resource Manager REST API from within a Webtask](http://fabriccontroller.net/using-adal-and-the-azure-resource-manager-rest-api-from-within-a-webtask/)
+	- [Deploy a custom application to Azure Service Fabric](https://github.com/Azure/azure-content/blob/master/articles/service-fabric/service-fabric-deploy-existing-app.md)
 - Web Development
 	- [Run Sitecore in a Docker container on Windows Server 2016](https://developer.rackspace.com/blog/run-sitecore-in-a-docker-container-on-windows-server-2016/)
 	- [Fabricator](https://fbrctr.github.io/)
@@ -36,7 +41,7 @@ published: true
 - [Disque 1.0 RC1 is out!](http://antirez.com/news/100) / [github](https://github.com/antirez/disque)
 - [The Truth About Working at a Japanese Company](http://rubyronin.com/the-truth-about-working-at-a-japanese-company/)
 - [Letter To A Young Programmer Considering A Startup](https://al3x.net/2013/05/23/letter-to-a-young-programmer.html)
-- [Implementing API Gateway in F# Using Rx and Suave](http://blog.tamizhvendan.in/blog/2015/12/29/implementing-api-gateway-in-f-number-using-rx-and-suave/)
+- [JavaScript Regular Expressions made easy](https://github.com/VerbalExpressions/JSVerbalExpressions) and [C# Regular Expressions made easy](https://github.com/VerbalExpressions/CSharpVerbalExpressions) fluid 
 - Elixir
 	- [Elixir : Simple Guardian - Multiple Sessions](http://blog.overstuffedgorilla.com/simple-guardian-multiple-sessions/)
 	- [Atom Editor for Elixir Development](http://brainlid.org/elixir/2015/11/12/atom-editor-and-elixir.html)

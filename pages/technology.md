@@ -8,6 +8,11 @@ published: true
 
 # January 2016
 
+- Design
+	- [How to Use Tints and Shades in Your Designs](https://designschool.canva.com/blog/tints-and-shades/)
+		- [Material Design Color Palette](http://www.materialpalette.com/deep-orange/indigo)
+		- [paletton.com](http://paletton.com/#uid=13w1p0kko+M5A+T5I+TyOX6z4X1)
+		- [http://colourco.de/](http://colourco.de/)
 - [Free e-book: Static site generators: the latest tools for building static websites](http://conferences.oreilly.com/fluent/javascript-html-us/public/content/static-site-generators?download=true)
 - F#
 	- [F# Cheatsheet](http://dungpa.github.io/fsharp-cheatsheet/)

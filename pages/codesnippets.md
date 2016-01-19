@@ -115,11 +115,6 @@ let download(url : string) =
 "http://www.microsoft.com/" |> download |> Async.RunSynchronously |> printfn "%s"
 ```
 
-
-
-
-
-
 # Enumerate files
 
 ```
@@ -154,6 +149,5 @@ let stringcontent filename =
     File.ReadAllText filename
 
 bytecontent "C:\Users\chgeuer\Desktop\Android Apps.txt" |> md5base64 |> printfn "%s"
-
 stringcontent "C:\Users\chgeuer\Desktop\Android Apps.txt" |> printfn "%s"
 ```

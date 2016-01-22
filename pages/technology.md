@@ -8,13 +8,20 @@ published: true
 
 # January 2016
 
+- [Understanding the new ASP.NET 5 Configuration in Startup.cs](http://mikemengell.com/asp-net5/understanding-the-new-asp-net-5-configuration-in-startup-cs/)
+- [Building Resilient Microservices from the Fallacies of Distributed Computing](https://datawire.io/using-fallacies-of-distributed-computing-to-build-resilient-microservices/)
+- [Y-Cloninator - Github projects from Hacker News](http://ycloninator.herokuapp.com/)
+- [Big Data Ecosystem Datasheet](https://github.com/zenkay/bigdata-ecosystem/)
 - Design
 	- [How to Use Tints and Shades in Your Designs](https://designschool.canva.com/blog/tints-and-shades/)
 		- [Material Design Color Palette](http://www.materialpalette.com/deep-orange/indigo)
 		- [paletton.com](http://paletton.com/#uid=13w1p0kko+M5A+T5I+TyOX6z4X1)
 		- [http://colourco.de/](http://colourco.de/)
+	- [20 Minimal Web Designs That Don’t Rely on Images](http://line25.com/articles/20-minimal-web-designs-dont-rely-images)
+	- [25 Website Designs with Unusual Color Combinations](http://line25.com/articles/25-website-designs-with-unusual-color-combinations)
 - [Free e-book: Static site generators: the latest tools for building static websites](http://conferences.oreilly.com/fluent/javascript-html-us/public/content/static-site-generators?download=true)
 - F#
+	- [Running F# on Microsoft Azure](https://cockneycoder.wordpress.com/2016/01/20/running-fsharp-on-microsoft-azure/)
 	- [F# Cheatsheet](http://dungpa.github.io/fsharp-cheatsheet/)
 	- [F# Formatting: Documentation tools](http://tpetricek.github.io/FSharp.Formatting/)
 	- [Join](http://fpchat.com/) [functionalprogramming.slack.com](https://functionalprogramming.slack.com/)

@@ -8,6 +8,7 @@ published: true
 
 # January 2016
 
+- [PostgreSQL replication with Londiste from Skytools 3](https://blog.lateral.io/2015/09/postgresql-replication-with-londiste-from-skytools-3/)
 - [Understanding the new ASP.NET 5 Configuration in Startup.cs](http://mikemengell.com/asp-net5/understanding-the-new-asp-net-5-configuration-in-startup-cs/)
 - [Building Resilient Microservices from the Fallacies of Distributed Computing](https://datawire.io/using-fallacies-of-distributed-computing-to-build-resilient-microservices/)
 - [Y-Cloninator - Github projects from Hacker News](http://ycloninator.herokuapp.com/)

@@ -9,9 +9,12 @@ published: true
 # January 2016
 
 - [Microsoft Orleans support for Workflow Foundation (.Net 4.x System.Activities workflows)](https://github.com/OrleansContrib/Orleans.Activities)
-- [React and Redux with TypeScript](http://jaysoo.ca/2015/09/26/typed-react-and-redux/)
-- [vivus, bringing your SVGs to life](http://maxwellito.github.io/vivus/)
-- [PostgreSQL Query Plan Visualization](http://tatiyants.com/postgres-query-plan-visualization/)
+- JavaScript
+    - [React and Redux with TypeScript](http://jaysoo.ca/2015/09/26/typed-react-and-redux/)
+    - [vivus, bringing your SVGs to life](http://maxwellito.github.io/vivus/)
+- PostgreSQL
+    - [PostgreSQL Query Plan Visualization](http://tatiyants.com/postgres-query-plan-visualization/)
+    - [PostgreSQL replication with Londiste from Skytools 3](https://blog.lateral.io/2015/09/postgresql-replication-with-londiste-from-skytools-3/)
 - [Understanding the new ASP.NET 5 Configuration in Startup.cs](http://mikemengell.com/asp-net5/understanding-the-new-asp-net-5-configuration-in-startup-cs/)
 - [Building Resilient Microservices from the Fallacies of Distributed Computing](https://datawire.io/using-fallacies-of-distributed-computing-to-build-resilient-microservices/)
 - [Y-Cloninator - Github projects from Hacker News](http://ycloninator.herokuapp.com/)

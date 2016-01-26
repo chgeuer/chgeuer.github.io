@@ -8,6 +8,7 @@ published: true
 
 # January 2016
 
+- [Building Slack Bots](https://github.com/howdyai/botkit)
 - [Microsoft Orleans support for Workflow Foundation (.Net 4.x System.Activities workflows)](https://github.com/OrleansContrib/Orleans.Activities)
 - JavaScript
     - [React and Redux with TypeScript](http://jaysoo.ca/2015/09/26/typed-react-and-redux/)

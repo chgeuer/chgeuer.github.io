@@ -40,17 +40,15 @@ In my own DNS, I add the verification entry:
 
 <div align="center"><img src="../../../../../img/2016-01-27-akamai/03-verify-dns.png"></img></div>
 
+Now I can finally tell Azure to accept my custom host name on the origin server: 
+
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/04-add-custom-host-name.png"></img></div>
 
 
 
 
 
 
-
-
-
-
-<div align="center"><img src="../../../../../img/2016-01-27-akamai/01-create-media-services-account.png" alt="creating an Azure Media Services Account"></img></div>
 
 
 

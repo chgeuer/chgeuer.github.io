@@ -40,15 +40,47 @@ In my own DNS, I add the verification entry:
 
 <div align="center"><img src="../../../../../img/2016-01-27-akamai/03-verify-dns.png"></img></div>
 
+A quick `dig` query against DNS tells me when I'm done
+
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/03-verify-dns-dig.png"></img></div>
+
+```
+$ dig @8.8.8.8 +noall +answer 13b2246c-82f5-40f5-b102-cf7d74b956ab.geuer-pollmann.de
+
+13b2246c-82f5-40f5-b102-cf7d74b956ab.geuer-pollmann.de. 21590 IN CNAME verifydns.mediaservices.windows.net.
+verifydns.mediaservices.windows.net. 3590 IN A  1.1.1.1
+
+```
+
 Now I can finally tell Azure to accept my custom host name on the origin server: 
 
 <div align="center"><img src="../../../../../img/2016-01-27-akamai/04-add-custom-host-name.png"></img></div>
 
+## Akamai Configuration
 
+On the Akamai side, you first need to have access to the [Luna control center](https://control.akamai.com/homeeng/view/main). You might need to work with your Akamai representative how to get access. 
 
+### Create an 'Adaptive Media Delivery' property
 
+In Luna, you now login to your contract, and create an 'Adaptive Media Delivery' property, and name it (for simplicity) with your intended public host name. 
 
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/05-akamai-create-property.png"></img></div>
 
+Inside the property, you then add the real hostname to the property. 
 
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/06-akamai-add-property-hostname.png"></img></div>
 
+Use the Standard Hostname. 
+
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/07-akamai-standard-hostname.png"></img></div>
+
+Choose IPv4.
+
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/08-akamai-ipv4.png"></img></div>
+
+In the review screen, Akamai now knows that requests for `video.geuer-pollmann.de` will be coming in, and tells us that these will have to go to `video.geuer-pollmann.de.akamaized.net`. 
+
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/09-akamai-review-hostname.png"></img></div>
+
+So we need to configure our own DNS accordingly with a CNAME: 
 

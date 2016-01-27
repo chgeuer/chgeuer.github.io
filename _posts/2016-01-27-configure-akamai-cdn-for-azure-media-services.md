@@ -16,13 +16,41 @@ An Azure Media Services Origin Server (formally called 'On-Demand Streaming Rese
 
 ## DNS and naming issues: 
 
-First, let's layout some naming bits and pieces: 
+First, let's summarize some naming bits and pieces: 
 
-### Media Services Account Name
+### Have an Azure Media Services Account
 
-When you have created an Azure Media Services account, you have chosen an account name. In this example, it will be `mediaservice321`.  
+When I create an Azure Media Services account, I have to choose an account name. In this example, it will be `mediaservice321`.  
 
-<div>
-	<img src="../../../../../img/2016-01-27-akamai/01-create-media-services-account.png" alt="creating an Azure Media Services Account"></img>
-</div>
+### Have a (reserved) streaming unit
+
+There is a now shared default 'streaming endpoint' called `mediaservice321.streaming.mediaservices.windows.net`. 
+
+To get the 200 Mbit/sec per streaming unit, and for all the fancy DNS CNAME tricks, I need to scale my streaming endpoint to have one or more (reserved) streaming units. Out of the box, it has 0 streaming units. After that scale operation, I have the 200 Mbit/sec per streaming unit, and I can configure custom host names. 
+
+### Have a clean host name
+
+For streaming my video assets, I want a neat and clean hostname, i.e. I do not want some Azure or Akamai artefacts show up in the URL. In my case, I'd like to have my viewers to get the videos from `videos.geuer-pollmann.de`.  `videos.geuer-pollmann.de` will be a DNS CNAME pointing to Akamai, but I **also** want to configure Azure Media Services to accept requests for that URL. Specifically, Akamai will be configured to forward the incoming host header to the origin, so `mediaservice321.streaming.mediaservices.windows.net` must be configured to accept requests for `videos.geuer-pollmann.de`, even if the real DNS doesn't point to the origin server directly. 
+
+Before I can configure my 'custom host name' `video.geuer-pollmann.de` for my streaming endpoint, Azure wants some proof that I excercise control over the `geuer-pollmann.de` domain, and they want me to create some DNS entry to show that. In the dashboard of my 'Azure Media Services Account', I can see it has a 'media service id' called `13b2246c-82f5-40f5-b102-cf7d74b956ab`. Azure now asks me to configure my own DNS server to let `13b2246c-82f5-40f5-b102-cf7d74b956ab.geuer-pollmann.de` to be a CNAME entry pointing to `verifydns.mediaservices.windows.net`. 
+
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/02-custom-host-name.png"></img></div>
+
+In my own DNS, I add the verification entry: 
+
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/03-verify-dns.png"></img></div>
+
+
+
+
+
+
+
+
+
+
+
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/01-create-media-services-account.png" alt="creating an Azure Media Services Account"></img></div>
+
+
 

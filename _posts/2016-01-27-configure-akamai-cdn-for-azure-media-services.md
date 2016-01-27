@@ -5,6 +5,9 @@ date: 2016-01-27 10:00:00
 keywords: azure, video, akamai
 ---
 
+<blockquote class="twitter-tweet" lang="en"><p>How to configure <a href="https://twitter.com/Akamai">@Akamai</a> for<a href="https://twitter.com/Azure">@Azure</a> Media Services - A quick introduction <a href="http://blog.geuer-pollmann.de/blog/2016/01/27/configure-akamai-cdn-for-azure-media-services/">http://blog.geuer-pollmann.de/blog/2016/01/27/configure-akamai-cdn-for-azure-media-services/</a></p>&mdash; Chris Geuer-Pollmann (@chgeuer) <a href="https://twitter.com/chgeuer/status/692355042691715073">27. January 2016</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Tl’dr: For this walkthrough, I assume you have some familiarity with Azure Media Services. I explain how the DNS setup, and Akamai configuration need to look like, to put Akamai CDN in front of your origin server for video streaming. 
 
 [Microsoft Azure Media Services](https://azure.microsoft.com/en-us/services/media-services/) is Microsoft’s PaaS offering for video encoding, and delivery. Through encoding, customers transcode their great original video (sometimes called a 'mezzanine file') into a set of multiple MP4 files in various bitrates and resolutions (multi-bitrate asset). These individual MP4 files are then stored in Azure Blob Storage. An ‘[origin server](https://azure.microsoft.com/en-us/documentation/articles/media-services-deliver-content-overview/)’ can be used for [dynamic packaging](https://azure.microsoft.com/en-us/documentation/articles/media-services-dynamic-packaging-overview/) and streaming into various formats, such as HTTP Live Streaming (HLS), Microsoft IIS Smooth Streaming, MPEG-DASH, and Adobe HTTP Dynamic Streaming (HDS). 

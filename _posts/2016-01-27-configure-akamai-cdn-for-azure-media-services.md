@@ -20,3 +20,11 @@ An Azure Media Services Origin Server (formally called 'On-Demand Streaming Rese
 
 First, let's layout some naming bits and pieces: 
 
+### Media Services Account Name
+
+When you have created an Azure Media Services account, you have chosen an account name. In this example, it will be `mediaservice321`.  
+
+<div>
+	<img src="../../../../img/2016-01-27-akamai/01-create-media-services-account.png" alt="creating an Azure Media Services Account"></img>
+</div>
+

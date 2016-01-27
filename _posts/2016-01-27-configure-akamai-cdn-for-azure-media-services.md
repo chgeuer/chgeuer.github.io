@@ -5,8 +5,6 @@ date: 2016-01-27 10:00:00
 keywords: azure, video, akamai
 ---
 
-# How to configure Akamai CDN for Azure Media Services – A quick introduction
-
 Tl’dr: For this walkthrough, I assume you have some familiarity with Azure Media Services. I explain how the DNS setup, and Akamai configuration need to look like, to put Akamai CDN in front of your origin server for video streaming. 
 
 [Microsoft Azure Media Services](https://azure.microsoft.com/en-us/services/media-services/) is Microsoft’s PaaS offering for video encoding, and delivery. Through encoding, customers transcode their great original video (sometimes called a 'mezzanine file') into a set of multiple MP4 files in various bitrates and resolutions (multi-bitrate asset). These individual MP4 files are then stored in Azure Blob Storage. An ‘[origin server](https://azure.microsoft.com/en-us/documentation/articles/media-services-deliver-content-overview/)’ can be used for [dynamic packaging](https://azure.microsoft.com/en-us/documentation/articles/media-services-dynamic-packaging-overview/) and streaming into various formats, such as HTTP Live Streaming (HLS), Microsoft IIS Smooth Streaming, MPEG-DASH, and Adobe HTTP Dynamic Streaming (HDS). 
@@ -25,6 +23,6 @@ First, let's layout some naming bits and pieces:
 When you have created an Azure Media Services account, you have chosen an account name. In this example, it will be `mediaservice321`.  
 
 <div>
-	<img src="../../../../img/2016-01-27-akamai/01-create-media-services-account.png" alt="creating an Azure Media Services Account"></img>
+	<img src="../../../../../img/2016-01-27-akamai/01-create-media-services-account.png" alt="creating an Azure Media Services Account"></img>
 </div>
 

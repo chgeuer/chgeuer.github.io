@@ -30,7 +30,7 @@ To get the 200 Mbit/sec per streaming unit, and for all the fancy DNS CNAME tric
 
 ### Have a clean host name
 
-For streaming my video assets, I want a neat and clean hostname, i.e. I do not want some Azure or Akamai artefacts show up in the URL. In my case, I'd like to have my viewers to get the videos from `videos.geuer-pollmann.de`.  `videos.geuer-pollmann.de` will be a DNS CNAME pointing to Akamai, but I **also** want to configure Azure Media Services to accept requests for that URL. Specifically, Akamai will be configured to forward the incoming host header to the origin, so `mediaservice321.streaming.mediaservices.windows.net` must be configured to accept requests for `videos.geuer-pollmann.de`, even if the real DNS doesn't point to the origin server directly. 
+For streaming my video assets, I want a neat and clean 'vanity' hostname, i.e. I do not want some Azure or Akamai artefacts show up in the URL. In my case, I'd like to have my viewers to get the videos from `videos.geuer-pollmann.de`.  `videos.geuer-pollmann.de` will be a DNS CNAME pointing to Akamai, but I **also** want to configure Azure Media Services to accept requests for that URL. Specifically, Akamai will be configured to forward the incoming host header to the origin, so `mediaservice321.streaming.mediaservices.windows.net` must be configured to accept requests for `videos.geuer-pollmann.de`, even if the real DNS doesn't point to the origin server directly. 
 
 Before I can configure my 'custom host name' `video.geuer-pollmann.de` for my streaming endpoint, Azure wants some proof that I excercise control over the `geuer-pollmann.de` domain, and they want me to create some DNS entry to show that. In the dashboard of my 'Azure Media Services Account', I can see it has a 'media service id' called `13b2246c-82f5-40f5-b102-cf7d74b956ab`. Azure now asks me to configure my own DNS server to let `13b2246c-82f5-40f5-b102-cf7d74b956ab.geuer-pollmann.de` to be a CNAME entry pointing to `verifydns.mediaservices.windows.net`. 
 
@@ -42,14 +42,11 @@ In my own DNS, I add the verification entry:
 
 A quick `dig` query against DNS tells me when I'm done
 
-<div align="center"><img src="../../../../../img/2016-01-27-akamai/03-verify-dns-dig.png"></img></div>
-
 ```
 $ dig @8.8.8.8 +noall +answer 13b2246c-82f5-40f5-b102-cf7d74b956ab.geuer-pollmann.de
 
 13b2246c-82f5-40f5-b102-cf7d74b956ab.geuer-pollmann.de. 21590 IN CNAME verifydns.mediaservices.windows.net.
 verifydns.mediaservices.windows.net. 3590 IN A  1.1.1.1
-
 ```
 
 Now I can finally tell Azure to accept my custom host name on the origin server: 
@@ -66,21 +63,44 @@ In Luna, you now login to your contract, and create an 'Adaptive Media Delivery'
 
 <div align="center"><img src="../../../../../img/2016-01-27-akamai/05-akamai-create-property.png"></img></div>
 
+### Add the hostname
+
 Inside the property, you then add the real hostname to the property. 
 
 <div align="center"><img src="../../../../../img/2016-01-27-akamai/06-akamai-add-property-hostname.png"></img></div>
 
-Use the Standard Hostname. 
+### Use the Standard Hostname. 
 
 <div align="center"><img src="../../../../../img/2016-01-27-akamai/07-akamai-standard-hostname.png"></img></div>
 
-Choose IPv4.
+### Choose IPv4.
 
 <div align="center"><img src="../../../../../img/2016-01-27-akamai/08-akamai-ipv4.png"></img></div>
+
+### Review
 
 In the review screen, Akamai now knows that requests for `video.geuer-pollmann.de` will be coming in, and tells us that these will have to go to `video.geuer-pollmann.de.akamaized.net`. 
 
 <div align="center"><img src="../../../../../img/2016-01-27-akamai/09-akamai-review-hostname.png"></img></div>
 
-So we need to configure our own DNS accordingly with a CNAME: 
+### Configure my vanity hostname in DNS
+
+Now I need to configure my own DNS so that `video.geuer-pollmann.de` is a CNAME entry for `video.geuer-pollmann.de.akamaized.net`, and I also set the time-to-live (TTL) to an hour. 
+
+After my own DNS forward, I can check: 
+
+```
+$ dig @8.8.8.8 +noall +answer video.geuer-pollmann.de
+
+video.geuer-pollmann.de. 3599 IN CNAME video.geuer-pollmann.de.akamaized.net.
+```
+
+### Configure "Origin Server" and "Content Provider Code"
+
+Now that the public vanity hostname is set, both in Akamai and our DNS, we can continue Akamai configuration. In the "property configuration settings" --> "Default Rule" --> "Behaviors", we set the "Origin Server"
+
+
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/10-akamai-config-finish.png"></img></div>
+
+
 

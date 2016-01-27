@@ -36,7 +36,7 @@ Before I can configure my 'custom host name' `video.geuer-pollmann.de` for my st
 
 <div align="center"><img src="../../../../../img/2016-01-27-akamai/02-custom-host-name.png"></img></div>
 
-In my own DNS, I add the verification entry: 
+At my own DNS provider, I add the verification entry: 
 
 <div align="center"><img src="../../../../../img/2016-01-27-akamai/03-verify-dns.png"></img></div>
 
@@ -83,7 +83,7 @@ In the review screen, Akamai now knows that requests for `video.geuer-pollmann.d
 
 <div align="center"><img src="../../../../../img/2016-01-27-akamai/09-akamai-review-hostname.png"></img></div>
 
-### Configure my vanity hostname in DNS
+### Configure my vanity hostname in my own DNS
 
 Now I need to configure my own DNS so that `video.geuer-pollmann.de` is a CNAME entry for `video.geuer-pollmann.de.akamaized.net`, and I also set the time-to-live (TTL) to an hour. 
 
@@ -97,10 +97,75 @@ video.geuer-pollmann.de. 3599 IN CNAME video.geuer-pollmann.de.akamaized.net.
 
 ### Configure "Origin Server" and "Content Provider Code"
 
-Now that the public vanity hostname is set, both in Akamai and our DNS, we can continue Akamai configuration. In the "property configuration settings" --> "Default Rule" --> "Behaviors", we set the "Origin Server"
+Now that the public vanity hostname is set, both in Akamai and our DNS, we can continue Akamai configuration. In the "property configuration settings" --> "Default Rule" --> "Behaviors", we set finish our configuration: 
 
+- The "Origin Server" needs to be configures like this: 
+	- The "Origin Type" is set to "Your Origin".
+	- The "Origin Server Hostname" is set to the physical hostname of the Azure origin server, in our case `mediaservice321.streaming.mediaservices.windows.net`.
+	- The "Forward Host Header" is set to "Incoming Host Header". This is exactly why we added `video.geuer-pollmann.de` to the custom host names in Azure. 
+- The "Content Provider Code" (CP Code) is set to whatever you need for proper Akamai billing. For the uninitiated, a CP code seems to be an Akamai construct like a cost center, which allows you to group costs for a particular client under that CP code. So all costs related to a CP code show up together in your Akamai bill. 
 
 <div align="center"><img src="../../../../../img/2016-01-27-akamai/10-akamai-config-finish.png"></img></div>
 
+## Start up the engines
 
+After that long configuration spree, we're pretty much set. The only thing missing is to actually enact the configuration, and to tell Akamai to "start up the engines". When we look up in our Akamai "Property Version Information", we see that the "Production Status" and "Staging Status" are set to INACTIVE. 
 
+The production system is the world-wide set of CDN edge nodes. Changes and reconfigurations to the production system certainly take a bit longer to propagate globally. It is a good idea to first test the waters with the staging environment; the staging environment is a small set of machines which enact config changes much faster, and are not indended to be hit by production traffic. When you see an `*.akamaized.net` hostname, it is production. When you see `*.akamaized-staging.net`, well, you get the idea. 
+
+### To turn on staging, you switch to the "Activate" tab ...
+
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/11-akamai-activate-1.png"></img></div>
+
+### ... and activate "Staging"
+
+<div align="center"><img src="../../../../../img/2016-01-27-akamai/12-akamai-activate-2.png"></img></div>
+
+## Test the staging environment
+
+After we turned the staging environment, it is available at `video.geuer-pollmann.de.akamaized-staging.net`. Let's say we have an asset in Azure Media Services, and when we open the URL of the HLS manifest in Safari, we can play it: 
+
+```
+http://mediaservice321.streaming.mediaservices.windows.net/deadbeef-1234-4321-effe-deadbeef0000/MyMovie-m3u8-aapl.ism/manifest(format=m3u8-aapl)
+```
+
+What we **could** do now is to replace the AMS hostname with the Akamai staging hostname: 
+
+```
+http://video.geuer-pollmann.de.akamaized-staging.net/deadbeef-1234-4321-effe-deadbeef0000/MyMovie-m3u8-aapl.ism/manifest(format=m3u8-aapl)
+```
+
+Problem is, it doesn't work. The Akamai edge nodes in the staging environment correctly connect to `mediaservice321.streaming.mediaservices.windows.net`, but if you remember, we said `ForwardHostHeader == IncomingHostHeader`. So the edge node sets the http Host header to `Host: video.geuer-pollmann.de.akamaized-staging.net`. And our origin only accepts requests for either `mediaservice321.streaming.mediaservices.windows.net` or `video.geuer-pollmann.de`. 
+
+A little trick helps: We figure out the concrete IP address of one of the staging servers: 
+
+```
+$ dig @8.8.8.8 +noall +answer video.geuer-pollmann.de.akamaized-staging.net
+
+video.geuer-pollmann.de.akamaized.net. 21599 IN CNAME a1612.w10.akamai-staging.net.
+a1612.w10.akamai-staging.net.             19 IN A     165.254.92.136
+a1612.w10.akamai-staging.net.             19 IN A     165.254.92.138
+```
+
+Then we basically use Notepad/vim/Emacs/SublimeText to edit our `/etc/hosts` or `C:\Windows\System32\drivers\etc\hosts` file, and force our local laptop to send requests to the vanity host `video.geuer-pollmann.de` to one of the staging network nodes, such as `165.254.92.136`. Then we open the production URL in Safari, and voila. 
+
+```
+http://video.geuer-pollmann.de/deadbeef-1234-4321-effe-deadbeef0000/MyMovie-m3u8-aapl.ism/manifest(format=m3u8-aapl)
+```
+
+If that looks good, **we revert our messing around in the hosts file**; otherwise, we might experience hard-to-debug problems on our development machine :-). 
+
+## Turning on production
+
+Last step would be to turn on the production system, give it some time, and check if your DNS entries chain up correctly: 
+
+```
+$ dig @8.8.8.8 +noall +answer video.geuer-pollmann.de
+
+video.geuer-pollmann.de.                3599 IN CNAME video.geuer-pollmann.de.akamaized.net.
+video.geuer-pollmann.de.akamaized.net. 21599 IN CNAME a1612.w10.akamai.net.
+a1612.w10.akamai.net.                     19 IN A     2.16.62.49
+a1612.w10.akamai.net.                     19 IN A     2.16.62.57
+```
+
+Hope you have fun... If you like that post, give it a retweet on Twitter, or comment below. 

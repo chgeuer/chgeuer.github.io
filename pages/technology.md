@@ -8,6 +8,8 @@ published: true
 
 # January 2016
 
+- WhatIsMyIP from [Akamai](https://community.akamai.com/thread/1830)
+- Use [Ctrl-D](http://stackoverflow.com/questions/8360215/use-ctrl-d-to-exit-and-ctrl-l-to-cls-in-powershell-console) to exit Powershell: `Set-PSReadlineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit? 
 - [Building Slack Bots](https://github.com/howdyai/botkit)
 - [Microsoft Orleans support for Workflow Foundation (.Net 4.x System.Activities workflows)](https://github.com/OrleansContrib/Orleans.Activities)
 - JavaScript
@@ -53,6 +55,8 @@ published: true
 	- [Using ADAL and the Azure Resource Manager REST API from within a Webtask](http://fabriccontroller.net/using-adal-and-the-azure-resource-manager-rest-api-from-within-a-webtask/)
 	- [Deploy a custom application to Azure Service Fabric](https://github.com/Azure/azure-content/blob/master/articles/service-fabric/service-fabric-deploy-existing-app.md)
 - Web Development
+	- [Parse is closed](http://blog.parse.com/announcements/moving-on/) and [OSS](https://github.com/ParsePlatform/parse-server)
+	- [Preact](http://developit.github.io/preact/)
 	- [Run Sitecore in a Docker container on Windows Server 2016](https://developer.rackspace.com/blog/run-sitecore-in-a-docker-container-on-windows-server-2016/)
 	- [Fabricator](https://fbrctr.github.io/)
 	- JavaScript
@@ -69,6 +73,7 @@ published: true
 	- [Get invited to Elexir on Slack](http://bit.ly/slackelixir)
 	- [Routing Securely with Phoenix Framework](http://kronicdeth.github.io/routing-securely-with-phoenix-framework/#/) and [code](https://github.com/KronicDeth/routing-securely-with-phoenix-framework)
 	- [Setting Up Phoenix/Elixir With Nginx and LetsEncrypt](https://medium.com/@a4word/setting-up-phoenix-elixir-with-nginx-and-letsencrypt-ada9398a9b2c)
+	- [Create Command Line Tools with Elixir](http://elixirdose.com/post/create_command_line_tools)
 - AWS
 	- [Using AWS Lambda functions to create print ready files](http://highscalability.com/blog/2015/12/28/using-aws-lambda-functions-to-create-print-ready-files.html)
 	- [5 AWS mistakes you should avoid](https://cloudonaut.io/5-aws-mistakes-you-should-avoid/)

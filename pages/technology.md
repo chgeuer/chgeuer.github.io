@@ -9,7 +9,12 @@ published: true
 # January 2016
 
 - WhatIsMyIP from [Akamai](https://community.akamai.com/thread/1830)
-- Use [Ctrl-D](http://stackoverflow.com/questions/8360215/use-ctrl-d-to-exit-and-ctrl-l-to-cls-in-powershell-console) to exit Powershell: `Set-PSReadlineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit? 
+- Use [Ctrl-D](http://stackoverflow.com/questions/8360215/use-ctrl-d-to-exit-and-ctrl-l-to-cls-in-powershell-console) to exit Powershell: `Set-PSReadlineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit`
+
+```
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unrestricted -Command "Add-Content $PsHome\Profile.ps1 \"`r`nSet-PSReadlineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit`r`n\""
+```
+
 - [Building Slack Bots](https://github.com/howdyai/botkit)
 - [Microsoft Orleans support for Workflow Foundation (.Net 4.x System.Activities workflows)](https://github.com/OrleansContrib/Orleans.Activities)
 - JavaScript

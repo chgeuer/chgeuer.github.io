@@ -32,7 +32,6 @@ excerpt_separator: "\n\n"
 
 # Pagination
 paginate: 2
-relative_permalinks: true
 blogurl:       "/blog"
 blogpageprefix: "/blog/page"
 paginate_path: "/blog/page:num"

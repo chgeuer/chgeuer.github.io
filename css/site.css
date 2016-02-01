@@ -8,3 +8,12 @@ body {
     color: #111111;
 }
 
+.svg-container { 
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	padding-top: : 5%; 
+	padding-bottom: 5%; 
+	vertical-align: middle; 
+	overflow: hidden; 
+}

@@ -5,3 +5,4 @@ _site
 *.lock
 /blog.geuer-pollmann.de.sublime-project
 /blog.geuer-pollmann.de.sublime-workspace
+node_modules/

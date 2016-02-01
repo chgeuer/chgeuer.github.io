@@ -8,6 +8,8 @@ published: true
 
 # January 2016
 
+- [Libraries and supporting examples for use with the Ports and Adapters and CQRS architectural styles for .NET, with support for Task Queues](http://iancooper.github.io/Paramore/Brighter.html)
+- [Is TLS fast yet? Yes, yes it is.](https://istlsfastyet.com)
 - WhatIsMyIP from [Akamai](https://community.akamai.com/thread/1830)
 - Use [Ctrl-D](http://stackoverflow.com/questions/8360215/use-ctrl-d-to-exit-and-ctrl-l-to-cls-in-powershell-console) to exit Powershell: `Set-PSReadlineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit`
 
@@ -28,6 +30,7 @@ published: true
 - [Y-Cloninator - Github projects from Hacker News](http://ycloninator.herokuapp.com/)
 - [Big Data Ecosystem Datasheet](https://github.com/zenkay/bigdata-ecosystem/)
 - Design
+	- CSS Sass. [Sass Basics](http://sass-lang.com/guide) and [foundation](http://foundation.zurb.com/sites/docs/sass.html) and [gulp](https://www.npmjs.com/package/gulp-sass)
 	- [How to Use Tints and Shades in Your Designs](https://designschool.canva.com/blog/tints-and-shades/)
 		- [Material Design Color Palette](http://www.materialpalette.com/deep-orange/indigo)
 		- [paletton.com](http://paletton.com/#uid=13w1p0kko+M5A+T5I+TyOX6z4X1)
@@ -72,6 +75,7 @@ published: true
 - [Letter To A Young Programmer Considering A Startup](https://al3x.net/2013/05/23/letter-to-a-young-programmer.html)
 - [JavaScript Regular Expressions made easy](https://github.com/VerbalExpressions/JSVerbalExpressions) and [C# Regular Expressions made easy](https://github.com/VerbalExpressions/CSharpVerbalExpressions) fluid 
 - Elixir
+	- [AWS clients for Elixir](https://github.com/jkakar/aws-elixir) and [clients AWS APIs for Elixir](https://github.com/CargoSense/ex_aws) and [AWS Signature Version 4 Signing Library for Elixir](https://github.com/bryanjos/aws_auth) and [Erlang Amazon WebServices](https://github.com/x6j8x/erlaws) and [Cloud Computing library for erlang (Amazon EC2, S3, SQS, SimpleDB, Mechanical Turk, ELB)](https://github.com/erlcloud/erlcloud)
 	- [Elixir : Simple Guardian - Multiple Sessions](http://blog.overstuffedgorilla.com/simple-guardian-multiple-sessions/)
 	- [Atom Editor for Elixir Development](http://brainlid.org/elixir/2015/11/12/atom-editor-and-elixir.html)
 	- [ElixirConf 2015 videos](http://confreaks.tv/events/elixirconf2015)

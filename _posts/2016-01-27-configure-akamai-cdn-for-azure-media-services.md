@@ -53,7 +53,7 @@ A quick `dig` query against DNS tells me when I'm done
 $ dig @8.8.8.8 +noall +answer 13b2246c-82f5-40f5-b102-cf7d74b956ab.geuer-pollmann.de
 
 13b2246c-82f5-40f5-b102-cf7d74b956ab.geuer-pollmann.de. 21590 IN CNAME verifydns.mediaservices.windows.net.
-verifydns.mediaservices.windows.net. 3590 IN A  1.1.1.1
+verifydns.mediaservices.windows.net.                     3590 IN A     1.1.1.1
 ```
 
 Now I can finally tell Azure to accept my custom host name on the origin server: 

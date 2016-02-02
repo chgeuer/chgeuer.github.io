@@ -8,6 +8,20 @@ published: true
 
 
 
+## Figure out which DirectShow input devices I have
+
+```
+ffmpeg -list_devices true -f dshow -i dummy
+```
+
+## Capture the local web cam & microphone and create a 10sec MP4 video
+
+```
+ffmpeg -f dshow -i video="Integrated Camera":audio="Microphone (Realtek High Definition Audio)" -t 10 out.mp4
+```
+
+
+
 # Screen capture
 
 ## Screen capture filter
@@ -43,4 +57,9 @@ ffmpeg -f dshow -i video="screen-capture-recorder":audio="virtual-audio-capturer
 ```
 ffplay -f dshow -i video="screen-capture-recorder" -vf scale=1280:720
 ```
+
+
+# Azure Media Players
+
+You can use the [DASHPlayer](http://dashplayer.azurewebsites.net/) or [aka.ms/azuremediaplayer](http://amsplayer.azurewebsites.net/azuremediaplayer.html). 
 

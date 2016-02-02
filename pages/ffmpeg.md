@@ -78,7 +78,6 @@ ffplay -f dshow -i video="screen-capture-recorder" -vf scale=1280:720
 
 # Azure Media Players
 
-You can use the [DASHPlayer](http://dashplayer.azurewebsites.net/) or [aka.ms/azuremediaplayer](http://amsplayer.azurewebsites.net/azuremediaplayer.html). 
 
 
 
@@ -95,6 +94,59 @@ For ffmpeg to work, we need to append the channel name `/channel1` to the URLs:
 - `rtmp://channel1-mediaservice321.channel.mediaservices.windows.net:1936/live/deadbeef012345678890abcdefabcdef/channel1`
 
 
+## Input specs
+
+The [Azure Blog](https://azure.microsoft.com/en-us/blog/azure-media-services-rtmp-support-and-live-encoders/) now tells us to use RTMP with H.264 video and AAC audio, a 2-second key-frame interval, and CBR (constant bit rate) encoding. 
+
+
+## Configuring ffmpeg
+
+### Links
+
+- [ffmpeg - command line options](https://ffmpeg.org/ffmpeg.html)
+- [ffmpeg - Streaming](https://trac.ffmpeg.org/wiki/StreamingGuide)
+- [ffmpeg - Encoding for streaming sites](https://trac.ffmpeg.org/wiki/EncodingForStreamingSites)
+
+### Command line arguments
+
+#### misc
+
+- `-y` Overwrite output files without asking
+- `-loglevel debug` (or verbose, quiet, panic, fatal) 
+
+### Input
+
+- `-f dshow` use DirectShow Filter
+- `-i video="Integrated Camera":audio="Microphone (Realtek High Definition Audio)"` use internal web cam and microphone
+
+#### Video output
+
+- `-s 640x480` Resolution
+- `-codec:v libx264` H.264 / AVC video
+- `-pix_fmt yuv420p` pixel format YUV420
+- `-preset veryfast`
+- `-b:v 200k` video bit rate
+- `-r 30` frame rate
+- `-g 60` GOP size
+- `-keyint_min 60`
+- `-sc_threshold 0` scene change threshold
+
+#### Audio output
+
+- `-codec:a libvo_aacenc` AAC audio
+- `-b:a 48k` audio bit rate 
+
+#### overall stream
+
+- `-bufsize 200k` buffer size
+- `-maxrate 200k` maximim bit rate
+
+#### Destination
+
+- `-f flv rtmp://chan1-acc2.channel.mediaservices.windows.net:1936/live/deadbeef/chan1` target RTMP endpoint to push to
+
+
+## Ingest the RTMP stream
 
 ```
 set DEST=rtmp://channel1-mediaservice321.channel.mediaservices.windows.net:1935/live/deadbeef012345678890abcdefabcdef/channel1
@@ -104,3 +156,4 @@ set SRC=video="Integrated Camera":audio="Headset Microphone (GN 2000 USB OC)"
 ffmpeg -f dshow -i %SRC% -s 640x480  -preset veryfast -codec:v libx264 -b:v 200k -pix_fmt yuv420p -maxrate 200k -bufsize 200k -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -codec:a libvo_aacenc -b:a 48k -f flv %DEST%
 ```
 
+You can use the [DASHPlayer](http://dashplayer.azurewebsites.net/) or [aka.ms/azuremediaplayer](http://amsplayer.azurewebsites.net/azuremediaplayer.html). 

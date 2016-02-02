@@ -1,0 +1,19 @@
+{
+  "name": "blog.geuer-pollmann.de",
+  "version": "1.0.0",
+  "description": "My personal blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dr. Christian Geuer-Pollmann",
+  "license": "",
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "gulp": "^3.9.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-shell": "^0.5.1",
+    "gulp-uncss": "^1.0.4",
+    "lodash": "^3.10.1"
+  }
+}

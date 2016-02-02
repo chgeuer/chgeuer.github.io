@@ -8,6 +8,15 @@ published: true
 
 # January 2016
 
+- [Libraries and supporting examples for use with the Ports and Adapters and CQRS architectural styles for .NET, with support for Task Queues](http://iancooper.github.io/Paramore/Brighter.html)
+- [Is TLS fast yet? Yes, yes it is.](https://istlsfastyet.com)
+- WhatIsMyIP from [Akamai](https://community.akamai.com/thread/1830)
+- Use [Ctrl-D](http://stackoverflow.com/questions/8360215/use-ctrl-d-to-exit-and-ctrl-l-to-cls-in-powershell-console) to exit Powershell: `Set-PSReadlineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit`
+
+```
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unrestricted -Command "Add-Content $PsHome\Profile.ps1 \"`r`nSet-PSReadlineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit`r`n\""
+```
+
 - [Building Slack Bots](https://github.com/howdyai/botkit)
 - [Microsoft Orleans support for Workflow Foundation (.Net 4.x System.Activities workflows)](https://github.com/OrleansContrib/Orleans.Activities)
 - JavaScript
@@ -21,6 +30,7 @@ published: true
 - [Y-Cloninator - Github projects from Hacker News](http://ycloninator.herokuapp.com/)
 - [Big Data Ecosystem Datasheet](https://github.com/zenkay/bigdata-ecosystem/)
 - Design
+	- CSS Sass. [Sass Basics](http://sass-lang.com/guide) and [foundation](http://foundation.zurb.com/sites/docs/sass.html) and [gulp](https://www.npmjs.com/package/gulp-sass)
 	- [How to Use Tints and Shades in Your Designs](https://designschool.canva.com/blog/tints-and-shades/)
 		- [Material Design Color Palette](http://www.materialpalette.com/deep-orange/indigo)
 		- [paletton.com](http://paletton.com/#uid=13w1p0kko+M5A+T5I+TyOX6z4X1)
@@ -53,6 +63,8 @@ published: true
 	- [Using ADAL and the Azure Resource Manager REST API from within a Webtask](http://fabriccontroller.net/using-adal-and-the-azure-resource-manager-rest-api-from-within-a-webtask/)
 	- [Deploy a custom application to Azure Service Fabric](https://github.com/Azure/azure-content/blob/master/articles/service-fabric/service-fabric-deploy-existing-app.md)
 - Web Development
+	- [Parse is closed](http://blog.parse.com/announcements/moving-on/) and [OSS](https://github.com/ParsePlatform/parse-server)
+	- [Preact](http://developit.github.io/preact/)
 	- [Run Sitecore in a Docker container on Windows Server 2016](https://developer.rackspace.com/blog/run-sitecore-in-a-docker-container-on-windows-server-2016/)
 	- [Fabricator](https://fbrctr.github.io/)
 	- JavaScript
@@ -63,12 +75,14 @@ published: true
 - [Letter To A Young Programmer Considering A Startup](https://al3x.net/2013/05/23/letter-to-a-young-programmer.html)
 - [JavaScript Regular Expressions made easy](https://github.com/VerbalExpressions/JSVerbalExpressions) and [C# Regular Expressions made easy](https://github.com/VerbalExpressions/CSharpVerbalExpressions) fluid 
 - Elixir
+	- [AWS clients for Elixir](https://github.com/jkakar/aws-elixir) and [clients AWS APIs for Elixir](https://github.com/CargoSense/ex_aws) and [AWS Signature Version 4 Signing Library for Elixir](https://github.com/bryanjos/aws_auth) and [Erlang Amazon WebServices](https://github.com/x6j8x/erlaws) and [Cloud Computing library for erlang (Amazon EC2, S3, SQS, SimpleDB, Mechanical Turk, ELB)](https://github.com/erlcloud/erlcloud)
 	- [Elixir : Simple Guardian - Multiple Sessions](http://blog.overstuffedgorilla.com/simple-guardian-multiple-sessions/)
 	- [Atom Editor for Elixir Development](http://brainlid.org/elixir/2015/11/12/atom-editor-and-elixir.html)
 	- [ElixirConf 2015 videos](http://confreaks.tv/events/elixirconf2015)
 	- [Get invited to Elexir on Slack](http://bit.ly/slackelixir)
 	- [Routing Securely with Phoenix Framework](http://kronicdeth.github.io/routing-securely-with-phoenix-framework/#/) and [code](https://github.com/KronicDeth/routing-securely-with-phoenix-framework)
 	- [Setting Up Phoenix/Elixir With Nginx and LetsEncrypt](https://medium.com/@a4word/setting-up-phoenix-elixir-with-nginx-and-letsencrypt-ada9398a9b2c)
+	- [Create Command Line Tools with Elixir](http://elixirdose.com/post/create_command_line_tools)
 - AWS
 	- [Using AWS Lambda functions to create print ready files](http://highscalability.com/blog/2015/12/28/using-aws-lambda-functions-to-create-print-ready-files.html)
 	- [5 AWS mistakes you should avoid](https://cloudonaut.io/5-aws-mistakes-you-should-avoid/)

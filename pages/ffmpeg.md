@@ -6,8 +6,6 @@ keywords:
 published: true
 ---
 
-
-
 ## Figure out which DirectShow input devices I have
 
 ```
@@ -34,6 +32,11 @@ The strings `"Integrated Camera"`, `"Microphone (Realtek High Definition Audio)"
 - `-i video="Integrated Camera":audio="Headset Microphone (GN 2000 USB OC)"`
 - `-i video="Integrated Camera":audio="Microphone (Realtek High Definition Audio)"`
 
+## Determine the capabilities of the hardware
+
+```
+ffmpeg -f dshow -i video="Integrated Camera":audio="Microphone (Realtek High Definition Audio)" -list_formats all
+```
 
 ## Capture the local web cam & microphone and create a 10sec MP4 video
 
@@ -73,9 +76,6 @@ ffplay -f dshow -i video="screen-capture-recorder" -vf scale=1280:720
 ```
 
 
-
-
-
 # Azure Media Players
 
 
@@ -106,6 +106,7 @@ The [Azure Blog](https://azure.microsoft.com/en-us/blog/azure-media-services-rtm
 - [ffmpeg - command line options](https://ffmpeg.org/ffmpeg.html)
 - [ffmpeg - Streaming](https://trac.ffmpeg.org/wiki/StreamingGuide)
 - [ffmpeg - Encoding for streaming sites](https://trac.ffmpeg.org/wiki/EncodingForStreamingSites)
+- https://sonnati.wordpress.com/2011/08/19/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-iii/
 
 ### Command line arguments
 
@@ -127,14 +128,20 @@ The [Azure Blog](https://azure.microsoft.com/en-us/blog/azure-media-services-rtm
 - `-preset veryfast`
 - `-b:v 200k` video bit rate
 - `-r 30` frame rate
-- `-g 60` GOP size
-- `-keyint_min 60`
+- `-keyint_min 60` minimum GOP size
+- `-g 60` maximum GOP size
 - `-sc_threshold 0` scene change threshold
+- `-bsf:v h264_mp4toannexb` bitstream filter. Use `ffmpeg -bsfs` for a full list
+- `-profile:v main` preset according to [docs](https://trac.ffmpeg.org/wiki/Encode/H.264#a2.Chooseapreset)
+- `-level 3.1` compatible level according to [docs](https://trac.ffmpeg.org/wiki/Encode/H.264#Compatibility)
 
 #### Audio output
 
 - `-codec:a libvo_aacenc` AAC audio
-- `-b:a 48k` audio bit rate 
+- `-b:a 128k` audio bit rate 
+- `-ar 44100` audio sampling frequency
+- `-ac 2` audio channels
+- `-strict experimental`
 
 #### overall stream
 
@@ -145,15 +152,30 @@ The [Azure Blog](https://azure.microsoft.com/en-us/blog/azure-media-services-rtm
 
 - `-f flv rtmp://chan1-acc2.channel.mediaservices.windows.net:1936/live/deadbeef/chan1` target RTMP endpoint to push to
 
-
 ## Ingest the RTMP stream
 
 ```
 set DEST=rtmp://channel1-mediaservice321.channel.mediaservices.windows.net:1935/live/deadbeef012345678890abcdefabcdef/channel1
-
 set SRC=video="Integrated Camera":audio="Headset Microphone (GN 2000 USB OC)"
 
-ffmpeg -f dshow -i %SRC% -s 640x480  -preset veryfast -codec:v libx264 -b:v 200k -pix_fmt yuv420p -maxrate 200k -bufsize 200k -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -codec:a libvo_aacenc -b:a 48k -f flv %DEST%
+ffmpeg -f dshow -i %SRC% -s 640x480  -preset veryfast -codec:v libx264 -pix_fmt yuv420p -b:v 200k -minrate 200k -maxrate 200k -bufsize 200k -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -codec:a libvo_aacenc -b:a 48k -f flv %DEST%
+
+set VIDEOBITRATE=200k
+
+ffmpeg -f dshow -i %SRC% -s 640x480  -preset veryfast -codec:v libx264 -pix_fmt yuv420p -b:v %VIDEOBITRATE% -minrate %VIDEOBITRATE% -maxrate %VIDEOBITRATE% -bufsize %VIDEOBITRATE% -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -profile:v main -level 3.1 -codec:a aac -ar 44100 -b:a 128k -ac 2 -f flv %DEST%
 ```
 
-You can use the [DASHPlayer](http://dashplayer.azurewebsites.net/) or [aka.ms/azuremediaplayer](http://amsplayer.azurewebsites.net/azuremediaplayer.html). 
+You can use the [DASHPlayer](http://dashplayer.azurewebsites.net/) or [aka.ms/azuremediaplayer](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Don't forget to append `(format=mpd-time-csf)` or `(format=m3u8-aapl)` to the streams for DASH or HLS streaming. 
+
+
+
+
+
+
+
+
+-f mpegts udp://127.0.0.1:10000?pkt_size=1316
+
+
+
+- [FFMPEG for TS streaming](https://www.wowza.com/forums/content.php?213-How-to-use-FFmpeg-with-Wowza-Media-Server-(MPEG-TS))

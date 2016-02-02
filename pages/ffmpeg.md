@@ -20,8 +20,6 @@ ffmpeg -list_devices true -f dshow -i dummy
 ffmpeg -f dshow -i video="Integrated Camera":audio="Microphone (Realtek High Definition Audio)" -t 10 out.mp4
 ```
 
-
-
 # Screen capture
 
 ## Screen capture filter
@@ -40,11 +38,6 @@ After installing the driver above, you will be able to use the ffmpeg input
    -i video="screen-capture-recorder":audio="virtual-audio-capturer"
 ```
 
-
-
-
-
-
 ## Write a 10 second screen capture (at 20 fps) to local MP4 file
 
 ```
@@ -62,4 +55,18 @@ ffplay -f dshow -i video="screen-capture-recorder" -vf scale=1280:720
 # Azure Media Players
 
 You can use the [DASHPlayer](http://dashplayer.azurewebsites.net/) or [aka.ms/azuremediaplayer](http://amsplayer.azurewebsites.net/azuremediaplayer.html). 
+
+
+
+# Streaming to Azure Media Services Live Streaming
+
+```
+set DEST=rtmp://channel1-mediaservice321.channel.mediaservices.windows.net:1935/live/deadbeef012345678890abcdefabcdef/channel1
+
+set SRC=video="Integrated Camera":audio="Headset Microphone (GN 2000 USB OC)"
+
+REM set SRC=video="Integrated Camera":audio="Microphone (Realtek High Definition Audio)"
+
+ffmpeg -f dshow -i %SRC% -s 640x480  -preset veryfast -codec:v libx264 -b:v 200k -pix_fmt yuv420p -maxrate 200k -bufsize 200k -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -codec:a libvo_aacenc -b:a 48k -f flv %DEST%
+```
 

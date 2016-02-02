@@ -16,7 +16,11 @@ published: true
 - From a fault tolerance and performance perspective, putting all frontend VM VHD files into a single storage account is a bad idea. 
 - This article describes how you can declaratively distribute the OS disks across multiple storage accounts. 
 
-<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/overview.png">
+<!--<img src="/img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/overview.png">-->
+
+<div align="center"  class="svg-container">
+    <img src="../../../../../img/2015-09-16-vm-ha-in-arm-needs-more-than-availabilitysets/overview.svg" width="100%" class="svg-content" />
+</div>
 
 # Intro
 

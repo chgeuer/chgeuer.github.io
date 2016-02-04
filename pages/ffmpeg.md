@@ -68,18 +68,13 @@ After installing the driver above, you will be able to use the ffmpeg input
 ffmpeg -f dshow -i video="screen-capture-recorder":audio="virtual-audio-capturer" -r 20 -t 10 screen-capture.mp4 
 ```
 
-
 ## Play back current screen
 
 ```
 ffplay -f dshow -i video="screen-capture-recorder" -vf scale=1280:720
 ```
 
-
 # Azure Media Players
-
-
-
 
 # Streaming to Azure Media Services Live Streaming
 
@@ -92,7 +87,6 @@ For ffmpeg to work, we need to append the channel name `/channel1` to the URLs:
 
 - `rtmp://channel1-mediaservice321.channel.mediaservices.windows.net:1936/live/deadbeef012345678890abcdefabcdef/channel1`
 - `rtmp://channel1-mediaservice321.channel.mediaservices.windows.net:1936/live/deadbeef012345678890abcdefabcdef/channel1`
-
 
 ## Input specs
 
@@ -125,8 +119,10 @@ The [Azure Blog](https://azure.microsoft.com/en-us/blog/azure-media-services-rtm
 - `-s 640x480` Resolution
 - `-codec:v libx264` H.264 / AVC video
 - `-pix_fmt yuv420p` pixel format YUV420
-- `-preset veryfast`
-- `-b:v 200k` video bit rate
+- `-preset veryfast` (ultrafast,superfast, veryfast, faster, fast, medium, slow, slower, veryslow, placebo)
+- `-b:v 200k` target video bit rate
+- `-minrate 200k` minimum video bit rate
+- `-maxrate 200k` maximum video bit rate
 - `-r 30` frame rate
 - `-keyint_min 60` minimum GOP size
 - `-g 60` maximum GOP size
@@ -162,7 +158,15 @@ ffmpeg -f dshow -i %SRC% -s 640x480  -preset veryfast -codec:v libx264 -pix_fmt 
 
 set VIDEOBITRATE=200k
 
-ffmpeg -f dshow -i %SRC% -s 640x480  -preset veryfast -codec:v libx264 -pix_fmt yuv420p -b:v %VIDEOBITRATE% -minrate %VIDEOBITRATE% -maxrate %VIDEOBITRATE% -bufsize %VIDEOBITRATE% -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -profile:v main -level 3.1 -codec:a aac -ar 44100 -b:a 128k -ac 2 -f flv %DEST%
+ffmpeg -f dshow -i %SRC% -s 640x480  -preset veryslow -codec:v libx264 -pix_fmt yuv420p -pass 1 -b:v %VIDEOBITRATE% -minrate %VIDEOBITRATE% -maxrate %VIDEOBITRATE% -bufsize %VIDEOBITRATE% -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -profile:v main -level 3.1 -codec:a aac -ar 44100 -b:a 96k -ac 2 -f flv %DEST%
+
+
+
+set DEST=rtmp://channel1-mediaservice321.channel.mediaservices.windows.net:1935/live/deadbeef012345678890abcdefabcdef/channel1
+
+set SRC="C:\Users\chgeuer\Cosmos Laundromat - First Cycle. Official Blender Foundation release.-Y-rmzh0PI3c.webm"
+
+ffmpeg -re -f dshow -i %SRC% -s 640x480  -preset veryslow -codec:v libx264 -pix_fmt yuv420p -pass 1 -b:v %VIDEOBITRATE% -minrate %VIDEOBITRATE% -maxrate %VIDEOBITRATE% -bufsize %VIDEOBITRATE% -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -profile:v main -level 3.1 -codec:a aac -ar 44100 -b:a 96k -ac 2 -f flv %DEST%
 ```
 
 You can use the [DASHPlayer](http://dashplayer.azurewebsites.net/) or [aka.ms/azuremediaplayer](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Don't forget to append `(format=mpd-time-csf)` or `(format=m3u8-aapl)` to the streams for DASH or HLS streaming. 
@@ -170,12 +174,22 @@ You can use the [DASHPlayer](http://dashplayer.azurewebsites.net/) or [aka.ms/az
 
 
 
+# MPEG TS Streaming
 
-
-
-
+RTP protocol (MPEG Transport Streams) encoded MPEG-2
 -f mpegts udp://127.0.0.1:10000?pkt_size=1316
-
-
+-f rtp    rtp://127.0.0.1:1234
 
 - [FFMPEG for TS streaming](https://www.wowza.com/forums/content.php?213-How-to-use-FFmpeg-with-Wowza-Media-Server-(MPEG-TS))
+
+
+
+
+
+
+
+ffmpeg -re -i %SRC% -s 640x480  -preset veryslow -codec:v libx264 -pix_fmt yuv420p -pass 1 -b:v %VIDEOBITRATE% -minrate %VIDEOBITRATE% -maxrate %VIDEOBITRATE% -bufsize %VIDEOBITRATE% -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -profile:v main -level 3.1 -codec:a aac -ar 44100 -b:a 96k -ac 2 -f rtp rtp://127.0.0.1:1234
+
+
+http://www.adobe.com/de/products/flash-media-encoder.html
+https://obsproject.com/

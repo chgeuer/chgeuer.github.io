@@ -25,6 +25,7 @@ highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
 
+gems: [jekyll-paginate, jekyll-gist]
 
 # Pagination
 paginate: 2
@@ -33,15 +34,9 @@ blogpageprefix: "/blog/page"
 paginate_path: "/blog/page:num"
 permalink:     "/blog/:year/:month/:day/:title/"
 
-# Markdown Processors
-rdiscount:
-  extensions: []
-
-redcarpet:
-  extensions: []
-
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
   auto_ids:       true
   footnote_nr:    1
   entity_output:  as_char

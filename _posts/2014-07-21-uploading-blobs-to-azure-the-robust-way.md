@@ -250,16 +250,4 @@ $task.Wait()
 Write-Host "Upload finished"
 ```
 
-
-
 Hope you had fun, if you think that post was helpful, a quick comment below or on [twitter.com/chgeuer](http://twitter.com/chgeuer) would be appreciated.  
-
-<!--
-
-{% gist chgeuer/bce25ad5e7835867b89d Create-VirtualMachineWithCustomScript.ps1 %}
-
-blah blah [Chef and Puppet][ChefAndPuppetAnnouncement] blah blah
-
-[ChefAndPuppetAnnouncement]: http://weblogs.asp.net/scottgu/azure-updates-web-sites-vms-mobile-services-notification-hubs-storage-vnets-schedule-autoscale-and-more
--->
-

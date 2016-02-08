@@ -165,7 +165,117 @@ $vm = New-AzureVMConfig `
 
 ## The full Powershell Script
 
-{% gist chgeuer/bce25ad5e7835867b89d Create-VirtualMachineWithCustomScript.ps1 %}
+```powershell
+
+# Azure Cmdlet Reference
+# http://msdn.microsoft.com/library/azure/jj554330.aspx
+
+$vmname =         "cgp$([System.DateTime]::UtcNow.ToString("yyMMddhhmmss"))"
+
+Write-Host "Machine will be at $($vmname).cloudapp.net"
+
+$subscriptionId = "deadbeef-2222-3333-dddd-1222deadbeef"
+
+$imageLabel =     "Windows Server 2012 R2 Datacenter, March 2014"            # One from Get-AzureVMImage | select Label
+$datacenter =     "West Europe"
+$adminuser =      "chgeuer"
+$adminpass =      $env:AzureVmAdminPassword
+$instanceSize =   "Basic_A0" # ExtraSmall,Small,Medium,Large,ExtraLarge,A5,A6,A7,A8,A9,Basic_A0,Basic_A1,Basic_A2,Basic_A3,Basic_A4
+$externalRdpPort = 54523
+
+#
+# Calculate a bunch of properties
+#
+$subscriptionName = (Get-AzureSubscription | select SubscriptionName, SubscriptionId | Where-Object SubscriptionId -eq $subscriptionId | Select-Object SubscriptionName)[0].SubscriptionName
+
+
+
+
+$imageName = (Get-AzureVMImage | `
+	Where-Object Label -eq $imageLabel).ImageName
+
+$storageAccount = (Get-AzureStorageAccount | `
+	Where-Object Location -eq $datacenter)[0]
+
+$storageAccountName = $storageAccount.StorageAccountName
+
+$storageAccountKey = (Get-AzureStorageKey `
+	-StorageAccountName $storageAccount.StorageAccountName).Primary
+
+$storageContext = New-AzureStorageContext `
+	-StorageAccountName $storageAccount.StorageAccountName `
+	-StorageAccountKey $storageAccountKey
+
+$osDiskMediaLocation = "https://$($storageAccount.StorageAccountName).blob.core.windows.net/vhds/$vmname-OSDisk.vhd"
+
+#
+# Fix the local subscription object
+#
+Set-AzureSubscription -SubscriptionName $subscriptionName -CurrentStorageAccount $storageAccountName 
+
+#
+# Script Contents
+#
+$launchScriptFilename = "$($vmname).ps1"
+
+$scriptContent = @'
+param($dir)
+mkdir $dir
+mkdir C:\testdir
+'@
+
+$scriptContent | Out-File $launchScriptFilename 
+
+$scriptContainer = "scripts"
+if (($(Get-AzureStorageContainer -Context $storageContext) | where Name -eq $scriptContainer) -eq $null) 
+{
+	New-AzureStorageContainer `
+		-Context $storageContext `
+		-Container $scriptContainer 
+}
+
+Set-AzureStorageBlobContent `
+	-Context $storageContext `
+	-Container $scriptContainer `
+	-BlobType Block `
+	-Blob $launchScriptFilename `
+	-File $launchScriptFilename
+
+# Get-AzureStorageBlobContent -Context $storageContext -Container $scriptContainer -Blob $launchScriptFilename
+
+# 
+# configure the VM object
+#
+$vm = New-AzureVMConfig `
+		-Name "$vmname" `
+		-InstanceSize $instanceSize `
+		-ImageName $imageName `
+		-MediaLocation $osDiskMediaLocation `
+		-HostCaching "ReadWrite" | `
+	Add-AzureProvisioningConfig `
+		-Windows `
+		-AdminUsername $adminuser `
+		-Password $adminpass  | `
+	Remove-AzureEndpoint `
+		-Name RDP | `
+	Add-AzureEndpoint `
+		-Name RDP `
+		-LocalPort 3389 `
+		-PublicPort $externalRdpPort `
+		-Protocol tcp | `
+	Set-AzureVMCustomScriptExtension `
+		-StorageAccountKey $storageAccountKey `
+		-StorageAccountName $storageAccount.StorageAccountName `
+		-ContainerName $scriptContainer `
+		-FileName $launchScriptFilename `
+		-Run $launchScriptFilename `
+		-Argument 'c:\hello_from_customscriptextension'
+
+#
+# Create the VM
+#
+New-AzureVM -ServiceName "$vmname" -Location $datacenter -VMs $vm
+```
 
 
 # Doing it all from C#

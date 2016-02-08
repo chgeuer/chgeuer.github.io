@@ -25,7 +25,9 @@ highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
 
-gems: [jekyll-paginate, jekyll-gist]
+gems:
+  - jekyll-paginate
+  - jekyll-gist
 
 # Pagination
 paginate: 2

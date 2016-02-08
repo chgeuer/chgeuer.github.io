@@ -3,7 +3,6 @@
 # url: http://blog.geuer-pollmann.de/
 url: ""
 
-
 name: Dr Christian Geuer-Pollmann
 author: Dr Christian Geuer-Pollmann
 sitetitle: Christian Geuer-Pollmann's Blog
@@ -22,12 +21,9 @@ encoding: UTF-8
 markdown_ext:  md,markdown
 set :markdown, fenced_code_blocks: true
 markdown:    kramdown
-highlighter: pygments
+highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
-
-
-
 
 
 # Pagination
@@ -36,8 +32,6 @@ blogurl:       "/blog"
 blogpageprefix: "/blog/page"
 paginate_path: "/blog/page:num"
 permalink:     "/blog/:year/:month/:day/:title/"
-
-
 
 # Markdown Processors
 rdiscount:
@@ -61,6 +55,3 @@ kramdown:
     coderay_tab_width:         4
     coderay_bold_every:        10
     coderay_css:               style
-
-
-

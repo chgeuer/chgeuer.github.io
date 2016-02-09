@@ -6,6 +6,18 @@ keywords:
 published: true
 ---
 
+# February 2016
+
+- [Media Source Extension WebM streaming encoder](https://github.com/etherapis/webmcoder)
+- [Nodejs-based tool for optimizing SVG vector graphics files](https://github.com/svg/svgo)
+- [The DSC Book](https://www.penflip.com/powershellorg/the-dsc-book)
+- [Introduction to IdentityServer - Brock Allen](https://vimeo.com/154172925)
+- [Introduction to Azure Docker Extension](https://ahmetalpbalkan.com/blog/azure-docker-extension/)
+- [SSH: Best practices](https://blog.0xbadc0de.be/archives/300)
+- [How to do distributed locking](http://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html)
+- [Windows Access Tokens and Alternate Credentials](http://blog.cobaltstrike.com/2015/12/16/windows-access-tokens-and-alternate-credentials/)
+- [Use Go to write and manage AWS Lambda services](http://gosparta.io/)
+
 # January 2016
 
 - [Libraries and supporting examples for use with the Ports and Adapters and CQRS architectural styles for .NET, with support for Task Queues](http://iancooper.github.io/Paramore/Brighter.html)

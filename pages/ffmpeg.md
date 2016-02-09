@@ -190,6 +190,45 @@ RTP protocol (MPEG Transport Streams) encoded MPEG-2
 
 ffmpeg -re -i %SRC% -s 640x480  -preset veryslow -codec:v libx264 -pix_fmt yuv420p -pass 1 -b:v %VIDEOBITRATE% -minrate %VIDEOBITRATE% -maxrate %VIDEOBITRATE% -bufsize %VIDEOBITRATE% -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -profile:v main -level 3.1 -codec:a aac -ar 44100 -b:a 96k -ac 2 -f rtp rtp://127.0.0.1:1234
 
+- [Flash Media Live Encoder (FMLE)](http://www.adobe.com/de/products/flash-media-encoder.html) and [MainConcept AAC Encoder 1.0.6 Plugin for Adobe Flash Media Live Encoder](http://www.mainconcept.com/eu/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+- https://obsproject.com/
+- [Blog: Azure Media Services RTMP Support and Live Encoder](https://azure.microsoft.com/en-us/blog/azure-media-services-rtmp-support-and-live-encoders/)
+- [Telestream Wirecast Trial Version](http://www.telestream.net/wirecast/overview.htm)
 
-http://www.adobe.com/de/products/flash-media-encoder.html
-https://obsproject.com/
+
+-----------------
+
+
+## Single bitrate:
+
+```
+ffmpeg.exe -v verbose 
+    -i MysampleVideo.mp4 -strict -2 
+    -codec:a aac -b:a 128k -ar 44100 
+    -codec:v libx264 -b:v 400000 -bufsize 400k -maxrate 400k -preset medium  
+    -r 30 -g 60 -keyint_min 60 
+    -f flv rtmp://channel001-streamingtest.channel.media.windows.net:1935/live/a9bcd589da4b424099364f7ad5bd4940/mystream1
+```
+
+## Multi bitrate ( 3 bit rates 500, 300 and 150 Kbps)
+
+```
+ffmpeg.exe -threads 15 -re -i MysampleVideo.mp4 
+
+        -strict experimental 
+        -codec:a aac -ab 128k -ac 2 -ar 44100 
+        -codec:v libx264 -s 800x600 -b:v 500k -minrate 500k -maxrate 500k -bufsize 500k  
+        -r 30 -g 60 -keyint_min 60 -sc_threshold 0 
+        -f flv rtmp://channel001-streamingtest.channel.media.windows.net:1935/live/a9bcd589da4b424099364f7ad5bd4940/Streams_500
+        
+        -strict experimental 
+        -codec:a aac -ab 128k -ac 2 -ar 44100 
+        -codec:v libx264 -s 640x480 -b:v 300k -minrate 300k -maxrate 300k -bufsize 300k 
+        -r 30 -g 60 -keyint_min 60 -sc_threshold 0 
+        -f flv rtmp://channel001-streamingtest.channel.media.windows.net:1935/live/a9bcd589da4b424099364f7ad5bd4940/Streams_300 
+        -strict experimental 
+        -codec:a aac -ab 128k -ac 2 -ar 44100 
+        -codec:v libx264 -s 320x240 -b:v 150k -minrate 150k -maxrate 150k -bufsize 150k  
+        -r 30 -g 60 -keyint_min 60 -sc_threshold 0 
+        -f flv rtmp://channel001-streamingtest.channel.media.windows.net:1935/live/a9bcd589da4b424099364f7ad5bd4940/Streams_150
+```

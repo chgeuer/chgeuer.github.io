@@ -6,6 +6,21 @@ keywords:
 published: true
 ---
 
+# Storage Account custom CNAME
+
+```json
+{
+  "type": "Microsoft.Storage/storageAccounts"
+  "name": "geuerpollmann",
+  "location": "West Europe",
+  "properties": {
+    "accountType": "Standard_LRS",
+    "customDomain": { "name": "download.geuer-pollmann.de" }
+  }
+}
+```
+
+
 - [F# Cheatsheet](http://dungpa.github.io/fsharp-cheatsheet/)
 
 ```fsharp

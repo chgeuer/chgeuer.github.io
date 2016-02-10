@@ -8,6 +8,7 @@ published: true
 
 # February 2016
 
+- [Erlang-style Supervisors in C# with Akka.NET and the Actor Model](http://buildplease.com/pages/supervisors-csharp/)
 - [Media Source Extension WebM streaming encoder](https://github.com/etherapis/webmcoder)
 - [Nodejs-based tool for optimizing SVG vector graphics files](https://github.com/svg/svgo)
 - [The DSC Book](https://www.penflip.com/powershellorg/the-dsc-book)
@@ -174,4 +175,4 @@ published: true
 - The [Azure Resource Visualizer](http://armviz.io/#) project on [Github](https://github.com/ytechie/AzureResourceVisualizer) looks like an interesting way to crawl through ARM deployments.
 - [SQL Azure Performance Objective IDs for Azure Resource Manager](https://gist.github.com/chgeuer/9d7fba649880ef4ed44a)
 - Powershell to convert a PFX file to BASE64: `[System.IO.File]::WriteAlltext("1.pfx.txt", [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("1.pfx")))`
-
+- Building Azure Service Fabric Actors with F# [Part 1](https://cockneycoder.wordpress.com/2015/08/03/building-azure-service-fabric-actors-with-f-part-1/), [Part 2](https://cockneycoder.wordpress.com/2015/08/10/building-azure-service-fabric-actors-with-f-part-2/) and [Stateless services on Azure Service Fabric in F#](https://cockneycoder.wordpress.com/2015/08/31/stateless-services-on-azure-service-fabric-in-f/)

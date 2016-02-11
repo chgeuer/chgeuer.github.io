@@ -8,6 +8,7 @@ published: true
 
 # February 2016
 
+- [jq is a lightweight and flexible command-line JSON processor](https://stedolan.github.io/jq/) ([Windows x64](https://github.com/stedolan/jq/releases/download/jq-1.5/jq-win64.exe))
 - [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
 - [Authenticating a service principal with Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/)
 - [Python access to ARM](https://github.com/gbowerman/azurerm)

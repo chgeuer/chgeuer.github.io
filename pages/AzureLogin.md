@@ -39,6 +39,10 @@ $password = "shdfhskjfskhfkjh"
 			$(ConvertTo-SecureString -Force -AsPlainText $password))
 ```
 
+# Azure XPLAT CLI / X509
+
+Unclear...
+
 # Azure XPLAT CLI / Password
 
 ```
@@ -48,8 +52,6 @@ azure login
 	-u "<ApplicationId>" 
 	-p "<password>" 
 ```
-
-
 
 
 

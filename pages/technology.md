@@ -8,6 +8,9 @@ published: true
 
 # February 2016
 
+- [Developer Preview: RethinkDB now available for Windows](https://rethinkdb.com/blog/rethinkdb-windows-preview/)
+- [Increase Your Email Open Rates By 50% With These 9 Subject Line Formulas](https://medium.com/posts-from-drip/increase-your-email-open-rates-by-50-with-these-9-subject-line-formulas-cfad9d26d156#.qlysi34yt)
+- [Easily Encrypt your Azure VMs with KeyVault](http://derekmartin.org/2016/01/04/easily-encrypt-your-azure-vms-with-keyvault/) and [update the encryption certs](http://derekmartin.org/2016/02/11/updating-the-azure-vm-encryption-certs/)
 - [jq is a lightweight and flexible command-line JSON processor](https://stedolan.github.io/jq/) ([Windows x64](https://github.com/stedolan/jq/releases/download/jq-1.5/jq-win64.exe))
     - Can now do things like `azure resource show --resource-group "my-rg" --resource-type "Microsoft.Compute/virtualMachineScaleSets" --name "myvmscaleset/virtualMachines/16/networkInterfaces/some-nic" --api-version "2015-05-01-preview" --json | jq .properties.ipConfigurations[0].properties.privateIPAddress`
 - Azure Resource Manager Login Stuff

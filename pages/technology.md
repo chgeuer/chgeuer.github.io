@@ -10,9 +10,10 @@ published: true
 
 - [jq is a lightweight and flexible command-line JSON processor](https://stedolan.github.io/jq/) ([Windows x64](https://github.com/stedolan/jq/releases/download/jq-1.5/jq-win64.exe))
     - Can now do things like `azure resource show --resource-group "my-rg" --resource-type "Microsoft.Compute/virtualMachineScaleSets" --name "myvmscaleset/virtualMachines/16/networkInterfaces/some-nic" --api-version "2015-05-01-preview" --json | jq .properties.ipConfigurations[0].properties.privateIPAddress`
-- [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
-- [Authenticating a service principal with Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/)
-- [Python access to ARM](https://github.com/gbowerman/azurerm)
+- Azure Resource Manager Login Stuff
+    - [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
+    - [Authenticating a service principal with Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/)
+    - [Python access to ARM](https://github.com/gbowerman/azurerm)
 - [Erlang-style Supervisors in C# with Akka.NET and the Actor Model](http://buildplease.com/pages/supervisors-csharp/)
 - [Media Source Extension WebM streaming encoder](https://github.com/etherapis/webmcoder)
 - [Nodejs-based tool for optimizing SVG vector graphics files](https://github.com/svg/svgo)

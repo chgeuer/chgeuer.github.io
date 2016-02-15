@@ -6,6 +6,29 @@ keywords:
 published: true
 ---
 
+# WIP
+
+- http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx
+- http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
+- http://www.webupd8.org/2015/06/how-to-stream-to-twitch-from-linux.html
+- https://azure.microsoft.com/en-us/documentation/articles/active-directory-appmodel-v2-overview/
+- https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-preview-oidc-changes/
+- https://azure.microsoft.com/en-us/documentation/articles/media-services-dotnet-get-started/
+- https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity
+- https://microsoft.sharepoint.com/sites/itweb/Email/transferred-employees/Pages/Exchange-ActiveSync-(EAS)-on-Windows-Phone,-Android,-and-iOS-Devices-(Multi-Tenant).aspx
+- https://msdn.microsoft.com/de-de/library/azure/dn790568.aspx
+- https://msdn.microsoft.com/en-us/library/partnercenter/dn974935.aspx
+- https://msdn.microsoft.com/library/azure/dn194267.aspx
+- https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
+- https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory
+- https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols/
+- http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx
+- http://blog.geuer-pollmann.de/pages/AzureLogin/
+- https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/#media-amp-cdn
+- https://github.com/Azure/azurefile-dockervolumedriver/blob/master/main.go
+
+
+
 # February 2016
 
 - [A Modern App Developer and An Old-Timer System Developer Walk Into a Bar](http://zhen.org/blog/two-developers-walk-into-a-bar/)

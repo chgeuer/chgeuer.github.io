@@ -187,16 +187,14 @@ RTP protocol (MPEG Transport Streams) encoded MPEG-2
 
 
 
-
+```
 ffmpeg -re -i %SRC% -s 640x480  -preset veryslow -codec:v libx264 -pix_fmt yuv420p -pass 1 -b:v %VIDEOBITRATE% -minrate %VIDEOBITRATE% -maxrate %VIDEOBITRATE% -bufsize %VIDEOBITRATE% -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -profile:v main -level 3.1 -codec:a aac -ar 44100 -b:a 96k -ac 2 -f rtp rtp://127.0.0.1:1234
+```
 
 - [Flash Media Live Encoder (FMLE)](http://www.adobe.com/de/products/flash-media-encoder.html) and [MainConcept AAC Encoder 1.0.6 Plugin for Adobe Flash Media Live Encoder](http://www.mainconcept.com/eu/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
-- https://obsproject.com/
+- [Open Broadcaster Software](https://obsproject.com/) (OBS Classic & OBS Studio)
 - [Blog: Azure Media Services RTMP Support and Live Encoder](https://azure.microsoft.com/en-us/blog/azure-media-services-rtmp-support-and-live-encoders/)
 - [Telestream Wirecast Trial Version](http://www.telestream.net/wirecast/overview.htm)
-
-
------------------
 
 
 ## Single bitrate:

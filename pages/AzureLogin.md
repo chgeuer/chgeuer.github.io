@@ -16,11 +16,12 @@ title: "Azure RM Logins"
 
 # Powershell / X509
 
+- Src: [Authenticate service principal with certificate - PowerShell](https://github.com/Azure/azure-content/blob/master/articles/resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell)
+
 ```ps1
 $tenantId = "942023a6-efbe-4d97-a72d-532ef7337595"
 $applicationId = "4bc204cb-3282-43b1-aa1f-960f5faa4b23"
 $certThumbprint = "B8789A48A020FB1F5589C9ACAF63A4EBFFF5FA1C"
-
 
 
 Login-AzureRmAccount `
@@ -29,6 +30,7 @@ Login-AzureRmAccount `
 	-ApplicationId $applicationId `
 	-CertificateThumbprint $certThumbprint
 ```
+
 
 # Powershell / Password
 
@@ -51,6 +53,8 @@ Login-AzureRmAccount `
 Unclear...
 
 # Azure XPLAT CLI / Password
+
+- [Authenticate service principal with password - Azure CLI](https://github.com/Azure/azure-content/blob/master/articles/resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password---azure-cli)
 
 ```
 azure login 

@@ -8,6 +8,11 @@ published: true
 
 # February 2016
 
+- [A Modern App Developer and An Old-Timer System Developer Walk Into a Bar](http://zhen.org/blog/two-developers-walk-into-a-bar/)
+- [ASP.NET WebHooks and Slack Slash Commands](https://blogs.msdn.microsoft.com/webdev/2016/02/14/asp-net-webhooks-and-slack-slash-commands/)
+- Elixir
+    - [Writing an Ecto adapter for RethinkDB](https://almightycouch.org/blog/rethinkdb-adapter-ecto/)
+- [Skynet 1M threads microbenchmark](https://github.com/atemerev/skynet)
 - [Developer Preview: RethinkDB now available for Windows](https://rethinkdb.com/blog/rethinkdb-windows-preview/)
 - [Increase Your Email Open Rates By 50% With These 9 Subject Line Formulas](https://medium.com/posts-from-drip/increase-your-email-open-rates-by-50-with-these-9-subject-line-formulas-cfad9d26d156#.qlysi34yt)
 - [Easily Encrypt your Azure VMs with KeyVault](http://derekmartin.org/2016/01/04/easily-encrypt-your-azure-vms-with-keyvault/) and [update the encryption certs](http://derekmartin.org/2016/02/11/updating-the-azure-vm-encryption-certs/)

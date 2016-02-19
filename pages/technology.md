@@ -31,6 +31,7 @@ published: true
 
 # February 2016
 
+- [JOB SCHEDULING IN ELIXIR](http://c-rack.github.io/job-scheduling-in-elixir/#/)
 - [A Modern App Developer and An Old-Timer System Developer Walk Into a Bar](http://zhen.org/blog/two-developers-walk-into-a-bar/)
 - [ASP.NET WebHooks and Slack Slash Commands](https://blogs.msdn.microsoft.com/webdev/2016/02/14/asp-net-webhooks-and-slack-slash-commands/)
 - Elixir

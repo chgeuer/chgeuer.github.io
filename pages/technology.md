@@ -31,11 +31,18 @@ published: true
 
 # February 2016
 
+- [NGINX RTMP Proxy](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/)
+- [Nexus 6P Wood Cover](http://www.toastmade.com/products/nexus-6p.html)
+- [Ad-blocker hosts](https://github.com/StevenBlack/hosts/blob/master/readme.md)
+- [IBM OpenBlockChain](https://github.com/openblockchain)
+- [Wrangling Grafana and InfluxDB into a Docker image](http://simonjbeaumont.com/posts/docker-dashboard)
+- [PHP / Azure Active Directory Provider for OAuth 2.0 Client](https://github.com/TheNetworg/oauth2-azure)
 - [JOB SCHEDULING IN ELIXIR](http://c-rack.github.io/job-scheduling-in-elixir/#/)
 - [A Modern App Developer and An Old-Timer System Developer Walk Into a Bar](http://zhen.org/blog/two-developers-walk-into-a-bar/)
 - [ASP.NET WebHooks and Slack Slash Commands](https://blogs.msdn.microsoft.com/webdev/2016/02/14/asp-net-webhooks-and-slack-slash-commands/)
 - Elixir
     - [Writing an Ecto adapter for RethinkDB](https://almightycouch.org/blog/rethinkdb-adapter-ecto/)
+    - [Building a Slack bot using Elixir](http://cazrin.net/blog/2016/building-a-slack-bot-using-elixir/)
 - [Skynet 1M threads microbenchmark](https://github.com/atemerev/skynet)
 - [Developer Preview: RethinkDB now available for Windows](https://rethinkdb.com/blog/rethinkdb-windows-preview/)
 - [Increase Your Email Open Rates By 50% With These 9 Subject Line Formulas](https://medium.com/posts-from-drip/increase-your-email-open-rates-by-50-with-these-9-subject-line-formulas-cfad9d26d156#.qlysi34yt)

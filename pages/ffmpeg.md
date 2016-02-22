@@ -24,12 +24,12 @@ ffmpeg version N-69972-g6c91afe Copyright (c) 2000-2015 the FFmpeg developers
 [dshow @ 0000000004d2d540]  "Integrated Camera"
 [dshow @ 0000000004d2d540] DirectShow audio devices
 [dshow @ 0000000004d2d540]  "Microphone (Realtek High Definition Audio)"
-[dshow @ 0000000004d2d540]  "Headset Microphone (GN 2000 USB OC)"
+[dshow @ 0000000004d2d540]  "Headset Microphone (Plantronics C520-M)"
 ```
 
-The strings `"Integrated Camera"`, `"Microphone (Realtek High Definition Audio)"` and `"Headset Microphone (GN 2000 USB OC)"` now refer to the different usable sources. In ffmpeg, the `-i` parameter usually refers to the input file. In our case, we can now combine video & audio sources to an input specification for ffmpeg: 
+The strings `"Integrated Camera"`, `"Microphone (Realtek High Definition Audio)"` and `"Headset Microphone (Plantronics C520-M)"` now refer to the different usable sources. In ffmpeg, the `-i` parameter usually refers to the input file. In our case, we can now combine video & audio sources to an input specification for ffmpeg: 
 
-- `-i video="Integrated Camera":audio="Headset Microphone (GN 2000 USB OC)"`
+- `-i video="Integrated Camera":audio="Headset Microphone (Plantronics C520-M)"`
 - `-i video="Integrated Camera":audio="Microphone (Realtek High Definition Audio)"`
 
 ## Determine the capabilities of the hardware
@@ -38,10 +38,10 @@ The strings `"Integrated Camera"`, `"Microphone (Realtek High Definition Audio)"
 ffmpeg -f dshow -i video="Integrated Camera":audio="Microphone (Realtek High Definition Audio)" -list_formats all
 ```
 
-## Capture the local web cam & microphone and create a 10sec MP4 video
+## Capture the local web cam & microphone and create a 5sec MP4 video
 
 ```
-ffmpeg -f dshow -i video="Integrated Camera":audio="Microphone (Realtek High Definition Audio)" -t 10 out.mp4
+ffmpeg -f dshow -i video="Integrated Camera":audio="Headset Microphone (Plantronics C520-M)" -t 5 5-seconds.mp4
 ```
 
 # Screen capture
@@ -66,6 +66,7 @@ After installing the driver above, you will be able to use the ffmpeg input
 
 ```
 ffmpeg -f dshow -i video="screen-capture-recorder":audio="virtual-audio-capturer" -r 20 -t 10 screen-capture.mp4 
+ffmpeg -f dshow -i video="screen-capture-recorder":audio="Headset Microphone (Plantronics C520-M)" -r 20 -t 10 screen-capture.mp4 
 ```
 
 ## Play back current screen

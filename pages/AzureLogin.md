@@ -50,7 +50,24 @@ Login-AzureRmAccount `
 
 # Azure XPLAT CLI / X509
 
-Unclear...
+
+```
+cert=$(openssl x509 -in "C:\certificates\examplecert.pem" -fingerprint -noout | `
+    sed 's/SHA1 Fingerprint=//g'  | sed 's/://g')
+
+tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | `
+    sed -e 's/^"//' -e 's/"$//')
+
+appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+
+azure login `
+    --service-principal `
+    --tenant "$tenantId" `
+    -u "$appId" `
+    --certificate-file C:\certificates\examplecert.pem `
+    --thumbprint "$cert"
+```
+
 
 # Azure XPLAT CLI / Password
 

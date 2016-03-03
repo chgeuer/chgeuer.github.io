@@ -196,7 +196,8 @@ ffmpeg -re -i %SRC% -s 640x480  -preset veryslow -codec:v libx264 -pix_fmt yuv42
 - [Open Broadcaster Software](https://obsproject.com/) (OBS Classic & OBS Studio)
 - [Blog: Azure Media Services RTMP Support and Live Encoder](https://azure.microsoft.com/en-us/blog/azure-media-services-rtmp-support-and-live-encoders/)
 - [Telestream Wirecast Trial Version](http://www.telestream.net/wirecast/overview.htm)
-- https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/
+- [nginx RTMP](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/)
+- [Red 5 Server](http://red5.org/)
 
 
 ## Single bitrate:

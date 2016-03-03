@@ -5,8 +5,11 @@ date: 2016-02-29 23:31:00
 keywords: azure storage, curl, openssl
 ---
 
-<!-- <blockquote class="twitter-tweet" lang="en"><p>How to configure <a href="https://twitter.com/Akamai">@Akamai</a> for<a href="https://twitter.com/Azure">@Azure</a> Media Services - A quick introduction <a href="http://blog.geuer-pollmann.de/blog/2016/01/27/configure-akamai-cdn-for-azure-media-services/">http://blog.geuer-pollmann.de/blog/2016/01/27/configure-akamai-cdn-for-azure-media-services/</a></p>&mdash; Chris Geuer-Pollmann (@chgeuer) <a href="https://twitter.com/chgeuer/status/692355042691715073">27. January 2016</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">How to create a file share in <a href="https://twitter.com/Azure">@Azure</a> Files on a Linux box <a href="https://t.co/AcwWc5jgGy">https://t.co/AcwWc5jgGy</a></p>&mdash; Chris Geuer-Pollmann (@chgeuer) <a href="https://twitter.com/chgeuer/status/705415421323821056">March 3, 2016</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
 
 Sometimes you just want to call Azure Storage REST API to create an Azure Files share, no questions asked, no SDK installed, just do it, please... 
 

@@ -1,24 +1,20 @@
 ---
 layout: default
 title: "How to create a file share in Azure Files"
-date: 2016-02-29 23:31:00
+date: 2016-02-29 11:31:00
 keywords: azure storage, curl, openssl
 ---
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">How to create a file share in <a href="https://twitter.com/Azure">@Azure</a> Files on a Linux box <a href="https://t.co/AcwWc5jgGy">https://t.co/AcwWc5jgGy</a></p>&mdash; Chris Geuer-Pollmann (@chgeuer) <a href="https://twitter.com/chgeuer/status/705415421323821056">March 3, 2016</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+Sometimes you just want to call Azure Storage REST API to create an "Azure Files" file share, no questions asked, no SDK installed. Just do it, please... 
 
-
-
-
-Sometimes you just want to call Azure Storage REST API to create an Azure Files share, no questions asked, no SDK installed, just do it, please... 
-
-Requirements: 
+## Requirements: 
 
 - `bash`
 - `curl` (for making the REST call)
 - `OpenSSL` (for doing the crypto operations)
 - `xxd` from the `vim-common` package 
+
+## Script
 
 ```bash
 #!/bin/bash

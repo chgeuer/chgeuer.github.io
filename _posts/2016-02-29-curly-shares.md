@@ -12,21 +12,23 @@ Sometimes you just want to call Azure Storage REST API to create an Azure Files 
 
 Requirements: 
 
-- bash
-- curl
-- OpenSSL
-- Internet connection
-- Valid Azure Storage credentials
-- capability to cut & paste
+- `bash`
+- `curl` (for making the REST call)
+- `OpenSSL` (for doing the crypto operations)
+- `xxd` from the `vim-common` package 
 
 ```bash
-storage_account="mystorageaccount"
-access_key="deadbeedd+longBase64EncodedStuffWhichIsTotallySecretAndGetsInjectedViaCustomScriptExte=="
-share_name="meinshare"
+#!/bin/bash
 
-# storage_account="$1"
-# container_name="$2"
-# share_name="$3"
+# yum -y install vim-common samba-client samba-common cifs-utils
+
+# storage_account="mystorageaccount"
+# access_key="deadbeedd+longBase64EncodedStuffWhichIsTotallySecretAndGetsInjectedViaCustomScriptExte=="
+# share_name="meinshare"
+
+storage_account="$1"
+access_key="$2"
+share_name="$3"
 
 request_method="PUT"
 storage_service_version="2015-02-21"
@@ -50,6 +52,9 @@ string_to_sign="${request_method}\n${content_encoding}\n${content_language}\n${c
 decoded_hex_key="$(printf $access_key | base64 -d -w0 | xxd -p -c256)"
 signature=$(printf "$string_to_sign" | openssl sha256 -mac HMAC -macopt "hexkey:$decoded_hex_key" -binary | base64 -w0)
 
+#
+# Create the file share via REST call
+#
 cat /dev/null | curl --data @- \
   -X $request_method \
   -H "Content-Type: ${content_type}" \
@@ -57,4 +62,14 @@ cat /dev/null | curl --data @- \
   -H "$x_ms_date_h" \
   -H "$x_ms_version_h" \
   "https://${storage_account}.file.core.windows.net/${share_name}?restype=share"
+
+#
+# Locally mount the file share
+#
+mkdir "/mnt/${share_name}"
+
+mount -t cifs \
+	"//${storage_account}.file.core.windows.net/${share_name}" \
+	"/mnt/${share_name}" \
+	-o "vers=3.0,user=${storage_account},password=${access_key},dir_mode=0777,file_mode=0777"
 ```

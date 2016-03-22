@@ -27,10 +27,22 @@ published: true
 - https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/#media-amp-cdn
 - https://github.com/Azure/azurefile-dockervolumedriver/blob/master/main.go
 
+# March 2016
+
+- HTML5 File API
+    - [Use the HTML5 File API to Work with Files Locally in the Browser](https://scotch.io/tutorials/use-the-html5-file-api-to-work-with-files-locally-in-the-browser)
+    - [resumable.js: A JavaScript library for providing multiple simultaneous, stable, fault-tolerant and resumable/restartable uploads via the HTML5 File API](https://github.com/23/resumable.js)
+    - [File upload using Flow.JS and ASP.NET Web API](http://www.heikura.me/2014/9/27/file-upload-using-flowjs-and-aspnet-webapi)
+    - [Angular file upload - flow.js](http://flowjs.github.io/ng-flow/)
+    - [Upload files to Microsoft Azure Storage from JavaScript (09/2014)](https://www.returngis.net/en/2014/09/upload-files-to-microsoft-azure-storage-from-javascript/)
+    - http://gauravmantri.com/2013/12/01/windows-azure-storage-and-cors-lets-have-some-fun/
+    - http://ngmodules.org/modules/angular-azure-blob-upload
+    - https://blogs.msdn.microsoft.com/kaevans/2015/12/18/securely-upload-to-azure-storage-with-angular/
 
 
 # February 2016
 
+- https://tomasz.janczuk.org/2015/09/from-kafka-to-zeromq-for-log-aggregation.html
 - [NGINX RTMP Proxy](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/)
 - [Nexus 6P Wood Cover](http://www.toastmade.com/products/nexus-6p.html)
 - [Ad-blocker hosts](https://github.com/StevenBlack/hosts/blob/master/readme.md)

@@ -38,6 +38,11 @@ published: true
     - http://gauravmantri.com/2013/12/01/windows-azure-storage-and-cors-lets-have-some-fun/
     - http://ngmodules.org/modules/angular-azure-blob-upload
     - https://blogs.msdn.microsoft.com/kaevans/2015/12/18/securely-upload-to-azure-storage-with-angular/
+    - S3
+        - [cinely/mule-uploader](https://github.com/cinely/mule-uploader)
+        - [JAndritsch/basic_s3_uploader](https://github.com/JAndritsch/basic_s3_uploader)
+        - [moxiecode/plupload](https://github.com/moxiecode/plupload)
+        - [SO](http://stackoverflow.com/questions/11240127/uploading-image-to-amazon-s3-with-html-javascript-jquery-with-ajax-request-n)
 
 
 # February 2016

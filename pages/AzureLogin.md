@@ -31,28 +31,31 @@ Import-Module Azure
 ## Create a certificate using `makecert.exe`
 
 ```ps1
+$subjectName = "CN=AzureServicePrincipal"
+$certificateFile = [System.IO.Path]::Combine($env:USERPROFILE, "Desktop", "$($subjectName.Replace('CN=', '')).cer")
+$azureADTenantID = $env:AzureADTenantID; # "adadadad-adad-adad-adad-adadadadadad"
+$subscriptionID = $env:AzureSubscriptionID; # "706df49f-998b-40ec-aed3-7f0ce9c67759"
+$manualBillingAdmin = $env:AzureManualBillingAdmin; # "billingoperator@contoso.onmicrosoft.com"
+$appName = "Azure Service Principal for Automation"
+$dummyUrl = "http://localhost/serviceprincipal"
+
+# fetch makecert from some random dude on the Internet :-/
 (New-Object Net.WebClient).DownloadFile('https://gist.github.com/chgeuer/f2334a3222215ef93ff234fd7dcf1a01/raw/9bba6abee1812e9917c21dd8c50fe226bcdfcc7d/makecert.exe', 'makecert.exe')
 
-$subjectName = "CN=AzureServicePrincipal"
 makecert.exe -r -pe -len 2048 -a sha512 -h 0 -sky signature -ss My -n "$($subjectName)"
+$cer = (dir Cert:\CurrentUser\My\ | where { $_.Subject -eq $subjectName })
+$certThumbprint = $cer.Thumbprint
+$certOctets = $cer.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Cert)
+[System.IO.File]::WriteAllBytes($certificateFile, [System.Byte[]]$certOctets)
+$credValue = [System.Convert]::ToBase64String($certOctets)
 
-$certThumbprint = (dir Cert:\CurrentUser\My\ | where { $_.Subject -eq $subjectName }).Thumbprint
+# $certOctets = Get-Content -Path $certificateFile -Encoding Byte
+# $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @(,[System.Byte[]]$certOctets)
 ```
 
 ## Fill in your Azure details
 
 ```ps1
-$azureADTenantID = $env:AzureADTenantID; # "09c67f16-f2db-4f6d-b11a-d2276b95886e"
-$subscriptionID = $env:AzureSubscriptionID; # "706df49f-998b-40ec-aed3-7f0ce9c67759"
-$manualBillingAdmin = $env:AzureManualBillingAdmin; # "billingoperator@contoso.onmicrosoft.com"
-$certificateFile = ".\AzureServicePrincipal.cer"
-
-$appName = "Azure Service Principal for Automation"
-$dummyUrl = "http://localhost/serviceprincipal"
-
-$certOctets = Get-Content -Path $certificateFile -Encoding Byte
-$credValue = [System.Convert]::ToBase64String($certOctets)
-$cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @(,[System.Byte[]]$certOctets)
 $credential = Get-Credential -UserName $manualBillingAdmin -message "Provide your organizational credentials for $($manualBillingAdmin)"
 Login-AzureRmAccount -Tenant $azureADTenantID -SubscriptionId $subscriptionID -Credential $credential
 Select-AzureRmSubscription -SubscriptionId $subscriptionID
@@ -66,14 +69,11 @@ New-AzureRmADServicePrincipal -ApplicationId $application.ApplicationId
 Start-Sleep -Seconds 1
 New-AzureRmRoleAssignment  -ServicePrincipalName $application.ApplicationId -RoleDefinitionName Contributor
 
-Write-Host "Use clientID == $($application.ApplicationID)"
-
-
-# Get-MsolServicePrincipal -ObjectId $((Get-AzureRmRoleAssignment -ServicePrincipalName $clientID).ObjectId)
-# New-MsolServicePrincipalCredential -ServicePrincipalName $clientID -Type asymmetric -Value $credValue -Usage verify
-# Get-MsolServicePrincipalCredential -ServicePrincipalName $clientID -ReturnKeyValues 0
+Write-Host "Use SubscriptionID  == $($subscriptionID)"
+Write-Host "Use azureADTenantID == $($azureADTenantID)"
+Write-Host "Use clientID        == $($application.ApplicationID)"
+Write-Host "Use certThumbprint  == $($certThumbprint)"
 ```
-
 
 # Powershell / X509
 

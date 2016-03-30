@@ -14,6 +14,67 @@ title: "Azure RM Logins"
 "<ApplicationId>" is something like "40302010-feda-deaf-beef-deadbeef0123"
 ```
 
+# Setup service principal in Powershell
+
+## Install Azure Powershell according the [docs](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/)
+
+```ps1
+# Install the Azure Resource Manager modules from the PowerShell Gallery
+Install-Module AzureRM
+Install-AzureRM
+Install-Module Azure
+
+Import-AzureRM
+Import-Module Azure
+```
+
+## Create a certificate using `makecert.exe`
+
+```ps1
+(New-Object Net.WebClient).DownloadFile('https://gist.github.com/chgeuer/f2334a3222215ef93ff234fd7dcf1a01/raw/9bba6abee1812e9917c21dd8c50fe226bcdfcc7d/makecert.exe', 'makecert.exe')
+
+$subjectName = "CN=AzureServicePrincipal"
+makecert.exe -r -pe -len 2048 -a sha512 -h 0 -sky signature -ss My -n "$($subjectName)"
+
+$certThumbprint = (dir Cert:\CurrentUser\My\ | where { $_.Subject -eq $subjectName }).Thumbprint
+```
+
+## Fill in your Azure details
+
+```ps1
+$azureADTenantID = $env:AzureADTenantID; # "09c67f16-f2db-4f6d-b11a-d2276b95886e"
+$subscriptionID = $env:AzureSubscriptionID; # "706df49f-998b-40ec-aed3-7f0ce9c67759"
+$manualBillingAdmin = $env:AzureManualBillingAdmin; # "billingoperator@contoso.onmicrosoft.com"
+$certificateFile = ".\AzureServicePrincipal.cer"
+
+$appName = "Azure Service Principal for Automation"
+$dummyUrl = "http://localhost/serviceprincipal"
+
+$certOctets = Get-Content -Path $certificateFile -Encoding Byte
+$credValue = [System.Convert]::ToBase64String($certOctets)
+$cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @(,[System.Byte[]]$certOctets)
+$credential = Get-Credential -UserName $manualBillingAdmin -message "Provide your organizational credentials for $($manualBillingAdmin)"
+Login-AzureRmAccount -Tenant $azureADTenantID -SubscriptionId $subscriptionID -Credential $credential
+Select-AzureRmSubscription -SubscriptionId $subscriptionID
+
+$application = New-AzureRmADApplication -DisplayName $appName -HomePage $dummyUrl -IdentifierUris $dummyUrl -KeyType AsymmetricX509Cert -KeyValue $credValue
+Start-Sleep -Seconds 1
+
+# Remove-AzureRmADServicePrincipal -ObjectId
+
+New-AzureRmADServicePrincipal -ApplicationId $application.ApplicationId
+Start-Sleep -Seconds 1
+New-AzureRmRoleAssignment  -ServicePrincipalName $application.ApplicationId -RoleDefinitionName Contributor
+
+Write-Host "Use clientID == $($application.ApplicationID)"
+
+
+# Get-MsolServicePrincipal -ObjectId $((Get-AzureRmRoleAssignment -ServicePrincipalName $clientID).ObjectId)
+# New-MsolServicePrincipalCredential -ServicePrincipalName $clientID -Type asymmetric -Value $credValue -Usage verify
+# Get-MsolServicePrincipalCredential -ServicePrincipalName $clientID -ReturnKeyValues 0
+```
+
+
 # Powershell / X509
 
 - Src: [Authenticate service principal with certificate - PowerShell](https://github.com/Azure/azure-content/blob/master/articles/resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell)

@@ -41,8 +41,8 @@ $dummyUrl = "http://localhost/serviceprincipal"
 
 # fetch makecert from some random dude on the Internet :-/
 (New-Object Net.WebClient).DownloadFile('https://gist.github.com/chgeuer/f2334a3222215ef93ff234fd7dcf1a01/raw/9bba6abee1812e9917c21dd8c50fe226bcdfcc7d/makecert.exe', 'makecert.exe')
+.\makecert.exe -r -pe -len 2048 -a sha512 -h 0 -sky signature -ss My -n "$($subjectName)"
 
-makecert.exe -r -pe -len 2048 -a sha512 -h 0 -sky signature -ss My -n "$($subjectName)"
 $cer = (dir Cert:\CurrentUser\My\ | where { $_.Subject -eq $subjectName })
 $certThumbprint = $cer.Thumbprint
 $certOctets = $cer.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Cert)

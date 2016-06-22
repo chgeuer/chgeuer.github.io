@@ -27,8 +27,17 @@ published: true
 - https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/#media-amp-cdn
 - https://github.com/Azure/azurefile-dockervolumedriver/blob/master/main.go
 
+# Jnue 2016
+
+- [How to upgrade an Azure VM Scale Set without shutting it down](https://msftstack.wordpress.com/2016/05/17/how-to-upgrade-an-azure-vm-scale-set-without-shutting-it-down/)
+- [How to convert an Azure virtual machine to a VM Scale Set](https://msftstack.wordpress.com/2016/06/20/how-to-convert-an-azure-virtual-machine-to-a-vm-scale-set/)
+- [Video: Netflix Spinnaker on Azure](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-207-Netflix-Spinnaker-on-Azure-with-Andy-Glover-Richard-Guthrie-and-Arun-Chandrasekhar) ([github](https://github.com/spinnaker/) and [site](http://www.spinnaker.io/))
+
 # March 2016
 
+- Terraform
+	- [Blog: Azure Resource Manager Support for Packer and Terraform](https://www.hashicorp.com/blog/azure-packer-terraform.html)
+	
 - HTML5 File API
     - [Use the HTML5 File API to Work with Files Locally in the Browser](https://scotch.io/tutorials/use-the-html5-file-api-to-work-with-files-locally-in-the-browser)
     - [resumable.js: A JavaScript library for providing multiple simultaneous, stable, fault-tolerant and resumable/restartable uploads via the HTML5 File API](https://github.com/23/resumable.js)

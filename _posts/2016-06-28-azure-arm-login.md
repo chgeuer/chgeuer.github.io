@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Automatic provisioning with Azure ARM - in Germany"
-date: 2016-06-28 11:31:00
-keywords: azure resource manager
+date: 2016-06-28 11:00:00
 ---
 
 In my customer engagements, I usually push early for deployment automation of some sort. My preferred way to deploy to Azure is using Azure Resource Manager JSON Templates, alongside with developer-side automated scripts. Personally I also appreciate the notion of Service Principals, i.e. using "strong" credentials such as an X.509 Certificate to authenticate to Azure Resource Manager (ARM) API. 
@@ -28,7 +27,7 @@ The last line `AzureGermanCloud` indicates that Powershell knows teh specific ma
 
 *If* you do not have that, you might consider re-installing the Powershell module
 
-```ps1
+```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery
 Install-Module AzureRM
 Install-AzureRM
@@ -204,7 +203,7 @@ Login-AzureRmAccount `
 
 Output is
 
-```txt
+```text
 Environment           : AzureGermanCloud
 Account               : deadbeef-0980-46a6-a7fa-7ca8845aaca1
 TenantId              : deadbeef-e2bf-48c0-b025-23e47c410293

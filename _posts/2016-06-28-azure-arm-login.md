@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Automatic provisioning with Azure ARM - in Germany"
-date: 2016-06-28 11:00:00
+title: "Automatic provisioning with Azure ARM"
+date: 2016-06-28
 ---
 
 Sometimes you just want to call Azure Storage REST API to create an "Azure Files" file share, no questions asked, no SDK installed. Just do it, please... 

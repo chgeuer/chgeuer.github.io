@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Automatic provisioning with Azure ARM - in Germany"
-date: 2016-02-29 11:31:00
-keywords: azure storage, curl, openssl
+date: 2016-06-27 11:31:00
 ---
 
 In my customer engagements, I usually push early for deployment automation of some sort. My preferred way to deploy to Azure is using Azure Resource Manager JSON Templates, alongside with developer-side automated scripts. Personally I also appreciate the notion of Service Principals, i.e. using "strong" credentials such as an X.509 Certificate to authenticate to Azure Resource Manager (ARM) API. 

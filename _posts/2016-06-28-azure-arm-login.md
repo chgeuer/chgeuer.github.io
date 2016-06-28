@@ -1,8 +1,7 @@
 ---
 layout: default
-title: "How to create a file share in Azure Files"
-date: 2016-02-29 11:31:00
-keywords: azure storage, curl, openssl
+title: "Automatic provisioning with Azure ARM - in Germany"
+date: 2016-06-28 11:00:00
 ---
 
 Sometimes you just want to call Azure Storage REST API to create an "Azure Files" file share, no questions asked, no SDK installed. Just do it, please... 

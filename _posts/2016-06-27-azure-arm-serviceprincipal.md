@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "How to create a file share in Azure Files v2"
+title: "Automatic provisioning with Azure ARM - in Germany"
 date: 2016-02-29 11:31:00
 keywords: azure storage, curl, openssl
 ---

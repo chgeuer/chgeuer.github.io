@@ -27,7 +27,18 @@ published: true
 - https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/#media-amp-cdn
 - https://github.com/Azure/azurefile-dockervolumedriver/blob/master/main.go
 
-# Jnue 2016
+# July 2016
+
+- https://elixirweekly.net/
+- https://medium.com/@bowett_11839/elixir-the-nags-hd-part-1-d6b523368ccc#.jmec0o2v5
+- http://cloudless.pl/articles/21-front-end-packages-with-phoenix-and-brunch
+- https://medium.com/@trestrantham/chat-controlled-music-with-mopidy-and-hedwig-8d6ff6ef346f#.152yohucv
+- https://github.com/swlaschin/Railway-Oriented-Programming-Example/blob/master/src/FsRopExample/Controllers.fs
+- https://medium.com/developers-writing/writing-an-ember-backend-in-phoenix-f39f12725377#.x9jb3176x
+- https://www.youtube.com/channel/UCIYiFWyuEytDzyju6uXW40Q
+
+
+# June 2016
 
 - [How to upgrade an Azure VM Scale Set without shutting it down](https://msftstack.wordpress.com/2016/05/17/how-to-upgrade-an-azure-vm-scale-set-without-shutting-it-down/)
 - [How to convert an Azure virtual machine to a VM Scale Set](https://msftstack.wordpress.com/2016/06/20/how-to-convert-an-azure-virtual-machine-to-a-vm-scale-set/)

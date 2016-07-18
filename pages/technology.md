@@ -30,9 +30,9 @@ published: true
 # July 2016
 
 - https://elixirweekly.net/
-- https://medium.com/@bowett_11839/elixir-the-nags-hd-part-1-d6b523368ccc#.jmec0o2v5
+- https://medium.com/@bowett_11839/elixir-the-nags-hd-part-1-d6b523368ccc
 - http://cloudless.pl/articles/21-front-end-packages-with-phoenix-and-brunch
-- https://medium.com/@trestrantham/chat-controlled-music-with-mopidy-and-hedwig-8d6ff6ef346f#.152yohucv
+- https://medium.com/@trestrantham/chat-controlled-music-with-mopidy-and-hedwig-8d6ff6ef346f
 - https://github.com/swlaschin/Railway-Oriented-Programming-Example/blob/master/src/FsRopExample/Controllers.fs
 - https://medium.com/developers-writing/writing-an-ember-backend-in-phoenix-f39f12725377#.x9jb3176x
 - https://www.youtube.com/channel/UCIYiFWyuEytDzyju6uXW40Q
@@ -40,7 +40,8 @@ published: true
 - https://coreos.com/os/docs/latest/getting-started-with-docker.html
 - https://github.com/strofcon/hello_semaphore
 - https://semaphoreci.com/community/tutorials/dockerizing-elixir-and-phoenix-applications
-- 
+- https://blog.codecentric.de/en/2016/07/iot-analytics-platform/
+- http://elixir-lang.org/blog/2016/07/14/announcing-genstage/
 
 
 # June 2016

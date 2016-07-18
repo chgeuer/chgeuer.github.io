@@ -36,6 +36,11 @@ published: true
 - https://github.com/swlaschin/Railway-Oriented-Programming-Example/blob/master/src/FsRopExample/Controllers.fs
 - https://medium.com/developers-writing/writing-an-ember-backend-in-phoenix-f39f12725377#.x9jb3176x
 - https://www.youtube.com/channel/UCIYiFWyuEytDzyju6uXW40Q
+- http://elviovicosa.com/blog/2016/07/13/deploying-elixir-releases.html
+- https://coreos.com/os/docs/latest/getting-started-with-docker.html
+- https://github.com/strofcon/hello_semaphore
+- https://semaphoreci.com/community/tutorials/dockerizing-elixir-and-phoenix-applications
+- 
 
 
 # June 2016

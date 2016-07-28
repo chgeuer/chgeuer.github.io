@@ -6,6 +6,18 @@ keywords:
 published: true
 ---
 
+# Powershell creates self-signed X.509 Cert
+
+```powershell
+New-SelfSignedCertificate `
+	-Type Custom `
+	-Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+	-CertStoreLocation Cert:\CurrentUser\My `
+	-KeySpec KeyExchange `
+	-Subject "CN=SELFSIGNED123"
+```
+
+
 # Storage Account custom CNAME
 
 ```json

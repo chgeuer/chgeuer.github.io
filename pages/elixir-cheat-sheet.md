@@ -18,3 +18,12 @@ alias IO, as: MyIO
 ```elixir
 	{"Bob", 25} |> put_elem(0, "Jim") |> elem(0)
 ```
+
+## lists
+
+```elixir
+[1, 2, 3] |> length
+
+[1, 2, 3] |> Enum.at(1)
+
+```

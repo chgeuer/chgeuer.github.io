@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Elixir Cheat Sheet"
+---
+
 ## Imports and Aliases
 
 ```elixir

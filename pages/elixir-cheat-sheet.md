@@ -22,9 +22,9 @@ alias IO, as: MyIO
 ## lists
 
 ```elixir
-        3 = [1, 2, 3] |> Kernel.length
+        3 = [0, 1, 2] |> Kernel.length
         1 = [0, 1, 2] |> Enum.at(1)
-[0, 1, 2] = [0, 2, 2] |> List.replace_at(1, 1)
+[0, 1, 2] = [0, 9, 2] |> List.replace_at(1, 1)
 [0, 1, 2] = [0] ++ [1, 2]
 [0, 1, 2] = [0 | [ 1, 2]]
 ```

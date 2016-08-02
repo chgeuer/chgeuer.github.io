@@ -16,14 +16,15 @@ alias IO, as: MyIO
 ## tuples
 
 ```elixir
-	{"Bob", 25} |> put_elem(0, "Jim") |> elem(0)
+"Jim" = {"Bob", 25} |> put_elem(0, "Jim") |> elem(0)
 ```
 
 ## lists
 
 ```elixir
-[1, 2, 3] |> length
-
-[1, 2, 3] |> Enum.at(1)
-
+        3 = [1, 2, 3] |> Kernel.length
+        1 = [0, 1, 2] |> Enum.at(1)
+[0, 1, 2] = [0, 2, 2] |> List.replace_at(1, 1)
+[0, 1, 2] = [0] ++ [1, 2]
+[0, 1, 2] = [0 | [ 1, 2]]
 ```

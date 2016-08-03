@@ -42,3 +42,20 @@ bob = %{ :name => "Bob", :age => 25 }
 oldr_bob = %{bob | age: 26}
 extnded = Dict.put(bob, :salary, 50000)
 ```
+## bitstrings
+
+```elixir
+<<1, 1>> = <<257::16>>
+<<1, 1>> = <<1>> <> <<1>>
+
+<<65, 66, 67>> = "ABC"
+"ABC" = <<65, 66, 67>>
+```
+
+## strings
+
+```elixir
+"Jim" 
+"Hallo 1" = "Hallo #{ 9 - 8 }"
+"Hallo \" 1 \"" = "Hallo \" #{ 9 - 8 }" <> <<0x20, 34>>
+```

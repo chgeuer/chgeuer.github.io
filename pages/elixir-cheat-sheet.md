@@ -57,5 +57,8 @@ extnded = Dict.put(bob, :salary, 50000)
 ```elixir
 "Jim" 
 "Hallo 1" = "Hallo #{ 9 - 8 }"
-"Hallo \" 1 \"" = "Hallo \" #{ 9 - 8 }" <> <<0x20, 34>>
+"Hallo \" 1 \"" = "Hallo \" #{ 9 - 8 }" <> << 0x20, 34 >>
+
+7 = "hełło" |> byte_size
+5 = "hełło" |> String.length
 ```

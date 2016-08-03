@@ -30,3 +30,15 @@ alias IO, as: MyIO
 [0, 1, 2] = [0 | [1, 2]]
 [0, 1, 2] = [0 | [1 | [2]]]
 ```
+
+## maps
+
+```elixir
+bob = %{ :name => "Bob", :age => 25 }
+
+"Bob" = bob[:name]
+"Bob" = bob.name
+
+oldr_bob = %{bob | age: 26}
+extnded = Dict.put(bob, :salary, 50000)
+```

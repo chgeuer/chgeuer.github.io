@@ -27,6 +27,22 @@ published: true
 - https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/#media-amp-cdn
 - https://github.com/Azure/azurefile-dockervolumedriver/blob/master/main.go
 
+
+# August 2016
+
+## Reset the "Windows Subsystem for Linux"
+
+See the [FAQ](https://msdn.microsoft.com/en-us/commandline/wsl/faq).
+
+```batch
+lxrun /uninstall /full
+sc stop lxssmanager
+rmdir /S %LOCALAPPDATA%\lxss
+sc start lxssmanager
+lxrun /install
+```
+
+
 # July 2016
 
 - https://elixirweekly.net/

@@ -42,7 +42,15 @@ sc start lxssmanager
 lxrun /install
 ```
 
-
+- AWS Architecture Drawer: https://cloudcraft.co/app
+	- http://codepen.io/Quelltextfabrik/pen/kuGzx
+	- http://jdan.github.io/isomer/
+- Microsoft Bot Framework: https://docs.botframework.com/en-us/downloads/
+	- Microsoft Bot Framework Client in Elixir: https://github.com/yuyabee/bot_framework
+	- Elixir Microsoft Bot Client: https://github.com/zabirauf/ex_microsoftbot
+	- Create messenger bots using Elixir and Microsoft bot framework: http://www.zohaib.me/create-messenger-bots-using-elixir-and-microsoft-bot-framework/
+	- https://chatbotsmagazine.com/the-complete-beginner-s-guide-to-chatbots-8280b7b906ca#.6xz7dhp79
+	
 # July 2016
 
 - https://elixirweekly.net/

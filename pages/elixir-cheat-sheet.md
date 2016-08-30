@@ -29,6 +29,8 @@ alias IO, as: MyIO
 [0, 1, 2] = [0, 1] ++ [2]
 [0, 1, 2] = [0 | [1, 2]]
 [0, 1, 2] = [0 | [1 | [2]]]
+
+[0, 1, [2, 3]] = [0 | [1, [2, 3]]]
 ```
 
 ## maps
@@ -41,7 +43,12 @@ bob = %{ :name => "Bob", :age => 25 }
 
 oldr_bob = %{bob | age: 26}
 extnded = Dict.put(bob, :salary, 50000)
+
+extnded2 = Dict.put(bob, :"The salary", 50000)
+50000 = extnded2."The salary"
+50000 = extnded2[:"The salary"]
 ```
+
 ## bitstrings
 
 ```elixir
@@ -56,9 +63,29 @@ extnded = Dict.put(bob, :salary, 50000)
 
 ```elixir
 "Jim" 
+
 "Hallo 1" = "Hallo #{ 9 - 8 }"
+
 "Hallo \" 1 \"" = "Hallo \" #{ 9 - 8 }" <> << 0x20, 34 >>
 
 7 = "hełło" |> byte_size
 5 = "hełło" |> String.length
+
+a = "
+A" = "\nA"
+
+"Hello ABC"    = "Hello" <> " ABC"
+"Hello ABC"    = "Hello" <> <<32, 65, 66, 67>>
+"Hello ABC"    = "Hello" <> <<0x20, 65, 66, 67>>
 ```
+
+### sigils
+
+```elixir
+"This is a string"          = ~s(This is a string)
+"This is a string"          = ~s[This is a string]
+"This is a string"          = ~s/This is a string/
+"This is a string 1"        = ~s{This is a string #{ 20 - 19 }}
+"This \"is\" a string"      = ~s[This "is" a string]
+```
+

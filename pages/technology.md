@@ -50,7 +50,11 @@ lxrun /install
 	- Elixir Microsoft Bot Client: https://github.com/zabirauf/ex_microsoftbot
 	- Create messenger bots using Elixir and Microsoft bot framework: http://www.zohaib.me/create-messenger-bots-using-elixir-and-microsoft-bot-framework/
 	- https://chatbotsmagazine.com/the-complete-beginner-s-guide-to-chatbots-8280b7b906ca#.6xz7dhp79
-	
+- Distributed Cron
+	- https://www.safaribooksonline.com/library/view/site-reliability-engineering/9781491929117/ch24.html
+	- http://dkron.io/ / https://github.com/victorcoder/dkron
+
+
 # July 2016
 
 - https://elixirweekly.net/

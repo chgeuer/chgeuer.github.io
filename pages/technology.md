@@ -53,7 +53,15 @@ lxrun /install
 - Distributed Cron
 	- https://www.safaribooksonline.com/library/view/site-reliability-engineering/9781491929117/ch24.html
 	- http://dkron.io/ / https://github.com/victorcoder/dkron
-
+- Amazon Dash Button Stuff
+ 	- https://medium.com/@edwardbenson/how-i-hacked-amazon-s-5-wifi-button-to-track-baby-data-794214b0bdd8#.wtl22wp79
+	- https://mpetroff.net/2015/05/amazon-dash-button-teardown/#fn2-1827
+	- http://blog.nemik.net/2015/08/dash-button-corral/
+	- https://github.com/dekuNukem/Amazon_Dash_Button
+	- https://medium.com/@edwardbenson/how-i-hacked-amazon-s-5-wifi-button-to-track-baby-data-794214b0bdd8#.higfm3ddq
+	- https://medium.com/@brody_berson/hacking-amazon-s-5-dash-button-to-order-domino-s-pizza-9d19c9d04646#.27csydbw9
+	- https://github.com/hortinstein/node-dash-button/blob/master/index.js
+	- http://www.dashbuttondudes.com/blog/2015/12/11/26-amazon-dash-button-hacks
 
 # July 2016
 

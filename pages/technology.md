@@ -27,6 +27,7 @@ published: true
 - https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/#media-amp-cdn
 - https://github.com/Azure/azurefile-dockervolumedriver/blob/master/main.go
 
+<<<<<<< HEAD
 # September 2016
 
 - [How to Set up a Distributed Elixir Cluster on Amazon EC2](http://engineering.pivotal.io/post/how-to-set-up-an-elixir-cluster-on-amazon-ec2/)
@@ -34,6 +35,43 @@ published: true
 - [cookiecutter-elixir-project](https://github.com/mattvonrocketstein/cookiecutter-elixir-project): a python-based templating engine creating Elixir projects (see also [Elixir boilerplate](https://mattvonrocketstein.github.io/heredoc/elixir-boilerplate.html))
 
 
+=======
+
+# August 2016
+
+## Reset the "Windows Subsystem for Linux"
+
+See the [FAQ](https://msdn.microsoft.com/en-us/commandline/wsl/faq).
+
+```batch
+lxrun /uninstall /full
+sc stop lxssmanager
+rmdir /S %LOCALAPPDATA%\lxss
+sc start lxssmanager
+lxrun /install
+```
+
+- AWS Architecture Drawer: https://cloudcraft.co/app
+	- http://codepen.io/Quelltextfabrik/pen/kuGzx
+	- http://jdan.github.io/isomer/
+- Microsoft Bot Framework: https://docs.botframework.com/en-us/downloads/
+	- Microsoft Bot Framework Client in Elixir: https://github.com/yuyabee/bot_framework
+	- Elixir Microsoft Bot Client: https://github.com/zabirauf/ex_microsoftbot
+	- Create messenger bots using Elixir and Microsoft bot framework: http://www.zohaib.me/create-messenger-bots-using-elixir-and-microsoft-bot-framework/
+	- https://chatbotsmagazine.com/the-complete-beginner-s-guide-to-chatbots-8280b7b906ca#.6xz7dhp79
+- Distributed Cron
+	- https://www.safaribooksonline.com/library/view/site-reliability-engineering/9781491929117/ch24.html
+	- http://dkron.io/ / https://github.com/victorcoder/dkron
+- Amazon Dash Button Stuff
+ 	- https://medium.com/@edwardbenson/how-i-hacked-amazon-s-5-wifi-button-to-track-baby-data-794214b0bdd8#.wtl22wp79
+	- https://mpetroff.net/2015/05/amazon-dash-button-teardown/#fn2-1827
+	- http://blog.nemik.net/2015/08/dash-button-corral/
+	- https://github.com/dekuNukem/Amazon_Dash_Button
+	- https://medium.com/@edwardbenson/how-i-hacked-amazon-s-5-wifi-button-to-track-baby-data-794214b0bdd8#.higfm3ddq
+	- https://medium.com/@brody_berson/hacking-amazon-s-5-dash-button-to-order-domino-s-pizza-9d19c9d04646#.27csydbw9
+	- https://github.com/hortinstein/node-dash-button/blob/master/index.js
+	- http://www.dashbuttondudes.com/blog/2015/12/11/26-amazon-dash-button-hacks
+>>>>>>> adc1b18e85a09f17dd3743a588e57dd2a41d4a14
 
 # July 2016
 

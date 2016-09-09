@@ -2,7 +2,7 @@
 layout: default
 title: "Stuff from the web"
 date: 2015-11-05
-keywords: 
+keywords:
 published: true
 ---
 
@@ -26,6 +26,14 @@ published: true
 - http://blog.geuer-pollmann.de/pages/AzureLogin/
 - https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/#media-amp-cdn
 - https://github.com/Azure/azurefile-dockervolumedriver/blob/master/main.go
+
+# September 2016
+
+- [How to Set up a Distributed Elixir Cluster on Amazon EC2](http://engineering.pivotal.io/post/how-to-set-up-an-elixir-cluster-on-amazon-ec2/)
+- [IElixir Notebook in Docker](https://mattvonrocketstein.github.io/heredoc/ielixir-notebook-in-docker.html)
+- [cookiecutter-elixir-project](https://github.com/mattvonrocketstein/cookiecutter-elixir-project): a python-based templating engine creating Elixir projects (see also [Elixir boilerplate](https://mattvonrocketstein.github.io/heredoc/elixir-boilerplate.html))
+
+
 
 # July 2016
 
@@ -54,7 +62,7 @@ published: true
 
 - Terraform
 	- [Blog: Azure Resource Manager Support for Packer and Terraform](https://www.hashicorp.com/blog/azure-packer-terraform.html)
-	
+
 - HTML5 File API
     - [Use the HTML5 File API to Work with Files Locally in the Browser](https://scotch.io/tutorials/use-the-html5-file-api-to-work-with-files-locally-in-the-browser)
     - [resumable.js: A JavaScript library for providing multiple simultaneous, stable, fault-tolerant and resumable/restartable uploads via the HTML5 File API](https://github.com/23/resumable.js)
@@ -152,7 +160,7 @@ published: true
 - Video
 	- [Live video streaming on your website without streaming providers](https://datarhei.github.io/restreamer/)
 	- [TN2224 is Dead. Welcome to the New Era of Content-Aware Encoding (netflix)](http://www.streaminglearningcenter.com/blogs/tn2224-is-dead-welcome-to-the-new-era-of-content-aware-encoding.html)
-	- [Under the hood: Broadcasting live video to millions](https://code.facebook.com/posts/1653074404941839/under-the-hood-broadcasting-live-video-to-millions/) - Use HLS to broadcast celebrities to millions (and leverage CDN), and use RTMP to broadcast regular Joes to smaller audiences, but lower latencies (more engaging / live) 
+	- [Under the hood: Broadcasting live video to millions](https://code.facebook.com/posts/1653074404941839/under-the-hood-broadcasting-live-video-to-millions/) - Use HLS to broadcast celebrities to millions (and leverage CDN), and use RTMP to broadcast regular Joes to smaller audiences, but lower latencies (more engaging / live)
 - [Build a Smart Calendar and Notification Center for Family Agendas with a Raspberry Pi](http://lifehacker.com/build-a-smart-calendar-and-notification-center-for-fami-1751637798)
 - Productivity
 	- [slackcat - Pipe command output and upload files to Slack from your terminal!](http://slackcat.chat/)
@@ -174,7 +182,7 @@ published: true
 - [Disque 1.0 RC1 is out!](http://antirez.com/news/100) / [github](https://github.com/antirez/disque)
 - [The Truth About Working at a Japanese Company](http://rubyronin.com/the-truth-about-working-at-a-japanese-company/)
 - [Letter To A Young Programmer Considering A Startup](https://al3x.net/2013/05/23/letter-to-a-young-programmer.html)
-- [JavaScript Regular Expressions made easy](https://github.com/VerbalExpressions/JSVerbalExpressions) and [C# Regular Expressions made easy](https://github.com/VerbalExpressions/CSharpVerbalExpressions) fluid 
+- [JavaScript Regular Expressions made easy](https://github.com/VerbalExpressions/JSVerbalExpressions) and [C# Regular Expressions made easy](https://github.com/VerbalExpressions/CSharpVerbalExpressions) fluid
 - Elixir
 	- [AWS clients for Elixir](https://github.com/jkakar/aws-elixir) and [clients AWS APIs for Elixir](https://github.com/CargoSense/ex_aws) and [AWS Signature Version 4 Signing Library for Elixir](https://github.com/bryanjos/aws_auth) and [Erlang Amazon WebServices](https://github.com/x6j8x/erlaws) and [Cloud Computing library for erlang (Amazon EC2, S3, SQS, SimpleDB, Mechanical Turk, ELB)](https://github.com/erlcloud/erlcloud)
 	- [Elixir : Simple Guardian - Multiple Sessions](http://blog.overstuffedgorilla.com/simple-guardian-multiple-sessions/)
@@ -213,7 +221,7 @@ published: true
 	- [What the new video compression strategy from Netflix means for Apple and Amazon](https://donmelton.com/2015/12/21/what-the-new-video-compression-strategy-from-netflix-means-for-apple-and-amazon/)
 - [devstash.io](https://devstash.io/)
 - [Securely Upload to Azure Storage with Angular](https://blogs.msdn.microsoft.com/kaevans/2015/12/18/securely-upload-to-azure-storage-with-angular/)
-- Kafka & Co. 
+- Kafka & Co.
 	- [Choosing between Azure Event Hub SaaS and Apache Kafka on IaaS](http://blogs.msdn.com/b/opensourcemsft/archive/2015/08/08/choose-between-azure-event-hub-and-kafka-_2d00_-what-you-need-to-know.aspx)
 	- [Assessing Data Store Capabilities for Polyglot Solutions](https://github.com/mspnp/azure-guidance/blob/master/Polyglot-Solutions.md)
 	- [Stream processing, Event sourcing, Reactive, CEP... and making sense of it all](http://www.confluent.io/blog/making-sense-of-stream-processing/)
@@ -246,10 +254,10 @@ published: true
 - [Elixir](http://elixir-lang.org/) and [Phoenix Framework](http://www.phoenixframework.org/)
 - Cool blog rolls: [The Morning Brew](http://blog.cwa.me.uk/) and [Morning Dew](http://www.alvinashcraft.com/)
 - [Hostnames and usernames to reserve](https://ldpreload.com/blog/names-to-reserve) in SaaS systems, so regular users cannot grab them
-- Cool web site designs: 
+- Cool web site designs:
 	- [http://www.patrickalgrim.me/](http://www.patrickalgrim.me/)
 	- [codyhouse.co/gem/horizontal-timeline/](https://codyhouse.co/gem/horizontal-timeline/)
-- Windows Defender also blocks [AdWare](http://www.heise.de/security/meldung/Windows-mit-verstecktem-Adware-Killer-3023579.html). Just create under `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\MpEngine` a DWORD called `MpEnablePus` with value `1`. 
+- Windows Defender also blocks [AdWare](http://www.heise.de/security/meldung/Windows-mit-verstecktem-Adware-Killer-3023579.html). Just create under `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\MpEngine` a DWORD called `MpEnablePus` with value `1`.
 - [Distributed Machine Learning Toolkit](https://github.com/Microsoft/DMTK)
 - [In the cloud, we trust](http://news.microsoft.com/stories/inthecloudwetrust/)
 - [THE AZURE REST API, OR RATHER RESOURCE MANAGEMENT API](http://devian.co/2015/11/03/the-azure-rest-api-or-rather-resource-management-api/)

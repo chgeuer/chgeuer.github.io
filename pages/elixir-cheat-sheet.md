@@ -55,10 +55,26 @@ extnded = Dict.put(bob, :salary, 50000)
 ## strings
 
 ```elixir
-"Jim" 
+"Jim"
 "Hallo 1" = "Hallo #{ 9 - 8 }"
 "Hallo \" 1 \"" = "Hallo \" #{ 9 - 8 }" <> << 0x20, 34 >>
 
 7 = "hełło" |> byte_size
 5 = "hełło" |> String.length
+```
+
+## anonymous functions
+
+```elixir
+f = fn(x) -> IO.puts(x) end
+f = &(IO.puts(&1))
+f = &IO.puts/1
+f.("Hi")
+
+
+def f(a, b) do
+	a * b
+end
+
+def f(a, b), do: a * b
 ```

@@ -6,36 +6,29 @@ keywords:
 published: true
 ---
 
-# WIP
-
-- http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx
-- http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
-- http://www.webupd8.org/2015/06/how-to-stream-to-twitch-from-linux.html
-- https://azure.microsoft.com/en-us/documentation/articles/active-directory-appmodel-v2-overview/
-- https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-preview-oidc-changes/
-- https://azure.microsoft.com/en-us/documentation/articles/media-services-dotnet-get-started/
-- https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity
-- https://microsoft.sharepoint.com/sites/itweb/Email/transferred-employees/Pages/Exchange-ActiveSync-(EAS)-on-Windows-Phone,-Android,-and-iOS-Devices-(Multi-Tenant).aspx
-- https://msdn.microsoft.com/de-de/library/azure/dn790568.aspx
-- https://msdn.microsoft.com/en-us/library/partnercenter/dn974935.aspx
-- https://msdn.microsoft.com/library/azure/dn194267.aspx
-- https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
-- https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory
-- https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols/
-- http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx
-- http://blog.geuer-pollmann.de/pages/AzureLogin/
-- https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/#media-amp-cdn
-- https://github.com/Azure/azurefile-dockervolumedriver/blob/master/main.go
-
-<<<<<<< HEAD
 # September 2016
 
 - [How to Set up a Distributed Elixir Cluster on Amazon EC2](http://engineering.pivotal.io/post/how-to-set-up-an-elixir-cluster-on-amazon-ec2/)
 - [IElixir Notebook in Docker](https://mattvonrocketstein.github.io/heredoc/ielixir-notebook-in-docker.html)
 - [cookiecutter-elixir-project](https://github.com/mattvonrocketstein/cookiecutter-elixir-project): a python-based templating engine creating Elixir projects (see also [Elixir boilerplate](https://mattvonrocketstein.github.io/heredoc/elixir-boilerplate.html))
-
-
-=======
+- https://github.com/poteto/elixirconf-2016/blob/master/README.md
+- Design
+	- http://www.flaticon.com/packs/pokemon-go
+	- http://www.sansfrancis.co/?ref=webdesignernews.com
+- https://github.com/andersju/webbkoll/blob/master/lib/webbkoll/trackers.ex
+- https://github.com/fishcakez/connection
+- https://networkingguyblog.wordpress.com/2016/08/21/53/
+- https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/
+- https://www.typora.io/#windows
+- https://aws.amazon.com/blogs/aws/amazon-elastic-block-store-ebs-update-snapshot-price-reduction-more-piopsgib/
+- http://haishibai.blogspot.de/2016/08/sharing-your-service-fabric-services-as.html
+- https://github.com/rrrene/credo/blob/master/README.md
+- https://sachinchoolur.github.io/lightgallery.js/
+- http://www.interhyp.de/bauen-kaufen/tipps-zur-finanzierung/goldene-regeln-fuer-das-richtige-immobiliendarlehen.html
+- http://bitwalker.org/posts/2016-08-04-clustering-in-kubernetes/
+- https://bitmovin.com/mp4box-dash-content-generation-x264/
+- http://www.danielstechblog.info/using-the-latest-api-version-in-your-azure-resource-manager-templates/
+- https://blogs.msdn.microsoft.com/azureossds/2016/06/29/uploading-images-to-azure-storage-from-angularjs-app/
 
 # August 2016
 
@@ -71,7 +64,6 @@ lxrun /install
 	- https://medium.com/@brody_berson/hacking-amazon-s-5-dash-button-to-order-domino-s-pizza-9d19c9d04646#.27csydbw9
 	- https://github.com/hortinstein/node-dash-button/blob/master/index.js
 	- http://www.dashbuttondudes.com/blog/2015/12/11/26-amazon-dash-button-hacks
->>>>>>> adc1b18e85a09f17dd3743a588e57dd2a41d4a14
 
 # July 2016
 
@@ -310,3 +302,27 @@ lxrun /install
 - [SQL Azure Performance Objective IDs for Azure Resource Manager](https://gist.github.com/chgeuer/9d7fba649880ef4ed44a)
 - Powershell to convert a PFX file to BASE64: `[System.IO.File]::WriteAlltext("1.pfx.txt", [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("1.pfx")))`
 - Building Azure Service Fabric Actors with F# [Part 1](https://cockneycoder.wordpress.com/2015/08/03/building-azure-service-fabric-actors-with-f-part-1/), [Part 2](https://cockneycoder.wordpress.com/2015/08/10/building-azure-service-fabric-actors-with-f-part-2/) and [Stateless services on Azure Service Fabric in F#](https://cockneycoder.wordpress.com/2015/08/31/stateless-services-on-azure-service-fabric-in-f/)
+
+
+
+
+# WIP
+
+- http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx
+- http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
+- http://www.webupd8.org/2015/06/how-to-stream-to-twitch-from-linux.html
+- https://azure.microsoft.com/en-us/documentation/articles/active-directory-appmodel-v2-overview/
+- https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-preview-oidc-changes/
+- https://azure.microsoft.com/en-us/documentation/articles/media-services-dotnet-get-started/
+- https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity
+- https://microsoft.sharepoint.com/sites/itweb/Email/transferred-employees/Pages/Exchange-ActiveSync-(EAS)-on-Windows-Phone,-Android,-and-iOS-Devices-(Multi-Tenant).aspx
+- https://msdn.microsoft.com/de-de/library/azure/dn790568.aspx
+- https://msdn.microsoft.com/en-us/library/partnercenter/dn974935.aspx
+- https://msdn.microsoft.com/library/azure/dn194267.aspx
+- https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
+- https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory
+- https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols/
+- http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx
+- http://blog.geuer-pollmann.de/pages/AzureLogin/
+- https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/#media-amp-cdn
+- https://github.com/Azure/azurefile-dockervolumedriver/blob/master/main.go

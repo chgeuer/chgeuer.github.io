@@ -8,6 +8,22 @@ published: true
 
 # September 2016
 
+## Use Storage Account in ARM without fully qualified domain name
+
+```json
+"vhd": {
+"uri": "[concat(concat(
+	reference(
+		resourceId(
+			resourceGroup().name, 
+			'Microsoft.Storage/storageAccounts', 
+			variable('storageAccountName')
+			), '2015-06-15').primaryEndpoints['blob'], 'vhds/'), 'akrvirtual1', 'virtual1sys.vhd')]"
+}, 
+```
+
+
+
 - [How to Set up a Distributed Elixir Cluster on Amazon EC2](http://engineering.pivotal.io/post/how-to-set-up-an-elixir-cluster-on-amazon-ec2/)
 - [IElixir Notebook in Docker](https://mattvonrocketstein.github.io/heredoc/ielixir-notebook-in-docker.html)
 - [cookiecutter-elixir-project](https://github.com/mattvonrocketstein/cookiecutter-elixir-project): a python-based templating engine creating Elixir projects (see also [Elixir boilerplate](https://mattvonrocketstein.github.io/heredoc/elixir-boilerplate.html))

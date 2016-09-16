@@ -8,6 +8,59 @@ published: true
 
 # September 2016
 
+## 
+
+- choco install powershell-packagemanagement
+- https://seawin.org/2016/05/21/installing-windows-packagemanagement-locally-with-powershell/
+- http://get-carbon.org/
+
+
+```powershell
+# Download Powershell Extensions for PackageManagement
+Invoke-RestMethod `
+	-Uri "https://download.microsoft.com/download/4/1/A/41A369FA-AA36-4EE9-845B-20BCC1691FC5/PackageManagement_x64.msi" `
+	-OutFile "PackageManagement_x64.msi"
+
+Start-Process `
+	-FilePath "C:\Windows\System32\msiexec.exe" `
+	-ArgumentList "/i PackageManagement_x64.msi /quiet" `
+	-NoNewWindow `
+	-Wait
+
+# Enable Web Server Feature
+Start-Process `
+	-FilePath "C:\Windows\System32\Dism.exe" `
+	-ArgumentList "/online /enable-feature /FeatureName:IIS-WebServerRole" `
+	-NoNewWindow -Wait
+
+# Install Carbon (http://get-carbon.org/index.html)
+Install-PackageProvider `
+	-Name NuGet `
+	-MinimumVersion 2.8.5.201 `
+	-Force
+
+Install-Module -Name 'Carbon' -Force
+
+Import-Module 'Carbon'
+
+# Create local user account
+$localUserName = "localiisuser"
+
+$mycreds = $(New-Object `
+		System.Management.Automation.PSCredential ($localUserName, `
+			$(ConvertTo-SecureString "Passw0rd!" -AsPlainText -Force)))
+
+Install-User `
+	-Credential  $mycreds `
+	-UserCannotChangePassword
+
+Add-GroupMember -Name 'IIS_IUSRS' -Member $localUserName
+
+# Create new application pool with new user account
+Install-IisAppPool -Name "customapppool" -Credential $mycreds
+```
+
+
 ## Use Storage Account in ARM without fully qualified domain name
 
 ```json

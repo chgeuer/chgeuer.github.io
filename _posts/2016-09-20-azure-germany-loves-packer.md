@@ -169,6 +169,14 @@ By this time, you should have 5 specific values:
   5 Your service principal's password. If you don't know this one, it's certainly `SuperLongPassword123.-`. If so, you simply copy and pasted the code snippet above into your console. DO NOT COPY RANDOM STUFF INTO YOUR ADMIN CONSOLE. Even if I tell you so. Bad security practice. Call `azure ad sp delete` and `azure ad app delete` to delete the current service principal account, and start again. With. A. Secure. Password. Please. 
 
 
+As a last step of the security setup, you can make your service principal a Contributor to your subscription (replace $spObjectId and $subscriptionId with proper values):
+
+```bash
+azure role assignment create \
+  --objectId $spObjectId \
+  --roleName Contributor \
+  --scope "/subscriptions/$subscriptionId"
+```
 
 
 

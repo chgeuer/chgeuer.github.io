@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1280px" height="800px" viewBox="0 0 1280 800" style="enable-background:new 0 0 1280 800;" xml:space="preserve">
+<g>
+	<polygon style="fill:#D6E9FF;" points="623,582 623,477 1028,477 1028,338 1237,338 1237,582 	"/>
+	<path d="M1236,339v124.5v31V582H623V478h405V339H1236 M1237,338h-0.5h-208h-1.5v0.5V477H623.5H622v0.5v104v1.5h1.5h613h0.5v-1.5
+		v-87v-31v-125V338L1237,338z"/>
+</g>
+<g>
+	<rect x="24" y="189" style="fill:#D6E9FF;" width="240" height="429"/>
+	<g>
+		<path d="M263,190v428H24V190H263 M264,189h-0.5h-239H23v0.5v428v1.5h1.5h239h0.5v-1.5v-428V189L264,189z"/>
+	</g>
+</g>
+<g>
+	<rect x="652" y="36" style="fill:#FFFFFF;" width="176" height="68"/>
+	<path d="M826,38v64H654V38H826 M830,34H650v72h180V34L830,34z"/>
+</g>
+<g id="paths">
+	<g id="Access_control">
+	</g>
+	<g id="Azure_active_directory">
+	</g>
+</g>
+<g id="paths_1_">
+	<g id="Access_control_1_">
+	</g>
+	<g id="Azure_active_directory_1_">
+	</g>
+	<g id="API_Management">
+	</g>
+	<g id="Azure_automation">
+	</g>
+</g>
+<g id="paths_3_">
+	<g id="Access_control_3_">
+	</g>
+	<g id="Azure_active_directory_3_">
+	</g>
+	<g id="API_Management_1_">
+	</g>
+	<g id="Azure_automation_1_">
+	</g>
+	<g id="Azure_SQL_database">
+	</g>
+	<g id="Azure_subscription">
+	</g>
+	<g id="Backup_service">
+	</g>
+	<g id="Bitbucket_code_source">
+	</g>
+	<g id="Azure_cache">
+	</g>
+	<g id="Content_delivery_network__x28_CDN_x29_">
+	</g>
+	<g id="Cloud_service">
+	</g>
+	<g id="CodePlex">
+	</g>
+	<g id="Dropbox_code_source">
+	</g>
+	<g id="Express_route">
+	</g>
+	<g id="Git_repository">
+	</g>
+	<g id="GitHub_code">
+	</g>
+	<g id="HD_Insight">
+	</g>
+	<g id="Health_monitoring">
+	</g>
+	<g id="Healthy">
+	</g>
+	<g id="BizTalk_hybrid_connection">
+	</g>
+	<g id="Hybrid_connection_manager_for_BizTalk_hybrid_connection">
+	</g>
+	<g id="Hyper-V_recovery_manager">
+	</g>
+</g>
+<g id="paths_4_">
+	<g id="Access_control_4_">
+	</g>
+	<g id="Azure_active_directory_4_">
+	</g>
+	<g id="API_Management_2_">
+	</g>
+	<g id="Azure_automation_2_">
+	</g>
+	<g id="Azure_SQL_database_1_">
+	</g>
+	<g id="Azure_subscription_1_">
+	</g>
+	<g id="Backup_service_1_">
+	</g>
+	<g id="Bitbucket_code_source_1_">
+	</g>
+	<g id="Azure_cache_1_">
+	</g>
+	<g id="Content_delivery_network__x28_CDN_x29__1_">
+	</g>
+	<g id="Cloud_service_1_">
+	</g>
+	<g id="CodePlex_1_">
+	</g>
+	<g id="Dropbox_code_source_1_">
+	</g>
+	<g id="Express_route_1_">
+	</g>
+	<g id="Git_repository_1_">
+	</g>
+	<g id="GitHub_code_1_">
+	</g>
+	<g id="HD_Insight_1_">
+	</g>
+	<g id="Health_monitoring_1_">
+	</g>
+	<g id="Healthy_1_">
+	</g>
+	<g id="BizTalk_hybrid_connection_1_">
+	</g>
+	<g id="Hybrid_connection_manager_for_BizTalk_hybrid_connection_1_">
+	</g>
+	<g id="Hyper-V_recovery_manager_1_">
+	</g>
+	<g id="Machine_learning">
+	</g>
+	<g id="Media_services">
+	</g>
+	<g id="Microsoft_account">
+	</g>
+	<g id="Mobile_services">
+	</g>
+	<g id="Multi-factor_authentication">
+	</g>
+	<g id="MySQL_database">
+	</g>
+	<g id="Notification_hub">
+	</g>
+	<g id="Notification_topic">
+	</g>
+	<g id="Cloud_Office_365">
+	</g>
+	<g id="Office_365">
+	</g>
+	<g id="OS_image">
+	</g>
+	<g id="Remote_app">
+	</g>
+	<g id="Task_scheduler">
+	</g>
+	<g id="Azure_SDK">
+	</g>
+	<g id="Service_bus">
+	</g>
+	<g id="Service_bus_queue">
+	</g>
+	<g id="Service_bus_relay">
+	</g>
+	<g id="Service_bus_topic">
+	</g>
+	<g id="Service_endpoint">
+	</g>
+	<g id="Custom_create">
+	</g>
+	<g id="SQL_data_sync">
+	</g>
+	<g id="SQL_reporting">
+	</g>
+	<g id="Startup_task">
+	</g>
+	<g id="Windows_Azure_storage">
+	</g>
+	<g id="Storage_blob">
+	</g>
+	<g id="Storage_table">
+	</g>
+	<g id="Storage_queue">
+	</g>
+	<g id="StorSimple">
+	</g>
+	<g id="Traffic_manager">
+	</g>
+	<g id="VHD">
+		<g id="group444-904_5_" transform="translate(1355.43,-2200.23)">
+			<g id="shape445-905_5_" transform="translate(11.1,-17.1022)">
+				<title>Sheet.445</title>
+				<ellipse style="fill:#0078D7;" cx="-684.361" cy="2888.043" rx="3.552" ry="3.552"/>
+			</g>
+			<g id="shape446-907_5_" transform="translate(12.0503,-15.4965)">
+				<title>Sheet.446</title>
+				<ellipse style="fill:#0078D7;" cx="-679.031" cy="2886.542" rx="1.254" ry="1.254"/>
+			</g>
+			<g id="shape447-909_5_" transform="translate(9.516,-18.0607)">
+				<title>Sheet.447</title>
+				<ellipse style="fill:#0078D7;" cx="-682.69" cy="2895.236" rx="1.254" ry="1.254"/>
+			</g>
+			<g id="shape448-911_5_" transform="translate(10.2068,-16.2472)">
+				<title>Sheet.448</title>
+				<path style="fill:#0078D7;" d="M-680.01,2892.606c0.417,0.418,1.253,0.418,1.879,0c0.209-0.209,0.419-0.627,0.419-0.835
+					c0-0.209-0.21-0.628-0.419-0.837s-0.626-0.417-0.835-0.417c-0.418,0-0.627,0.208-0.835,0.417
+					C-680.428,2891.143-680.428,2891.98-680.01,2892.606z"/>
+			</g>
+			<g id="shape449-913_5_" transform="translate(10.2075,-19.863)">
+				<title>Sheet.449</title>
+				<path style="fill:#0078D7;" d="M-686.52,2895.176c0-0.418-0.209-0.627-0.418-0.836s-0.627-0.418-0.835-0.418
+					c-0.418,0-0.627,0.209-0.836,0.418c-0.417,0.418-0.417,1.253,0,1.881c0.418,0.418,1.254,0.418,1.88,0
+					C-686.729,2895.802-686.52,2895.594-686.52,2895.176z"/>
+			</g>
+			<g id="shape450-915_5_" transform="translate(3.1275,-3.14325)">
+				<title>Sheet.450</title>
+				<ellipse style="fill:#0078D7;" cx="-641.793" cy="2894.083" rx="3.134" ry="3.134"/>
+			</g>
+			<g id="shape451-917_5_" transform="translate(13.791,-19.863)">
+				<title>Sheet.451</title>
+				<path style="fill:#0078D7;" d="M-690.104,2886.436c0-0.418-0.209-0.627-0.418-0.836s-0.627-0.417-0.835-0.417
+					c-0.418,0-0.627,0.208-0.836,0.417c-0.417,0.418-0.417,1.254,0,1.88c0.418,0.418,1.254,0.418,1.88,0
+					C-690.313,2887.063-690.104,2886.854-690.104,2886.436z"/>
+			</g>
+			<g id="shape452-919_5_" transform="translate(12.0503,-20.613)">
+				<title>Sheet.452</title>
+				<ellipse style="fill:#0078D7;" cx="-691.601" cy="2891.658" rx="1.254" ry="1.254"/>
+			</g>
+			<g id="shape453-921_9_">
+				<title>Sheet.453</title>
+				<path style="fill:#0078D7;" d="M-705.43,2842.319v57.244c0,1.045,0.835,1.881,2.089,1.881h73.331c1.045,0,2.09-0.836,2.09-1.881
+					v-57.244c0-1.044-0.836-2.089-2.09-2.089h-73.331C-704.386,2840.438-705.43,2841.275-705.43,2842.319z M-701.669,2899.145
+					c-1.045,0-1.672-0.835-1.672-1.671c0-0.835,0.835-1.672,1.672-1.672c1.044,0,1.671,0.837,1.671,1.672
+					C-699.998,2898.31-700.834,2899.145-701.669,2899.145z M-635.442,2884.939L-635.442,2884.939L-635.442,2884.939
+					c2.298,1.254,3.761,3.552,3.761,6.059c0,3.761-3.134,6.895-7.104,6.895c-1.88,0-3.761-0.836-5.014-2.09l-15.042-14.833
+					c-0.627-0.627-1.045-1.462-1.045-2.506c0-1.881,1.671-3.553,3.552-3.553c0.627,0,1.044,0.21,1.671,0.419l0,0L-635.442,2884.939
+					C-635.442,2884.73-635.442,2884.73-635.442,2884.939z M-648.813,2871.15c0,1.463-0.209,2.925-0.418,4.388l-4.388-2.298
+					c-0.209,0-0.209,0-0.417-0.209c-0.836-0.418-1.463-0.418-2.298-0.418c-3.135,0-5.851,2.508-5.851,5.641
+					c0,1.463,0.627,2.925,1.671,4.179l5.015,5.015c-4.388,4.805-10.864,7.938-17.967,7.938c-13.581,0-24.444-10.863-24.444-24.235
+					c0-13.37,10.863-24.233,24.444-24.233C-659.676,2846.916-648.813,2857.78-648.813,2871.15z M-630.427,2844.827
+					c0,1.044-0.836,1.671-1.672,1.671c-1.045,0-1.672-0.836-1.672-1.671c0-1.046,0.836-1.672,1.672-1.672
+					S-630.427,2843.781-630.427,2844.827z M-699.998,2844.827c0,1.044-0.836,1.671-1.671,1.671c-1.045,0-1.672-0.836-1.672-1.671
+					c0-1.046,0.835-1.672,1.672-1.672C-700.834,2843.155-699.998,2843.781-699.998,2844.827z"/>
+			</g>
+			<g id="shape454-923_5_" transform="translate(13.791,-16.2472)">
+				<title>Sheet.454</title>
+				<path style="fill:#0078D7;" d="M-683.594,2883.864c0.417,0.418,1.253,0.418,1.879,0c0.209-0.208,0.419-0.626,0.419-0.835
+					s-0.21-0.627-0.419-0.836s-0.626-0.418-0.835-0.418c-0.418,0-0.627,0.209-0.835,0.418
+					C-684.012,2882.402-684.012,2883.238-683.594,2883.864z"/>
+			</g>
+			<g id="shape455-925_5_" transform="translate(7.83675,-13.8682)">
+				<title>Sheet.455</title>
+				<path style="fill:#0078D7;" d="M-692.517,2884.942c0,6.268,5.223,11.281,11.49,11.281s11.49-5.014,11.49-11.281
+					s-5.223-11.491-11.49-11.491C-687.503,2873.66-692.517,2878.674-692.517,2884.942z M-671.833,2884.942
+					c0,5.015-4.18,9.192-9.193,9.192s-9.192-3.97-9.192-9.192c0-5.014,4.179-9.192,9.192-9.192S-671.833,2879.928-671.833,2884.942z
+					"/>
+			</g>
+			<g id="shape456-927_5_" transform="translate(14.583,-18.0555)">
+				<title>Sheet.456</title>
+				<ellipse style="fill:#0078D7;" cx="-687.746" cy="2882.974" rx="1.254" ry="1.254"/>
+			</g>
+		</g>
+	</g>
+</g>
+<g id="Ibiza_Symbols">
+	<g id="SQL_Database_Premium">
+	</g>
+</g>
+<circle cx="614.5" cy="70.5" r="8.5"/>
+<line style="stroke:#000000;stroke-width:4;stroke-miterlimit:10;" x1="614" y1="70" x2="650" y2="70"/>
+<text transform="matrix(1 0 0 1 740 61)"><tspan x="0" y="0" style="font-family:'SegoeUI'; font-size:16;">Azure </tspan><tspan x="0" y="16" style="font-family:'SegoeUI'; font-size:16;">Active </tspan><tspan x="0" y="32" style="font-family:'SegoeUI'; font-size:16;">Directory</tspan></text>
+<g id="paths_2_">
+	<g id="Access_control_2_">
+	</g>
+	<g id="Azure_active_directory_2_">
+		<g>
+			<g id="shape195-329_1_" transform="translate(10.0395,-10.272)">
+				<title>Sheet.195</title>
+				<path style="fill:#0078D7;" d="M674.595,73.111l-9.165,8.481c0.41,0.684,0.685,1.504,0.685,2.188c0,0.41,0,0.821-0.137,1.231
+					l9.438,5.746V74.206C675.28,74.206,674.732,73.248,674.595,73.111z"/>
+			</g>
+			<g id="shape196-331_1_" transform="translate(17.3865,-10.2682)">
+				<title>Sheet.196</title>
+				<path style="fill:#0078D7;" d="M671.963,72.976c-0.137,0.137-1.641,1.231-1.777,1.368v16.416l9.438-6.019
+					c-0.137-0.411-0.273-0.684-0.273-0.958c0-0.547,0.137-1.094,0.273-1.642L671.963,72.976z"/>
+			</g>
+			<path style="fill:#0078D7;" d="M686.633,41.734L659,74.565L686.496,97l27.633-22.298L686.633,41.734z M701.271,77.985
+				c-1.231,0-2.326-0.547-3.147-1.368l-7.523,5.335c0.548,0.684,0.685,1.504,0.685,2.462c0,2.462-2.052,4.377-4.378,4.377
+				c-2.462,0-4.377-1.915-4.377-4.377c0-1.094,0.41-2.052,1.094-2.873l-8.755-4.651c-0.82,0.821-1.915,1.231-3.009,1.231
+				c-2.463,0-4.379-1.915-4.379-4.377s2.053-4.377,4.379-4.377c0.684,0,1.367,0.137,2.052,0.547l9.165-8.481
+				c-0.684-0.821-0.958-1.916-0.958-2.873c0-2.736,2.189-4.789,4.925-4.789c2.736,0,4.925,2.189,4.925,4.789
+				c0,0.957-0.273,1.778-0.82,2.599l7.797,9.166c0.685-0.547,1.642-0.821,2.6-0.821c2.462,0,4.377,1.915,4.377,4.377
+				C705.647,75.934,703.596,77.985,701.271,77.985z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<rect x="796" y="181" style="fill:#FFFFFF;" width="176" height="68"/>
+	<path d="M970,183v64H798v-64H970 M974,179H794v72h180V179L974,179z"/>
+</g>
+<circle cx="884.5" cy="276.5" r="8.5"/>
+<line style="stroke:#000000;stroke-width:4;stroke-miterlimit:10;" x1="884" y1="276" x2="884" y2="250"/>
+<text transform="matrix(1 0 0 1 884 206)"><tspan x="0" y="0" style="font-family:'SegoeUI'; font-size:16;">Azure</tspan><tspan x="0" y="15" style="font-family:'SegoeUI'; font-size:16;">Resource</tspan><tspan x="0" y="30" style="font-family:'SegoeUI'; font-size:16;">Manager</tspan></text>
+<circle cx="1006.5" cy="397.5" r="8.5"/>
+<line style="stroke:#000000;stroke-width:4;stroke-miterlimit:10;" x1="1006" y1="397" x2="1042" y2="397"/>
+<g>
+	<g>
+		<rect x="1044" y="363" style="fill:#FFFFFF;" width="176" height="68"/>
+		<path d="M1218,365v64h-172v-64H1218 M1222,361h-180v72h180V361L1222,361z"/>
+	</g>
+	<text transform="matrix(1 0 0 1 1132 381.1563)"><tspan x="0" y="0" style="font-family:'SegoeUI'; font-size:16;">Azure</tspan><tspan x="0" y="19.2" style="font-family:'SegoeUI'; font-size:16;">Key</tspan><tspan x="0" y="38.4" style="font-family:'SegoeUI'; font-size:16;">Vault</tspan></text>
+</g>
+<g id="Access_control_7_">
+</g>
+<circle cx="605.5" cy="529.5" r="8.5"/>
+<line style="stroke:#000000;stroke-width:4;stroke-miterlimit:10;" x1="605" y1="529" x2="641" y2="529"/>
+<g>
+	<g>
+		<rect x="643" y="496" style="fill:#FFFFFF;" width="176" height="68"/>
+		<path d="M817,498v64H645v-64H817 M821,494H641v72h180V494L821,494z"/>
+	</g>
+	<text transform="matrix(1 0 0 1 731 525.2559)"><tspan x="0" y="0" style="font-family:'SegoeUI'; font-size:16;">Virtual</tspan><tspan x="0" y="16" style="font-family:'SegoeUI'; font-size:16;">Machine</tspan></text>
+</g>
+<g id="Layer_1_1_">
+	<g id="Azure">
+		<g>
+			<path style="fill:#0078D7;" d="M845.498,219.247c-1.813,0-3.354,1.088-4.078,2.628h-25.913l0,0c-4.349,0-7.974-3.534-7.974-7.973
+				c0-4.44,3.533-7.974,7.974-7.974l0,0h0.09l0,0h3.534c0.182-0.906,0.453-1.813,0.816-2.627c0.181-0.272,0.271-0.635,0.452-0.907
+				c1.812-3.171,5.256-5.255,9.151-5.255c3.533,0,6.614,1.721,8.517,4.259c1.088-0.544,2.266-0.906,3.444-1.178
+				c-2.537-3.987-6.887-6.615-11.961-6.615c-5.889,0-10.964,3.624-13.047,8.789c0,0,0,0,0,0.09l0,0c0,0,0,0,0-0.09h-0.997
+				c-6.343,0.09-11.507,5.255-11.507,11.599c0,6.342,5.164,11.507,11.507,11.507h26.005c0.725,1.541,2.266,2.628,4.076,2.628
+				c2.447,0,4.44-1.994,4.44-4.44C849.938,221.241,847.944,219.247,845.498,219.247z"/>
+			<path style="fill:#0078D7;" d="M859.271,239c7.792,0,14.497-6.615,14.497-14.407s-6.252-14.044-14.044-14.135
+				c-2.628-5.254-7.974-8.789-14.226-8.789c-7.611,0-13.954,5.346-15.494,12.414c-3.715,0.363-6.887,2.356-8.879,5.164h18.936
+				c1.27-1.63,3.263-2.627,5.527-2.627c3.896,0,7.068,3.171,7.068,7.067s-3.172,7.067-7.068,7.067c-2.265,0-4.168-0.997-5.527-2.627
+				h-21.111c0.816,5.98,5.617,10.873,11.87,10.873H859.271z"/>
+		</g>
+	</g>
+</g>
+<g id="Layer_1_2_">
+	<g id="Azure_1_">
+	</g>
+	<g id="BizTalk_Services" transform="translate(37.3575,-2500.2)">
+	</g>
+	<g id="Key_Vault">
+		<g>
+			<path style="fill:#0078D7;" d="M1100.379,400.303c0-8.016-3.844-15.041-9.662-19.543c0,0.22,0,0.549,0,0.768
+				c0,2.416-0.658,4.722-1.646,6.699c2.854,3.183,4.609,7.355,4.609,11.967c0,9.881-8.014,17.896-17.895,17.896
+				c-9.882,0-17.896-8.016-17.896-17.896c0-4.941,1.977-9.333,5.16-12.626c-0.879-1.866-1.428-3.953-1.428-6.148
+				c0-0.439,0-0.989,0.11-1.428c-6.368,4.392-10.54,11.858-10.54,20.202c0,13.614,10.979,24.594,24.594,24.594
+				C1089.398,424.787,1100.379,413.918,1100.379,400.303z"/>
+			<g>
+				<path style="fill:#0078D7;" d="M1076.114,370c-6.257,0-11.31,5.051-11.31,11.309c0,5.16,3.404,9.443,8.126,10.87v11.198h-5.271
+					v5.709h5.271v4.174h6.258v-21.081c4.722-1.318,8.124-5.71,8.124-10.87C1087.424,375.051,1082.372,370,1076.114,370z
+					 M1076.114,375.93c2.965,0,5.381,2.414,5.381,5.379s-2.416,5.381-5.381,5.381s-5.379-2.416-5.379-5.381
+					S1073.149,375.93,1076.114,375.93z"/>
+			</g>
+		</g>
+	</g>
+</g>
+<g>
+	<path style="fill:#0078D7;" d="M701.075,511h-43.194c-1.463,0-2.633,1.268-2.633,2.73v30.129c0,1.463,1.17,2.729,2.633,2.729
+		h15.697c1.561,5.655-0.584,6.436-9.945,6.436v2.925h11.896h8.678h11.213v-2.925c-9.361,0-10.336-0.78-8.679-6.436h14.334
+		c1.462,0,2.925-1.267,2.925-2.729V513.73C704,512.268,702.537,511,701.075,511z"/>
+	<polygon style="fill:#FFFFFF;" points="700.197,514.705 700.197,542.885 658.953,542.885 658.953,514.705 	"/>
+	<path style="fill:#0072C6;" d="M680.111,527.966h-0.098l-8.58-4.974c-0.098,0-0.098-0.097-0.098-0.193
+		c0-0.098,0.098-0.195,0.098-0.195l8.58-4.876c0.098,0,0.194,0,0.293,0l8.58,4.974c0.098,0,0.098,0.098,0.098,0.194
+		s0,0.195-0.098,0.195l-8.483,4.875C680.208,527.966,680.208,527.966,680.111,527.966"/>
+	<path style="fill:#0072C6;" d="M678.941,539.959h-0.097l-8.581-4.973c-0.098,0-0.098-0.098-0.098-0.195v-9.945
+		c0-0.098,0.098-0.195,0.098-0.195c0.098,0,0.195,0,0.293,0l8.58,4.973c0.098,0,0.098,0.098,0.098,0.195v9.945
+		c0,0.098-0.098,0.195-0.098,0.195C679.039,539.959,678.941,539.959,678.941,539.959"/>
+	<path style="fill:#0072C6;" d="M681.379,539.959h-0.098c-0.098,0-0.098-0.098-0.098-0.195v-9.848c0-0.098,0.098-0.195,0.098-0.195
+		l8.58-4.973c0.098,0,0.195,0,0.293,0s0.098,0.098,0.098,0.195v9.848c0,0.098-0.098,0.195-0.098,0.195l-8.58,4.973
+		C681.477,539.959,681.379,539.959,681.379,539.959"/>
+</g>
+<circle cx="731.5" cy="141.5" r="8.5"/>
+<line style="stroke:#000000;stroke-width:4;stroke-miterlimit:10;" x1="731" y1="141" x2="731" y2="106"/>
+<text transform="matrix(1 0 0 1 600.5264 43.3335)"><tspan x="0" y="0" style="font-family:'SegoeUI'; font-size:16;">Graph</tspan><tspan x="19.602" y="16" style="font-family:'SegoeUI'; font-size:16;">API</tspan></text>
+<text transform="matrix(1 0 0 1 674.0859 130.167)" style="font-family:'SegoeUI'; font-size:16;">OAuth</text>
+<text transform="matrix(1 0 0 1 803.5313 269)" style="font-family:'SegoeUI'; font-size:16;">REST API</text>
+<text transform="matrix(1 0 0 1 562.6196 558.6758)" style="font-family:'SegoeUI'; font-size:16;">WinRM</text>
+<text transform="matrix(1 0 0 1 982.21 365.0806)"><tspan x="0" y="0" style="font-family:'SegoeUI'; font-size:16;">REST</tspan><tspan x="11.008" y="16" style="font-family:'SegoeUI'; font-size:16;">API</tspan></text>
+<g>
+	<g>
+		<rect x="73" y="226" style="fill:#FFFFFF;" width="149" height="68"/>
+		<g>
+			<path d="M220,228v64H75v-64H220 M224,224H71v72h153V224L224,224z"/>
+		</g>
+	</g>
+	<text transform="matrix(1 0 0 1 108.9121 255.7559)"><tspan x="0" y="0" style="font-family:'SegoeUI'; font-size:16;">Azure CLI /</tspan><tspan x="0" y="16" style="font-family:'SegoeUI'; font-size:16;">PowerShell</tspan></text>
+</g>
+<rect x="72" y="360" width="153" height="72"/>
+<text transform="matrix(1 0 0 1 125 405)" style="fill:#FFFFFF; font-family:'SegoeUI'; font-size:31;">packer</text>
+<g>
+	<path style="fill:#ADDCCF;" d="M116.707,384.408l-0.017,22.514l0,0c0,1.337-0.251,2.593-0.967,3.753
+		c-0.872,1.413-2.699,2.3-4.328,1.969L88,406.523v-37.157l23.384,6.344c1.445,0.523,2.541,1.529,3.426,2.756
+		C116.087,380.236,116.712,382.215,116.707,384.408z"/>
+	<polygon style="fill:#8DD0BE;" points="81,374.297 81,417.901 101,423.301 101,379.76 	"/>
+</g>
+<circle cx="712.5" cy="652.5" r="8.5"/>
+<line style="stroke:#000000;stroke-width:4;stroke-miterlimit:10;" x1="712" y1="652" x2="712" y2="564"/>
+<circle cx="711.5" cy="564.5" r="8.5"/>
+<g>
+	<g>
+		<text transform="matrix(1 0 0 1 1070.8965 275.0093)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">Create KeyVault</text>
+		<g>
+			<circle cx="1054.641" cy="270.865" r="11.156"/>
+			<text transform="matrix(1 0 0 1 1050.9727 274.4326)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">8</text>
+		</g>
+	</g>
+</g>
+<g>
+	
+		<text transform="matrix(0.9857 -0.1683 0.1683 0.9857 480.188 332.1382)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">ARM Deploy (ResourceGroup, KeyVault &amp; Certificate)</text>
+	<g>
+		<circle cx="463.453" cy="330.818" r="11.156"/>
+		
+			<text transform="matrix(0.9857 -0.1683 0.1683 0.9857 460.4507 334.9238)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">7</text>
+	</g>
+</g>
+<g>
+	
+		<line style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;" x1="225" y1="387" x2="852.026" y2="282.496"/>
+	<g>
+		<polygon points="848.482,290.155 873,279 846.189,276.399 		"/>
+	</g>
+</g>
+<g>
+	
+		<text transform="matrix(0.9118 -0.4105 0.4105 0.9118 375.4673 287.8311)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">GET Service Principal Token For ARM API</text>
+	<g>
+		<circle cx="358.941" cy="290.772" r="11.156"/>
+		
+			<text transform="matrix(0.9118 -0.4105 0.4105 0.9118 357.063 295.4844)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">5</text>
+	</g>
+</g>
+<g>
+	
+		<line style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;" x1="225" y1="369" x2="700.644" y2="152.798"/>
+	<g>
+		<polygon points="699.199,161.114 720,144 693.429,148.418 		"/>
+	</g>
+</g>
+<g>
+	<g>
+		<text transform="matrix(1 0 0 1 75.5137 334.0396)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">Store AppID, ObjectID, etc.</text>
+		<g>
+			<circle cx="59.257" cy="329.895" r="11.156"/>
+			<text transform="matrix(1 0 0 1 55.4595 333.4629)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">4</text>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		
+			<text transform="matrix(0.9347 -0.3553 0.3553 0.9347 360.0684 117.9434)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">Create AD application</text>
+		<g>
+			<circle cx="343.413" cy="119.844" r="11.156"/>
+			
+				<text transform="matrix(0.9347 -0.3553 0.3553 0.9347 341.8945 124.2358)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">1</text>
+		</g>
+	</g>
+	<g>
+		
+			<line style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" x1="230.461" y1="182.228" x2="568.592" y2="53.691"/>
+		<g>
+			<polygon points="566.625,61.899 588.467,46.136 561.669,48.864 			"/>
+		</g>
+	</g>
+	<path style="fill:none;" d="M396.545,80.198"/>
+</g>
+<g>
+	<text transform="matrix(0.9347 -0.3553 0.3553 0.9347 390.707 188.645)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">Retrieve SP ObjectID</text>
+	<g>
+		<circle cx="374.052" cy="190.544" r="11.156"/>
+		
+			<text transform="matrix(0.9347 -0.3553 0.3553 0.9347 371.8784 195.1855)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">3</text>
+	</g>
+</g>
+<g>
+	
+		<line style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" x1="257.813" y1="254.179" x2="595.943" y2="125.643"/>
+	<g>
+		<polygon points="593.976,133.85 615.818,118.087 589.02,120.815 		"/>
+	</g>
+</g>
+<g>
+	
+		<text transform="matrix(0.9347 -0.3553 0.3553 0.9347 368.9961 153.8457)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">Create Service Principal</text>
+	<g>
+		<circle cx="352.208" cy="155.395" r="11.156"/>
+		
+			<text transform="matrix(0.9347 -0.3553 0.3553 0.9347 350.1675 160.3862)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">2</text>
+	</g>
+</g>
+<g>
+	<line style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" x1="243.38" y1="216.213" x2="581.511" y2="87.676"/>
+	<g>
+		<polygon points="579.543,95.884 601.386,80.121 574.588,82.849 		"/>
+	</g>
+</g>
+<g>
+	
+		<text transform="matrix(0.9999 -0.0129 0.0129 0.9999 695.1025 388.3706)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">Fetch secretID of the certificate</text>
+	<g>
+		<circle cx="678.8" cy="384.38" r="11.157"/>
+		
+			<text transform="matrix(0.9999 -0.0129 0.0129 0.9999 672.2451 388.0889)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">10</text>
+	</g>
+</g>
+<g>
+	
+		<line style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;" x1="225" y1="405" x2="971.994" y2="398.246"/>
+	<g>
+		<polygon points="967.302,405.262 993.256,398.054 967.176,391.316 		"/>
+	</g>
+</g>
+<g>
+	
+		<text transform="matrix(0.9889 -0.1483 0.1483 0.9889 501.7026 363.1538)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">ARM Deploy (Virtual Machine)</text>
+	<g>
+		<circle cx="484.962" cy="361.451" r="11.156"/>
+		
+			<text transform="matrix(0.9889 -0.1483 0.1483 0.9889 479.7109 365.8682)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">11</text>
+	</g>
+</g>
+<g>
+	<path style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;" d="M225,396
+		c0,0,310.194-11.585,428.633-37.151c59.706-12.888,160.892-30.33,201.638-51.75"/>
+	<g>
+		<polygon points="855.56,315.173 871.728,293.629 846.953,304.201 		"/>
+	</g>
+</g>
+<g>
+	
+		<text transform="matrix(0.9529 0.3033 -0.3033 0.9529 312.8848 464.5586)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">Use PowerShell WinRM to connect to VM</text>
+	<g>
+		<circle cx="298.609" cy="455.646" r="11.156"/>
+		
+			<text transform="matrix(0.9529 0.3033 -0.3033 0.9529 291.1602 457.0381)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">14</text>
+	</g>
+</g>
+<g>
+	
+		<line style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;" x1="225" y1="414" x2="563.156" y2="518.992"/>
+	<g>
+		<polygon points="552.141,527.74 597,529.5 559.033,505.543 		"/>
+	</g>
+</g>
+<g>
+	<g>
+		<text transform="matrix(1 0 0 1 76.8745 503.668)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">Generate Certificate for WinRM</text>
+		<g>
+			<circle cx="60.618" cy="499.381" r="11.156"/>
+			<text transform="matrix(1 0 0 1 56.9502 503.0908)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">6</text>
+		</g>
+	</g>
+</g>
+<g>
+	<text transform="matrix(1 0 0 1 1014.1016 555.2236)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">Provision Certificate</text>
+	<g>
+		<circle cx="997.844" cy="551.079" r="11.156"/>
+		<text transform="matrix(1 0 0 1 991.249 554.6465)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">13</text>
+	</g>
+</g>
+<g>
+	<text transform="matrix(1 0 0 1 831.4004 447.9805)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">Create VM</text>
+	<g>
+		<circle cx="906.391" cy="443.836" r="11.156"/>
+		<text transform="matrix(1 0 0 1 899.7949 447.4043)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">12</text>
+	</g>
+</g>
+<g>
+	<path style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" d="M47.114,386.309
+		c-4.522-13.207-7.4-33.082-7.4-55.309c0-39.765,9.21-72,20.571-72"/>
+	<g>
+		<polygon points="50.519,377.897 60.286,403 39.274,386.145 		"/>
+	</g>
+</g>
+<g>
+	<path style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" d="M172.124,462.419
+		C167.396,474.154,158.809,482,149,482c-14.912,0-27-18.133-27-40.5"/>
+	<g>
+		<polygon points="163.889,465.56 176,441.5 177.544,468.392 		"/>
+	</g>
+</g>
+<g>
+	<path style="fill:none;stroke:#333333;stroke-width:3;stroke-miterlimit:10;" d="M970,212c2.052,0,4.05,0.072,5.995,0.213"/>
+	<path style="fill:none;stroke:#333333;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:11.8565,11.8565;" d="
+		M987.698,214.042c46.364,11.5,57.297,70.081,58.37,137.179"/>
+	<path style="fill:none;stroke:#333333;stroke-width:3;stroke-miterlimit:10;" d="M1046.138,357.152
+		c0.015,1.996,0.022,3.998,0.022,6.005"/>
+	<g>
+		<rect x="1036" y="353" style="fill:#FFFFFF;" width="20" height="20"/>
+		<path style="fill:#333333;" d="M1035,375v-23h23v23H1035z M1038,355v17h17v-17H1038z"/>
+	</g>
+</g>
+<g>
+	
+		<text transform="matrix(0.9209 -0.3897 0.3897 0.9209 436.6055 301.209)" style="font-family:'SegoeUI-Light'; font-size:13.3875;">GET Service Principal Token for KeyVault</text>
+	<g>
+		<circle cx="420.061" cy="303.756" r="11.157"/>
+		
+			<text transform="matrix(0.9209 -0.3897 0.3897 0.9209 418.0332 308.4434)" style="fill:#FFFFFF; font-family:'SegoeUIBlack'; font-size:12.1125;">9</text>
+	</g>
+</g>
+<g>
+	<path style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;" d="M225,378
+		c0,0,174.923-48.658,234-72c56.345-22.262,170.034-62.517,225-90c18.417-9.208,29.768-23.127,36.462-34.528"/>
+	<g>
+		<polygon points="724.59,188.573 729,162 711.893,182.806 		"/>
+	</g>
+</g>
+<g>
+	<path style="fill:none;stroke:#333333;stroke-width:3;stroke-miterlimit:10;" d="M944,254c0,2.003,0.002,4.003,0.006,6.001"/>
+	<path style="fill:none;stroke:#333333;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:12.2243,12.2243;" d="
+		M944.039,272.226c0.39,115.435,1.432,218.916-113.863,225.563"/>
+	<path style="fill:none;stroke:#333333;stroke-width:3;stroke-miterlimit:10;" d="M824.075,498.046
+		c-1.968,0.054-3.968,0.081-6,0.081"/>
+	<g>
+		<rect x="810" y="490" style="fill:#FFFFFF;" width="16" height="16"/>
+		<path style="fill:#333333;" d="M809,489h18v18h-18V489z M825,491h-14v14h14V491z"/>
+	</g>
+</g>
+<g>
+	<path style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" d="M1125.068,433.826c0,2.01-0.097,4.007-0.289,5.99"
+		/>
+	<path style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:12.1478,12.1478;" d="
+		M1122.419,451.714c-15.694,51.79-101.059,91.751-254.333,94.903"/>
+	<path style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" d="M862.005,546.722c-1.989,0.028-3.989,0.05-6,0.065
+		"/>
+	<g>
+		<polygon points="861.957,537.955 829.427,546.644 861.941,555.387 		"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 584.2188 664)"><tspan x="0" y="0" style="font-family:'SegoeUI'; font-size:16;">OS Disk</tspan><tspan x="-54.297" y="16" style="font-family:'SegoeUI'; font-size:16;">(Golden Image)</tspan></text>
+<g>
+	<path style="fill:#0078D7;" d="M1198.28,500.352c-0.087,0-0.087,0-0.173-0.087l-12.692-7.339c-0.086-0.087-0.173-0.173-0.173-0.346
+		s0.087-0.259,0.173-0.345l12.605-7.253c0.087-0.086,0.26-0.086,0.346,0l12.692,7.339c0.086,0.086,0.172,0.173,0.172,0.346
+		c0,0.172-0.086,0.259-0.172,0.345l-12.605,7.253C1198.453,500.352,1198.366,500.352,1198.28,500.352"/>
+	<path style="fill:#0078D7;" d="M1196.467,518.223c-0.087,0-0.173,0-0.173-0.086l-12.692-7.339
+		c-0.086-0.086-0.172-0.173-0.172-0.345v-14.679c0-0.172,0.086-0.259,0.172-0.345c0.087-0.087,0.26-0.087,0.346,0l12.691,7.339
+		c0.087,0.086,0.173,0.173,0.173,0.346v14.677c0,0.173-0.086,0.26-0.173,0.346C1196.639,518.223,1196.553,518.223,1196.467,518.223"
+		/>
+	<path style="fill:#0078D7;" d="M1200.093,518.223c-0.086,0-0.173,0-0.173-0.086c-0.086-0.086-0.172-0.173-0.172-0.346v-14.505
+		c0-0.172,0.086-0.259,0.172-0.345l12.692-7.339c0.086-0.087,0.259-0.087,0.345,0c0.087,0.086,0.173,0.173,0.173,0.346v14.591
+		c0,0.173-0.086,0.259-0.173,0.345l-12.691,7.339C1200.18,518.223,1200.18,518.223,1200.093,518.223"/>
+	<path style="fill:#0078D7;" d="M1184.983,519.864c-0.173,0-0.432-0.087-0.604-0.173l-5.871-3.454
+		c-1.035-0.604-1.727-1.813-1.727-2.936v-21.758c0-1.122,0.691-2.417,1.727-2.936l5.871-3.453c0.604-0.345,1.382-0.173,1.728,0.432
+		c0.345,0.604,0.172,1.382-0.432,1.727l-5.872,3.454c-0.172,0.086-0.432,0.518-0.432,0.776v21.758c0,0.259,0.26,0.691,0.432,0.777
+		l5.872,3.453c0.604,0.346,0.776,1.123,0.432,1.727C1185.761,519.604,1185.415,519.864,1184.983,519.864z"/>
+	<path style="fill:#0078D7;" d="M1211.576,484.982c0.173,0,0.432,0.087,0.604,0.173l5.871,3.453
+		c1.036,0.605,1.727,1.813,1.727,2.936v21.758c0,1.123-0.69,2.418-1.727,2.936l-5.871,3.454c-0.604,0.345-1.382,0.173-1.728-0.433
+		c-0.345-0.604-0.172-1.381,0.433-1.727l5.871-3.453c0.173-0.086,0.432-0.519,0.432-0.777v-21.758c0-0.259-0.259-0.69-0.432-0.776
+		l-5.871-3.454c-0.604-0.345-0.777-1.122-0.433-1.727C1210.713,485.241,1211.145,484.982,1211.576,484.982z"/>
+</g>
+<text transform="matrix(1 0 0 1 1157.335 534.7568)"><tspan x="0" y="0" style="font-family:'SegoeUI'; font-size:16;">Resource</tspan><tspan x="20.102" y="16" style="font-family:'SegoeUI'; font-size:16;">Group</tspan></text>
+</svg>

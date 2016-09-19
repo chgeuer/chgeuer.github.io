@@ -162,11 +162,11 @@ This time note down the `objectId` of the service principal listing. (Note that 
 
 By this time, you should have 5 specific values: 
 
-  1 Your Azure Active Directory TenantID (use the `tenantId` from `azure account show --json`)
-  2 Your Azure Subscription ID (the `id` from `azure account show --json`)
-  3 Your service principal's `appId`
-  4 Your service principal's `objectId`
-  5 Your service principal's password. If you don't know this one, it's certainly `SuperLongPassword123.-`. If so, you simply copy and pasted the code snippet above into your console. DO NOT COPY RANDOM STUFF INTO YOUR ADMIN CONSOLE. Even if I tell you so. Bad security practice. Call `azure ad sp delete` and `azure ad app delete` to delete the current service principal account, and start again. With. A. Secure. Password. Please. 
+1 Your Azure Active Directory TenantID (use the `tenantId` from `azure account show --json`)
+2 Your Azure Subscription ID (the `id` from `azure account show --json`)
+3 Your service principal's `appId`
+4 Your service principal's `objectId`
+5 Your service principal's password. If you don't know this one, it's certainly `SuperLongPassword123.-`. If so, you simply copy and pasted the code snippet above into your console. DO NOT COPY RANDOM STUFF INTO YOUR ADMIN CONSOLE. Even if I tell you so. Bad security practice. Call `azure ad sp delete` and `azure ad app delete` to delete the current service principal account, and start again. With. A. Secure. Password. Please. 
 
 
 As a last step of the security setup, you can make your service principal a Contributor to your subscription (replace $spObjectId and $subscriptionId with proper values):

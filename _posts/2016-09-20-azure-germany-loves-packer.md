@@ -9,6 +9,16 @@ date: 2016-09-20 11:31:00
 In the [previous article][serviceprincipalgermany], I described how you can create a service principal in Azure Active Directory (incl. Azure Germany). In this article, we will explore how to use [Hashicorp's open-source `packer` toolchain][packer] to automatically create custom VM images, both for Windows- and Linux-VMs. 
 
 
+
+
+| Custom Script Extension | packer |
+| ------------- | ------------- |
+| Content Cell  | Content Cell 1 |
+| Content Cell  | Content Cell  |
+
+
+
+
 ## Provisioning a Windows VM
 
 ![packer interactions with Azure provisining a Windows VM][windowsflow]

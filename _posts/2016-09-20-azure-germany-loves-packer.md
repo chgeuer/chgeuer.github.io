@@ -26,17 +26,16 @@ Often though, these tools need some sort of central server running somewhere, li
 
 For simple cases of automating software installation, Azure supports the [custom script extension][azureCustomScriptExtension]. This extension allows an ARM-based VM deployment to refer to a shell script, and additional assets, which upon deployment time are downloaded onto the VM, and executed. 
 
-
-
+The following example ensures that a `.sh`-script and an `.tar.gz`-archive are downloaded to the VM, and the script is executed using the BASH shell:
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    [...],
+    ...,
     "resources": [
         {
             "type": "Microsoft.Compute/virtualMachineScaleSets",
-            [...],
+            ...,
             "properties": {
                 "virtualMachineProfile": {
                     "extensionProfile": {
@@ -66,24 +65,18 @@ For simple cases of automating software installation, Azure supports the [custom
 }
 ```
 
+The previous example lists directly downloadable resources. Using "Shared Access Signatures" to control access to blobs in Azure Storage, with ARM template parameters, and the ARM `[concat()]` function, you can also ensure that confidential assets are not plain on the Internets (as I do here for illustration purposes). 
 
+The largest disadvantage of the custom script extension is the impact on runtime performance, respectively deployment latency: When you deploy a set of VMs using an ARM template, assuming each of these machines need to download and install a reasonably complect software package, it can take quite a while until all machines are ready to rock. 
 
+### packer
 
+[Hashicorp's open-source `packer` tool][packer] is an executable which can be launched on a local machine (such as a developer's laptop, or a build server). `packer` spins up a VM in one or more data centers (and one or more clouds for that matter). Once the VMs are up and running, `packer` connects to the VM (using Powershell WinRM for Windows VMs, or ssh for Linux VMs), and *does whatever you want it to do*. Most important, you can let packer upload files, and run commands on the remote machine. At the end of all tasks on the VM, packer runs sysprep and shuts down the VM, resulting in a 'golden image' you can then use to fire off readily installed VMs. 
+### Comparison
 
-
-
-
-
-
-
-
-
-| Custom Script Extension | packer |
-| ------------- | ------------- |
-| Content Cell  | Content Cell 1 |
-| Content Cell  | Content Cell  |
-
-
+| Manual Installation           | Chef / Puppet / Ansible / Salt / DSC | Custom Script Extension             | packer                        | 
+| ----------------------------- | ------------------------------------ | ----------------------------------- | ----------------------------- |
+| Manual Installation           | Chef / Puppet / Ansible / Salt / DSC | Custom Script Extension             | packer                        | 
 
 
 ## Provisioning a Windows VM

@@ -76,6 +76,14 @@ The largest disadvantage of the custom script extension is the impact on runtime
 
 Compared to the custom script extension, packer shifts waiting time away from the actual VM provisioning: Whenever the software department releases a new version, the build server can connect to all deployment environments (cloud vendors and data centers), and create the latest and greated image. So longer "compile time", much faster "startup time". 
 
+## Provisioning a Windows VM
+
+In this article, we'll dig into provisioning a Windows and a Linux VM in Azure Germany. 
+
+![packer interactions with Azure provisining a Windows VM][windowsflow]
+
+But before we can see all this happening, we need to do a bit of homework: 
+
 ## Install `packer`
 
 `packer` is a stand-alone compiled binary, implemented in Go. You can grab compiled Mac OS X/Linux/Windows binaries from the [packer downloads page][packerDownload], or you compile it yourself.
@@ -274,10 +282,6 @@ After you have installed packer, and you have retrieved all necessary Azure cred
 ```
 
 
-## Provisioning a Windows VM
-
-
-![packer interactions with Azure provisining a Windows VM][windowsflow]
 
 
 

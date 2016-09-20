@@ -201,6 +201,7 @@ After you have installed packer, and you have retrieved all necessary Azure cred
   - In addition, the provisioner has cloud-specific information, such as data center location, etc. 
   - For example, Azure Germany Central, Azure Europe West and Amazon US East could be three builders showing up in the same template. 
   - In the simplest case, packer then creates VM instances in all three deployment locations, logs in to the three VMs, and runs its provisioners. 
+  - In the same way `packer` uses the `{% raw %}{{ env \`foo\` }}{% endraw %}` syntax to retrieve environment variable values, you can use the `{% raw %}{{ user \`somevariable\` }}{% endraw %}`  syntax to retrieve variables from the `"variables"` section.  
 - The `"provisioners"` section now describes the real steps to be performed, once the VMs are running, for example
   - On Linux, the `"shell"` provisioner can run Unix shell commands
   - On Windows, the `"powershell"` and the `"windows-shell"` provisioner run Powershell and cmd.exe commands respectively
@@ -279,12 +280,6 @@ After you have installed packer, and you have retrieved all necessary Azure cred
 }
 {% endraw %}
 ```
-
-
-
-
-
-
 
 
 

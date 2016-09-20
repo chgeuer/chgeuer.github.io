@@ -208,14 +208,15 @@ After you have installed packer, and you have retrieved all necessary Azure cred
 
 
 
-```JSON
+```json
+
 {
  "variables": {
-    "azure_ad_tenant_id": "{{env `AZURE_DE_PACKER_TENANTID`}}",
-    "azure_subscription_id": "{{env `AZURE_DE_PACKER_SUBSCRIPTIONID`}}",
-    "client_id": "{{env `AZURE_DE_PACKER_APPID`}}",
-    "client_secret": "{{env `AZURE_DE_PACKER_PASSWORD`}}",
-    "object_id": "{{env `AZURE_DE_PACKER_APPID_OBJECTID`}}",
+    "azure_ad_tenant_id": "{{env 'AZURE_DE_PACKER_TENANTID'}}",
+    "azure_subscription_id": "{{env 'AZURE_DE_PACKER_SUBSCRIPTIONID'}}",
+    "client_id": "{{env 'AZURE_DE_PACKER_APPID'}}",
+    "client_secret": "{{env 'AZURE_DE_PACKER_PASSWORD'}}",
+    "object_id": "{{env 'AZURE_DE_PACKER_APPID_OBJECTID'}}",
     "cloud_environment_name": "AzureGermanCloud",
     "azure_location": "Germany Central",
     "resource_group": "admin",
@@ -224,14 +225,14 @@ After you have installed packer, and you have retrieved all necessary Azure cred
   "builders": [
     {
       "type": "azure-arm",
-      "object_id": "{{user `object_id`}}",
-      "client_id": "{{user `client_id`}}",
-      "client_secret": "{{user `client_secret`}}",
-      "resource_group_name": "{{user `resource_group`}}",
-      "storage_account": "{{user `storage_account`}}",
-      "subscription_id": "{{user `azure_subscription_id`}}",
-      "tenant_id": "{{user `azure_ad_tenant_id`}}",
-      "cloud_environment_name": "{{user `cloud_environment_name`}}",
+      "object_id": "{{user 'object_id'}}",
+      "client_id": "{{user 'client_id'}}",
+      "client_secret": "{{user 'client_secret'}}",
+      "resource_group_name": "{{user 'resource_group'}}",
+      "storage_account": "{{user 'storage_account'}}",
+      "subscription_id": "{{user 'azure_subscription_id'}}",
+      "tenant_id": "{{user 'azure_ad_tenant_id'}}",
+      "cloud_environment_name": "{{user 'cloud_environment_name'}}",
 
       "capture_container_name": "images",
       "capture_name_prefix": "packer",
@@ -248,7 +249,7 @@ After you have installed packer, and you have retrieved all necessary Azure cred
       "winrm_timeout": "3m",
       "winrm_username": "packer",
 
-      "location": "{{user `azure_location`}}",
+      "location": "{{user \`azure_location'}}",
       "vm_size": "Standard_D3_v2"
     }
   ],

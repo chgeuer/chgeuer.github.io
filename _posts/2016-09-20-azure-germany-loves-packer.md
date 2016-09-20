@@ -196,7 +196,7 @@ After you have installed packer, and you have retrieved all necessary Azure cred
 - The `"variables"` section is a key/value collection, used to define values you'll be using across the config / template file. 
   - For example, we can store the `appId` and `objectId` values in the `"variables"` section. 
   - You can store literal string values here, like `"object_id": "56e6ca9e-f654-4f92-88c5-5347c621efc7"`
-  - For sensitive values (such as the service principal's password), it is a good idea to keep these out of your config file. `packer` allows you to refer to environment variables. For example, `"client_secret": "{{env `AZURE_DE_PACKER_PASSWORD`}}"` let's `packer` to check the local environment variable `AZURE_DE_PACKER_PASSWORD`, which value is then assigned to the `client_secret` packer variable. 
+  - For sensitive values (such as the service principal's password), it is a good idea to keep these out of your config file. `packer` allows you to refer to environment variables. For example, `{% raw %}"client_secret": "{{env `AZURE_DE_PACKER_PASSWORD`}}"{% endraw %}` let's `packer` to check the local environment variable `AZURE_DE_PACKER_PASSWORD`, which value is then assigned to the `client_secret` packer variable. 
 - The `"builders"` section contains a list of deployment environments or locations. As mentioned previously, `packer` supports multiple cloud providers, hosters and virtualization environments (Azure Resource Manager, Amazon EC2, Digital Ocean, Google Compute Engine, VMWare, Parallels). 
   - In addition, the provisioner has cloud-specific information, such as data center location, etc. 
   - For example, Azure Germany Central, Azure Europe West and Amazon US East could be three builders showing up in the same template. 
@@ -207,33 +207,33 @@ After you have installed packer, and you have retrieved all necessary Azure cred
   - The `"file"` provisioner will upload files and folder structured from the packer machine to the VM
 
 
-
 ```json
 {% raw %}
 {
  "variables": {
-    "azure_ad_tenant_id": "{{ env AZURE_DE_PACKER_TENANTID}}",
-    "azure_subscription_id": "{{env 'AZURE_DE_PACKER_SUBSCRIPTIONID'}}",
-    "client_id": "{{env 'AZURE_DE_PACKER_APPID'}}",
-    "client_secret": "{{env 'AZURE_DE_PACKER_PASSWORD'}}",
-    "object_id": "{{env 'AZURE_DE_PACKER_APPID_OBJECTID'}}",
-    "cloud_environment_name": "AzureGermanCloud",
-    "azure_location": "Germany Central",
+    "azure_ad_tenant_id": "deadbeef-f84d-4205-b4a4-31016e136bc9",
+    "azure_subscription_id": "01234567-f84d-4205-b4a4-31016e136bc9",
+    "object_id": "aa0f0531-f84d-4205-b4a4-31016e136bc9",
+    "app_id": "1326f47c-eaea-42aa-8aa8-ff99fbaf3da9",
+    "client_secret": "{{env `AZURE_DE_PACKER_PASSWORD`}}",
     "resource_group": "admin",
     "storage_account": "packer"
   },
   "builders": [
     {
       "type": "azure-arm",
-      "object_id": "{{user 'object_id'}}",
-      "client_id": "{{user 'client_id'}}",
-      "client_secret": "{{user 'client_secret'}}",
-      "resource_group_name": "{{user 'resource_group'}}",
-      "storage_account": "{{user 'storage_account'}}",
-      "subscription_id": "{{user 'azure_subscription_id'}}",
-      "tenant_id": "{{user 'azure_ad_tenant_id'}}",
-      "cloud_environment_name": "{{user 'cloud_environment_name'}}",
+      "subscription_id": "{{user `azure_subscription_id`}}",
+      "tenant_id": "{{user `azure_ad_tenant_id`}}",
+      "object_id": "{{user `object_id`}}",
+      "client_id": "{{user `app_id`}}",
+      "client_secret": "{{user `client_secret`}}",
+      "resource_group_name": "{{user `resource_group`}}",
 
+      "cloud_environment_name": "AzureGermanCloud",
+      "location": "Germany Central",
+      "vm_size": "Standard_D3_v2",
+
+      "storage_account": "{{user `storage_account`}}",
       "capture_container_name": "images",
       "capture_name_prefix": "packer",
 
@@ -247,10 +247,7 @@ After you have installed packer, and you have retrieved all necessary Azure cred
       "winrm_use_ssl": "true",
       "winrm_insecure": "true",
       "winrm_timeout": "3m",
-      "winrm_username": "packer",
-
-      "location": "{{user \`azure_location'}}",
-      "vm_size": "Standard_D3_v2"
+      "winrm_username": "packer"
     }
   ],
   "provisioners": [

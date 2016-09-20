@@ -209,10 +209,10 @@ After you have installed packer, and you have retrieved all necessary Azure cred
 
 
 ```json
-
+{% raw %}
 {
  "variables": {
-    "azure_ad_tenant_id": "{{env 'AZURE_DE_PACKER_TENANTID'}}",
+    "azure_ad_tenant_id": "{{ env AZURE_DE_PACKER_TENANTID}}",
     "azure_subscription_id": "{{env 'AZURE_DE_PACKER_SUBSCRIPTIONID'}}",
     "client_id": "{{env 'AZURE_DE_PACKER_APPID'}}",
     "client_secret": "{{env 'AZURE_DE_PACKER_PASSWORD'}}",
@@ -280,6 +280,7 @@ After you have installed packer, and you have retrieved all necessary Azure cred
     },
   ]
 }
+{% endraw %}
 ```
 
 

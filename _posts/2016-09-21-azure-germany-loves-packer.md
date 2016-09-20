@@ -285,6 +285,91 @@ After you have installed packer, and you have retrieved all necessary Azure cred
 
 ![packer interactions with Azure provisioning a Windows VM][pictureWindowsDeployment]
 
+The following sample output shows ...
+
+
+
+```txt
+C:\> packer build packer-germany-windows.json
+azure-arm output will be in this color.
+
+==> azure-arm: Running builder ...
+    azure-arm: Creating Azure Resource Manager (ARM) client ...
+==> azure-arm: Creating resource group ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
+==> azure-arm:  -> Location          : 'Germany Central'
+==> azure-arm: Validating deployment template ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
+==> azure-arm:  -> DeploymentName    : 'pkrdp26kdn5rsbm'
+==> azure-arm: Deploying deployment template ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
+==> azure-arm:  -> DeploymentName    : 'pkrdp26kdn5rsbm'
+==> azure-arm: Getting the certificate's URL ...
+==> azure-arm:  -> Key Vault Name        : 'pkrkv26kdn5rsbm'
+==> azure-arm:  -> Key Vault Secret Name : 'packerKeyVaultSecret'
+==> azure-arm:  -> Certificate URL       : 'https://pkrkv26kdn5rsbm.vault.microsoftazure.de/secrets/packerKeyVaultSecret/a01b535c0e784877bc6b2ac85d9beb03'
+==> azure-arm: Setting the certificate's URL ...
+==> azure-arm: Validating deployment template ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
+==> azure-arm:  -> DeploymentName    : 'pkrdp26kdn5rsbm'
+==> azure-arm: Deploying deployment template ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
+==> azure-arm:  -> DeploymentName    : 'pkrdp26kdn5rsbm'
+==> azure-arm: Getting the public IP address ...
+==> azure-arm:  -> ResourceGroupName   : 'packer-Resource-Group-26kdn5rsbm'
+==> azure-arm:  -> PublicIPAddressName : 'packerPublicIP'
+==> azure-arm:  -> Public IP           : '51.4.226.104'
+==> azure-arm: Waiting for WinRM to become available...
+==> azure-arm: Connected to WinRM!
+==> azure-arm: Provisioning with Powershell...
+==> azure-arm: Provisioning with shell script: C:\Users\chgeuer\AppData\Local\Temp\packer-powershell-provisioner963009603
+    azure-arm:
+    azure-arm:
+    azure-arm: Directory: C:\
+    azure-arm:
+    azure-arm:
+    azure-arm: Mode                LastWriteTime     Length Name
+    azure-arm: ----                -------------     ------ ----
+    azure-arm: d----         9/19/2016   9:05 PM            Packages
+    azure-arm: d----         8/22/2013   3:52 PM            PerfLogs
+    azure-arm: d-r--         8/10/2016  11:02 PM            Program Files
+    azure-arm: d----         8/22/2013   3:39 PM            Program Files (x86)
+    azure-arm: d-r--         9/19/2016   9:05 PM            Users
+    azure-arm: d-r--         9/19/2016   9:04 PM            Windows
+    azure-arm: d----         9/19/2016   9:05 PM            WindowsAzure
+==> azure-arm: Querying the machine's properties ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
+==> azure-arm:  -> ComputeName       : 'pkrvm26kdn5rsbm'
+==> azure-arm:  -> OS Disk           : 'https://packer.blob.core.cloudapi.de/images/pkros26kdn5rsbm.vhd'
+==> azure-arm: Powering off machine ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
+==> azure-arm:  -> ComputeName       : 'pkrvm26kdn5rsbm'
+==> azure-arm: Powering off machine ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
+==> azure-arm:  -> ComputeName       : 'pkrvm26kdn5rsbm'
+==> azure-arm: Capturing image ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
+==> azure-arm:  -> ComputeName       : 'pkrvm26kdn5rsbm'
+==> azure-arm: Deleting resource group ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
+==> azure-arm: Deleting the temporary OS disk ...
+==> azure-arm:  -> OS Disk : 'https://packer.blob.core.cloudapi.de/images/pkros26kdn5rsbm.vhd'
+Build 'azure-arm' finished.
+
+==> Builds finished. The artifacts of successful builds are:
+--> azure-arm: Azure.ResourceManagement.VMImage:
+
+StorageAccountLocation: germanycentral
+OSDiskUri: https://packer.blob.core.cloudapi.de/system/Microsoft.Compute/Images/images/packer-osDisk.1cf672de-e71f-4efb-ae63-e4dcd997054f.vhd
+OSDiskUriReadOnlySas: https://packer.blob.core.cloudapi.de/system/Microsoft.Compute/Images/images/packer-osDisk.1cf672de-e71f-4efb-ae63-e4dcd997054f.vhd?se=2016-08-07T09%3A35%3A14Z&sig=...%3D&sp=r&sr=b&sv=2015-02-21
+TemplateUri: https://packer.blob.core.cloudapi.de/system/Microsoft.Compute/Images/images/packer-vmTemplate.1cf672de-e71f-4efb-ae63-e4dcd997054f.json
+TemplateUriReadOnlySas: https://packer.blob.core.cloudapi.de/system/Microsoft.Compute/Images/images/packer-vmTemplate.1cf672de-e71f-4efb-ae63-e4dcd997054f.json?se=2016-08-07T09%3A35%3A14Z&sig...%3D&sp=r&sr=b&sv=2015-02-21
+```
+
+
+
+
+
 ![packer interactions with Azure provisioning a Linux VM][pictureLinuxDeployment]
 
 

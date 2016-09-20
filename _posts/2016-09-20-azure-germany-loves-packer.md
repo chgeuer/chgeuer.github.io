@@ -200,56 +200,75 @@ After you have installed packer, and you have retrieved all necessary Azure cred
 
 
 
-
-
-
-
-
-
 ```JSON
 {
  "variables": {
-    "azure_ad_tenant_id": "deadbeef-efbe-4d97-a72d-532ef7337595",
-    "azure_subscription_id": "deadbeef-bee4-484b-bf13-d6a5505d2b51",
-    "client_id": "deadbeef-7d62-419d-b97b-6dede79ae62c",
-    "client_secret": "{{env `PACKER_AZUREPUBLIC_CLOUD_CLIENTKEY`}}",
-    "cloud_environment_name": "AzurePublicCloud",
-    "resource_group": "packer",
-    "storage_account": "packerwe"
+    "azure_ad_tenant_id": "{{env `AZURE_DE_PACKER_TENANTID`}}",
+    "azure_subscription_id": "{{env `AZURE_DE_PACKER_SUBSCRIPTIONID`}}",
+    "client_id": "{{env `AZURE_DE_PACKER_APPID`}}",
+    "client_secret": "{{env `AZURE_DE_PACKER_PASSWORD`}}",
+    "object_id": "{{env `AZURE_DE_PACKER_APPID_OBJECTID`}}",
+    "cloud_environment_name": "AzureGermanCloud",
+    "azure_location": "Germany Central",
+    "resource_group": "admin",
+    "storage_account": "packer"
   },
-  "builders": [{
-    "type": "azure-arm",
+  "builders": [
+    {
+      "type": "azure-arm",
+      "object_id": "{{user `object_id`}}",
+      "client_id": "{{user `client_id`}}",
+      "client_secret": "{{user `client_secret`}}",
+      "resource_group_name": "{{user `resource_group`}}",
+      "storage_account": "{{user `storage_account`}}",
+      "subscription_id": "{{user `azure_subscription_id`}}",
+      "tenant_id": "{{user `azure_ad_tenant_id`}}",
+      "cloud_environment_name": "{{user `cloud_environment_name`}}",
 
-    "client_id": "{{user `client_id`}}",
-    "client_secret": "{{user `client_secret`}}",
-    "resource_group_name": "{{user `resource_group`}}",
-    "storage_account": "{{user `storage_account`}}",
-    "subscription_id": "{{user `azure_subscription_id`}}",
-    "tenant_id": "{{user `azure_ad_tenant_id`}}",
-    "cloud_environment_name": "{{user `cloud_environment_name`}}",
+      "capture_container_name": "images",
+      "capture_name_prefix": "packer",
 
-    "capture_container_name": "images",
-    "capture_name_prefix": "packer",
+      "os_type": "Windows",
+      "image_publisher": "MicrosoftWindowsServer",
+      "image_offer": "WindowsServer",
+      "image_sku": "2012-R2-Datacenter",
+      "image_version": "latest", 
 
-    "os_type": "Linux",
-    "image_publisher": "Canonical",
-    "image_offer": "UbuntuServer",
-    "image_sku": "16.04.0-LTS",
+      "communicator": "winrm",
+      "winrm_use_ssl": "true",
+      "winrm_insecure": "true",
+      "winrm_timeout": "3m",
+      "winrm_username": "packer",
 
-    "location": "West Europe",
-    "vm_size": "Standard_A2"
-  }],
-  "provisioners": [
-      {
-      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
-      "inline": [
-        "apt-get update",
-        "apt-get upgrade -y",
-        "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
-      ],
-      "inline_shebang": "/bin/sh -x",
-      "type": "shell"
+      "location": "{{user `azure_location`}}",
+      "vm_size": "Standard_D3_v2"
     }
+  ],
+  "provisioners": [
+    {
+      "type": "powershell",
+      "inline": [
+        "Import-Module ServerManager",
+        "Install-WindowsFeature -Name NET-Framework-Features"
+      ]
+    },
+    {
+      "type": "windows-shell",
+      "inline": [
+        "cmd /c \"mkdir \\\"c:\\upload-windows\\\"\""
+      ]
+    },
+    {
+      "type": "file",
+      "source": "upload-windows",
+      "destination": "c:\\upload-windows"
+    },
+    {
+      "type": "windows-shell",
+      "inline": [
+        "cmd /c \"c:\\upload-windows\\run.cmd\""
+      ]
+    },
   ]
 }
 ```

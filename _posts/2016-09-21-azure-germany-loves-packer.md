@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Microsoft Azure Germany loves packer.io"
-date: 2016-09-20 11:31:00
+date: 2016-09-21 01:20:00
 ---
 
 ![Microsoft Azure Germany loves packer.io][header]
@@ -110,6 +110,8 @@ Then, start a new shell (to pick up the changed environment variables) and run t
 ## Security Setup
 
 The next thing you need is a so-called 'service principal' in Azure Active Directory which has 'Contributor' access to your Azure subscription. In short, a service principal is a user account, used by an automated process (such as packer), which can login to Azure. 
+
+![packer Setup][picturePackerSetup]
 
 First, you create an app in Azure Active Directory:
 
@@ -281,11 +283,17 @@ After you have installed packer, and you have retrieved all necessary Azure cred
 {% endraw %}
 ```
 
+![packer interactions with Azure provisioning a Windows VM][pictureWindowsDeployment]
+
+![packer interactions with Azure provisioning a Linux VM][pictureLinuxDeployment]
 
 
 
-[header]: /img/2016-09-20-packer-germany/azure-loves-packer.png "Microsoft Azure loves packer.io"
-[windowsflow]: /img/2016-09-20-packer-germany/packer-windows-deployment.png
+
+[header]: /img/2016-09-21-packer-germany/azure-loves-packer.png "Microsoft Azure loves packer.io"
+[picturePackerSetup]: /img/2016-09-21-packer-germany/packer-setup.png
+[pictureWindowsDeployment]: /img/2016-09-21-packer-germany/packer-windows-deployment.png
+[pictureLinuxDeployment]: /img/2016-09-21-packer-germany/packer-linux-deployment.png
 [serviceprincipalgermany]: /blog/2016/06/27/azure-arm-serviceprincipal
 [packer]: https://www.packer.io/
 [packerBuilderAzure]: https://www.packer.io/docs/builders/azure.html

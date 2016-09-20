@@ -6,6 +6,7 @@ date: 2016-09-20 11:31:00
 
 ![Microsoft Azure Germany loves packer.io][header]
 
+
 In the [previous article][serviceprincipalgermany], I described how you can create a service principal in Azure Active Directory (incl. Azure Germany). In this article, we will explore how to use [Hashicorp's open-source `packer` toolchain][packer] to automatically create custom VM images, both for Windows- and Linux-VMs. 
 
 Before we dig into the details, let's first explore which options we have to get software packages installed on a VM in the cloud: 
@@ -158,7 +159,7 @@ azure ad sp list --json
 ]
 ```
 
-This time note down the `objectId` of the service principal listing. (Note that the `appId` from the `azure ad app list` and `azure ad sp list` calls is the same, but the `objectId` differs).
+This time, note down the `objectId` of the service principal listing. (If you look closely, you'll see that the `appId` from the `azure ad app list` and `azure ad sp list` calls is the same, but the `objectId` differs).
 
 By this time, you should have 5 specific values: 
 
@@ -166,10 +167,10 @@ By this time, you should have 5 specific values:
 - Your Azure Subscription ID (the `id` from `azure account show --json`)
 - Your service principal's `appId`
 - Your service principal's `objectId`
-- Your service principal's password. If you don't know this one, it's certainly `SuperLongPassword123.-`. If so, you simply copy and pasted the code snippet above into your console. DO NOT COPY RANDOM STUFF INTO YOUR ADMIN CONSOLE. Even if I tell you so. Bad security practice. Call `azure ad sp delete` and `azure ad app delete` to delete the current service principal account, and start again. With. A. Secure. Password. Please. 
+- Your service principal's password. If you don't know this one, it's certainly `SuperLongPassword123.-`. If so, you simply copy and pasted the code snippet above into your console. DO NOT COPY RANDOM STUFF INTO YOUR ADMIN CONSOLE. Even if I tell you so. Doing a zu-Guttenberg when it comes to security code is really bad practice. Call `azure ad sp delete` and `azure ad app delete` to delete the current service principal account, and start again. With. A. Secure. Password. Please. 
 
 
-As a last step of the security setup, you can make your service principal a Contributor to your subscription (replace $spObjectId and $subscriptionId with proper values):
+As a last step of the security setup, you can assign your service principal 'Contributor' rights to your subscription (replace `$spObjectId` and `$subscriptionId` with proper values):
 
 ```bash
 azure role assignment create \
@@ -178,6 +179,24 @@ azure role assignment create \
   --scope "/subscriptions/$subscriptionId"
 ```
 
+## `packer` Setup
+
+After you have installed packer, and you have retrieved all necessary Azure credentials, it's time to run `packer`. Packer uses a JSON file to define how to create VMs, and what to do with the VMs once they are running. 
+
+`packer` config files have a few sections: 
+
+- The `"variables"` section is a key/value collection, used to define values you'll be using across the config / template file. 
+  - For example, we can store the `appId` and `objectId` values in the `"variables"` section. 
+  - You can store literal string values here, like `"object_id": "56e6ca9e-f654-4f92-88c5-5347c621efc7"`
+  - For sensitive values (such as the service principal's password), it is a good idea to keep these out of your config file. `packer` allows you to refer to environment variables. For example, `"client_secret": "{{env `AZURE_DE_PACKER_PASSWORD`}}"` let's `packer` to check the local environment variable `AZURE_DE_PACKER_PASSWORD`, which value is then assigned to the `client_secret` packer variable. 
+- The `"builders"` section contains a list of deployment environments or locations. As mentioned previously, `packer` supports multiple cloud providers, hosters and virtualization environments (Azure Resource Manager, Amazon EC2, Digital Ocean, Google Compute Engine, VMWare, Parallels). 
+  - In addition, the provisioner has cloud-specific information, such as data center location, etc. 
+  - For example, Azure Germany Central, Azure Europe West and Amazon US East could be three builders showing up in the same template. 
+  - In the simplest case, packer then creates VM instances in all three deployment locations, logs in to the three VMs, and runs its provisioners. 
+- The `"provisioners"` section now describes the real steps to be performed, once the VMs are running, for example
+  - On Linux, the `"shell"` provisioner can run Unix shell commands
+  - On Windows, the `"powershell"` and the `"windows-shell"` provisioner run Powershell and cmd.exe commands respectively
+  - The `"file"` provisioner will upload files and folder structured from the packer machine to the VM
 
 
 
@@ -185,14 +204,55 @@ azure role assignment create \
 
 
 
-- [Create a service principal who is Contributor in your subscription](https://github.com/chgeuer/platform.sh.azure/blob/088d921e78fa3233d59107880b63308151a0afe4/arbitrary-code.sh#L9-L39)
-- Store the service principal's password in an environment variable named `PACKER_AZUREPUBLIC_CLOUD_CLIENTKEY` 
-- Store the JSON below in local file, and tweak your Azure AD Tenant ID, Subscription ID, service principal's client ID, etc. 
 
 
+```JSON
+{
+ "variables": {
+    "azure_ad_tenant_id": "deadbeef-efbe-4d97-a72d-532ef7337595",
+    "azure_subscription_id": "deadbeef-bee4-484b-bf13-d6a5505d2b51",
+    "client_id": "deadbeef-7d62-419d-b97b-6dede79ae62c",
+    "client_secret": "{{env `PACKER_AZUREPUBLIC_CLOUD_CLIENTKEY`}}",
+    "cloud_environment_name": "AzurePublicCloud",
+    "resource_group": "packer",
+    "storage_account": "packerwe"
+  },
+  "builders": [{
+    "type": "azure-arm",
 
+    "client_id": "{{user `client_id`}}",
+    "client_secret": "{{user `client_secret`}}",
+    "resource_group_name": "{{user `resource_group`}}",
+    "storage_account": "{{user `storage_account`}}",
+    "subscription_id": "{{user `azure_subscription_id`}}",
+    "tenant_id": "{{user `azure_ad_tenant_id`}}",
+    "cloud_environment_name": "{{user `cloud_environment_name`}}",
 
+    "capture_container_name": "images",
+    "capture_name_prefix": "packer",
 
+    "os_type": "Linux",
+    "image_publisher": "Canonical",
+    "image_offer": "UbuntuServer",
+    "image_sku": "16.04.0-LTS",
+
+    "location": "West Europe",
+    "vm_size": "Standard_A2"
+  }],
+  "provisioners": [
+      {
+      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
+      "inline": [
+        "apt-get update",
+        "apt-get upgrade -y",
+        "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
+      ],
+      "inline_shebang": "/bin/sh -x",
+      "type": "shell"
+    }
+  ]
+}
+```
 
 
 ## Provisioning a Windows VM

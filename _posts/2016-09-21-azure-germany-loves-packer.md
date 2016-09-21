@@ -6,7 +6,7 @@ date: 2016-09-21 01:20:00
 
 ![Microsoft Azure Germany loves packer.io][header]
 
-With today's general availability of Microsoft Cloud Germany, I wanted to take the opportunity to show how both Microsoft Azure in Germany, as well as worldwide, provide an open platform and support the open source ecosystem. In the [previous article][serviceprincipalgermany], I described how you can create a service principal in Azure Active Directory (incl. Azure in Germany). In this article, we will explore how to use [Hashicorp's open-source `packer` toolchain][packer] to automatically create custom VM images, both for Windows- and Linux-VMs. 
+Today, I wanted to take the opportunity to show how both  Microsoft Azure Cloud for Germany, as well as worldwide, provide an open platform and support the open source ecosystem. In the [previous article][serviceprincipalgermany], I described how you can create a service principal in Azure Active Directory (incl. Azure in Germany). In this article, we will explore how to use [Hashicorp's open-source `packer` toolchain][packer] to automatically create custom VM images, both for Windows- and Linux-VMs. 
 
 Before we dig into the details, let's first explore which options we have to get software packages installed on a VM in the cloud: 
 
@@ -428,4 +428,5 @@ Feedback alway appreciated via Twitter, or the comments section below.
 [packerDownload]: https://www.packer.io/downloads.html
 [goDownload]: https://golang.org/dl/
 [gitDownload]: https://git-scm.com/download/win
+[daniel]: http://www.kreuzhofer.de/azure-german-cloud-launch-azure-resource-manager-deployments-with-azure-cli-in-the-german-cloud/
 

@@ -405,9 +405,11 @@ For those interested in the detailed interactions and flow, the following pictur
 
 For Linux VMs, `packer` directly creates the VM, without creating a KeyVault first. 
 
-##
+## End
 
-I hope the article was interesting, gave you a greater understanding how `packer` can be used together with Azure 
+I hope the article was interesting, gave you a greater understanding how `packer` can be used together with Azure Resource Manager, and demonstrated a bit of the openness of the Azure Platform :-). 
+
+Feedback alway appreciated via Twitter, or the comments section below. 
 
 
 [header]: /img/2016-09-21-packer-germany/azure-loves-packer.png "Microsoft Azure loves packer.io"

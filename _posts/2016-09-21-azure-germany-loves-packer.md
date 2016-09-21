@@ -209,6 +209,7 @@ After you have installed packer, and you have retrieved all necessary Azure cred
   - On Windows, the `"powershell"` and the `"windows-shell"` provisioner run Powershell and cmd.exe commands respectively
   - The `"file"` provisioner will upload files and folder structured from the packer machine to the VM
 
+Here is an example of such a JSON file: 
 
 ```json
 {% raw %}
@@ -283,14 +284,28 @@ After you have installed packer, and you have retrieved all necessary Azure cred
 {% endraw %}
 ```
 
+The following picture describes the interactions between packer and the Azure Platform: 
+
+1. `packer` creates a self-signed X.509 certificate. When building Windows Images, packer uses PowerShell remoting / WinRM to connect to the VM, and it in order to authenticate the VM, this self-created certificate should be injected into the Windows VM. 
+2. `packer` connects to the `azure_ad_tenant_id` from the config file, uses the service principal's credentials (`app_id` and `client_secret`) and requests a security token for the Azure Resource Management API. 
+3. `packer` uses the security token from step 2, to tell ARM to create a resource group in the `azure_subscription_id`, create an Azure KeyVault in that resource group, and to store the self-signed certificate (alongside with the private key) as a 'secret'. In addition, the `object_id` of the service principal is granted read privileges on that secret. 
+4. Behind the covers, Azure then enacts that ARM template deployment, creates the KeyVault, and stores the certificate. 
+5. `packer` connects to the `azure_ad_tenant_id` from the config file, uses the service principal's credentials (`app_id` and `client_secret`) and again requests a security token, but this time for the previously created Azure Key Vault. 
+6. `packer` tries to download the previously injected certificate, and notes down the secret's concrete version identifier. 
+7. `packer` instructs the ARM API to deploy a Windows VM and provision the certificate from the KeyVault into the VM. 
+8. Azure ARM launches the Windows VM, and ...
+9. ... injects the X509 certificate into the VM. The VM now uses the cert as a server-side certificate for WinRM. This step is the one where the `object_id` of the service principal is important; in step 3 (when creating the KeyVault and the secret), the packer added itself to the access control list. Without read permissions on the secret, the VM would not 
+10. Finally, `packer` connects to the VM and 'does its' thing. 
+
+
 ![packer interactions with Azure provisioning a Windows VM][pictureWindowsDeployment]
 
-The following sample output shows ...
 
 
+The following sample output shows what happens when I run `packer build windows.json` (I left out some noisy redundant lines):  
 
 ```txt
-C:\> packer build packer-germany-windows.json
+C:\> packer build windows.json
 azure-arm output will be in this color.
 
 ==> azure-arm: Running builder ...
@@ -299,22 +314,14 @@ azure-arm output will be in this color.
 ==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
 ==> azure-arm:  -> Location          : 'Germany Central'
 ==> azure-arm: Validating deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
-==> azure-arm:  -> DeploymentName    : 'pkrdp26kdn5rsbm'
 ==> azure-arm: Deploying deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
-==> azure-arm:  -> DeploymentName    : 'pkrdp26kdn5rsbm'
 ==> azure-arm: Getting the certificate's URL ...
 ==> azure-arm:  -> Key Vault Name        : 'pkrkv26kdn5rsbm'
 ==> azure-arm:  -> Key Vault Secret Name : 'packerKeyVaultSecret'
 ==> azure-arm:  -> Certificate URL       : 'https://pkrkv26kdn5rsbm.vault.microsoftazure.de/secrets/packerKeyVaultSecret/a01b535c0e784877bc6b2ac85d9beb03'
 ==> azure-arm: Setting the certificate's URL ...
 ==> azure-arm: Validating deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
-==> azure-arm:  -> DeploymentName    : 'pkrdp26kdn5rsbm'
 ==> azure-arm: Deploying deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
-==> azure-arm:  -> DeploymentName    : 'pkrdp26kdn5rsbm'
 ==> azure-arm: Getting the public IP address ...
 ==> azure-arm:  -> ResourceGroupName   : 'packer-Resource-Group-26kdn5rsbm'
 ==> azure-arm:  -> PublicIPAddressName : 'packerPublicIP'
@@ -324,9 +331,7 @@ azure-arm output will be in this color.
 ==> azure-arm: Provisioning with Powershell...
 ==> azure-arm: Provisioning with shell script: C:\Users\chgeuer\AppData\Local\Temp\packer-powershell-provisioner963009603
     azure-arm:
-    azure-arm:
     azure-arm: Directory: C:\
-    azure-arm:
     azure-arm:
     azure-arm: Mode                LastWriteTime     Length Name
     azure-arm: ----                -------------     ------ ----
@@ -342,14 +347,7 @@ azure-arm output will be in this color.
 ==> azure-arm:  -> ComputeName       : 'pkrvm26kdn5rsbm'
 ==> azure-arm:  -> OS Disk           : 'https://packer.blob.core.cloudapi.de/images/pkros26kdn5rsbm.vhd'
 ==> azure-arm: Powering off machine ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
-==> azure-arm:  -> ComputeName       : 'pkrvm26kdn5rsbm'
-==> azure-arm: Powering off machine ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
-==> azure-arm:  -> ComputeName       : 'pkrvm26kdn5rsbm'
 ==> azure-arm: Capturing image ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
-==> azure-arm:  -> ComputeName       : 'pkrvm26kdn5rsbm'
 ==> azure-arm: Deleting resource group ...
 ==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-26kdn5rsbm'
 ==> azure-arm: Deleting the temporary OS disk ...
@@ -366,6 +364,7 @@ TemplateUri: https://packer.blob.core.cloudapi.de/system/Microsoft.Compute/Image
 TemplateUriReadOnlySas: https://packer.blob.core.cloudapi.de/system/Microsoft.Compute/Images/images/packer-vmTemplate.1cf672de-e71f-4efb-ae63-e4dcd997054f.json?se=2016-08-07T09%3A35%3A14Z&sig...%3D&sp=r&sr=b&sv=2015-02-21
 ```
 
+The interesting information comes at the end: After powering off the machine, packer captures the actual VM OS disk image, then deletes all ephemenral resources (i.e. the complete resource group), and tells me with the `OSDiskUri` parameter where my actual disk image is stored. 
 
 
 

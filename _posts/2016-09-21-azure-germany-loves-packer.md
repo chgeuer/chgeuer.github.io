@@ -6,8 +6,7 @@ date: 2016-09-21 01:20:00
 
 ![Microsoft Azure Germany loves packer.io][header]
 
-
-In the [previous article][serviceprincipalgermany], I described how you can create a service principal in Azure Active Directory (incl. Azure Germany). In this article, we will explore how to use [Hashicorp's open-source `packer` toolchain][packer] to automatically create custom VM images, both for Windows- and Linux-VMs. 
+With today's general availability of Microsoft Cloud Germany, I wanted to take the opportunity to show how both Microsoft Azure in Germany, as well as worldwide, provide an open platform and support the open source ecosystem. In the [previous article][serviceprincipalgermany], I described how you can create a service principal in Azure Active Directory (incl. Azure in Germany). In this article, we will explore how to use [Hashicorp's open-source `packer` toolchain][packer] to automatically create custom VM images, both for Windows- and Linux-VMs. 
 
 Before we dig into the details, let's first explore which options we have to get software packages installed on a VM in the cloud: 
 
@@ -284,7 +283,24 @@ Here is an example of such a JSON file:
 {% endraw %}
 ```
 
+I'd like to emphasize the following snippet: Here, we can see that the `AzureGermanCloud` is the deployment target, specificalls the `Germany Central` data center (which is Frankfurt am Main). 
+
+```JSON
+  "cloud_environment_name": "AzureGermanCloud",
+  "location": "Germany Central",
+```
+
+The `vm_size` parameter describes which instance type to launch in Frankfurt. This size has nothing to do with the VM type where you intend to finally run your workload on, but it describes the machine size of the packer builder process. Using a faster machine here simply speeds up your `packer` run. 
+
+```JSON
+  "vm_size": "Standard_D3_v2",
+```
+
 The following picture describes the interactions between packer and the Azure Platform: 
+
+## Building a Windows VM Image
+
+![packer interactions with Azure provisioning a Windows VM][pictureWindowsDeployment]
 
 1. `packer` creates a self-signed X.509 certificate. When building Windows Images, packer uses PowerShell remoting / WinRM to connect to the VM, and it in order to authenticate the VM, this self-created certificate should be injected into the Windows VM. 
 2. `packer` connects to the `azure_ad_tenant_id` from the config file, uses the service principal's credentials (`app_id` and `client_secret`) and requests a security token for the Azure Resource Management API. 
@@ -295,17 +311,13 @@ The following picture describes the interactions between packer and the Azure Pl
 7. `packer` instructs the ARM API to deploy a Windows VM and provision the certificate from the KeyVault into the VM. 
 8. Azure ARM launches the Windows VM, and ...
 9. ... injects the X509 certificate into the VM. The VM now uses the cert as a server-side certificate for WinRM. This step is the one where the `object_id` of the service principal is important; in step 3 (when creating the KeyVault and the secret), the packer added itself to the access control list. Without read permissions on the secret, the VM would not 
-10. Finally, `packer` connects to the VM and 'does its' thing. 
+10. Finally, `packer` connects via WinRM to the VM, using it's own Admin password, validates that the VM presents the previously generated and uploaded Certificate, and then 'does its' thing. 
 
 
-![packer interactions with Azure provisioning a Windows VM][pictureWindowsDeployment]
-
-
-
-The following sample output shows what happens when I run `packer build windows.json` (I left out some noisy redundant lines):  
+The sample output below shows what happens when I run `packer build windows.json` (I left out some noisy redundant lines):  
 
 ```txt
-C:\> packer build windows.json
+C:\Users\chgeuer\packer-germany\> packer build windows.json
 azure-arm output will be in this color.
 
 ==> azure-arm: Running builder ...
@@ -364,14 +376,38 @@ TemplateUri: https://packer.blob.core.cloudapi.de/system/Microsoft.Compute/Image
 TemplateUriReadOnlySas: https://packer.blob.core.cloudapi.de/system/Microsoft.Compute/Images/images/packer-vmTemplate.1cf672de-e71f-4efb-ae63-e4dcd997054f.json?se=2016-08-07T09%3A35%3A14Z&sig...%3D&sp=r&sr=b&sv=2015-02-21
 ```
 
-The interesting information comes at the end: After powering off the machine, packer captures the actual VM OS disk image, then deletes all ephemenral resources (i.e. the complete resource group), and tells me with the `OSDiskUri` parameter where my actual disk image is stored. 
+The interesting information comes at the end: After powering off the machine, packer captures the actual VM OS disk image, then deletes all ephemenral resources (i.e. the complete resource group), and tells me with the `OSDiskUri` parameter where my actual disk image is stored. From now on, I can use that "golden image" in my ARM templates, when I launch new machines:  
+
+```JSON
+ "storageProfile": {
+      "osDisk" : {
+          "name" : "[concat(parameters('vmName'),'-osDisk')]",
+          "osType" : "Windows",
+          "caching" : "ReadWrite",
+          "image" : {
+              "uri" : "https://packer.blob.core.cloudapi.de/system/Microsoft.Compute/Images/images/..."
+          },
+          "vhd" : {
+              "uri" : "[variables('osDiskVhdName')]"
+          }
+      }
+  },
+```
 
 
+## Building a Linux VM Image
 
+Building a Linux VM image doesn't differ very much from the previously described Windows process. The main difference from a configuration prespective is that for Linux, I can omit the `object_id`. And instead of the `"windows-shell"` and `"powershell"` provisioners, I use the `"shell"` Provisioner. And the fact that packer now uses SSH, instead of WinRM, to connect to the VM. 
+
+For those interested in the detailed interactions and flow, the following picture shows why we were able to omit the `object_id`: 
 
 ![packer interactions with Azure provisioning a Linux VM][pictureLinuxDeployment]
 
+For Linux VMs, `packer` directly creates the VM, without creating a KeyVault first. 
 
+##
+
+I hope the article was interesting, gave you a greater understanding how `packer` can be used together with Azure 
 
 
 [header]: /img/2016-09-21-packer-germany/azure-loves-packer.png "Microsoft Azure loves packer.io"

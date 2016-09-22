@@ -413,6 +413,8 @@ I hope the article was interesting, gave you a greater understanding how `packer
 
 Feedback alway appreciated via Twitter, or the comments section below. 
 
+PS: And a big thank-you and shout out to my fellow Microsoft colleague [Christopher Boumenot](https://github.com/boumenot) for adding the Azure Germany Environment to the packer base... Good stuff!
+
 
 [header]: /img/2016-09-21-packer-germany/azure-loves-packer.png "Microsoft Azure loves packer.io"
 [picturePackerSetup]: /img/2016-09-21-packer-germany/packer-setup.png

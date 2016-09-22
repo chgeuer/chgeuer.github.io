@@ -1,12 +1,14 @@
 ---
 layout: default
 title: "Microsoft Azure Germany loves packer.io"
-date: 2016-09-21 01:20:00
+date: 2016-09-21 09:30:00
 ---
 
 ![Microsoft Azure Germany loves packer.io][header]
 
-Today, I wanted to take the opportunity to show how both  Microsoft Azure Cloud for Germany, as well as worldwide, provide an open platform and support the open source ecosystem. In the [previous article][serviceprincipalgermany], I described how you can create a service principal in Azure Active Directory (incl. Azure in Germany). In this article, we will explore how to use [Hashicorp's open-source `packer` toolchain][packer] to automatically create custom VM images, both for Windows- and Linux-VMs. 
+Today, the Microsoft Cloud for Germany goes live (or as Microsoft calls it, becomes Generally Available). For me personally, having many customers with 'non-Microsoft'-Workloads, it is a pleasure to see that Azure Germany is as open as the the existing International data centers. Customers such as [TeamDrive](https://www.teamdrive.de/), [platform.sh](https://platform.sh/) or [G DATA](https://www.gdata.de/) use our German data centers for their critical workloads, alongside with the pretty interesting Data Trustee Model, which Microsoft and Deutsche Telekom established for Frankfurt and Magdeburg regions. 
+
+I wanted to take the opportunity to show how both  Microsoft Azure Cloud for Germany, as well as worldwide, provide an open platform and support the open source ecosystem. In the [previous article][serviceprincipalgermany], I described how you can create a service principal in Azure Active Directory (incl. Azure in Germany). In this article, we will explore how to use [Hashicorp's open-source `packer` toolchain][packer] to automatically create custom VM images, both for Windows- and Linux-VMs. 
 
 Before we dig into the details, let's first explore which options we have to get software packages installed on a VM in the cloud: 
 
@@ -73,7 +75,7 @@ The largest disadvantage of the custom script extension is the impact on runtime
 
 [Hashicorp's open-source `packer` tool][packer] is an executable which can be launched on a local machine (such as a developer's laptop, or a build server). `packer` spins up a VM in one or more data centers (and one or more clouds for that matter). Once the VMs are up and running, `packer` connects to the VM (using Powershell WinRM for Windows VMs, or ssh for Linux VMs), and *does whatever you want it to do*. Most important, you can let packer upload files, and run commands on the remote machine. At the end of all tasks on the VM, packer runs sysprep and shuts down the VM, resulting in a 'golden image' you can then use to fire off readily installed VMs. 
 
-Compared to the custom script extension, packer shifts waiting time away from the actual VM provisioning: Whenever the software department releases a new version, the build server can connect to all deployment environments (cloud vendors and data centers), and create the latest and greated image. So longer "compile time", much faster "startup time". 
+Compared to the custom script extension, packer shifts waiting time away from the actual VM provisioning: Whenever the software department releases a new version, the build server can connect to all deployment environments (cloud vendors and data centers), and create the latest and greatest image. So longer "compile/build time", much faster "deploy/startup time". 
 
 ## Provisioning a Windows VM
 

@@ -8,6 +8,17 @@ published: true
 
 # September 2016
 
+
+- Compose, deliver and test your emails easily in Elixir: https://github.com/swoosh/swoosh
+- The alchemist's happy path with elixir: https://github.com/vic/happy
+- Bypass provides a quick way to create a custom plug that can be put in place instead of an actual HTTP server to return prebaked responses to client requests. https://github.com/PSPDFKit-labs/bypass
+- An Elixir library for generating struct constructors that handle external data with ease. https://github.com/appcues/exconstructor
+- Tiny Erlang app that works in conjunction with statsderl in order to generate information on the Erlang VM for graphite logs. https://github.com/ferd/vmstats
+- Announcing Elixir API client for DNSimple https://blog.dnsimple.com/2016/09/announcing-elixir-api-client/
+- KISS by Example: Authorization in Phoenix https://dockyard.com/blog/2016/09/08/kiss-phoenix-auth
+
+
+
 ## 
 
 - choco install powershell-packagemanagement

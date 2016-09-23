@@ -8,7 +8,7 @@ published: true
 
 # September 2016
 
-
+- Composable APIs with Elixir pipes: http://yos.io/2016/09/07/composable-apis-with-elixir-pipes/
 - Compose, deliver and test your emails easily in Elixir: https://github.com/swoosh/swoosh
 - The alchemist's happy path with elixir: https://github.com/vic/happy
 - Bypass provides a quick way to create a custom plug that can be put in place instead of an actual HTTP server to return prebaked responses to client requests. https://github.com/PSPDFKit-labs/bypass

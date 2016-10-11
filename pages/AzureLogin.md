@@ -220,6 +220,14 @@ The following Powershell script can be used to
 3. Promote that application to become a service principal, i.e. giving it the right to request authN tokens from AAD. 
 4. Registering that new service principal as a `Contributor` to my Azure Subscription. 
 
+### Loggin in interactively
+
+```
+azure login -e AzureGermanCloud -u {username}
+azure login --environment AzureGermanCloud --user chgeuer@msftger.onmicrosoft.de --password XXX
+```
+
+
 ### A few variables to start with
 
 The initial log-in to Azure Germany happens with a regular Azure AD user, in my case that's `chgeuer@msftger.onmicrosoft.de`. 

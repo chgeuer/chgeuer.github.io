@@ -6,6 +6,14 @@ keywords:
 published: true
 ---
 
+# October 2016
+
+## cmder and Bash subsystem
+
+- Download http://cmder.net/
+- `"%USERPROFILE%\bin\cmder_mini\vendor\conemu-maximus5\ConEmu64.exe" -basic -run {bash}`
+
+
 # September 2016
 
 - Composable APIs with Elixir pipes: http://yos.io/2016/09/07/composable-apis-with-elixir-pipes/

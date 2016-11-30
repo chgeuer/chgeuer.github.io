@@ -120,6 +120,15 @@ Install-IisAppPool -Name "customapppool" -Credential $mycreds
 
 # August 2016
 
+## Install "Windows Subsystem for Linux
+
+```batch
+%SystemRoot%\System32\reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /t REG_DWORD /f /v "AllowDevelopmentWithoutDevLicense" /d "1"
+
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unrestricted -Command "Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux"
+```
+
+
 ## Reset the "Windows Subsystem for Linux"
 
 See the [FAQ](https://msdn.microsoft.com/en-us/commandline/wsl/faq).

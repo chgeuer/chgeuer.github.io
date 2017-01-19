@@ -389,3 +389,14 @@ info:    Added subscription MSFTGER Test Subscription
 info:    login command OK
 ```
 
+# Add mgmt cert to Azure Germany via ASM API
+
+```powershell
+Invoke-WebRequest `
+   -uri https://management.core.cloudapi.de/$subID/certificates `
+   -Method Post `
+   -Headers @{"x-ms-version"="2012-03-01"} `
+   -Certificate $authcert `
+   -Body $xml.outerxml `
+   -ContentType "application/xml" 
+```

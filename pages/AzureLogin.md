@@ -400,3 +400,10 @@ Invoke-WebRequest `
    -Body $xml.outerxml `
    -ContentType "application/xml" 
 ```
+
+# Update Azure CLI 2.0 (Python) and change cloud
+
+```
+pip install --upgrade azure-cli
+az cloud set --name AzureGermanCloud
+```

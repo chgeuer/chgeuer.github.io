@@ -6,6 +6,15 @@ keywords:
 published: true
 ---
 
+
+# February 2017
+
+- TR-064
+	- Fritzbox Binding from openHAB: https://github.com/openhab/openhab1-addons/blob/master/bundles/binding/org.openhab.binding.fritzboxtr064/src/main/java/org/openhab/binding/fritzboxtr064/internal/Tr064Comm.java
+	- fritzbox API: https://avm.de/service/schnittstellen/
+	- TR-064: https://www.broadband-forum.org/technical/download/TR-064_Corrigendum-1.pdf
+
+
 # October 2016
 
 ## cmder and Bash subsystem

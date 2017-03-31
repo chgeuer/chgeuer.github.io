@@ -406,4 +406,9 @@ Invoke-WebRequest `
 ```
 pip install --upgrade azure-cli
 az cloud set --name AzureGermanCloud
+az cloud set --name AzureCloud
+az login
+az account list 
+az account set --subscription chgeuer-work
+
 ```

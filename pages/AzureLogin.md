@@ -407,8 +407,27 @@ Invoke-WebRequest `
 pip install --upgrade azure-cli
 az cloud set --name AzureGermanCloud
 az cloud set --name AzureCloud
-az login
-az account list 
-az account set --subscription chgeuer-work
 
+
+
+set password=superSecret123!
+set subscriptionName=chgeuer-work
+
+call az cloud set --name AzureCloud
+call az login
+call az account list 
+call az account set --subscription %subscriptionName%
+
+call az ad app create --display-name "Christian SP Demo" --homepage "http://foo" --identifier-uris "http://foo2" --key-type Password --password %password% | jq .appId > appid.txt
+set /p appId=<"appId.txt"
+
+call az ad sp create --id %appId% | jq .objectId > spObjectId.txt
+set /p spObjectId=<"spObjectId.txt"
+
+call az ad sp list
+
+call az account show | jq .id > subscriptionId.txt
+set /p subscriptionId=<"subscriptionId.txt"
+
+call az role assignment create --role Contributor --assignee %spObjectId% --scope "/subscriptions/%subscriptionId%"
 ```

@@ -186,3 +186,17 @@ let stringcontent filename =
 bytecontent "C:\Users\chgeuer\Desktop\Android Apps.txt" |> md5base64 |> printfn "%s"
 stringcontent "C:\Users\chgeuer\Desktop\Android Apps.txt" |> printfn "%s"
 ```
+
+
+
+# Download and extract cURL
+
+```batch
+SET CURL_VERSION=curl-7.52.1
+
+SET CURL_DOWNLOAD=https://dl.uxnr.de/build/curl/curl_winssl_msys2_mingw64_stc/%CURL_VERSION%/%CURL_VERSION%.zip
+
+powershell -NoProfile -ExecutionPolicy unrestricted -Command "((new-object net.webclient).DownloadFile('%CURL_DOWNLOAD%', '%CURL_VERSION%.zip'))" 
+
+powershell -NoProfile -ExecutionPolicy unrestricted -Command "Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory('%CURL_VERSION%.zip', '.')" 
+```

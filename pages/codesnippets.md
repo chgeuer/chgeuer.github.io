@@ -6,6 +6,14 @@ keywords:
 published: true
 ---
 
+# Elixir HTTPoison using Fiddler proxy
+
+```elixir
+options = [{ :proxy, "http://127.0.0.1:8888" }]
+resp = HTTPoison.get(url, [headers], options)
+```
+
+
 # Powershell creates self-signed X.509 Cert
 
 ```powershell

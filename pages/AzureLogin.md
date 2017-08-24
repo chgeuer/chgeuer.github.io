@@ -408,8 +408,6 @@ pip install --upgrade azure-cli
 az cloud set --name AzureGermanCloud
 az cloud set --name AzureCloud
 
-
-
 set password=superSecret123!
 set subscriptionName=chgeuer-work
 
@@ -451,4 +449,32 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
 # For the new Azure CLI v2, command name `az` (the Python-based one)
 export ADAL_PYTHON_SSL_NO_VERIFY=1
 export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+```
+
+
+
+# Signin via service principal and debug a session
+
+```
+
+# Have fiddler listen on :8888
+
+export HTTP_PROXY=http://127.0.0.1:8888
+export HTTPS_PROXY=http://127.0.0.1:8888
+
+export ADAL_PYTHON_SSL_NO_VERIFY=1
+export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+
+export AZURE_SERVICEPRINCIPAL_APPID=deadbeef-1234-5678-abcd-fabf7cf9368e
+export AZURE_SERVICEPRINCIPAL_PASSWORD=SuperSecret123.-
+export AZURE_TENANTID=942023a6-efbe-4d97-a72d-532ef7337595
+export AZURE_SUBSCRIPTION_ID=724467b5-bee4-484b-bf13-d6a5505d2b51
+
+az cloud set --name AzureCloud
+
+az login --service-principal --tenant $AZURE_TENANTID --username $AZURE_SERVICEPRINCIPAL_APPID --password $AZURE_SERVICEPRINCIPAL_PASSWORD
+
+az account set --subscription $AZURE_SUBSCRIPTION_ID 
+
+az vm list
 ```

@@ -431,3 +431,24 @@ set /p subscriptionId=<"subscriptionId.txt"
 
 call az role assignment create --role Contributor --assignee %spObjectId% --scope "/subscriptions/%subscriptionId%"
 ```
+
+
+# Use fiddler or mitm
+
+
+
+# https://blogs.msdn.microsoft.com/avkashchauhan/2013/01/30/using-fiddler-to-decipher-windows-azure-powershell-or-rest-api-https-traffic/
+
+
+```
+# Where does fiddler listen
+export HTTP_PROXY=http://127.0.0.1:8888
+export HTTPS_PROXY=http://127.0.0.1:8888
+
+# For the old Azure CLI v1, command name `azure` (the Node.js-based one)
+export NODE_TLS_REJECT_UNAUTHORIZED=0 
+
+# For the new Azure CLI v2, command name `az` (the Python-based one)
+export ADAL_PYTHON_SSL_NO_VERIFY=1
+export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+```

@@ -462,8 +462,14 @@ export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
 export HTTP_PROXY=http://127.0.0.1:8888
 export HTTPS_PROXY=http://127.0.0.1:8888
 
+# For the old xplat cli (node.js based `azure` command line client)
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+
+# For the new Azure `az` CLI (python based)
 export ADAL_PYTHON_SSL_NO_VERIFY=1
 export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+
+
 
 export AZURE_SERVICEPRINCIPAL_APPID=deadbeef-1234-5678-abcd-fabf7cf9368e
 export AZURE_SERVICEPRINCIPAL_PASSWORD=SuperSecret123.-

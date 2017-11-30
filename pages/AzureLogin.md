@@ -485,3 +485,9 @@ az account set --subscription $AZURE_SUBSCRIPTION_ID
 
 az vm list
 ```
+
+## See the latest accessToken
+
+```bash
+cat ~/.azure/accessTokens.json | jq -r .[-1].refreshToken
+```

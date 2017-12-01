@@ -2,6 +2,8 @@
 
 ## Download client
 
+Alternatively to [official way to install the CLI](https://github.com/openfaas/faas-cli#get-started-install-the-cli), I did this: 
+
 ```bash
 curl -LO $(curl -s https://api.github.com/repos/openfaas/faas-cli/releases/latest | jq -r ".assets[] | select(.name == \"faas-cli.exe\") | .browser_download_url")
 ```

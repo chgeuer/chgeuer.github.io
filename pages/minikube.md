@@ -19,4 +19,18 @@ REM https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-bina
 REM https://storage.googleapis.com/kubernetes-release/release/stable.txt
 
 curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.8.4/bin/windows/amd64/kubectl.exe
+
+
+
+
+
+minikube update-context
+minikube start
+minikube status
+
+code C:\Users\chgeuer\.kube\config
+
+
+cd ~/faas
+faas-cli deploy -f hello.yml --gateway http://192.168.0.73:31112
 ```

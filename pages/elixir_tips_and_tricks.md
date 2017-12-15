@@ -9,3 +9,13 @@ mix hex.config unsafe_https: true
 ```
 
 Also see the [hex.config](https://hex.pm/docs/tasks#hex_config) docs for that. 
+
+Undo the config via
+
+
+
+```bash
+mix hex.config --delete http_proxy 
+mix hex.config --delete https_proxy 
+mix hex.config --delete unsafe_https 
+```

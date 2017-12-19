@@ -3,6 +3,12 @@ layout: default
 title: "Elixir Cheat Sheet"
 ---
 
+## Atoms and module names
+
+```elixir
+Foo = Elixir.Foo = :"Elixir.Foo"
+```
+
 ## Imports and Aliases
 
 ```elixir

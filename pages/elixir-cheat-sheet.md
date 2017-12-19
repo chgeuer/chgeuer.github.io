@@ -7,6 +7,8 @@ title: "Elixir Cheat Sheet"
 
 ```elixir
 Foo = Elixir.Foo = :"Elixir.Foo"
+
+:"Elixir.System".halt   # Shuts down the BEAM VM
 ```
 
 ## Imports and Aliases

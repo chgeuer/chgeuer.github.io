@@ -57,6 +57,12 @@ extnded2 = Dict.put(bob, :"The salary", 50000)
 50000 = extnded2[:"The salary"]
 ```
 
+## [keyword](https://hexdocs.pm/elixir/Keyword.html) lists
+
+```elixir
+[{:foo, :bar}, {:exit, 1}] = [foo: :bar, exit: 1]
+```
+
 ## bitstrings
 
 ```elixir

@@ -3,6 +3,14 @@ layout: default
 title: "Elixir Cheat Sheet"
 ---
 
+## Atoms and module names
+
+```elixir
+Foo = Elixir.Foo = :"Elixir.Foo"
+
+:"Elixir.System".halt   # Shuts down the BEAM VM
+```
+
 ## Imports and Aliases
 
 ```elixir
@@ -47,6 +55,12 @@ extnded = Dict.put(bob, :salary, 50000)
 extnded2 = Dict.put(bob, :"The salary", 50000)
 50000 = extnded2."The salary"
 50000 = extnded2[:"The salary"]
+```
+
+## [keyword](https://hexdocs.pm/elixir/Keyword.html) lists
+
+```elixir
+[{:foo, :bar}, {:exit, 1}] = [foo: :bar, exit: 1]
 ```
 
 ## bitstrings

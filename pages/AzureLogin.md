@@ -7,6 +7,7 @@ title: "Azure RM Logins"
     - [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
     - [Authenticating a service principal with Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/)
     - [Python access to ARM](https://github.com/gbowerman/azurerm)
+    - [Create an Azure service principal with Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
 
 ```
@@ -462,8 +463,14 @@ export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
 export HTTP_PROXY=http://127.0.0.1:8888
 export HTTPS_PROXY=http://127.0.0.1:8888
 
+# For the old xplat cli (node.js based `azure` command line client)
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+
+# For the new Azure `az` CLI (python based)
 export ADAL_PYTHON_SSL_NO_VERIFY=1
 export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+
+
 
 export AZURE_SERVICEPRINCIPAL_APPID=deadbeef-1234-5678-abcd-fabf7cf9368e
 export AZURE_SERVICEPRINCIPAL_PASSWORD=SuperSecret123.-
@@ -477,4 +484,10 @@ az login --service-principal --tenant $AZURE_TENANTID --username $AZURE_SERVICEP
 az account set --subscription $AZURE_SUBSCRIPTION_ID 
 
 az vm list
+```
+
+## See the latest accessToken
+
+```bash
+cat ~/.azure/accessTokens.json | jq -r .[-1].refreshToken
 ```

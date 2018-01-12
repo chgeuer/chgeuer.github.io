@@ -22,12 +22,16 @@ mix hex.config --delete unsafe_https
 
 ```elixir
   def fiddlerHTTPotion do
+    # https://github.com/myfreeweb/httpotion
+    
     HTTPotion.get("https://postman-echo.com/get", 
        [ ibrowse: [ proxy_host: '127.0.0.1', proxy_port: 8888 ] ]
     )
   end
 
   def fiddlerHTTPoison do
+    # https://github.com/edgurgel/httpoison
+    
     HTTPoison.get("https://postman-echo.com/get", [], [ 
       proxy: "http://127.0.0.1:8888", 
       ssl_options: [ cacertfile: "C:\\Users\\chgeuer\\Desktop\\FiddlerRoot.cer" ], 

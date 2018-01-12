@@ -25,6 +25,40 @@ options = [{ :proxy, "http://127.0.0.1:8888" }]
 resp = HTTPoison.get(url, [headers], options)
 ```
 
+## HTTPClient
+
+```elixir
+  def callHTTPoison do
+    # using  {:http_builder, "~> 0.2.7"},
+    HttpBuilder.new()
+      |> with_adapter(HttpBuilder.Adapters.HTTPoison)
+      |> with_host("http://postman-echo.com")
+      |> with_options([proxy: "http://127.0.0.1:8888", ssl_options: [ cacertfile: "C:\\Users\\chgeuer\\Desktop\\FiddlerRoot.cer" ] ])
+      |> with_headers(%{"Authorization" => "Bearer token"})
+      |> with_request_timeout(10_000)
+      |> with_receive_timeout(5_000)
+      |> post("/post")
+      |> with_json_body(%{ "A" => "B" })
+      |> send()
+  end
+
+  def callHTTPotion do
+    HttpBuilder.new()
+      |> with_adapter(HttpBuilder.Adapters.HTTPotion)
+      |> with_host("https://postman-echo.com/")
+      |> with_options([ { :ibrowse, [ proxy_host: '127.0.0.1', proxy_port: 8888 ] } ])
+      |> with_options([    ibrowse: [ proxy_host: '127.0.0.1', proxy_port: 8888 ]   ])
+      |> with_options(              [ proxy_host: '127.0.0.1', proxy_port: 8888 ])
+      |> with_headers(%{"Authorization" => "Bearer token"})
+      |> with_request_timeout(10_000)
+      |> with_receive_timeout(5_000)
+      |> post("/post")
+      |> with_json_body(%{ "A" => "B" })
+      |> send()
+  end
+```
+
+
 
 ## Metaprogramming sample
 

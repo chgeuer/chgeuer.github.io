@@ -39,7 +39,7 @@ mix hex.config --delete unsafe_https
   end
 ```
 
-## HTTPClient
+## Playing with `HttpBuilder`
 
 ```elixir
   def callHTTPoison do
@@ -71,8 +71,6 @@ mix hex.config --delete unsafe_https
       |> send()
   end
 ```
-
-
 
 ## Metaprogramming sample
 

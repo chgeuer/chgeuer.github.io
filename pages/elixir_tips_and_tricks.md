@@ -18,11 +18,21 @@ mix hex.config --delete https_proxy
 mix hex.config --delete unsafe_https 
 ```
 
-## HTTPoison using Fiddler proxy
+## Inspecting HTTPoison and HTTPotion using the Fiddler proxy
 
 ```elixir
-options = [{ :proxy, "http://127.0.0.1:8888" }]
-resp = HTTPoison.get(url, [headers], options)
+  def fiddlerHTTPotion do
+    HTTPotion.get("https://postman-echo.com/get", 
+       [ ibrowse: [ proxy_host: '127.0.0.1', proxy_port: 8888 ] ]
+    )
+  end
+
+  def fiddlerHTTPoison do
+    HTTPoison.get("https://postman-echo.com/get", [], [ 
+      proxy: "http://127.0.0.1:8888", 
+      ssl_options: [ cacertfile: "C:\\Users\\chgeuer\\Desktop\\FiddlerRoot.cer" ], 
+      ssl: [ versions: [:'tlsv1.2'] ] ])
+  end
 ```
 
 ## HTTPClient

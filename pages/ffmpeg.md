@@ -383,9 +383,14 @@ dir *.flac | foreach { ffmpeg -i $_.Name -qscale:a 1 $_.Name.Replace("flac", "mp
 REM Convert FLAC to MP3 320k
 dir *.flac | foreach { ffmpeg -i $_.Name -ab 320k $_.Name.Replace("flac", "mp3") }
 
-REM Create M4B from MP3
+REM Create M4B from MP3 collection
 ffmpeg -i "concat:01.mp3|02.mp3" -c:a libvo_aacenc -vn out.m4a
 ren out.m4a out.m4b
+
+
+REM Convert mp3 to m4a
+dir *.mp3 | foreach { ffmpeg -i $_.Name -c:a libvo_aacenc -vn $_.Name.Replace("mp3", "m4a") }
+
 ```
 
 # Convert a bunch of MP3 files to an iPod audio book

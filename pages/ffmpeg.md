@@ -516,3 +516,12 @@ ffmpeg -start_number 3407 -i img_%4d.jpg -c:v libx264 -s "1404x936" out.mp4
 ffmpeg -i "1.mkv" -vcodec h264 -acodec libvo_aacenc "1.mp4"
 ffmpeg -i "1.mkv" -vcodec copy -acodec libvo_aacenc "1.mp4"
 ```
+# Render Game Frame previews from a series of PNGs
+
+Download art from the [Game Frame Art Forum](https://ledseq.com/forums/forum/game-frame/game-frame-art/)
+
+```
+ffmpeg -start_number 0 -i %d.bmp -c:v libx264 -s "256x256" -sws_flags neighbor tetris.mp4
+
+ffmpeg -start_number 0 -i %d.bmp -s "256x256" -sws_flags neighbor tetris.gif
+```

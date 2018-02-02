@@ -6,6 +6,22 @@ keywords:
 published: true
 ---
 
+# February 2018
+
+
+- [Deploy Azure Functions to Kubernetes and scale them automatically](https://thorsten-hans.com/deploy-azure-functions-to-kubernetes-and-scale-them-automatically-8c9f44209bb)
+- [kEdge - Kubernetes Edge Proxy for gRPC and HTTP Microservices](https://github.com/improbable-eng/kedge) and [Introducing kEdge: a fresh approach to cross-cluster communication](https://improbable.io/games/blog/introducing-kedge-a-fresh-approach-to-cross-cluster-communication)
+- [Reinventing MVC pattern for web programming with F#](http://kcieslak.io/Reinventing-MVC-for-web-programming-with-F) and [SaturnFramework Opinionated, web development framework for F# which implements the server-side, functional MVC pattern](https://github.com/saturnframework/saturn)
+- [Easy way to create a C# lambda expression from a string (with Roslyn)](https://www.strathweb.com/2018/01/easy-way-to-create-a-c-lambda-expression-from-a-string-with-roslyn/)
+- [FreshPod - Restart Pods on Minikube automatically when their images are updated](https://github.com/googlecloudplatform/freshpod)
+- [Ben.Demystifier - Stacktrace improvements in .NET Core 2.1](https://www.ageofascent.com/2018/01/26/stack-trace-for-exceptions-in-dotnet-core-2.1/)
+- [Persistent logins in Elixir with Expected](https://medium.com/@ejpcmac/persistent-logins-in-elixir-with-expected-70b9aac2bcae)
+- [Microsoft Expands the Kubernetes Toolset with the Virtual Kublet](https://thenewstack.io/microsoft-expands-kubernetes-toolset/) / [Virtual Kubelet is an open source Kubernetes kubelet implementation](https://github.com/virtual-kubelet/virtual-kubelet)
+- [Hacker101 https://www.hacker101.com](https://github.com/Hacker0x01/hacker101)
+- [Moving efficiently in the CLI](https://clementc.github.io/blog/2018/01/25/moving_cli/)
+- [ksonnet](https://blog.heptio.com/the-next-chapter-for-ksonnet-1dcbbad30cb)
+
+
 
 # February 2017
 

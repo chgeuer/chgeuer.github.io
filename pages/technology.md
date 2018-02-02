@@ -20,8 +20,12 @@ published: true
 - [Hacker101 https://www.hacker101.com](https://github.com/Hacker0x01/hacker101)
 - [Moving efficiently in the CLI](https://clementc.github.io/blog/2018/01/25/moving_cli/)
 - [ksonnet](https://blog.heptio.com/the-next-chapter-for-ksonnet-1dcbbad30cb)
-
-
+- ['Red Oceans': How to Find Profitable Startup Ideas](https://capitalandgrowth.org/articles/770/how-to-find-profitable-business-ideas.html)
+- [Terraforming 1password](https://blog.agilebits.com/2018/01/25/terraforming-1password/)
+- [Jenkins on Azure](https://tutorials.visualstudio.com/jenkins-azure/intro)
+- [heptiolabs/healthcheck: A library for implementing Kubernetes liveness and readiness probe handlers in your Go application.](https://github.com/heptiolabs/healthcheck)
+- [Building and configuring a Phoenix app with Umbrella for releasing with Docker](http://www.cultivatehq.com/posts/elixir-distillery-umbrella-docker/)
+- [Where to store tokens in a web app](https://auth0.com/docs/security/store-tokens)
 
 # February 2017
 

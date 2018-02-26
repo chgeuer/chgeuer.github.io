@@ -525,3 +525,9 @@ ffmpeg -start_number 0 -i %d.bmp -c:v libx264 -s "256x256" -sws_flags neighbor t
 
 ffmpeg -start_number 0 -i %d.bmp -s "256x256" -sws_flags neighbor tetris.gif
 ```
+
+
+# Repair MP4
+
+http://www.videohelp.com/software/recover-mp4-to-h264
+

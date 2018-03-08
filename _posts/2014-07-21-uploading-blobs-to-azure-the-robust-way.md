@@ -18,7 +18,7 @@ When you need to upload blobs (files) to Azure blob storage, under the hood this
 
 ## Chunk size
 
-The problem with the previously mentioned broken upload is that you basically waste precious bandwidth and time when the network causes the upload to break. Uploading in larger chunks has the advantage that the overhead of establishing a TCP session is minimized, but that happens at the higher probability of the upload failing. Smaller upload chunks have the advantage that each upload has a higher chance of happening successfully, but at the cost of more HTTP requests and the associated TCP session establishment overhead. The maximum size of an uploaded block in Azure storage is 4 MB. 
+The problem with the previously mentioned broken upload is that you basically waste precious bandwidth and time when the network causes the upload to break. Uploading in larger chunks has the advantage that the overhead of establishing a TCP session is minimized, but that happens at the higher probability of the upload failing. Smaller upload chunks have the advantage that each upload has a higher chance of happening successfully, but at the cost of more HTTP requests and the associated TCP session establishment overhead. The maximum size of an uploaded block in Azure storage is 100 MB. That limit was 4MB in the past, but that limit was upgraded with API Version `2016-05-31` (see the [docs](https://docs.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs)). 
 
 ## We're talking 'Block' Blobs
 

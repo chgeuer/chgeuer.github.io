@@ -470,8 +470,6 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
 export ADAL_PYTHON_SSL_NO_VERIFY=1
 export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
 
-
-
 export AZURE_SERVICEPRINCIPAL_APPID=deadbeef-1234-5678-abcd-fabf7cf9368e
 export AZURE_SERVICEPRINCIPAL_PASSWORD=SuperSecret123.-
 export AZURE_TENANTID=942023a6-efbe-4d97-a72d-532ef7337595
@@ -490,4 +488,22 @@ az vm list
 
 ```bash
 cat ~/.azure/accessTokens.json | jq -r .[-1].refreshToken
+```
+
+# Set Windows Proxy information
+
+```powershell
+[Environment]::SetEnvironmentVariable("HTTP_PROXY", "http://proxy.example.com:80/", [EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable("HTTPS_PROXY", "http://proxy.example.com:443/", [EnvironmentVariableTarget]::Machine)
+
+# https://martin.hoppenheit.info/blog/2015/set-windows-proxy-with-powershell/
+
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyServer -Value "http=127.0.0.1:8888;https=127.0.0.1:8888"
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value 1
+
+$(Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings").ProxyServer
+$(Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings").ProxyEnable
+
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyServer
+Set-ItemProperty    -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value 0
 ```

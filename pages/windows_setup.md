@@ -108,18 +108,18 @@ Tweak `"C:\Users\chgeuer.EUROPE\AppData\Roaming\ConEmu.xml"`
 %SystemRoot%\system32
 %SystemRoot%
 %SystemRoot%\System32\Wbem
-%SystemRoot%\System32\WindowsPowerShell\v1.0\
-%SystemRoot%\System32\OpenSSH\
+%SystemRoot%\System32\WindowsPowerShell\v1.0
+%SystemRoot%\System32\OpenSSH
 %ProgramFiles%\cmder
 %ProgramFiles%\ConEmu
 %ProgramFiles%\dotnet
 %ProgramFiles%\Go\bin
-%SystemDrive%\Python36\Scripts\
+%SystemDrive%\Python36\Scripts
 %SystemDrive%\Python36
 %ProgramFiles%\erl9.1\bin
 %ProgramFiles(x86)%\Elixir\bin
 %USERPROFILE%\.mix\escripts
-%ProgramFiles%\Microsoft SQL Server\130\Tools\Binn\
+%ProgramFiles%\Microsoft SQL Server\130\Tools\Binn
 %ProgramFiles%\TortoiseGit\bin
 %ProgramFiles%\Git\cmd
 %ProgramFiles%\Microsoft VS Code\bin

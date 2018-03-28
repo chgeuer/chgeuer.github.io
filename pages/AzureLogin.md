@@ -54,6 +54,16 @@ $credValue = [System.Convert]::ToBase64String($certOctets)
 # $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @(,[System.Byte[]]$certOctets)
 ```
 
+## Fiddle with PowerShell
+
+- https://blogs.technet.microsoft.com/keithmayer/2016/01/06/quick-tip-using-azure-powershell-with-web-proxy-and-fiddler/
+
+```powershell
+$proxyString = "http://127.0.0.1:8888"
+$proxyUri = new-object System.Uri($proxyString)
+[System.Net.WebRequest]::DefaultWebProxy = New-Object System.Net.WebProxy ($proxyUri, $true)
+```
+
 ## Fill in your Azure details
 
 ```ps1

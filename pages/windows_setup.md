@@ -132,3 +132,16 @@ Tweak `"C:\Users\chgeuer.EUROPE\AppData\Roaming\ConEmu.xml"`
 %USERPROFILE%\AppData\Local\Microsoft\WindowsApps
 ```
 
+
+
+
+
+## Linux setup
+
+### `asciinema`
+
+```bash
+sudo apt-add-repository ppa:zanchey/asciinema
+sudo apt-get update
+sudo apt-get install asciinema
+```

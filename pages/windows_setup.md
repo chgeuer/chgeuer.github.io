@@ -26,7 +26,7 @@
   - [Erlang OTP](https://www.erlang.org/downloads)
   - [Elixir](https://elixir-lang.org/install.html#windows)
     - `setx.exe IEX_WITH_WERL true`
-    - `setx.exe IEX_WITH_WERL "" & REG delete HKCU\Environment /F /V IEX_WITH_WERL`
+    - `setx.exe IEX_WITH_WERL "" & reg.exe delete HKCU\Environment /F /V IEX_WITH_WERL`
   - [Go](https://golang.org/dl/)
   - [Python](https://www.python.org/downloads/windows/)
 - [Tag&Rename](http://www.softpointer.com/download.htm)

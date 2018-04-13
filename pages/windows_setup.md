@@ -25,6 +25,7 @@
 - Languages
   - [Erlang OTP](https://www.erlang.org/downloads)
   - [Elixir](https://elixir-lang.org/install.html#windows)
+    - `setx.exe IEX_WITH_WERL true`
   - [Go](https://golang.org/dl/)
   - [Python](https://www.python.org/downloads/windows/)
 - [Tag&Rename](http://www.softpointer.com/download.htm)

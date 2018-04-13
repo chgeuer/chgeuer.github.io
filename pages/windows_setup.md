@@ -8,7 +8,7 @@
 - TechSmith SnagIt 9
 - [Clink](https://mridgers.github.io/clink/)
 - [ConEmu](https://conemu.github.io/)
-- [Docker for Windows](docs.docker.com/docker-for-windows/install/)
+- [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): `curl -LO --insecure https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/windows/amd64/kubectl.exe`
 - [Dynamics AX 2012 Expenses](https://www.microsoft.com/store/productId/9WZDNCRFJB81)
 - [Git for Windows](https://git-scm.com/download/win)

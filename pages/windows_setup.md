@@ -41,7 +41,7 @@
 - [ffmpeg](https://ffmpeg.zeranoe.com/builds/)
 - [jq](https://stedolan.github.io/jq/)
 - [SysInternals](https://download.sysinternals.com/files/SysinternalsSuite.zip)
-
+- [GlobalProtect](https://www.microsoft.com/store/productId/9NBLGGH6BZL3)
 
 ### Include drive letters in Explorer view
 

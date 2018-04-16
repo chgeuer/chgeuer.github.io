@@ -9,6 +9,7 @@
 - [Clink](https://mridgers.github.io/clink/)
 - [ConEmu](https://conemu.github.io/)
   - Config in `%appdata%\ConEmu.xml`
+  - Run bash: `ConEmu64.exe -basic -run {Bash::bash}`
 - [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): `curl -LO --insecure https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/windows/amd64/kubectl.exe`
 - [Dynamics AX 2012 Expenses](https://www.microsoft.com/store/productId/9WZDNCRFJB81)

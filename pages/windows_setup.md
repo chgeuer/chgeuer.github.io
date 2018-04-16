@@ -84,6 +84,12 @@ echo "sudo mount --bind /mnt/c /c" >> ~/.bashrc && source ~/.bashrc
 echo "export DOCKER_HOST=tcp://0.0.0.0:2375" >> ~/.bashrc && source ~/.bashrc
 ```
 
+#### Add Azure AD user to local group
+
+```powershell
+Add-LocalGroupMember -Group "docker-users" -Member "AzureAD\chgeuer@microsoft.com"
+```
+
 ### VS Code
 
 #### Font

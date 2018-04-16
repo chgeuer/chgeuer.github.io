@@ -8,6 +8,7 @@
 - TechSmith SnagIt 9
 - [Clink](https://mridgers.github.io/clink/)
 - [ConEmu](https://conemu.github.io/)
+  - Config in `%appdata%\ConEmu.xml`
 - [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): `curl -LO --insecure https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/windows/amd64/kubectl.exe`
 - [Dynamics AX 2012 Expenses](https://www.microsoft.com/store/productId/9WZDNCRFJB81)
@@ -113,31 +114,36 @@ Tweak `"C:\Users\chgeuer.EUROPE\AppData\Roaming\ConEmu.xml"`
 # Path
 
 ```text
-%SystemRoot%\system32
 %SystemRoot%
+%SystemRoot%\system32
 %SystemRoot%\System32\Wbem
 %SystemRoot%\System32\WindowsPowerShell\v1.0
-%SystemRoot%\System32\OpenSSH
-%ProgramFiles%\cmder
+%SystemRoot%\System32\OpenSSH\
+
 %ProgramFiles%\ConEmu
-%ProgramFiles%\dotnet
-%ProgramFiles%\Go\bin
-%SystemDrive%\Python36\Scripts
-%SystemDrive%\Python36
-%ProgramFiles%\erl9.1\bin
-%ProgramFiles(x86)%\Elixir\bin
-%USERPROFILE%\.mix\escripts
-%ProgramFiles%\Microsoft SQL Server\130\Tools\Binn
-%ProgramFiles%\TortoiseGit\bin
+%ProgramFiles%\ConEmu\ConEmu
+%ProgramFiles%\ConEmu\ConEmu\Scripts
+%ProgramFiles%\Docker\Docker\resources\bin
+%ProgramFiles%\Docker\Docker\resources
 %ProgramFiles%\Git\cmd
+%ProgramFiles%\TortoiseGit\bin
+%ProgramFiles(x86)%\Vim\vim80
 %ProgramFiles%\Microsoft VS Code\bin
-%ProgramFiles%\Microsoft VS Code Insiders\bin
-%USERPROFILE%\bin
-%USERPROFILE%\bin\nmap
-%USERPROFILE%\bin\SysInternals
-%USERPROFILE%\AppData\Local\Programs\Fiddler
-%ProgramFiles%\Docker\Docker\Resources\bin
+%ProgramFiles%\dotnet\
+%ProgramFiles%\erl9.3\bin
+%ProgramFiles(x86)%\Elixir\bin
+%ProgramFiles%\Go\bin
+%ProgramFiles%\Python36
+%ProgramFiles%\Python36\Scripts
+%ProgramFiles%\node-v8.11.1-win-x64
+%ProgramFiles(x86)%\WinSCP
+%ProgramFiles(x86)%\Nmap
+%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\FSharp
+
 %USERPROFILE%\AppData\Local\Microsoft\WindowsApps
+%USERPROFILE%\AppData\Local\Programs\Fiddler
+%USERPROFILE%\.mix\escripts
+%USERPROFILE%\bin
 ```
 
 

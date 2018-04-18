@@ -7,6 +7,12 @@ published: true
 ---
 
 
+# Strange ssh connectivity problem
+
+```bash
+ssh -oKexAlgorithms=+diffie-hellman-group-exchange-sha256 -i /mnt/c/Users/chgeuer/.ssh/dcos.openssh.private chgeuer@104.40.185.223
+```
+
 
 
 # Powershell creates self-signed X.509 Cert

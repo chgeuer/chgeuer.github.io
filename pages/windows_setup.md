@@ -70,7 +70,7 @@ Windows Registry Editor Version 5.00
 ".gif"="PhotoViewer.FileAssoc.Tiff"
 ```
 
-### Docker on WSL to talk to Docker on WIndows
+### Docker on WSL to talk to Docker on Windows
 
 Docs [1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly) or [2](https://medium.com/@sebagomez/installing-the-docker-client-on-ubuntus-windows-subsystem-for-linux-612b392a44c4)
 
@@ -167,4 +167,17 @@ sudo apt-get install asciinema
 echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
 sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
 sudo apt-get install apt-transport-https && apt-get update && sudo apt-get install azure-cli
+```
+
+### Elixir
+
+
+```bash
+#!/bin/bash
+
+wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+sudo dpkg -i erlang-solutions_1.0_all.deb
+sudo apt-get -y update
+sudo apt-get -y install esl-erlang
+sudo apt-get -y install elixir
 ```

@@ -180,4 +180,16 @@ sudo dpkg -i erlang-solutions_1.0_all.deb
 sudo apt-get -y update
 sudo apt-get -y install esl-erlang
 sudo apt-get -y install elixir
+sudo apt-get install inotify-tools
+mix local.hex --force
+
+```
+
+### Node
+
+- https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
+
+```bash
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```

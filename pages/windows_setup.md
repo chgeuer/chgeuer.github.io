@@ -182,7 +182,7 @@ sudo apt-get -y install esl-erlang
 sudo apt-get -y install elixir
 sudo apt-get install inotify-tools
 mix local.hex --force
-
+mix local.rebar --force
 ```
 
 ### Node

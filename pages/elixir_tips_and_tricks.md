@@ -96,3 +96,22 @@ defmodule LatLon do
     def foo, do: parse("1°2´3456˝E")
 end
 ```
+
+## Hook a function into a Tesla pipeline
+
+```elixit
+  def new(token) when is_binary(token) do
+    Tesla.build_client([
+      {Tesla.Middleware.Headers,  %{"Authorization" => "Bearer #{token}"}}
+      &use_fiddler/2
+    ])
+  end
+
+  def use_fiddler(env = %Tesla.Env{}, _stack) do
+    IO.puts("use_fiddler!!!")
+
+    env
+    |> Tesla.put_opt(:proxy_host, '127.0.0.1')
+    |> Tesla.put_opt(:proxy_port, 8888)
+  end
+```

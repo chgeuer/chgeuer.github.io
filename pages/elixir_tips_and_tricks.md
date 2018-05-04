@@ -99,7 +99,7 @@ end
 
 ## Hook a function into a Tesla pipeline
 
-```elixit
+```elixir
   def new(token) when is_binary(token) do
     Tesla.build_client([
       {Tesla.Middleware.Headers,  %{"Authorization" => "Bearer #{token}"}}
@@ -108,10 +108,8 @@ end
   end
 
   def use_fiddler(env = %Tesla.Env{}, _stack) do
-    IO.puts("use_fiddler!!!")
-
     env
-    |> Tesla.put_opt(:proxy_host, '127.0.0.1')
+    |> Tesla.put_opt(:proxy_host, "127.0.0.1" |> String.to_charlist())
     |> Tesla.put_opt(:proxy_port, 8888)
   end
 ```

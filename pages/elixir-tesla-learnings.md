@@ -3,7 +3,9 @@ layout: default
 title: "Some learnings regarding Tesla"
 ---
 
-## Use Fiddler with Tesla
+## Use Fiddler with [Tesla v0.8](https://github.com/teamon/tesla/tree/v0.8.0)
+
+Using the old Tesla version, because that's the one the swagger generator uses
 
 ### `mix.exs`
 
@@ -19,10 +21,13 @@ title: "Some learnings regarding Tesla"
 
 ### `config/config.exs`
 
+```elixir
 use Mix.Config
 
-```elixir
-# config :tesla, adapter: Tesla.Adapter.Ibrowse # https://github.com/teamon/tesla/wiki/0.x-to-1.0-Migration-Guide#dropped-aliases-support-159
+# https://github.com/teamon/tesla/wiki/0.x-to-1.0-Migration-Guide#dropped-aliases-support-159
+# config :tesla, 
+#   adapter: Tesla.Adapter.Ibrowse 
+
 config :tesla,
   adapter: :ibrowse
 ```

@@ -71,3 +71,27 @@ defmodule Sample do
   end
 end
 ```
+
+### raw requests
+
+```elixir
+defmodule Sample
+  defmodule MyClient do
+    use Tesla
+
+    adapter(:ibrowse)
+
+    def new(base_url) when is_binary(base_url) do
+      Tesla.build_client([
+        {Tesla.Middleware.BaseUrl, base_url}
+      ])
+    end
+  end
+
+  def get() do
+    "https://www.microsoft.com"
+    |> MyClient.new()
+    |> MyClient.request(method: :get, url: "/", headers: %{"x-ms-foo" => "qqq"})
+  end
+end
+```

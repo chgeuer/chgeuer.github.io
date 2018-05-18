@@ -6,7 +6,7 @@ date: 2018-05-18  09:30:00
 
 When customers have multiple Azure subscriptions, it can be overwhelming to keep an eye on whether they run into some of Azure's [subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). 
 
-The following script might help to make that task a bit easier: It uses the Azure `cli` to iterate over your subscriptions, and all data center locations within these subscriptions, and then prints out the relevant information as tab-separated lines to STDOUT. 
+The following [script](https://github.com/chgeuer/PullQuotaData/blob/master/pull-quota-data.sh) might help to make that task a bit easier: It uses the Azure `cli` to iterate over your subscriptions, and all data center locations within these subscriptions, and then prints out the relevant information as tab-separated lines to STDOUT. 
 
 When you redirect the output to a text file (`./get-quota-info.sh > quotas.tsv`), you can open the text file in a text editor, copy/paste the contents into Excel, create a table from it, and filter. 
 

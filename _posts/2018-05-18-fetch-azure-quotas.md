@@ -63,4 +63,4 @@ do
 done
 ```
 
-[excel]: /img/2018-05-18\/xcel.png "Excel screenshots"
+[excel]: /img/2018-05-18/excel.png "Excel screenshots"

@@ -503,8 +503,8 @@ cat ~/.azure/accessTokens.json | jq -r .[-1].refreshToken
 # Set Windows Proxy information
 
 ```powershell
-[Environment]::SetEnvironmentVariable("HTTP_PROXY", "http://proxy.example.com:80/", [EnvironmentVariableTarget]::Machine)
-[Environment]::SetEnvironmentVariable("HTTPS_PROXY", "http://proxy.example.com:443/", [EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable("HTTP_PROXY", "http://127.0.0.1:8888/", [EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable("HTTPS_PROXY", "http://127.0.0.1:8888/", [EnvironmentVariableTarget]::Machine)
 
 # https://martin.hoppenheit.info/blog/2015/set-windows-proxy-with-powershell/
 

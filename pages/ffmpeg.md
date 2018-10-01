@@ -117,6 +117,15 @@ ffmpeg -f dshow -i video="Integrated Camera":audio="Microphone (Realtek High Def
 ffmpeg -f dshow -i video="Integrated Camera":audio="Headset Microphone (Plantronics C520-M)" -t 5 5-seconds.mp4
 ```
 
+### Stream TS (untested)
+
+Src: https://elixirforum.com/t/live-video-cam-streaming-in-mpeg-ts-format/16957
+
+```
+ffmpeg -i video="Integrated Camera":audio="Headset Microphone (Plantronics C520-M)" -y -nostdin -hide_banner -loglevel 0 -f v4l2 -framerate 25 -video_size 1280x720 -input_format mjpeg -c libx264 -movflags faststart -f mpegts -
+```
+
+
 ### Screen capture
 
 #### Screen capture filter

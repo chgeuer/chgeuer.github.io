@@ -6,9 +6,21 @@ date: 2019-02-28  09:30:00
 
 # Signing in to Azure from `bash`
 
-Please note all of these shell samples use [`jq`](https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64) for JSON parsing...
+Sometimes I need a zero-install way to interact with Azure. I have no specific Azure utilities at hand, no Python, no nothing. Usually, Azure management is done using PowerShell, the [az cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or, if you want raw REST calls, the [armclient](https://github.com/projectkudu/ARMClient). But for my customer, even can be too much ceremony.
+
+So the question was how can I get going with purely `bash`, [`cURL`](https://curl.haxx.se/) and [`jq`](https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64) for JSON parsing?
+
+If you're running inside a VM, with Managed Identity enabled, you can easily fetch a token. But unfortunately the VM wasn't authorized to hit the resource I care about.
+
+Next stop service principals. Problem is customer's AD admin team running a tough regime, and don't hand out service principals.
+
+So ultimately, how can I get my actual AAD user identity avail in the shell? In the end, all I need is a bearer token.
+
+Let's dive right in:
 
 ## A few variables first
+
+I want to authN against 'my' Azure AD tenant, and want to hit the Azure ARM REST API:
 
 ```bash
 #!/bin/bash
@@ -18,6 +30,8 @@ resource="https://management.azure.com/"
 ```
 
 ## Doing a device login
+
+For the full user login, i.e. device authN, here's what happens under the hood: The code needs to fetch a device code, and then use that code to poll and validate whether the user authenticated. Quick hint: If you wanna snoop on cURL's requests with something like [fiddler](https://www.telerik.com/fiddler), you should add this `--proxy http://127.0.0.1:8888/ --insecure` to the calls. 
 
 ```bash
 #!/bin/bash
@@ -60,6 +74,8 @@ echo "${access_token}"
 
 ## Using a service principal
 
+Assuming we have a 'real' service principal, we can do this: 
+
 ```bash
 #!/bin/bash
 
@@ -79,7 +95,7 @@ access_token="$(curl \
         jq -r ".access_token")"
 ```
 
-## Using managed VM identity (running on an Azure VM)
+## Using managed VM identity (running inside an Azure VM)
 
 ```bash
 #!/bin/bash
@@ -91,7 +107,7 @@ access_token="$(curl -s -H Metadata:true \
     jq -r ".access_token")"
 ```
 
-## Fetch the subscription ID on an Azure VM
+## Fetch the subscription ID, from the Azure VM's instance metadata endpoint:
 
 ```bash
 #!/bin/bash
@@ -101,7 +117,7 @@ subscriptionId="$(curl -s -H Metadata:true \
     jq -r ".compute.subscriptionId")"
 ```
 
-## Invoke the ARM API
+## Invoke the ARM API, for example with a listing of resource groups
 
 ```bash
 #!/bin/bash
@@ -109,9 +125,6 @@ subscriptionId="$(curl -s -H Metadata:true \
 curl -s -H "Authorization: Bearer ${access_token}" \
     "https://management.azure.com/subscriptions/${subscriptionId}/resourcegroups?api-version=2018-05-01" | \
     jq -r ".value[].name"
-
-#resourceGroupName="HEC42-AZ1-westeurope-1"
-#vaultName="vault-${resourceGroupName}"
-#https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/${vaultName}/backupJobs/47ad3164-a567-4168-944e-9740a28e9f35?api-version=2018-01-10
-
 ```
+
+Thanks for reading, if you liked it, I'd appreciate a [retweet](https://twitter.com/chgeuer/status/1101119486747439105).

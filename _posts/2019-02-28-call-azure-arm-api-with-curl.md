@@ -127,4 +127,32 @@ curl -s -H "Authorization: Bearer ${access_token}" \
     jq -r ".value[].name"
 ```
 
+## Fetching a secret from Azure KeyVault using a managed identity
+
+```bash
+keyVaultName="chgeuerkeyvault"
+secretName="secret1"
+
+resource="https://vault.azure.net"
+access_token="$(curl -s -H Metadata:true \
+    "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=${resource}" | \
+    jq -r ".access_token")"
+
+apiVersion="7.0"
+
+#
+# Fetch the first version in the list
+#
+secretVersion="$(curl -s -H "Authorization: Bearer ${access_token}" \
+    "https://${keyVaultName}.vault.azure.net/secrets/${secretName}/versions?api-version=${apiVersion}" | \
+    jq -r ".value[0].id")"
+
+secret="$(curl -s -H "Authorization: Bearer ${access_token}" \
+    "${secretVersion}?api-version=${apiVersion}" | \
+    jq -r ".value" )"
+
+echo "The secret is '${secret}'"
+```
+
+
 Thanks for reading, if you liked it, I'd appreciate a [retweet](https://twitter.com/chgeuer/status/1101119486747439105).

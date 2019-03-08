@@ -149,7 +149,7 @@ access_token="$(curl -s -H Metadata:true \
 apiVersion="7.0"
 latest_secret_uri="$(curl -s -H "Authorization: Bearer ${access_token}" \
     "https://${key_vault_name}.vault.azure.net/secrets/${secret_name}/versions?api-version=${apiVersion}" | \
-    jq -r ".value[-1].id")"
+    jq -r ".value | sort_by(.attributes.created) | .[-1].id")"
 
 #
 # Fetch the actual secret's value

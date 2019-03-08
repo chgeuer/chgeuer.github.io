@@ -129,26 +129,33 @@ curl -s -H "Authorization: Bearer ${access_token}" \
 
 ## Fetching a secret from Azure KeyVault using a managed identity
 
+This little script demonstrates how to fetch a secret from an Azure KeyVault, using a managed identity on an Azure VM. Just adapt `key_vault_name` and `secret_name` accordingly, and of course ensure that the managed identity can actually read the secret. 
+
 ```bash
-keyVaultName="chgeuerkeyvault"
-secretName="secret1"
+#!/bin/bash
+
+key_vault_name="chgeuerkeyvault"
+secret_name="secret1"
+
 
 resource="https://vault.azure.net"
 access_token="$(curl -s -H Metadata:true \
     "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=${resource}" | \
     jq -r ".access_token")"
 
-apiVersion="7.0"
-
 #
 # Fetch the latest version
 #
-secretVersion="$(curl -s -H "Authorization: Bearer ${access_token}" \
-    "https://${keyVaultName}.vault.azure.net/secrets/${secretName}/versions?api-version=${apiVersion}" | \
+apiVersion="7.0"
+latest_secret_uri="$(curl -s -H "Authorization: Bearer ${access_token}" \
+    "https://${key_vault_name}.vault.azure.net/secrets/${secret_name}/versions?api-version=${apiVersion}" | \
     jq -r ".value[-1].id")"
 
+#
+# Fetch the actual secret's value
+#
 secret="$(curl -s -H "Authorization: Bearer ${access_token}" \
-    "${secretVersion}?api-version=${apiVersion}" | \
+    "${latest_secret_uri}?api-version=${apiVersion}" | \
     jq -r ".value" )"
 
 echo "The secret is '${secret}'"

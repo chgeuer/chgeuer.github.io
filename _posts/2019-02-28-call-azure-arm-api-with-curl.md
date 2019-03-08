@@ -141,11 +141,11 @@ access_token="$(curl -s -H Metadata:true \
 apiVersion="7.0"
 
 #
-# Fetch the first version in the list
+# Fetch the latest version
 #
 secretVersion="$(curl -s -H "Authorization: Bearer ${access_token}" \
     "https://${keyVaultName}.vault.azure.net/secrets/${secretName}/versions?api-version=${apiVersion}" | \
-    jq -r ".value[0].id")"
+    jq -r ".value[-1].id")"
 
 secret="$(curl -s -H "Authorization: Bearer ${access_token}" \
     "${secretVersion}?api-version=${apiVersion}" | \

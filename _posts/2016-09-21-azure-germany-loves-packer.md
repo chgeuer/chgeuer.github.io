@@ -4,13 +4,16 @@ title: "Microsoft Azure Germany loves packer.io"
 date: 2016-09-21 09:30:00
 ---
 
-<blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr">How to use <a href="https://twitter.com/HashiCorp">@HashiCorp</a> <a href="https://twitter.com/hashtag/packer?src=hash">#packer</a> with <a href="https://twitter.com/Azure">@Azure</a> Germany <a href="https://t.co/I4t6ncMPBf">https://t.co/I4t6ncMPBf</a> /cc <a href="https://twitter.com/boumenot">@boumenot</a> <a href="https://twitter.com/MicrosoftDE">@MicrosoftDE</a> <a href="https://twitter.com/msdev">@msdev</a></p>&mdash; Chris Geuer-Pollmann (@chgeuer) <a href="https://twitter.com/chgeuer/status/778911040805502977">22. September 2016</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-Before you read any further: please also check Azure's [Azure VM Image Builder](https://azure.microsoft.com/en-us/blog/announcing-private-preview-of-azure-vm-image-builder/) service!
 
 ![Microsoft Azure Germany loves packer.io][header]
 
-Today, the Microsoft Cloud for Germany goes live (or as Microsoft calls it, becomes Generally Available). For me personally, having many customers with 'non-Microsoft'-Workloads, it is a pleasure to see that Azure Germany is as open as the the existing International data centers. Customers such as [TeamDrive](https://www.teamdrive.de/), [platform.sh](https://platform.sh/) or [G DATA](https://www.gdata.de/) use our German data centers for their critical workloads, alongside with the pretty interesting Data Trustee Model, which Microsoft and Deutsche Telekom established for Frankfurt and Magdeburg regions. 
+
+Before you read any further: please also check Azure's [Azure VM Image Builder](https://azure.microsoft.com/en-us/blog/announcing-private-preview-of-azure-vm-image-builder/) service!
+
+
+
+
+Today (in September 2016, that is), the Microsoft Cloud for Germany goes live (or as Microsoft calls it, becomes Generally Available). For me personally, having many customers with 'non-Microsoft'-Workloads, it is a pleasure to see that Azure Germany is as open as the the existing International data centers. Customers such as [TeamDrive](https://www.teamdrive.de/), [platform.sh](https://platform.sh/) or [G DATA](https://www.gdata.de/) use our German data centers for their critical workloads, alongside with the pretty interesting Data Trustee Model, which Microsoft and Deutsche Telekom established for Frankfurt and Magdeburg regions. 
 
 I wanted to take the opportunity to show how both  Microsoft Azure Cloud for Germany, as well as worldwide, provide an open platform and support the open source ecosystem. In the [previous article][serviceprincipalgermany], I described how you can create a service principal in Azure Active Directory (incl. Azure in Germany). In this article, we will explore how to use [Hashicorp's open-source `packer` toolchain][packer] to automatically create custom VM images, both for Windows- and Linux-VMs. 
 

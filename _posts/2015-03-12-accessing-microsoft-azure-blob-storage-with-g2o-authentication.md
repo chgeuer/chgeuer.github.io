@@ -23,7 +23,7 @@ In this proof-of-concept, we're going to integrate two pieces of technology toge
 
 Microsoft Azure Blob Storage is an object store, where you can create one or more storage accounts. Within an account, you can create `containers`, and store files such as images or videos as '[block blobs][block blobs]' ) in these 'containers'. In the picture below, you can see three storage accounts, `chgeuerwe123`, `cdndatastore01`, and `cdndatastore02`.
 
-<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-ui.png"></img>
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-ui.png">
 
 A container can be publicly accessible (so that an unauthenticated `GET` requests are permitted) or the container can be locked down to be private (which is by default), so that only authenticated requests are permitted. Authentication comes in two flavors: 
 
@@ -32,7 +32,7 @@ A container can be publicly accessible (so that an unauthenticated `GET` request
 
 Below you can see the two storage account keys associated with 'cdndatastore01'. 
 
-<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-keys.png"></img>
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-keys.png">
 
 Let's say we have two containers called 'public' and 'private1' (which are, well, publicly accessible and privately locked down), and various blobs in these storage accounts: 
 
@@ -46,19 +46,19 @@ When we look at the URL of a blob, it consists of the following parts:
 - Container: The Container name comes after the hostname https://cdndatastore01.blob.core.windows.net/public/
 - Blob name: You can model a directory hierarcy inside a container by putting `/` characters into a blob name. Most tools support the illusion of folders. When I use a tool such as CloudXPlorer to look at my files, I see this: 
 
-<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-cloudxplorer.png"></img>
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-cloudxplorer.png">
 
 As a result, my public image is now accessible at [https://cdndatastore01.blob.core.windows.net/public/data/somePublicImage.jpg](https://cdndatastore01.blob.core.windows.net/public/data/somePublicImage.jpg):
 
-<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-public-image.png"></img>
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-public-image.png">
 
 An unauthenticated GET against my private image [https://cdndatastore01.blob.core.windows.net/private1/someLockedDownImage.jpg](https://cdndatastore01.blob.core.windows.net/private1/someLockedDownImage.jpg) only gives me a 404: 
 
-<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-private-image-404.png"></img>
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-private-image-404.png">
 
 I have to create an SAS [.../private1/someLockedDownImage.jpg?sv=2014-02-14&sr=b&si=g2o&sig=...&se=2015-03-12T11%3A53%3A54Z](https://cdndatastore01.blob.core.windows.net/private1/someLockedDownImage.jpg?sv=2014-02-14&sr=b&si=g2o&sig=H%2BTnGl2Yw80uXax6t%2BLB4FAgQvNh4FRkShHr3Qmnmg4%3D&se=2015-03-12T11%3A53%3A54Z) to successfully GET the image. 
 
-<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-private-image-200.png"></img>
+<img src="/img/2015-03-12-accessing-microsoft-azure-blob-storage-with-g2o-authentication/blob-storage-private-image-200.png">
 
 For details around shared access signatures, check out these [great][sas1] [articles][sas2]. Suffice to say, that I added a policy to my container with the identifier `g2o`, which you can see being referenced in the `&si=g2o` part of my SAS. 
 

@@ -107,7 +107,7 @@ access_token="$(curl -s -H Metadata:true \
     jq -r ".access_token")"
 ```
 
-## Fetch the subscription ID, from the Azure VM's instance metadata endpoint:
+## Fetch the subscription ID, from the Azure VM's instance metadata endpoint
 
 ```bash
 #!/bin/bash
@@ -122,8 +122,11 @@ subscriptionId="$(curl -s -H Metadata:true \
 ```bash
 #!/bin/bash
 
-curl -s -H "Authorization: Bearer ${access_token}" \
-    "https://management.azure.com/subscriptions/${subscriptionId}/resourcegroups?api-version=2018-05-01" | \
+curl --silent \
+    --get \
+    --header "Authorization: Bearer ${access_token}" \
+    --proxy http://127.0.0.1:8888/ --insecure \
+    "https://management.azure.com/subscriptions/${subscriptionId}/resourcegroups&api-version=2018-05-01" | \
     jq -r ".value[].name"
 ```
 

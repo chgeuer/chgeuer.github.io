@@ -6,6 +6,33 @@ keywords:
 published: true
 ---
 
+## Get MD5sum as base64
+
+```bash
+#!/bin/bash
+
+cat foo.txt \
+    | md5sum \
+    | awk '{print $1}' \
+    | sed 's/\([0-9A-F]\{2\}\)/\\\\\\x\1/gI' \
+    | xargs printf \
+    | base64
+
+cat foo.txt \
+    | md5sum \
+    | perl -ne 's/([0-9a-f]{2})/print chr hex $1/gie' \
+    | base64
+
+cat foo.txt \
+    | md5sum \
+    | awk '{print $1}' \
+    | xxd -r -p \
+    | base64
+
+cat foo.txt \
+    | openssl dgst -md5 -binary \
+    | openssl enc -base64
+```
 
 # Strange ssh connectivity problem
 

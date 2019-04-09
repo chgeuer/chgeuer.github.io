@@ -122,11 +122,13 @@ subscriptionId="$(curl -s -H Metadata:true \
 ```bash
 #!/bin/bash
 
-curl --silent \
-    --get \
+subscriptionId="724467b5-bee4-484b-bf13-d6a5505d2b51"
+
+# --proxy http://127.0.0.1:8888/ --insecure \
+
+curl --silent --get \
     --header "Authorization: Bearer ${access_token}" \
-    --proxy http://127.0.0.1:8888/ --insecure \
-    "https://management.azure.com/subscriptions/${subscriptionId}/resourcegroups&api-version=2018-05-01" | \
+    "https://management.azure.com/subscriptions/${subscriptionId}/resourcegroups?api-version=2018-05-01" | \
     jq -r ".value[].name"
 ```
 

@@ -295,7 +295,7 @@ The [Azure Blog](https://azure.microsoft.com/en-us/blog/azure-media-services-rtm
 set DEST=rtmp://channel1-mediaservice321.channel.mediaservices.windows.net:1935/live/deadbeef012345678890abcdefabcdef/channel1
 set SRC=video="Integrated Camera":audio="Headset Microphone (GN 2000 USB OC)"
 
-ffmpeg -f dshow -i %SRC% -s 640x480  -preset veryfast -codec:v libx264 -pix_fmt yuv420p -b:v 200k -minrate 200k -maxrate 200k -bufsize 200k -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -codec:a libvo_aacenc -b:a 48k -f flv %DEST%
+ffmpeg -f dshow -i %SRC% -s 640x480  -preset veryfast -codec:v libx264 -pix_fmt yuv420p -b:v 200k -minrate 200k -maxrate 200k -bufsize 200k -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -codec:a aac -b:a 48k -f flv %DEST%
 
 set VIDEOBITRATE=200k
 

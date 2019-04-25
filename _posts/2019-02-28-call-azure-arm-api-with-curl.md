@@ -170,5 +170,26 @@ get_secret_from_keyvault() {
 echo "The secret is $(get_secret_from_keyvault "chgeuerkeyvault" "secret1")"
 ```
 
+## Shutdown a VM, quite radically (skip graceful shutdown, just turn it off) 
+
+```bash
+#!/bin/bash
+
+...
+
+subscriptionId="..."
+resourceGroup="myrg"
+vmName="somevm"
+
+curl \
+  --proxy http://127.0.0.1:8888/ --insecure \
+  --silent \
+  --include \
+  --request POST \
+  --header "Authorization: Bearer ${access_token}" \
+  --header "Content-Length: 0" \
+  "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.Compute/virtualMachines/${vmName}/powerOff?skipShutdown=true&api-version=2019-03-01"
+```
+
 
 Thanks for reading, if you liked it, I'd appreciate a [retweet](https://twitter.com/chgeuer/status/1101119486747439105).

@@ -16,13 +16,12 @@ I have a couple of challenges authoring ARM templates:
 
 In order to solve my pain point, I started a small hobby project, the "Microsoft ARM Evaluator" [github.com/chgeuer/ex_microsoft_arm_evaluator](https://github.com/chgeuer/ex_microsoft_arm_evaluator). This tool runs on the developer laptop, it reads an existing ARM file, parses and evaluates the TLE expressions, and writes the evaluated result to a second file. In order to make it easy to compare the input and result, the tool uses a custom JSON parser which preserves whitespace within the JSON document:
 
-![Side-by-side comparison of input and result JSON](/img/2019-10-14-arm-evaluator/armeval01.png =600x)
+<img src="/img/2019-10-14-arm-evaluator/armeval01.png"
+     width=600px alt="Side-by-side comparison of input and result JSON" />
 
 ### Demo video
 
 <a href="https://www.youtube.com/watch?v=CbSphrybZFQ">
-![Demo video][youtubeScreenshot]
+<img src="/img/2019-10-14-arm-evaluator/armevalyoutube.png"
+     width=600px alt="Demo video" />
 </a>
-
-
-[youtubeScreenshot]: /img/2019-10-14-arm-evaluator/armevalyoutube.png

@@ -25,3 +25,22 @@ In order to solve my pain point, I started a small hobby project, the "Microsoft
 <img src="/img/2019-10-14-arm-evaluator/armevalyoutube.png"
      width="600px" alt="Demo video" />
 </a></p>
+
+### Running the code
+
+The application is written in Elixir, a language running on top of the Erlang virtual machine. You currently need to install Erlang and Elixir locally on your machine, and then clone and compile the application:
+
+- Once cloned, run `mix deps.get` and `mix compile` in the project directory.
+- On Windows, set the environment variable `iex_with_werl=true`, so that the Elixir interactive shell runs as separate window.
+- Within the Elixir console, you do a few things now:
+  - `alias Microsoft.Azure.TemplateLanguageExpressions.{Resource, Context, DeploymentContext, Evaluator.Resource}` saves us some typing on a few Elixir module names.
+  - `login_cred = DemoUtil.login()` triggers a device authentication flow against the Azure management API. Login in a browser via [microsoft.com/devicelogin](https://microsoft.com/devicelogin)
+  - `sub = "724467b5-bee4-484b-bf13-d6a5505d2b51"` sets a subscription ID
+  - `deploymentContext = %DeploymentContext{ subscriptionId: sub, resourceGroup: "longterm" } |> DeploymentContext.with_device_login(login_cred)` creates a deplyoment context against which to evaluate the ARM template file.
+  - `DemoUtil.transform("sample_files/1.json", deploymentContext, %{})` now reads the `1.json` file from the samples directory, and creates a `1.json.result.json` file, with all evaluabtable pieces expanded.
+
+Special thanks for José Valim (inventor of Elixir) for creating [nimble parsec](https://github.com/plataformatec/nimble_parsec), a slick parser combinator library which I used for whitespace- and comment-aware JSON parsing, and Azure template language expression parsing.
+
+### Interesting bits
+
+Check the ARM unit tests, to understand how the TLE expressions evaluate to JSON values: [test/static_tests.json](https://github.com/chgeuer/ex_microsoft_arm_evaluator/blob/master/test/static_tests.json)

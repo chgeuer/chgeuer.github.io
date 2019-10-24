@@ -540,3 +540,55 @@ ffmpeg -start_number 0 -i %d.bmp -s "256x256" -sws_flags neighbor tetris.gif
 
 http://www.videohelp.com/software/recover-mp4-to-h264
 
+# Generate HLS
+
+- https://streaminglearningcenter.com/blogs/an-ffmpeg-script-to-render-and-package-a-complete-hls-presentation.html
+
+## Jan's version
+
+```cmd
+
+@echo off
+
+REM Line 1 sets the universal encoding parameters for all video files including the recommended 2-second GOP size.
+REM Lines 2 – 5 set the encoding parameters and identifies the four video files. You can add any encoding parameter to any line so long as you designate which file it is using the v:# syntax shown. I listed the 540p file first to loosely comply with Apple’s recommendation of starting with a 2 Mbps file. You can add or subtract files from the ladder so long as you adjust the mappings on lines 7 and 8.
+REM Line 6 produces the audio file.
+REM Line 7 maps the single input video file to all video files in the encoding ladder and maps the single audio file to the audio output. Note that there are four -map 0:v switches, one for each video file. If you add or subtract video files you’d have to adjust this line accordingly.
+REM Line 8 chooses the HLS format and then maps the individual video files to the single audio file. Again, you need a mapping statement for each video file in the encoding ladder.
+REM This is what it looks like in the master manifest file. You see the two video files shown both play the group_audio file specified in line 8.
+REM Line 9 sets normal HLS options like producing a single file rather than multiple segments (-hls_flags single_file), producing a fragmented MP4 file rather than an MPEG-2 transport stream (-hls_segment_type fmp4), including all segments in each manifest file (-hls_list_size 0), choosing six-second segments (-hls_time 6) and then naming the master and media manifest files.
+
+ffmpeg.exe -threads 0 -i TOS_1080p.mov -r 24 -g 48 -keyint_min 48 -sc_threshold 0 -c:v libx264^
+ -s:v:0 960x540 -b:v:0 2400k -maxrate:v:0 2640k -bufsize:v:0 2400k^
+ -s:v:1 1920x1080 -b:v:1 5200k -maxrate:v:1 5720k -bufsize:v:1 5200k^
+ -s:v:2 1280x720 -b:v:2 3100k -maxrate:v:2 3410k -bufsize:v:2 3100k^
+ -s:v:3 640x360 -b:v:3 1200k -maxrate:v:3 1320k -bufsize:v:3 1200k^
+ -b:a 128k -ar 44100 -ac 2^
+ -map 0:v -map 0:v -map 0:v -map 0:v -map 0:a^
+ -f hls -var_stream_map "v:0,agroup:audio v:1,agroup:audio v:2,agroup:audio v:3,agroup:audio a:0,agroup:audio"^
+ -hls_flags single_file -hls_segment_type fmp4 -hls_list_size 0 -hls_time 6  -master_pl_name master.m3u8 -y TOS%v.m3u8
+ ```
+
+## 2-second TS
+
+```bash
+ffmpeg -threads 0 ^
+    -i input.mp4 ^
+    -r 24 -g 48 -keyint_min 48 -sc_threshold 0 -c:v libx264 ^
+    -s:v:0  640x360  -b:v:0 1200k -maxrate:v:0 1320k -bufsize:v:0 1200k ^
+    -s:v:1  960x540  -b:v:1 2400k -maxrate:v:1 2640k -bufsize:v:1 2400k ^
+    -s:v:2 1280x720  -b:v:2 3100k -maxrate:v:2 3410k -bufsize:v:2 3100k ^
+    -s:v:3 1920x1080 -b:v:3 5200k -maxrate:v:3 5720k -bufsize:v:3 5200k ^
+    -b:a 128k -ar 44100 -ac 2 ^
+    -map 0:v -map 0:v -map 0:v -map 0:v -map 0:a ^
+    -f hls -var_stream_map "v:0,agroup:audio v:1,agroup:audio v:2,agroup:audio v:3,agroup:audio a:0,agroup:audio" ^
+    -hls_segment_type mpegts ^
+    -hls_list_size 0 ^
+    -hls_playlist_type vod ^
+    -hls_time 2 ^
+    -hls_allow_cache 1 ^
+    -hls_segment_filename vid-%%v-%%03d.ts ^
+    -master_pl_name master.m3u8 ^
+    -y sub-%%v.m3u8
+```
+

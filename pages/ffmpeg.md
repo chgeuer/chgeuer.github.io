@@ -204,17 +204,6 @@ ffmpeg -f concat -safe 0 -i ts.txt -c copy -bsf:a aac_adtstoasc output.mp4
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
 # Azure Media Players
 
 # Streaming to Azure Media Services Live Streaming
@@ -367,10 +356,6 @@ ffmpeg -threads 15 -re -i MysampleVideo.mp4
         -r 30 -g 60 -keyint_min 60 -sc_threshold 0 
         -f flv rtmp://channel001-streamingtest.channel.media.windows.net:1935/live/a9bcd589da4b424099364f7ad5bd4940/Streams_150
 ```
-
-# My `ffmpeg` collection of stuff
-
-- FFMPEG nutzen um HLS zu erzeugen https://bitbucket.org/walterebert/ffmpeg-hls/src
 
 # Interesting FFMPEG Articles
 
@@ -540,11 +525,19 @@ ffmpeg -start_number 0 -i %d.bmp -s "256x256" -sws_flags neighbor tetris.gif
 
 http://www.videohelp.com/software/recover-mp4-to-h264
 
+
 # Generate HLS
 
-- https://streaminglearningcenter.com/blogs/an-ffmpeg-script-to-render-and-package-a-complete-hls-presentation.html
+## https://bitbucket.org/walterebert/ffmpeg-hls/src
 
-## Jan's version
+```bash
+ffmpeg -y -framerate 24 -i 720/sintel_trailer_2k_%4d.png -i sintel_trailer-audio.flac -c:a aac -strict experimental -ac 2 -b:a 64k -ar 44100 -c:v libx264 -pix_fmt yuv420p -profile:v baseline -level 1.3 -maxrate 192K -bufsize 1M -crf 18 -r 10 -g 30 -f hls -hls_time 9 -hls_list_size 0 -s 320x180 ts/320x180.m3u8
+ffmpeg -y -framerate 24 -i 720/sintel_trailer_2k_%4d.png -i sintel_trailer-audio.flac -c:a aac -strict experimental -ac 2 -b:a 64k -ar 44100 -c:v libx264 -pix_fmt yuv420p -profile:v baseline -level 2.1 -maxrate 500K -bufsize 2M -crf 18 -r 10 -g 30  -f hls -hls_time 9 -hls_list_size 0 -s 480x270 ts/480x270.m3u8
+ffmpeg -y -framerate 24 -i 720/sintel_trailer_2k_%4d.png -i sintel_trailer-audio.flac -c:a aac -strict experimental -ac 2 -b:a 96k -ar 44100 -c:v libx264 -pix_fmt yuv420p -profile:v baseline -level 3.1 -maxrate 1M -bufsize 3M -crf 18 -r 24 -g 72 -f hls -hls_time 9 -hls_list_size 0 -s 640x360 ts/640x360.m3u8
+ffmpeg -y -framerate 24 -i 720/sintel_trailer_2k_%4d.png -i sintel_trailer-audio.flac -c:a aac -strict experimental -ac 2 -b:a 96k -ar 44100 -c:v libx264 -pix_fmt yuv420p -profile:v main -level 3.2 -maxrate 2M -bufsize 6M -crf 18 -r 24 -g 72 -f hls -hls_time 9 -hls_list_size 0 -s 1280x720 ts/1280x720.m3u8
+```
+
+## https://streaminglearningcenter.com/blogs/an-ffmpeg-script-to-render-and-package-a-complete-hls-presentation.html
 
 ```cmd
 

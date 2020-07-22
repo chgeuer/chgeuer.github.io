@@ -1,7 +1,8 @@
 
 # Install Logitech BRIO web cam
 
-source: https://community.logitech.com/s/question/0D53100006cmKMjCAM/logitech-brio-issue and https://support.logi.com/hc/en-us/articles/360023363593
+- https://community.logitech.com/s/question/0D53100006cmKMjCAM/logitech-brio-issue and https://support.logi.com/hc/en-us/articles/360023363593
+- https://www.hanselman.com/blog/TemporaryFixLogitechBRIOCameraBrokenOnWindows10Insiders15042.aspx?s=09
 
 Every single time my Windows build updates, the camera is broken, and none of Logitech's support steps works to fix it (when I tried tech support they actually asked me to send the camera back even though nothing was wrong with it.)
 
